@@ -1,15 +1,23 @@
 import './PageHeader.css'
 
-const PageHeader = ({header,subHeader}) => {
+const PageHeader = ({header,subheader}) => {
     return (
-        <div className="page-header-container">
-            <div className="main-header">
-                <h1>{header}</h1>
+        <>
+            <div className="page-header-container">
+                <div className="header-wrapper">
+                    <div className="main-header">
+                        <h1>{header}</h1>
+                    </div>
+                </div>
             </div>
-            <div className="sub-header">
-                <h2>{subHeader}</h2>
+            <div className="page-subheader-container">
+            <div className="page-subheader-wrapper">
+                <div className="sub-header">
+                    <h2>{subheader}</h2>
+                </div>
             </div>
-        </div>
+            </div>
+        </>
     )
 }
 

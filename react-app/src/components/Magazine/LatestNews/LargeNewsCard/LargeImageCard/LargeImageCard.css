@@ -1,6 +1,6 @@
 .large-image-container > img{ 
-    height: 50vh;
-    width: 40vw;
+    height: 30vh;
+    width: 25vw;
     display: block;
     object-fit: cover;
     border: 1rem solid yellow;
