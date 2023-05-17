@@ -1,16 +1,17 @@
 import normalize from './normalizer'
 
-// const LOAD_ONE = "posts/load_one";
+const LOAD_ONE = "posts/load_one";
 const LOAD = "posts/load";
 
 const load = (data) => ({
     type: LOAD,
     payload: data,
 });
-// const loadOne = (data) => ({
-//     type: LOAD_ONE,
-//     payload: data,
-// });
+
+const loadOne = (data) => ({
+    type: LOAD_ONE,
+    payload: data,
+});
 
 export const getAllPosts = () => async (dispatch) => {
     const response = await fetch("/api/posts")
@@ -26,18 +27,19 @@ export const getAllPosts = () => async (dispatch) => {
     }
 }
 
-// export const getOneEvent = (id) => async (dispatch) => {
-//     const response = await fetch(`/api/posts/${id}`)
-//     if (response.ok) {
-//         const data = await response.json();
-//         dispatch(loadOne(data.event))
-//         return data
-//     } else {
-//         return [
-//             "An error occurred. Please try again."
-//         ];
-//     }
-// }
+export const getOnePost = (id) => async (dispatch) => {
+    console.log('------------------------------id', id);
+    const response = await fetch(`/api/posts/${id}`)
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(loadOne(data.post))
+        return data
+    } else {
+        return [
+            "An error occurred. Please try again."
+        ];
+    }
+}
 
 const initialState = {
     posts: {},
@@ -54,22 +56,18 @@ const postReducer = (state = initialState, action) => {
                 }
             }
         }
-        // case LOAD_ONE: {
-        //     const newState = {
-        //         ...state, 
-        //         singleEvent: {
-        //             ...state.singleEvent,
-        //             artists:{...state.singleEvent.artists},
-        //             attendees:{...state.singleEvent.attendees}
-        //         }
-        //     }
-        //     newState.singleEvent = {
-        //         ...action.payload, 
-        //         artists: { ...action.payload.artists },
-        //         attendees: { ...action.payload.attendees } 
-        //     }
-        //     return newState;
-        // }
+        case LOAD_ONE: {
+            const newState = {
+                ...state, 
+                singlePost: {
+                    ...state.singlePost,
+                }
+            }
+            newState.singlePost = {
+                ...action.payload, 
+            }
+            return newState;
+        }
         default:
             return state;
     }

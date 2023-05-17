@@ -8,9 +8,11 @@ import { authenticate } from "./store/session";
 import NavBar from "./components/NavBar";
 import MainContent from "./components/MainContent";
 import EventDetails from "./components/EventDetails";
+import PostDetails from "./components/PostDetails";
 import Magazine from "./components/Magazine";
 import CreateEventPage from "./components/CreateEventPage";
 import EditEventPage from "./components/EditEventPage";
+import Tickets from "./components/Tickets";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,12 +29,15 @@ function App() {
           <Route path="/events/:eventId">
             <EventDetails />
           </Route>
+          <Route path="/posts/:postId">
+            <PostDetails />
+          </Route>
           <Route path="/create-event">
             <CreateEventPage />
           </Route>
-          {/* <Route path="/edit/:eventId">
-            <EditEventPage />
-          </Route> */}
+          <Route path="/tickets">
+            <Tickets />
+          </Route> 
           <Route path="/magazine">
             <Magazine />
           </Route>

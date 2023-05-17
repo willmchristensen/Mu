@@ -61,7 +61,9 @@ def delete_one_event(id):
         db.session.commit()
         return "Event Deleted"
     else:
-        return {"errors": "You must be the owner of a event to delete that event."}
+        return {
+            "errors": "You must be the owner of a event to delete that event."
+        }
 
 @event_routes.route("/<int:id>", methods=["PUT"])
 @login_required

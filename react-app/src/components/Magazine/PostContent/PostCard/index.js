@@ -8,7 +8,6 @@ const PostCard = ({post}) => {
             className="post-content-card"
             to={`/posts/${post.id}`}
         >
-            {/* TODO: images for posts?? */}
             <div className="post-content-container"
             >
                 <PostCardImage
