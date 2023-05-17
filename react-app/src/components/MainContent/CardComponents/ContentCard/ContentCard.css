@@ -2,8 +2,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: .01rem solid #313131;
-    border-bottom: .01rem solid #313131;
+    border-top: .01rem solid var(--grey);
+    border-bottom: .01rem solid var(--grey);
     padding: .5rem;
     margin: .5rem;
     width: 45%;

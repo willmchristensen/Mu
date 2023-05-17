@@ -1,6 +1,6 @@
-.post-image-container > img{
-    height: 35vh;
-    max-width: 11vw;
+.square-post-image-container > img{
+    height: 25vh;
+    width: 20vw;
     object-fit: cover;
     margin-bottom: 1rem;
 }

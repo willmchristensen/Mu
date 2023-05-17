@@ -3,7 +3,7 @@ import './PostCardImage.css'
 const PostCardImage = ({image}) => {
 
     return (
-        <div className="image-container">
+        <div className="post-image-container">
             <img 
                 src={image} 
                 alt="basic-alt" 

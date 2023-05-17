@@ -1,11 +1,17 @@
 import './PopularNews.css';
-
-const PopularNews = () => {
+import PopNewsCard from './PopNewsCard';
+const PopularNews = ({posts}) => {
     return(
         <div className="popular-news-container">
             <h1>PopularNews</h1>
             <div className="popular-news-cards-container">
-                <h2>pop</h2>
+                {
+                    posts.slice(0,5).map(p => {
+                        return (
+                            <PopNewsCard post={p} number={posts.indexOf(p) + 1}/>
+                        )
+                    })
+                }
             </div>
         </div>
     )

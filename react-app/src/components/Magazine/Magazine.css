@@ -1,4 +1,28 @@
+.magazine-container { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10rem;
+}
 .magazine-page-one{
     display: grid;
     grid-template-columns: repeat(2,1fr);
+}
+.film{
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.film-text{
+    margin-left: 1rem;
+}
+.ra-exchange{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.series{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

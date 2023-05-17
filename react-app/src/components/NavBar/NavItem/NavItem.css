@@ -9,7 +9,7 @@
     text-decoration: none;
 }
 .nav-item:hover{
-    color: var(--red);
+    color: var(--black);
     filter: brightness(90%);
 }
 .nav-item-container{
@@ -27,5 +27,5 @@
     font-size: 1.5rem;
 }
 .logo > a:hover {
-    color: var(--red);
+    color: var(--black);
 }

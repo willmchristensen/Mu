@@ -1,0 +1,7 @@
+.series-section {
+    margin: 3rem;
+}
+.series-cards {
+    width: 100%;
+    display: flex;
+}

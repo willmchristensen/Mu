@@ -6,7 +6,7 @@ const LatestNews = ({posts}) => {
 
     if(!posts) return null
 
-    const singlePost = posts.slice(0,1)[0];
+    const singlePost = posts.slice(3,4)[0];
     console.log('------------------------------sin',singlePost);
 
     return (
@@ -15,7 +15,7 @@ const LatestNews = ({posts}) => {
                 <h1>/ Latest News</h1>
                 <LargeNewsCard post={singlePost}/> 
             </div>
-            <div className="news-cards-container">
+            <div className="-container">
                 {
                     posts.map(p => {
                         return (
@@ -23,6 +23,9 @@ const LatestNews = ({posts}) => {
                         )
                     })
                 }
+                <button className="oval-button">
+                    view more news
+                </button>
             </div>
         </div>
     )

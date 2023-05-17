@@ -10,9 +10,17 @@
     --black: #000000;
     --grey: #151515;
 }
+.top-bottom-borders{
+    border-top: .01rem solid var(--grey);
+    border-bottom: .01rem solid var(--grey);
+}
 .content-header {
     font-size: 1.5rem;
     color: var(--red);
+}
+.header{
+    width: 100%;
+    text-align: left;
 }
 .circle-button{
     border: none;
@@ -47,8 +55,8 @@
     justify-content: center;
 }
 .oval-button:hover{
-    background-color: blue;
-    color: white;
+    background-color: var(--off-white);
+    color:var(--black);
     cursor: pointer;
 }
 .title {

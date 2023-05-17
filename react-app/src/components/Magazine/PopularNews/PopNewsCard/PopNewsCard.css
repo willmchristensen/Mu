@@ -1,0 +1,8 @@
+.popular-news-card { 
+    display: flex;
+    align-items: center;
+}
+.number{
+    font-size: 5rem;
+    margin-right: 1rem;
+}

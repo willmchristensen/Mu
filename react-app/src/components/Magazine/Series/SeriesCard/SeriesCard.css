@@ -1,0 +1,11 @@
+.series-card-container{
+    margin:1rem;
+}
+.series-card-container:hover{
+    cursor: not-allowed;
+}
+.series-card-container > img {
+    width: 15vw;
+    height: 11vh;
+    object-fit: cover;
+}
