@@ -9,9 +9,14 @@
     align-items: center;
     flex-direction: column;
 }
-.popular-content {
-    display: flex;
-}
 .content-header > h2{
     font-size: 1.5rem;
+}
+.popular-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.popular-content {
+    display: flex;
 }
