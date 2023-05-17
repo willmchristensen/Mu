@@ -1,0 +1,12 @@
+.post-image{
+    display: block;
+    height: 40vh;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+/* @media screen and (max-width: 1024px){
+    .modular-image{
+        width: 25vw;
+    }
+} */

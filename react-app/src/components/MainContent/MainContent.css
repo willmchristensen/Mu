@@ -1,0 +1,17 @@
+.main-content{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    background-color: var(--black);
+}
+.main-content-area{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.popular-content {
+    display: flex;
+}
+.content-header > h2{
+    font-size: 1.5rem;
+}
