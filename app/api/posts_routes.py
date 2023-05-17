@@ -14,15 +14,16 @@ def get_all_posts():
     all_posts = Post.query.all()
     response = [post.to_dict() for post in all_posts]
     return { 'posts': response }
+
 @post_routes.route('/<int:id>', methods=["GET"])
 def get_one_post(id):
     """
     Query for post by id
     """
-    print('WE IN HERE AT GET ONE POST FAM')
     post = Post.query.get(id)
     response = post.to_dict()
     return { 'post': response }
+
 @post_routes.route('/new', methods=["POST"])
 @login_required
 def create_one_post():
@@ -33,6 +34,7 @@ def create_one_post():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         data = form.data
+        print('DERTER', data)
         new_post = Post(
             title = data['title'],
             description = data['description'],

@@ -1,29 +1,27 @@
-import './CreateEventPage.css';
+import './CreatePostPage.css';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createEvent } from '../../store/event';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-const CreateEventPage = () => {
+import { createPost } from '../../store/post';
+const CreatePostPage = () => {
     const [title,setTitle] = useState('titletitletitletitletitletitletitle');
     const [description,setDescription] = useState('descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription');
-    const [date,setDate] = useState();
-    const [location,setLocation] = useState('location');
+    const [type,setType] = useState('Song');
     const [imageUrl,setImageUrl] = useState('https://archives.bulbagarden.net/media/upload/thumb/7/75/Iris_Dragonite.png/800px-Iris_Dragonite.png');
 	const currentUser = useSelector((state) => state.session.user)
 	const dispatch = useDispatch();
 	const history = useHistory();
-		
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = {
-            'title': title,
+            'title': type,
             'description': description,
-            'date': date,
-            'location': location,
+            'type': type,
             'image_url': imageUrl,
-			'owner_id': currentUser.id,
+			'user_id': currentUser.id,
         }
-	 	await dispatch(createEvent(data))
+        await dispatch(createPost(data))
 		history.push('/')
     }
 
@@ -54,25 +52,14 @@ const CreateEventPage = () => {
                 </div>
                 <div className="form-row">
                     <label>
-						date
+						type
 						<input
-							type="date"
-							value={date}
-							onChange={(e) => setDate(e.target.value)}
+							type="text"
+							value={type}
+							onChange={(e) => setType(e.target.value)}
 							required
 						/>
 					</label>
-                </div>
-                <div className="form-row">
-                    <label>
-					location
-					<input
-						type="text"
-						value={location}
-						onChange={(e) => setLocation(e.target.value)}
-						required
-					/>
-				</label>
                 </div>
                 <div className="form-row">
                     <label>
@@ -91,4 +78,4 @@ const CreateEventPage = () => {
     )
 }
 
-export default CreateEventPage;
+export default CreatePostPage;

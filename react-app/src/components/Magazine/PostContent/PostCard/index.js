@@ -3,6 +3,9 @@ import PostCardImage from '../PostCardImage'
 import { NavLink } from 'react-router-dom/cjs/react-router-dom'
 
 const PostCard = ({post}) => {
+
+    if(!post) return null;
+
     return(
         <NavLink
             className="post-content-card"

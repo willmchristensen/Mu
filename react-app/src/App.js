@@ -11,6 +11,7 @@ import EventDetails from "./components/EventDetails";
 import PostDetails from "./components/PostDetails";
 import Magazine from "./components/Magazine";
 import CreateEventPage from "./components/CreateEventPage";
+import CreatePostPage from "./components/CreatePostPage";
 import EditEventPage from "./components/EditEventPage";
 import Tickets from "./components/Tickets";
 
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path="/create-event">
             <CreateEventPage />
+          </Route>
+          <Route path="/create-post">
+            <CreatePostPage />
           </Route>
           <Route path="/tickets">
             <Tickets />

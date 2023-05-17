@@ -7,7 +7,7 @@ class PostForm(FlaskForm):
     title = StringField('title', validators=[DataRequired()])
     description = StringField('description', validators=[DataRequired()])
     type = StringField('type', validators=[DataRequired()])
-    music_url = StringField('music_url')
+    image_url = StringField('music_url')
     artist = StringField('artist')
     song = StringField('song')
     album = StringField('album')
