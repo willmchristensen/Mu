@@ -42,7 +42,7 @@ const EventDetails = () => {
     return (
         <div className="event-details-container">
             {
-                event.ownerId === sessionUser.id && 
+                sessionUser && event.ownerId === sessionUser.id && 
                 <>
                     <button
                         className='oval-button'

@@ -2,9 +2,8 @@ import './NavBar.css'
 import NavItem from './NavItem'
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import OpenModalButton from '../OpenModalButton';
 import ProfileButton from './ProfileButton'
-
+import OpenModalButton from '../OpenModalButton';
 const NavBar = ({ isLoaded }) => {
     const sessionUser = useSelector(state => state.session.user);
 
@@ -41,6 +40,15 @@ const NavBar = ({ isLoaded }) => {
                         text={"Festivals"}
                     >
                     </NavItem>
+                    <i class="fas fa-search"></i>
+                    {/* TODO: SEARCH */}
+                    {/* <OpenModalButton
+                        modalComponent={}
+                        buttonText={}
+                        onButtonClick={}
+                        onModalClose={}
+                    /> */}
+
                 </div>
                 <div className="nav-section-two">
                     {isLoaded && (

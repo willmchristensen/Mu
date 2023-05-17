@@ -1,4 +1,4 @@
-.nav-container{
+.secondary-nav-container{
     height: 1rem;
     background-color: var(--red);
     display: flex;
@@ -17,12 +17,6 @@
     width: 50vw;
     align-items: center;
     justify-content:space-between;
-}
-.fa-search{
-    color: var(--off-white);
-}
-.fa-search:hover{
-    cursor: not-allowed;
 }
 .nav-section-two{
     display: flex;

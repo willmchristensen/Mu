@@ -1,0 +1,12 @@
+.large-image-container > img{ 
+    height: 50vh;
+    width: 40vw;
+    display: block;
+    object-fit: cover;
+    border: 1rem solid yellow;
+}
+/* @media screen and (max-width: 1024px){
+    .modular-image{
+        width: 25vw;
+    }
+} */

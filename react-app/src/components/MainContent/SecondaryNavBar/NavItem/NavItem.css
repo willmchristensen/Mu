@@ -1,0 +1,31 @@
+.nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 1rem;
+    color: whitesmoke;
+    text-decoration: none;
+}
+.nav-item:hover{
+    color: var(--red);
+    filter: brightness(90%);
+}
+.nav-item-container{
+    width: 9rem;
+    height: 4rem;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo > a{
+    color: whitesmoke;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+.logo > a:hover {
+    color: var(--red);
+}
