@@ -1,0 +1,16 @@
+.login-title {
+    margin-bottom: 1rem;
+}
+.login-form-row {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.login-form-row > input {
+     padding: .5rem;
+     margin-left: .1rem;
+     margin-bottom: .7rem;
+     border-radius: 40px;
+     background-color: var(--grey);
+     border: none;
+}

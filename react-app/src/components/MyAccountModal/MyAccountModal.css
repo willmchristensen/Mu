@@ -1,0 +1,22 @@
+.modal-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--black);
+    color: var(--white);
+}
+.my-account-modal-container {
+    display: flex;
+    margin: 1rem;
+}
+.log-in {
+    width: 50%;
+}
+.vl {
+    border-left: 1px solid var(--off-white);
+    height: 500px;
+    margin: 1rem;
+}
+.sign-up {
+    width: 50%;
+    margin-left: 1rem;
+}

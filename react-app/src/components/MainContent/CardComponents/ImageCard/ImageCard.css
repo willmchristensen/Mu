@@ -1,0 +1,11 @@
+.image-container > img{ 
+    height: 15vh;
+    width: 20vw;
+    display: block;
+    object-fit: cover;
+}
+/* @media screen and (max-width: 1024px){
+    .modular-image{
+        width: 25vw;
+    }
+} */
