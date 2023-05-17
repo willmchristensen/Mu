@@ -45,6 +45,6 @@ def undo_posts():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.posts RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM Posts"))
+        db.session.execute(text("DELETE FROM posts"))
 
     db.session.commit()
