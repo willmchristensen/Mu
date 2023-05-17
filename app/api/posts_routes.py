@@ -59,7 +59,7 @@ def delete_one_post(id):
     Delete post
     """
     post = Post.query.get(id)
-    if current_user.id == post.owner_id:
+    if current_user.id == post.user_id:
         db.session.delete(post)
         db.session.commit()
         return "post Deleted"
@@ -74,19 +74,19 @@ def edit_one_post(id):
     """
     Edit post
     """
+    print('no way')
     form = PostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         data = form.data
-        post = post.query.get(id)
+        post = Post.query.get(id)
 
-        if current_user.id == post.owner_id:
+        if current_user.id == post.user_id:
             post.title = data['title']
             post.description = data['description']
             post.type = data['type']
-            post.user_id = data['user_id']
-            post.image_url = data['image_url']            
-            
+            post.image_url = data['image_url']
+
             db.session.commit()
             return {
                 "post": post.to_dict()
