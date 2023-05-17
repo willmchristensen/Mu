@@ -48,3 +48,24 @@ def create_one_event():
     return {
         "errors": form.errors
     }
+
+@event_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
+def delete_one_event(id):
+    """
+    Delete event
+    """
+    event = Event.query.get(id)
+    if current_user.id == event.owner_id:
+        db.session.delete(event)
+        db.session.commit()
+        return "Question Deleted"
+    else:
+        return {"errors": "You must be the owner of a question to delete that question."}
+
+
+# title
+# description
+# date
+# location
+# image_url
