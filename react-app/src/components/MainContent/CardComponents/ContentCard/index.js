@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom/cjs/react-router-dom'
 
 const ContentCard = ({event}) => {
 
+    if(!event) return null;
+
     return(
         <NavLink
             className="content"

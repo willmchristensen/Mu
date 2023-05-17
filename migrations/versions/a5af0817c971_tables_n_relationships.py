@@ -1,8 +1,8 @@
 """tables n relationships
 
-Revision ID: 9a33da2383da
+Revision ID: a5af0817c971
 Revises: 
-Create Date: 2023-05-16 19:27:37.780856
+Create Date: 2023-05-16 21:35:55.477388
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '9a33da2383da'
+revision = 'a5af0817c971'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -34,7 +34,7 @@ def upgrade():
     sa.Column('description', sa.String(), nullable=False),
     sa.Column('artists', sa.JSON(), nullable=True),
     sa.Column('owner_id', sa.Integer(), nullable=False),
-    sa.Column('date', sa.DateTime(), nullable=False),
+    sa.Column('date', sa.String(), nullable=False),
     sa.Column('location', sa.String(), nullable=False),
     sa.Column('image_url', sa.String(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=False),

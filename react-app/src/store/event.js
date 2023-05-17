@@ -2,6 +2,40 @@ import normalize from './normalizer'
 
 const LOAD_ONE = "events/load_one";
 const LOAD = "events/load";
+const POST_EVENT = "events/new";
+const DELETE_EVENT = "events/delete"
+const EDIT_EVENT = "events/edit"
+const editEvent = (details) => ({
+    type: EDIT_EVENT,
+    details
+})
+export const editOneEvent = (payload) => async (dispatch) => {
+    console.log('payload in Edit Thunk', payload);
+    const { item, eventId } =  payload;
+    const response = await fetch(`/api/events/${eventId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+            item
+        ),
+    });
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(editEvent(data.event));
+        return data
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return [
+            "An error occurred. Please try again."
+        ];
+    }
+}
 
 const load = (data) => ({
     type: LOAD,
@@ -11,7 +45,14 @@ const loadOne = (data) => ({
     type: LOAD_ONE,
     payload: data,
 });
-
+const postEvent = (details) => ({
+    type: POST_EVENT,
+    payload:details
+});
+const removeEvent = (eventId) => ({
+    type: DELETE_EVENT,
+    eventId
+});
 export const getAllEvents = () => async (dispatch) => {
     const response = await fetch("/api/events")
     if (response.ok) {
@@ -32,6 +73,50 @@ export const getOneEvent = (id) => async (dispatch) => {
         const data = await response.json();
         dispatch(loadOne(data.event))
         return data
+    } else {
+        return [
+            "An error occurred. Please try again."
+        ];
+    }
+}
+
+export const createEvent = (details) => async (dispatch) => {
+    console.log('--------------details in CREATE EVENT THUNK--------------', details)
+    const response = await fetch("/api/events/new", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        // body: details
+        body: JSON.stringify(
+            details
+        ),
+    });
+    if (response.ok) {
+        const data = await response.json();
+        console.log('RESPONSE OK: this is response.json:', data)
+        dispatch(postEvent(data.event));
+        return data;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return [
+            "An error occurred. Please try again."
+        ];
+    }
+}
+export const deleteEvent = (eventId) => async (dispatch) => {
+    const response = await fetch(`/api/events/${eventId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    });
+    if (response.ok) {
+        dispatch(removeEvent(eventId));
     } else {
         return [
             "An error occurred. Please try again."
@@ -70,21 +155,25 @@ const eventReducer = (state = initialState, action) => {
             }
             return newState;
         }
-        // case POST_QUESTION: {
-        //     const post_newState = { ...state, questions: {...state.questions} };
-        //     post_newState.questions[action.details.id] = action.details;
-        //     return post_newState;
-        // }
-        // case EDIT_QUESTION: {
-        //     const newState = { ...state, questions: { ...state.questions } };
-        //     newState.questions[action.details.id] = action.details
-        //     return newState
-        // }
-        // case DELETE_QUESTION: {
-        //     const newState = {...state, questions: { ...state.questions }}
-        //     delete newState.questions[action.questionId]
-        //     return newState
-        // }
+        case POST_EVENT: {
+            console.log('------------------------------ACTION', action);
+            const newState = { ...state, events : { ...action.payload } };
+            newState.events[action.payload.id] = action.payload;
+            return newState;
+        }
+        case EDIT_EVENT: {
+            const newState = { ...state, events: { ...state.events } };
+            newState.events[action.details.id] = action.details
+            return newState
+        }
+        case DELETE_EVENT: {
+            const newState = {
+                ...state, 
+                events : { ...state.events }
+            }
+            delete newState.events[action.eventId]
+            return newState
+        }
         default:
             return state;
     }

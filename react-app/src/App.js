@@ -9,6 +9,8 @@ import NavBar from "./components/NavBar";
 import MainContent from "./components/MainContent";
 import EventDetails from "./components/EventDetails";
 import Magazine from "./components/Magazine";
+import CreateEventPage from "./components/CreateEventPage";
+import EditEventPage from "./components/EditEventPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +27,12 @@ function App() {
           <Route path="/events/:eventId">
             <EventDetails />
           </Route>
+          <Route path="/create-event">
+            <CreateEventPage />
+          </Route>
+          {/* <Route path="/edit/:eventId">
+            <EditEventPage />
+          </Route> */}
           <Route path="/magazine">
             <Magazine />
           </Route>

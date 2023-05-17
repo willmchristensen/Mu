@@ -1,21 +1,18 @@
 from flask import Blueprint, request
 from app.models import Event, db
 from flask_login import login_required, current_user
-# from app.forms import SpaceForm, QuestionForm
+from app.forms import EventForm
 
 event_routes = Blueprint("events", __name__)
 
-#ALL SPACES
 @event_routes.route('')
 def get_all_events():
     """
-    Query for all events and returns a list of dictionaries
+    Query for all events
     """
     all_events = Event.query.all()
     response = [event.to_dict() for event in all_events]
     return { 'events': response }
-
-#ALL SPACES
 @event_routes.route('/<int:id>')
 def get_one_event(id):
     """
@@ -24,3 +21,6 @@ def get_one_event(id):
     event = Event.query.get(id)
     response = event.to_dict()
     return { 'event': response }
+@event_routes.route('/new', methods=["POST"])
+@login_required
+def create_one_event():
