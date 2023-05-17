@@ -9,33 +9,6 @@ const editEvent = (details) => ({
     type: EDIT_EVENT,
     details
 })
-export const editOneEvent = (payload) => async (dispatch) => {
-    console.log('payload in Edit Thunk', payload);
-    const { item, eventId } =  payload;
-    const response = await fetch(`/api/events/${eventId}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(
-            item
-        ),
-    });
-    if (response.ok) {
-        const data = await response.json();
-        dispatch(editEvent(data.event));
-        return data
-    } else if (response.status < 500) {
-        const data = await response.json();
-        if (data.errors) {
-            return data.errors;
-        }
-    } else {
-        return [
-            "An error occurred. Please try again."
-        ];
-    }
-}
 
 const load = (data) => ({
     type: LOAD,
@@ -47,7 +20,7 @@ const loadOne = (data) => ({
 });
 const postEvent = (details) => ({
     type: POST_EVENT,
-    payload:details
+    payload: details
 });
 const removeEvent = (eventId) => ({
     type: DELETE_EVENT,
@@ -108,6 +81,35 @@ export const createEvent = (details) => async (dispatch) => {
         ];
     }
 }
+
+export const editOneEvent = (payload) => async (dispatch) => {
+    console.log('payload in Edit Thunk', payload);
+    const { item, eventId } = payload;
+    const response = await fetch(`/api/events/${eventId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+            item
+        ),
+    });
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(editEvent(data.event));
+        return data
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return [
+            "An error occurred. Please try again."
+        ];
+    }
+}
+
 export const deleteEvent = (eventId) => async (dispatch) => {
     const response = await fetch(`/api/events/${eventId}`, {
         method: "DELETE",
@@ -134,30 +136,30 @@ const eventReducer = (state = initialState, action) => {
         case LOAD: {
             return {
                 ...state,
-                events : {
+                events: {
                     ...action.payload
                 }
             }
         }
         case LOAD_ONE: {
             const newState = {
-                ...state, 
+                ...state,
                 singleEvent: {
                     ...state.singleEvent,
-                    artists:{...state.singleEvent.artists},
-                    attendees:{...state.singleEvent.attendees}
+                    artists: { ...state.singleEvent.artists },
+                    attendees: { ...state.singleEvent.attendees }
                 }
             }
             newState.singleEvent = {
-                ...action.payload, 
+                ...action.payload,
                 artists: { ...action.payload.artists },
-                attendees: { ...action.payload.attendees } 
+                attendees: { ...action.payload.attendees }
             }
             return newState;
         }
         case POST_EVENT: {
             console.log('------------------------------ACTION', action);
-            const newState = { ...state, events : { ...action.payload } };
+            const newState = { ...state, events: { ...action.payload } };
             newState.events[action.payload.id] = action.payload;
             return newState;
         }
@@ -168,8 +170,8 @@ const eventReducer = (state = initialState, action) => {
         }
         case DELETE_EVENT: {
             const newState = {
-                ...state, 
-                events : { ...state.events }
+                ...state,
+                events: { ...state.events }
             }
             delete newState.events[action.eventId]
             return newState

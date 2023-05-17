@@ -3,9 +3,11 @@ import {useParams, useHistory, NavLink} from 'react-router-dom';
 import { useEffect} from 'react';
 import { useSelector, useDispatch} from 'react-redux';
 import { getOnePost } from '../../store/post';
+import { deletePost, editOnePost} from '../../store/post';
 // import { deletepost, editOnepost } from '../../store/post';
 import OpenModalButton from '../OpenModalButton';
 // import EditpostPage from '../EditpostPage';
+import EditPostPage from '../EditPostPage';
 const PostDetails = () => {
 
     const {postId} = useParams();
@@ -21,38 +23,26 @@ const PostDetails = () => {
     },[dispatch, postId])
 
     const handleDelete = async (e) => {
-        e.prpostDefault()
-        // await dispatch(deletepost(post.id))
+        e.preventDefault()
+        await dispatch(deletePost(post.id))
         history.push('/')
     }
-
-    const handleEdit = async (e) => {
-        e.prpostDefault()
-        // await dispatch(editOnepost(post.id))
-        history.push('/')
-    }
-    <button
-    onClick={handleEdit}
-    >
-        edit
-    </button>
 
     if(!post) return null;
 
     return (
         <div className="post-details-container">
-            {
-                post.userId === sessionUser.id && 
+            { sessionUser && post.userId === sessionUser.id &&
                 <>
                     <button
                         className='oval-button'
                         onClick={handleDelete}
                     >delete</button>
-                    {/* <OpenModalButton
+                    <OpenModalButton
                         buttonText="Edit post"
                         modalComponent={<EditPostPage post={post}/>}
                         className='oval-button'
-                    /> */}
+                    />
                 </>
             }
             <div className="post-details">
@@ -71,7 +61,7 @@ const PostDetails = () => {
                     })
                 }
             </div> */}
-        </div> 
+        </div>
     )
 }
 
