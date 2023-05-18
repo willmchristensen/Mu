@@ -1,0 +1,10 @@
+.splash-page-container { 
+    height: 100vh;
+}
+.splash-header{
+    color: var(--red);
+    font-size: 3rem;
+}
+.splash-background {
+    width: 1px;
+}

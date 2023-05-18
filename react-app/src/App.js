@@ -14,7 +14,7 @@ import CreateEventPage from "./components/CreateEventPage";
 import CreatePostPage from "./components/CreatePostPage";
 import EditEventPage from "./components/EditEventPage";
 import Tickets from "./components/Tickets";
-
+import SplashPage from "./components/SplashPage";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -48,8 +48,11 @@ function App() {
           <Route path="/register">
             <SignupFormPage />
           </Route>
-          <Route path="/">
+          <Route path="/events">
             <MainContent />
+          </Route>
+          <Route path="/">
+            <SplashPage />
           </Route>
         </Switch>
       )}

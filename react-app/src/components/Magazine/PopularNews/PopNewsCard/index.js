@@ -2,7 +2,7 @@ import './PopNewsCard.css';
 
 const PopNewsCard = ({post, number}) => {
     return (
-        <div className="popular-news-card top-bottom-borders">
+        <div className="popular-news-card">
             <div className="number">
                 {number}
             </div>

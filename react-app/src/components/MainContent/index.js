@@ -15,12 +15,12 @@ const MainContent = () => {
     const eventsArray = Object.values(events);
     let recentEvents = eventsArray.slice(0,4);
     const sessionUser = useSelector(state => state.session.user);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getAllEvents())
     }, [])
 
-    const dispatch = useDispatch();
     
     // guard clauses---
     // if (!sessionUser) return <Redirect to="/" />
