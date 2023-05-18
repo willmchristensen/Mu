@@ -9,7 +9,7 @@
     color: var(--off-white);
 }
 .header-wrapper{
-    width: 75vw;
+    width: 50%;
     margin-bottom: 1rem;
 }
 .page-subheader-container{
@@ -22,7 +22,7 @@
     background-color: var(--off-white);
 }
 .page-subheader-wrapper{
-    width: 75vw;
+    width: 50%;
 }
 .sub-header {
     margin-top: 1rem;

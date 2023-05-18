@@ -10,19 +10,23 @@ import PopularCardArea from './PopularCardArea';
 import SecondaryNavBar from './SecondaryNavBar';
 
 const MainContent = () => {
+    // state---------
     const events = useSelector(state => state.event.events);
     const eventsArray = Object.values(events);
     let recentEvents = eventsArray.slice(0,4);
     const sessionUser = useSelector(state => state.session.user);
-    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getAllEvents())
-    }, [dispatch])
+    }, [])
 
+    const dispatch = useDispatch();
+    
+    // guard clauses---
     // if (!sessionUser) return <Redirect to="/" />
-
     if(!eventsArray.length) return null;
+    
+    // date------
     let date = new Date();
     const options = { weekday: 'short', day: 'numeric', month: 'long' }
     let today = date.toLocaleDateString('en-US', options);
