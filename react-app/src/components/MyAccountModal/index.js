@@ -3,14 +3,19 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import OpenModalButton from '../OpenModalButton';
 import {NavLink} from 'react-router-dom';
+import { useModal } from '../../context/Modal';
 
-const MyAccountModal = () => {
+const MyAccountModal = () => {  
+
+    const {closeModal} = useModal();
 
     return (
         <div className="modal-wrapper">
             <div className="my-account-modal-container">
                 <div className="x">
-                    <button>
+                    <button
+                        onClick={closeModal}
+                    >
                         x
                     </button>
                 </div>

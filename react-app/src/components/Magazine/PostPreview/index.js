@@ -7,8 +7,8 @@ const PostPreview = ({post, type}) => {
     // classes----------
     const dynamicTitle = type === 'large' ? 'big-title' : 'post-title';
     const textClass = type === 'news' ?  "post-preview-text" : "news-preview-container";
-    const options = { day: 'numeric', month: 'long', year: 'numeric'}
     // data-----------
+    const options = { day: 'numeric', month: 'long', year: 'numeric'}
     let date = new Date(post.createdAt).toLocaleDateString('en-US', options);
     let [month, day,year] = date.split(' ');
     let formattedDate = `${day} ${month} ${year}`;

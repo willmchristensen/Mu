@@ -16,7 +16,7 @@ const Magazine = () => {
 
     useEffect(()=>{
         dispatch(getAllPosts())
-    },[dispatch])
+    },[])
 
     return (
         <div className="magazine-wrapper">
