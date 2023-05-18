@@ -51,6 +51,7 @@ const SplashPage = () => {
             className="splash-page-container" 
             id="splash-background"
         >
+            
             <h1 className="splash-header">bruh  </h1>
         </div>
     )
