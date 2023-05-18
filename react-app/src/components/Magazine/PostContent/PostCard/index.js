@@ -1,7 +1,7 @@
 import './PostCard.css'
 import PostCardImage from '../PostCardImage'
 import { NavLink } from 'react-router-dom/cjs/react-router-dom'
-
+import PostPreview from '../../PostPreview'
 const PostCard = ({post}) => {
 
     if(!post) return null;
@@ -19,11 +19,12 @@ const PostCard = ({post}) => {
                 </PostCardImage>
             </div>  
             <div className="post-content-container text">
-                    <h1
+                    {/* <h1
                         className='post-primary-text'
                     >
                         {post.title}
-                    </h1>
+                    </h1> */}
+                    <PostPreview post={post} type={"exchange"}/>
             </div>
         </NavLink>
     )

@@ -1,7 +1,6 @@
 import './LatestNews.css'
-import NewsContentCard from './NewsCardComponents/NewsContentCard'
 import LargeNewsCard from './LargeNewsCard'
-
+import NewsContentArea from './NewsCardComponents/NewsContentArea'
 const LatestNews = ({posts}) => {
 
     if(!posts) return null
@@ -15,18 +14,7 @@ const LatestNews = ({posts}) => {
                 <h1>/ Latest News</h1>
                 <LargeNewsCard post={singlePost}/> 
             </div>
-            <div className="news-container">
-                {
-                    posts.map(p => {
-                        return (
-                            <NewsContentCard post={p}/>
-                        )
-                    })
-                }
-                <button className="oval-button">
-                    view more news
-                </button>
-            </div>
+            <NewsContentArea posts={posts} />
         </div>
     )
 
