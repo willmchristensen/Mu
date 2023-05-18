@@ -1,6 +1,7 @@
 .news-image-container > img {
-    width: 15vw;
-    height: 11vh;
+    width: 18vw;
+    height: 18vh;
+    padding-right: 1.5rem;
     display: block;
     object-fit: cover;
 }

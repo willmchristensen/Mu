@@ -1,5 +1,5 @@
 .page-header-container{
-    height: 20vh;
+    height: 15.2vh;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -9,11 +9,12 @@
     color: var(--off-white);
 }
 .header-wrapper{
-    width: 50%;
+    width: 75vw;
     margin-bottom: 1rem;
 }
 .page-subheader-container{
     width: 100vw;
+    height: 10vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -21,7 +22,7 @@
     background-color: var(--off-white);
 }
 .page-subheader-wrapper{
-    width: 50%;
+    width: 75vw;
 }
 .sub-header {
     margin-top: 1rem;
