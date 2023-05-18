@@ -68,10 +68,10 @@ label{
     letter-spacing: .02rem;
     margin-bottom: .2rem;
 }
-/* a {
-    color: var(--white);
+a {
+    color: var(--black);
     text-decoration: none;
 }
 a:hover{
     color: var(--red);
-} */
+}

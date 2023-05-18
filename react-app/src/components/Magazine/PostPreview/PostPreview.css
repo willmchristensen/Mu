@@ -1,0 +1,16 @@
+.time-type{
+    display: flex;
+    align-items: center;
+}
+.time-type > *{ 
+    margin: .3em;
+}
+.fa-circle{
+    font-size: .3rem;
+}
+.big-title {
+    font-size: 2rem;
+}
+.news-preview-container{ 
+    margin-left: 1rem;
+}

@@ -1,7 +1,7 @@
 import './SquarePostCard.css'
 import { NavLink } from 'react-router-dom/cjs/react-router-dom'
 import SquareImageCard from '../SquareImageCard/index'
-
+import PostPreview from '../../PostPreview'
 const SquarePostCardArea = ({post}) => {
 
     if(!post) return null;
@@ -19,11 +19,7 @@ const SquarePostCardArea = ({post}) => {
                 </SquareImageCard>
             </div>  
             <div className="square-post-content-container text">
-                    <h1
-                        className='post-primary-text'
-                    >
-                        {post.title}
-                    </h1>
+                <PostPreview post={post} type={'square'}/>
             </div>
         </NavLink>
     )

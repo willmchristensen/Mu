@@ -24,8 +24,10 @@ const Magazine = () => {
             <div className="magazine-container">
                 <div className="magazine-page-one">
                     {/* TODO: local resource of every page's header data */}
-                    <LatestNews posts={allPosts}/>
-                    <PopularNews posts={allPosts.reverse()}/>
+                    <div className="m-p-section">
+                        <LatestNews posts={allPosts}/>
+                        <PopularNews posts={allPosts.reverse()}/>
+                    </div>
                 </div>
                 <div className="header">
                     <h2>/ Latest Features</h2>

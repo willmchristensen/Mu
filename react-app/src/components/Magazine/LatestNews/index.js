@@ -15,7 +15,7 @@ const LatestNews = ({posts}) => {
                 <h1>/ Latest News</h1>
                 <LargeNewsCard post={singlePost}/> 
             </div>
-            <div className="-container">
+            <div className="news-container">
                 {
                     posts.map(p => {
                         return (

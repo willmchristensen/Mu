@@ -1,19 +1,13 @@
-.content{
+.news-content{
     display: flex;
     align-items: center;
     justify-content: center;
     padding: .5rem;
     margin: .5rem;
-    width: 45%;
-}
-.content:hover{
-    filter: brightness(99%);
-}
-.content-container{
-    display: flex;
-    align-items: center;
     width: 100%;
-    flex-direction: column;
+}
+.news-content:hover{
+    filter: brightness(99%);
 }
 .text{
     display: flex;

@@ -1,6 +1,6 @@
-.image-container > img{ 
-    height: 15vh;
-    width: 20vw;
+.news-image-container > img {
+    width: 15vw;
+    height: 11vh;
     display: block;
     object-fit: cover;
 }

@@ -1,5 +1,5 @@
 .posts-container {
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    width: 75vw;
+    width: 55vw;
 }

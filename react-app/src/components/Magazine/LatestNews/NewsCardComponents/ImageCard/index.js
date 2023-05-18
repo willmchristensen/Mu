@@ -3,7 +3,7 @@ import './ImageCard.css'
 const ImageCard = ({image}) => {
 
     return (
-        <div className="image-container">
+        <div className="news-image-container">
             <img 
                 src={image} 
                 alt="basic-alt" 
