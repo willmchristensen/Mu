@@ -13,6 +13,9 @@ import LargeImageCard from '../Magazine/LatestNews/LargeNewsCard/LargeImageCard'
 
 import NewsContentCard from '../Magazine/LatestNews/NewsCardComponents/NewsContentCard';
 import PopularNews from '../Magazine/PopularNews';
+// import Footer from '../Footer';
+
+
 const PostDetails = () => {
 
     const {postId} = useParams();
@@ -91,6 +94,7 @@ const PostDetails = () => {
                 }
             </div>
             <PopularNews posts={allPosts} className="bruh" />
+            {/* <Footer /> */}
         </div>
     )
 }

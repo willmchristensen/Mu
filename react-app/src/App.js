@@ -15,6 +15,9 @@ import CreatePostPage from "./components/CreatePostPage";
 import EditEventPage from "./components/EditEventPage";
 import Tickets from "./components/Tickets";
 import SplashPage from "./components/SplashPage";
+import Footer from "./components/Footer";
+
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -56,6 +59,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer />
     </>
   );
 }
