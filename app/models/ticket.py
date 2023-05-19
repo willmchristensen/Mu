@@ -11,8 +11,7 @@ class Ticket(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     price = db.Column(Numeric(precision=8,scale=2), nullable=False)
     
-    event_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("events.id")), on_delete="NO ACTION");
-   
+    event_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("events.id")));
 
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime)
