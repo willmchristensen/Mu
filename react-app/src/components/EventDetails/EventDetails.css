@@ -47,3 +47,24 @@
     display: flex;
     justify-content: space-between;
 }
+.lineup{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 75%;
+}
+.lineup-header{
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.event-share{
+    display: flex;
+    justify-content: flex-end;
+}
+.lineup-artists { 
+    display: flex;
+}
+.lineup-artists > * {
+    margin-right: 1rem;
+}

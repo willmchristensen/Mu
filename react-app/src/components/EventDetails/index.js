@@ -8,6 +8,7 @@ import OpenModalButton from '../OpenModalButton';
 import EditEventPage from '../EditEventPage';
 import PageHeader from '../PageHeader';
 import ShareButtons from '../../ShareButtons';
+import ExtraLargeImage from './ExtraLargeImage';
 const EventDetails = () => {
 
     const {eventId} = useParams();
@@ -114,7 +115,7 @@ const EventDetails = () => {
                         </div>
                     </div>
                     <div className="event-artists">
-                        <h3 className="event-artists-title">
+                        {/* <h3 className="event-artists-title">
                             / Lineup
                         </h3>
                         {
@@ -123,7 +124,7 @@ const EventDetails = () => {
                                     <p>{a}</p>
                                 )
                             })
-                        }
+                        } */}
                     </div>
                     {/* TODO: ticket pricing components */}
                     <div className="tickets">
@@ -180,10 +181,22 @@ const EventDetails = () => {
                                 <ShareButtons orientation={'row'} />
                             </div>
                         </div>
-                        <h1>insert header</h1>
-                        <h2>insert event title</h2>
-                        <p>genre</p>
-                        <button>insert dynamic genre tag</button>
+                        <div className="lineup-artists">
+                            {
+                                artists.map(a => {
+                                    return (
+                                        <h1>{a}</h1>
+                                    )
+                                })
+                            }
+                        </div>
+                        {/* TODO: genres */}
+                        <button className="square-button">
+                            event.genre
+                        </button>
+                        <div className="event-image-xl">
+                            <ExtraLargeImage src={event.imageUrl} />
+                        </div>
                         <div className="event-description">
                             <p>{event.description}</p>
                         </div>
