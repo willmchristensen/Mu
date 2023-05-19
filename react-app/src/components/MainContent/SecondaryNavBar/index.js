@@ -1,5 +1,5 @@
 import './SecondaryNavBar.css'
-import NavItem from './NavItem'
+import NavItem from '../../NavBar/NavItem';
 import { useSelector } from 'react-redux';
 
 const SecondaryNavBar = ({ isLoaded }) => {

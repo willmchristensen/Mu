@@ -9,11 +9,11 @@
 .news-content:hover{
     filter: brightness(99%);
 }
-.text{
+/* .text{
     display: flex;
     align-items: center;
     flex-direction: column;
-}
+} */
 .primary-text{
     font-size: 1rem;
     margin-left: 1rem;
