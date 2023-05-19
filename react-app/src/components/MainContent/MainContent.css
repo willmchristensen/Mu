@@ -18,5 +18,6 @@
     align-items: center;
 }
 .popular-content {
+    height: 30%;
     display: flex;
 }
