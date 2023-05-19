@@ -24,10 +24,11 @@
     align-items: center;
     flex-direction: column;
 }
-.post-primary-text{
-    font-size: 1rem;
+.regular-post-primary-text{
+    text-align: left;
+    font-size: .7rem;
     margin-left: 1rem;
-    height: 10px;
+    height: 23px;
     overflow: hidden;
 }
 /* .support-text{
