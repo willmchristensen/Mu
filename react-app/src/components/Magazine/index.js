@@ -39,7 +39,7 @@ const Magazine = () => {
                     </button>
                 </div>
                 <div className="header">
-                    <h2>/ Latest Film </h2> 
+                    <h2>/ Latest Film </h2>
                 </div>
                 <div className="latest film">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/1Ee1TWHoCRM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

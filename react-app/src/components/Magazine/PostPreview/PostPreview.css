@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
 }
-.time-type > *{ 
+.time-type > *{
     margin: .3em;
 }
 .fa-circle{
@@ -10,4 +10,7 @@
 }
 .big-title {
     font-size: 2rem;
+}
+.single-post-title {
+    margin-bottom: .5rem;
 }

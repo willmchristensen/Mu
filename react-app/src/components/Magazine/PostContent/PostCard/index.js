@@ -17,10 +17,10 @@ const PostCard = ({post}) => {
                     image={post.imageUrl}
                 >
                 </PostCardImage>
-            </div>  
+            </div>
             <div className="post-content-container text">
-                    {/* <h1
-                        className='post-primary-text'
+                    <h1
+                        className='regular-post-primary-text'
                     >
                         {post.title}
                     </h1> */}
