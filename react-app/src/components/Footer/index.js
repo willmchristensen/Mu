@@ -4,19 +4,21 @@ import NavItem from '../NavBar/NavItem';
 const Footer = () => {
     return (
         <div className="footer-container">
-            <div className="footer-logo">
-                <button>
-                    logo
-                </button>
-            </div>
             <div className="footer-nav-section">
                 <div className="footer-nav">
+                    <div className="footer-logo">
+                        <NavLink
+                            to='/'
+                        >
+                            <i class="fas fa-yin-yang"></i>
+                        </NavLink>
+                    </div>
                     <div className="footer-nav-title">
                         <span>
                             Discover
                         </span>
                     </div>
-                    <nav>
+                    <nav className='footer-nav-bar'>
                         <NavItem  url={'/about'} text={'About'} />
                         <NavItem  url={'/tickets'} text={'Tickets'} />
                         <NavItem  url={'/resale'} text={'Resale'} />
@@ -30,7 +32,7 @@ const Footer = () => {
                             Get RA apps
                         </span>
                     </div>
-                    <nav>
+                    <nav className='footer-nav-bar'>
                         <NavItem  url={'/ra-guide'} text={'Ra Guide'} />
                         <NavItem  url={'/ra-scanner'} text={'RA Scanner'} />
                     </nav>
@@ -57,15 +59,17 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className="footer-footer-section-one-right">
-                        <NavItem  url={'/privacy'} text={'Privacy'} />
-                        <NavItem  url={'/terms'} text={'Terms'} />
-                        <NavItem  url={'/cookies'} text={'Cookies'} />
-                        <NavItem  url={'/sitemap'} text={'Sitemap'} />
+                        <nav className="footer-nav-bar">
+                            <NavItem  url={'/privacy'} text={'Privacy'} />
+                            <NavItem  url={'/terms'} text={'Terms'} />
+                            <NavItem  url={'/cookies'} text={'Cookies'} />
+                            <NavItem  url={'/sitemap'} text={'Sitemap'} />
+                        </nav>
                 </div>
                 </div>
                 <div className="footer-footer-section-two">
                     <div className="footer-footer-section-two-left">
-                        <p>C icon + © 2023 Resident Advisor Ltd. All rights reserved. </p>
+                        <p>© 2023 Will Christensen </p>
                     </div>
                     <div className="footer-footer-section-two-right">
                         <div className="footer-share-buttons">
@@ -73,7 +77,7 @@ const Footer = () => {
                                 <i class="fab fa-facebook"></i>
                             </button>
                             <button className="share-button circle-button">
-                                <i class="fab fa-twitter"></i>   
+                                <i class="fab fa-twitter"></i>
                             </button>
                             <button className="share-button circle-button">
                                 <i class="fab fa-whatsapp"></i>

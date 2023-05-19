@@ -32,3 +32,15 @@
     flex-direction: column;
     align-items: center;
 }
+.footer-nav-bar{
+    display: flex;
+}
+.footer-nav-bar > .nav-item-container > .nav-item:hover{
+    cursor: not-allowed;
+}
+.footer-logo > a > i{
+    color: var(--white);
+}
+.footer-logo > a > i:hover{
+    color: var(--black);
+}
