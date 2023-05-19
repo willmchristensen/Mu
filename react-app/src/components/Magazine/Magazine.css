@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
 }
-.magazine-container { 
+.magazine-container {
     width: 50%;
 }
 /* .magazine-page-one{
@@ -30,4 +30,6 @@
 }
 .m-p-section {
     display: flex;
+}
+.latest{
 }

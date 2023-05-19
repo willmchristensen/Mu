@@ -27,6 +27,8 @@
 .post-primary-text{
     font-size: 1rem;
     margin-left: 1rem;
+    height: 10px;
+    overflow: hidden;
 }
 /* .support-text{
     padding-top: .2rem;
