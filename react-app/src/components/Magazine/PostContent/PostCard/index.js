@@ -23,7 +23,7 @@ const PostCard = ({post}) => {
                         className='regular-post-primary-text'
                     >
                         {post.title}
-                    </h1> */}
+                    </h1>
                     <PostPreview post={post} type={"exchange"}/>
             </div>
         </NavLink>

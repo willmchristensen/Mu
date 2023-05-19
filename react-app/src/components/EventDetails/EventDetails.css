@@ -6,6 +6,7 @@
 .event-details-subheader{
     display: flex;
     justify-content: space-between;
+    margin-top: 3rem;
 }
 .event-details {
     width: 75%;
@@ -22,4 +23,27 @@
     font-size: 1.3rem;
     font-weight: 700;
     border-bottom: .1rem solid var(--red);
+    margin-top: 1rem;
+}
+.event-details-titles{
+    display: flex;
+}
+.event-details-titles > * {
+    margin-right: 0.5rem;
+    margin-top: .5rem;
+}
+.event-quad-footer { 
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.tickets {
+    width: 50%;
+}
+.ticket-price-tiers { 
+    background-color: var(--grey);
+}
+.ticket-price-tier { 
+    color: var(--off-white);
+    display: flex;
+    justify-content: space-between;
 }
