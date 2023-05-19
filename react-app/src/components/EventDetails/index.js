@@ -81,13 +81,13 @@ const EventDetails = () => {
                         <div className="event-details-subheader">
                             <div className="event-details-subheader-section">
                                 <span>Venue</span>
-                                <button className="event-details-subheader-button">
+                                <button className="subheader-button">
                                     TBA - {event.location}
                                 </button>
                             </div>
                             <div className="event-details-subheader-section">
                                 <span>Venue</span>
-                                <button className="event-details-subheader-button">
+                                <button className="subheader-button">
                                     {/* {event.location.split(',')[0]} */}
                                     {event.location}
                                 </button>
@@ -97,7 +97,7 @@ const EventDetails = () => {
                             </div>
                             <div className="event-details-subheader-section">
                                 <span>Promoters</span>
-                                <button className="event-details-subheader-button">
+                                <button className="subheader-button">
                                     event.promoters
                                 </button>
                             </div>
@@ -191,43 +191,65 @@ const EventDetails = () => {
                             }
                         </div>
                         {/* TODO: genres */}
+                        <span>Genre</span>
                         <button className="square-button">
                             event.genre
                         </button>
-                        <div className="event-image-xl">
-                            <ExtraLargeImage src={event.imageUrl} />
-                        </div>
-                        <div className="event-description">
-                            <p>{event.description}</p>
-                        </div>
-                        <div className="event-quad-footer">
-                            <div>
-                                Event admin
+                        <div className="lineup-details">
+                            <div className="lineup-details-section">
+                                <div className="event-description">
+                                    <p>{event.description}</p>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At vel architecto porro aperiam officiis pariatur cupiditate ducimus nemo? Iste quibusdam explicabo ea ullam quasi culpa rem sed sapiente quia fugiat!
+                                    </p>
+                                    <p>Cupiditate molestiae, obcaecati beatae unde pariatur atque temporibus inventore eum provident fugit deserunt facilis quae repellendus. Placeat reprehenderit nulla vitae aspernatur eius est debitis voluptas non! Magni placeat itaque molestiae.</p>
+                                    <p>Tenetur mollitia odit quia molestiae est id quibusdam eius. Explicabo, veniam eaque consectetur, deleniti dolorum placeat sit sequi similique officia laboriosam nam esse atque dignissimos possimus eum rerum ad unde.</p>
+                                    <p>Placeat qui commodi, voluptates veritatis delectus fugit repudiandae cum sed assumenda ad? At aliquam, sit quis consectetur voluptatibus, obcaecati beatae ex rerum similique possimus tempore nobis ab omnis sed ducimus.</p>
+                                    <p>Accusamus at rem commodi necessitatibus. Sit, porro nostrum. Praesentium sit dolores, assumenda tempore, sint et architecto earum iure unde delectus corrupti nostrum quibusdam quia nisi laborum esse ratione rerum temporibus.</p>
+                                </div>
+                                <div className="event-quad-footer">
+                                    <div className="event-quad-footer-item">
+                                        <span>Event admin</span>
+                                        <button className="subheader-button">
+                                            Update this event
+                                        </button>
+                                    </div>
+                                    <div className="event-quad-footer-item">
+                                        <span>Last updated</span>
+                                        <span>2 months ago</span>
+                                    </div>
+                                    <div className="event-quad-footer-item">
+                                        <span>Cost</span>
+                                        <span>30-50</span>
+                                    </div>
+                                    <div className="event-quad-footer-item">
+                                       <span>Min. age</span>
+                                       <span>21+</span>
+                                    </div>
+                                    <div className="event-quad-footer-item">
+                                        <span>Do you have a question about the event?</span>
+                                        <button className="subheader-button">Contact the promoter</button>
+                                    </div>
+                                </div>
+                                <div className="about-resale">
+                                    <p>
+                                        The event is at event.ticketStatus and the <span>
+                                        <button className="subheader-button">
+                                            resale que is event.resaleStatus.
+                                        </button>
+                                    </span>
+                                    </p>
+                                    
+                                    <p>
+                                        Check back to purchase tickets.
+                                    </p>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos rem optio harum voluptatem vero enim.
+                                    </p>
+                                </div>
                             </div>
-                            <div>
-                                Last updated
+                            <div className="event-image-xl">
+                                <ExtraLargeImage src={event.imageUrl} />
                             </div>
-                            <div>
-                                Cost
-                            </div>
-                            <div>
-                                Min. age
-                            </div>
-                            <div>
-                                Do you have a question about the event?
-                                <button>Contact the promoter</button>
-                            </div>
-                        </div>
-                        <div className="about-resale">
-                            <p>
-                                The event is at 'insert status' and the resale que is 'insert status'
-                            </p>
-                            <p>
-                                Check back to purchase tickets.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos rem optio harum voluptatem vero enim.
-                            </p>
                         </div>
                         <div className="event-advertisements">
                             <div className="event-advertisements-header">
