@@ -7,6 +7,7 @@ import { deleteEvent, editOneEvent } from '../../store/event';
 import OpenModalButton from '../OpenModalButton';
 import EditEventPage from '../EditEventPage';
 import PageHeader from '../PageHeader';
+import ShareButtons from '../../ShareButtons';
 const EventDetails = () => {
 
     const {eventId} = useParams();
@@ -168,13 +169,17 @@ const EventDetails = () => {
                                     $44.44
                                 </span>
                             </div>
-                            <p>pricing tiers go here</p>
-                        </div>
-                        <div className="event-share">
-                            <p>insert share from post details</p>
                         </div>
                     </div>
                     <div className="lineup">
+                        <div className="lineup-header">
+                            <div className="header">
+                                / LINEUP
+                            </div>
+                            <div className="event-share">
+                                <ShareButtons orientation={'row'} />
+                            </div>
+                        </div>
                         <h1>insert header</h1>
                         <h2>insert event title</h2>
                         <p>genre</p>
