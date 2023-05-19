@@ -1,5 +1,4 @@
 .page-header-container{
-    height: 15.2vh;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -14,7 +13,6 @@
 }
 .page-subheader-container{
     width: 100vw;
-    height: 10vh;
     display: flex;
     align-items: center;
     flex-direction: column;
