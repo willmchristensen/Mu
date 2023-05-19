@@ -14,3 +14,6 @@
 .single-post-title {
     margin-bottom: .5rem;
 }
+.single-post-sentence { 
+    word-break: break-all;
+}

@@ -32,11 +32,16 @@ const EventDetails = () => {
         await dispatch(editOneEvent(event.id))
         history.push('/')
     }
-    <button
-    onClick={handleEdit}
-    >
-        edit
-    </button>
+
+    // useEffect(() => {
+        
+    // }, [])
+
+    // <button
+    // onClick={handleEdit}
+    // >
+    //     edit
+    // </button>
 
     if(!event) return null;
 
@@ -61,17 +66,28 @@ const EventDetails = () => {
                                 />
                             </>
                         }
+                        <div className="location">
+                            <i class="fas fa-flag-usa"></i>
+                            <span>Location</span>
+                            <i class="fas fa-circle"></i>
+                            <span>Events</span>
+                        </div>
+                        <div className="event-details-titles">
+                            <h2>{event.title}:</h2>
+                            <h2>{event.description}</h2>
+                        </div>
                         <div className="event-details-subheader">
                             <div className="event-details-subheader-section">
                                 <span>Venue</span>
                                 <button className="event-details-subheader-button">
-                                    event.venue/club 
+                                    TBA - {event.location}
                                 </button>
                             </div>
                             <div className="event-details-subheader-section">
                                 <span>Venue</span>
                                 <button className="event-details-subheader-button">
-                                    event.venue/club 
+                                    {/* {event.location.split(',')[0]} */}
+                                    {event.location}
                                 </button>
                             </div>
                             <div className="event-details-subheader-section">
@@ -95,9 +111,6 @@ const EventDetails = () => {
                                 </div>
                             </div>
                         </div>
-                        <p></p>
-                        <p>{event.location}</p>
-                        <p>promoters</p>
                     </div>
                     <div className="event-artists">
                         <h3 className="event-artists-title">
@@ -114,7 +127,47 @@ const EventDetails = () => {
                     {/* TODO: ticket pricing components */}
                     <div className="tickets">
                         <p>tickets availability text</p>
-                        <div className="ticket-pricing-tiers">
+                        <div className="ticket-price-tiers">
+                            <div className="ticket-price-tier">
+                                <span>
+                                    Early bird
+                                </span>
+                                <span>
+                                    $1.11
+                                </span>
+                            </div>
+                            <div className="ticket-price-tier">
+                                <span>
+                                    1st release
+                                </span>
+                                <span>
+                                    $11.11
+                                </span>
+                            </div>
+                            <div className="ticket-price-tier">
+                                <span>
+                                    2nd release
+                                </span>
+                                <span>
+                                    $22.22
+                                </span>
+                            </div>
+                            <div className="ticket-price-tier">
+                                <span>
+                                    3rd release
+                                </span>
+                                <span>
+                                    $33.33  
+                                </span>
+                            </div>
+                            <div className="ticket-price-tier">
+                                <span>
+                                    4th release
+                                </span>
+                                <span>
+                                    $44.44
+                                </span>
+                            </div>
                             <p>pricing tiers go here</p>
                         </div>
                         <div className="event-share">

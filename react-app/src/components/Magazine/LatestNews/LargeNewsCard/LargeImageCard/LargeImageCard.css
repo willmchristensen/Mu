@@ -2,7 +2,6 @@
     height: 30vh;
     display: block;
     object-fit: cover;
-    border: 1rem solid yellow;
 }
 /* @media screen and (max-width: 1024px){
     .modular-image{

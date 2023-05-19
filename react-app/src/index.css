@@ -32,6 +32,10 @@
 }
 .location{
     display: flex;
+    align-items: center;
+}
+.location > *{
+    margin: .5rem;
 }
 .circle-button{
     border: none;
