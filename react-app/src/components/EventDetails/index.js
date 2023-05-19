@@ -32,11 +32,16 @@ const EventDetails = () => {
         await dispatch(editOneEvent(event.id))
         history.push('/')
     }
-    <button
-    onClick={handleEdit}
-    >
-        edit
-    </button>
+
+    // useEffect(() => {
+        
+    // }, [])
+
+    // <button
+    // onClick={handleEdit}
+    // >
+    //     edit
+    // </button>
 
     if(!event) return null;
 

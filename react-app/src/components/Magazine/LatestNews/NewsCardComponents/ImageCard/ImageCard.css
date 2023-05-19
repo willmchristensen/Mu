@@ -5,6 +5,9 @@
     display: block;
     object-fit: cover;
 }
+/* .news-image-container {
+
+} */
 /* @media screen and (max-width: 1024px){
     .modular-image{
         width: 25vw;
