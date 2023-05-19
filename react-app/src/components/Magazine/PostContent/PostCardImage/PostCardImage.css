@@ -1,11 +1,13 @@
 .post-image-container > img{
-    height: 35vh;
-    max-width: 23vw;
-    object-fit: cover;
-    margin-bottom: 1rem;
+    height: 25vh;
+    width: 25vw;
 }
 /* @media screen and (max-width: 1024px){
     .modular-image{
         width: 25vw;
     }
+} */
+/* .post-image-container > img{
+    height: 45vh;
+    width: 45vw;
 } */

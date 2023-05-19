@@ -1,0 +1,6 @@
+.news-content-cards-container{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+}

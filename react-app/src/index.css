@@ -30,6 +30,9 @@
     width: 100%;
     text-align: left;
 }
+.location{
+    display: flex;
+}
 .circle-button{
     border: none;
     color:var(--black);
