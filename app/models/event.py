@@ -20,6 +20,7 @@ class Event(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime)
     tickets_purchased = db.Column(db.Integer, default=0)
+    tickets = db.relationship("Ticket", backref="event", cascade="all, delete-orphan")
     # genre_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("genres.id")))
     # genre = db.relationship("Genre", back_populates="events")
 
