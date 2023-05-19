@@ -117,3 +117,6 @@ a {
 a:hover{
     color: var(--red);
 }
+.flex-row{
+    display: flex;
+}

@@ -231,12 +231,14 @@ const EventDetails = () => {
                                     </div>
                                 </div>
                                 <div className="about-resale">
+                                    <h2>About resale</h2>
                                     <p>
-                                        The event is at event.ticketStatus and the <span>
-                                        <button className="subheader-button">
-                                            resale que is event.resaleStatus.
-                                        </button>
-                                    </span>
+                                        The event is at event.ticketStatus and the  
+                                        <span>
+                                            <button className="subheader-button">
+                                                 resale que is event.resaleStatus.
+                                            </button>
+                                        </span>
                                     </p>
                                     
                                     <p>
@@ -252,9 +254,10 @@ const EventDetails = () => {
                             </div>
                         </div>
                         <div className="event-advertisements">
+                            {/* TODO: add event host profiles */}
                             <div className="event-advertisements-header">
-                                <h1>/ MORE ON 'insert promoter details'</h1>
-                                <div className="promoter-buttons">
+                                <h3>/ MORE ON {event.title}</h3>
+                                <div className="promoter-buttons flex-row">
                                     <button className="oval-button">
                                         follow
                                     </button>

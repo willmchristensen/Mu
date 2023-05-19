@@ -87,3 +87,9 @@
 .event-quad-footer-item > span:nth-child(2) {
     color: red;
 }
+.about-resale > h2 {
+    margin-bottom: 1rem;
+}
+.about-resale > p {
+    margin-bottom: 1rem;
+}
