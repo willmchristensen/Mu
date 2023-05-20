@@ -1,9 +1,10 @@
 import './PopularNews.css';
 import PopNewsCard from './PopNewsCard';
+import ContentHeader from '../../ContentHeader';
 const PopularNews = ({posts}) => {
     return(
         <div className="popular-news-container">
-            <h1 className='content-header'>/ Popular News</h1>
+            <ContentHeader content={'Popular News'} />
             <div className="popular-news-cards-container">
                 {
                     posts.slice(0,5).map(p => {

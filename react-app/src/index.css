@@ -92,15 +92,6 @@ p{
     font-weight: normal;
     padding-right: 5px;
 }
-/* TODO: FIX MEEEEEEEEE */
-.content-header {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    line-height: 50px;
-    color: var(--red);
-    font-weight: 700;
-}
 .header{
     width: 100%;
     text-align: left;

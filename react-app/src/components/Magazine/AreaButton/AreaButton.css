@@ -1,0 +1,27 @@
+.area-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.oval-button-area{
+    color:var(--black);
+    font-size: 11px;
+    line-height: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--white);
+    border-radius: 70rem;
+    border: .18rem solid var(--red);
+    padding: .7rem;
+    width: 11rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.oval-button-area:hover{
+    background-color: var(--red);
+    color:var(--white);
+    cursor: pointer;
+} 

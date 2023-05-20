@@ -1,0 +1,10 @@
+/* TODO: FIX MEEEEEEEEE */
+.content-header {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    line-height: 50px;
+    color: var(--red);
+    font-weight: 700;
+    width: 100%;
+}

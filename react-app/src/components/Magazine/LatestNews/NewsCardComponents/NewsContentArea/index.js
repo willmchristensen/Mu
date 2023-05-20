@@ -1,6 +1,6 @@
 import './NewsContentArea.css';
 import NewsContentCard from '../NewsContentCard';
-
+import AreaButton from '../../../AreaButton';
 const NewsContentArea = ({posts}) => {
     return (
         <div className="news-content-area-container">
@@ -12,10 +12,8 @@ const NewsContentArea = ({posts}) => {
                         )
                     })
                 }
-                <button className="oval-button">
-                    view more news
-                </button>
             </div>
+            <AreaButton area={'news'} />
         </div>
     )
 }

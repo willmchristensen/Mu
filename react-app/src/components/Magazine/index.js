@@ -8,6 +8,8 @@ import PopularNews from './PopularNews';
 import SquarePostCardArea from './SquarePostCardArea';
 import Series from './Series';
 import PageHeader from '../PageHeader';
+import AreaButton from './AreaButton';
+import ContentHeader from '../ContentHeader';
 
 const Magazine = () => {
     const dispatch = useDispatch();
@@ -29,18 +31,12 @@ const Magazine = () => {
                         <PopularNews posts={allPosts.reverse()}/>
                     </div>
                 </div>
-                <div className="header">
-                    <h2>/ Latest Features</h2>
-                </div>
+                <ContentHeader content={'Latest features'}/>
                 <div className="latest features">
                     <PostContent posts={allPosts.slice(0,3)}/>
-                    <button className="oval-button">
-                        view more features
-                    </button>
                 </div>
-                <div className="header">
-                    <h2>/ Latest Film </h2>
-                </div>
+                <AreaButton area={'features'} />
+                <ContentHeader content={'Latest Film'}/>
                 <div className="latest film">
                     <iframe width="821" height="450" src="https://www.youtube.com/embed/1Ee1TWHoCRM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
@@ -48,18 +44,12 @@ const Magazine = () => {
                     <h2>title</h2>
                     <p>description</p>
                 </div>
-                <button className="oval-button">
-                    view more features
-                </button>
-                <div className="header">
-                    <h2>/ RA EXCHANGE</h2>
-                </div>
+                <AreaButton area={'film'} />
+                <ContentHeader content={'RA Exchange'}/>
                 <div className="ra-exchange">
                     <SquarePostCardArea posts={allPosts}/>
                 </div>
-                <button className="oval-button">
-                    view more exchanges
-                </button>
+                <AreaButton area={"exchanges"} />
                 <div className="series">
                     <Series posts={allPosts}/>
                 </div>

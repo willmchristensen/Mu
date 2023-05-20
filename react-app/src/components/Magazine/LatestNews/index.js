@@ -1,6 +1,7 @@
 import './LatestNews.css'
 import LargeNewsCard from './LargeNewsCard'
 import NewsContentArea from './NewsCardComponents/NewsContentArea'
+import ContentHeader from '../../ContentHeader'
 const LatestNews = ({posts}) => {
 
     if(!posts) return null
@@ -9,12 +10,7 @@ const LatestNews = ({posts}) => {
 
     return (
         <div className="latest-news-container">
-            <h1 className='content-header'>
-                <span className="slash">
-                    /
-                </span> 
-                Latest News
-            </h1>
+            <ContentHeader content={'Latest news'} />
             <div className="large-news-card-container">
                 <LargeNewsCard post={singlePost}/> 
             </div>
