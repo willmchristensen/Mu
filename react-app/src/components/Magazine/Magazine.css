@@ -6,6 +6,32 @@
 .magazine-container {
     width: 75%;
 }
+@media screen and (max-width: 1024px){
+    .magazine-container{
+        width: 100%;
+        margin-left: 1rem;
+    }
+    .event-details {
+        width: 100%;
+        margin-left: 1rem;
+    }
+    .lineup{
+        width: 100%;
+        margin-left: 1rem;
+    }
+    .nav {
+        width: 100%;
+        margin-left: 1rem;
+    }
+    .header-wrapper {
+        width: 100%;
+        margin-left: 1rem;
+    }
+    .page-subheader-wrapper {
+        width: 100%;
+        margin-left: 1rem;
+    }
+}
 /* .magazine-page-one{
     display: grid;
     grid-template-columns: repeat(2,1fr);
