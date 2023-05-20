@@ -10,9 +10,9 @@ import OpenModalButton from '../OpenModalButton';
 import EditPostPage from '../EditPostPage';
 import PageHeader from '../PageHeader';
 import LargeImageCard from '../Magazine/LatestNews/LargeNewsCard/LargeImageCard';
-
 import NewsContentCard from '../Magazine/LatestNews/NewsCardComponents/NewsContentCard';
 import PopularNews from '../Magazine/PopularNews';
+import ShareButtons from '../ShareButtons';
 // import Footer from '../Footer';
 
 
@@ -58,23 +58,7 @@ const PostDetails = () => {
                 </>
             }
             <div className="post-details-content-container">
-                <div className="share-buttons">
-                    <h1 className="share-header">
-                        share
-                    </h1>
-                    <button className="share-button circle-button">
-                        <i class="fab fa-facebook"></i>
-                    </button>
-                    <button className="share-button circle-button">
-                        <i class="fab fa-twitter"></i>   
-                    </button>
-                    <button className="share-button circle-button">
-                        <i class="fab fa-whatsapp"></i>
-                    </button>
-                    <button className="share-button circle-button">
-                        <i class="fas fa-link"></i>
-                    </button>
-                </div>
+                <ShareButtons />
                 <div className="post-details">
                     <h1>{post.title}</h1>
                     <p>{post.description}</p>

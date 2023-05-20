@@ -1,0 +1,12 @@
+.row-share-buttons{
+    display: flex;
+}
+.share-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 3rem;
+}
+.share-button {
+    margin: 0;
+}

@@ -1,0 +1,5 @@
+.extra-large-image-container > img{
+    width: 30vw;
+    /* height: 57vh; */
+    object-fit: cover;
+}

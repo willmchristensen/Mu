@@ -6,12 +6,11 @@ const LatestNews = ({posts}) => {
     if(!posts) return null
 
     const singlePost = posts.slice(3,4)[0];
-    console.log('------------------------------sin',singlePost);
 
     return (
         <div className="latest-news-container">
+            <h1 className='content-header'>/ Latest News</h1>
             <div className="large-news-card-container">
-                <h1>/ Latest News</h1>
                 <LargeNewsCard post={singlePost}/> 
             </div>
             <NewsContentArea posts={posts} />

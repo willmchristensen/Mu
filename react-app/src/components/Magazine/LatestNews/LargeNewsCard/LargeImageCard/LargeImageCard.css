@@ -1,5 +1,6 @@
 .large-image-container > img{ 
-    height: 30vh;
+    height: 23rem;
+    width: 45rem;
     display: block;
     object-fit: cover;
 }

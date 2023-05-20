@@ -8,7 +8,7 @@
     color: var(--off-white);
 }
 .header-wrapper{
-    width: 50%;
+    width: 75%;
     margin-bottom: 1rem;
 }
 .page-subheader-container{
@@ -20,7 +20,7 @@
     background-color: var(--off-white);
 }
 .page-subheader-wrapper{
-    width: 50%;
+    width: 75%;
 }
 .sub-header {
     margin-top: 1rem;
