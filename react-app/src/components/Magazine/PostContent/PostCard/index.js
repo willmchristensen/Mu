@@ -19,12 +19,7 @@ const PostCard = ({post}) => {
                 </PostCardImage>
             </div>
             <div className="post-content-container text">
-                    <h1
-                        className='regular-post-primary-text'
-                    >
-                        {post.title}
-                    </h1>
-                    <PostPreview post={post} type={"exchange"}/>
+                <PostPreview post={post} type={"exchange"}/>
             </div>
         </NavLink>
     )

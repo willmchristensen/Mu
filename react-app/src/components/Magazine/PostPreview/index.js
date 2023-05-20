@@ -41,6 +41,13 @@ const PostPreview = ({post, type}) => {
                     </div>
                 </div>
             }
+            {
+                type == 'exchange' && <div className="time-type">
+                    <div className="time">
+                        {formattedDate}
+                    </div>
+                </div>
+            }
             <div className={textClass}>
                 <div className="single-post-title">
                     <NavLink
