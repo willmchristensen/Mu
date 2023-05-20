@@ -1,4 +1,5 @@
 .page-header-container{
+    height: 15vh;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -7,6 +8,14 @@
     background-color: var(--grey);
     color: var(--off-white);
 }
+.main-header{
+    font-size: 120px;
+    line-height: 120px;
+}
+/* .main-header {
+    margin-bottom: .75rem;
+    font-size: 1.2rem;
+} */
 .header-wrapper{
     width: 80%;
     margin-bottom: 1rem;
