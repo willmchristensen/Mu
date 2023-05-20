@@ -3,8 +3,6 @@
     flex-direction: column;
     align-items: center;
     border-radius: .23rem;
-    border: .3rem solid rgb(0, 0, 0);
-    padding: 1rem;
     margin: 1rem;
 }
 .square-post-content:hover{

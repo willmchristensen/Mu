@@ -48,6 +48,11 @@ const PostPreview = ({post, type}) => {
                     </div>
                 </div>
             }
+            {
+                type == 'square' &&<div className="time">
+                    {year}
+                </div>
+            }
             <div className={textClass}>
                 <div className="single-post-title">
                     <NavLink
@@ -58,7 +63,6 @@ const PostPreview = ({post, type}) => {
                         </h3>
                     </NavLink>
                 </div>
-
                 <div className="single-post-sentence">
                     {sentence}
                 </div>

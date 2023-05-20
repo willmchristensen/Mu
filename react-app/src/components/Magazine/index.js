@@ -42,11 +42,11 @@ const Magazine = () => {
                     <h2>/ Latest Film </h2>
                 </div>
                 <div className="latest film">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/1Ee1TWHoCRM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <div className="film-text">
-                        <h2>title</h2>
-                        <p>description</p>
-                    </div>
+                    <iframe width="821" height="450" src="https://www.youtube.com/embed/1Ee1TWHoCRM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div className="film-text">
+                    <h2>title</h2>
+                    <p>description</p>
                 </div>
                 <button className="oval-button">
                     view more features
@@ -63,6 +63,7 @@ const Magazine = () => {
                 <div className="series">
                     <Series posts={allPosts}/>
                 </div>
+                {/* TODO: add news sections with daily headers */}
             </div>
         </div>
     )

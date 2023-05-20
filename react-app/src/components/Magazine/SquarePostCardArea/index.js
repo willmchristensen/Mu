@@ -3,10 +3,10 @@ import PostCard from "./SquarePostCard"
 
 const SquarePostCards = ({posts}) => {
     return(
-        
+
         <div className="square-posts-container">
             {
-                posts.map(post => {
+                posts.slice(0,3).map(post => {
                     return (
                         <PostCard post={post}/>
                     )
