@@ -11,13 +11,13 @@ const SquarePostCardArea = ({post}) => {
             className="square-post-content-card"
             to={`/posts/${post.id}`}
         >
-            <div className="square-post-content-container"
-            >
+            {/* <div className="square-post-content-container"
+            > */}
                 <SquareImageCard
                     image={post.imageUrl}
                 >
                 </SquareImageCard>
-            </div>  
+            {/* </div>   */}
             <div className="square-post-content-container text">
                 <PostPreview post={post} type={'square'}/>
             </div>

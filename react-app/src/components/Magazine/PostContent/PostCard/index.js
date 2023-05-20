@@ -7,21 +7,22 @@ const PostCard = ({post}) => {
     if(!post) return null;
 
     return(
-        <NavLink
+        <div
             className="post-content-card"
-            to={`/posts/${post.id}`}
         >
-            <div className="post-content-container"
+            <NavLink
+                className="post-content-container"
+                to={`/posts/${post.id}`}
             >
                 <PostCardImage
                     image={post.imageUrl}
                 >
                 </PostCardImage>
-            </div>
+            </NavLink>
             <div className="post-content-container text">
                 <PostPreview post={post} type={"exchange"}/>
             </div>
-        </NavLink>
+        </div>
     )
 
 }
