@@ -7,6 +7,7 @@
     justify-content:center;
 }
 .nav{
+    width: 75%;
     display: flex;
     padding: 1rem;
     align-items: center;
@@ -14,7 +15,7 @@
 }
 .nav-section{
     display: flex;
-    width: 50vw;
+    width: 75vw;
     align-items: center;
     justify-content:space-between;
 }
@@ -28,7 +29,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 1rem;
 }
 .navbar-profile-button {
     position: relative;

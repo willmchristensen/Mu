@@ -3,7 +3,7 @@ import PopNewsCard from './PopNewsCard';
 const PopularNews = ({posts}) => {
     return(
         <div className="popular-news-container">
-            <h1>PopularNews</h1>
+            <h1 className='content-header'>/ Popular News</h1>
             <div className="popular-news-cards-container">
                 {
                     posts.slice(0,5).map(p => {
