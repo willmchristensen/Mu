@@ -7,13 +7,16 @@ const NewsContentCard = ({post}) => {
     if(!post) return null;
 
     return(
-        <NavLink
+        <div
             className="news-content"
-            to={`/posts/${post.id}`}
         >
-            <ImageCard image={post.imageUrl}/>
+            <NavLink
+                to={`/posts/${post.id}`}
+            >
+                <ImageCard image={post.imageUrl}/>
+            </NavLink>
             <PostPreview post={post} type={'news'}/>
-        </NavLink>
+        </div>
     )
 
 }

@@ -1,4 +1,5 @@
 import './PopNewsCard.css';
+import {NavLink} from 'react-router-dom';
 
 const PopNewsCard = ({post, number}) => {
     return (
@@ -7,7 +8,11 @@ const PopNewsCard = ({post, number}) => {
                 {number}
             </div>
             <div className="popular-news-content">
-                {post.title}
+                <NavLink
+                    to={`posts/${post.id}`}
+                >
+                    {post.title}
+                </NavLink>
             </div>
         </div>
     )
