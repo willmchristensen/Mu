@@ -9,7 +9,12 @@ const LatestNews = ({posts}) => {
 
     return (
         <div className="latest-news-container">
-            <h1 className='content-header'>/ Latest News</h1>
+            <h1 className='content-header'>
+                <span className="slash">
+                    /
+                </span> 
+                Latest News
+            </h1>
             <div className="large-news-card-container">
                 <LargeNewsCard post={singlePost}/> 
             </div>

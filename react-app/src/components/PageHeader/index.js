@@ -6,7 +6,9 @@ const PageHeader = ({header,subheader}) => {
             <div className="page-header-container">
                 <div className="header-wrapper">
                     <div className="main-header">
-                        <h1>{header}</h1>
+                        <span className="main-header">
+                            <h1>{header}</h1>
+                        </span>
                     </div>
                 </div>
             </div>

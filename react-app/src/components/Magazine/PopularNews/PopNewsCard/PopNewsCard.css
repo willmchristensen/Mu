@@ -1,14 +1,21 @@
 .popular-news-card {
     display: flex;
     align-items: center;
-    margin: 1rem;
     border-top: 0.1rem solid var(--grey);
 }
 .number{
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-right: 1rem;
 }
 .popular-news-content{
-    font-size: 1.5rem;
-    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    letter-spacing: .1px;
+}
+.pop-news-container{
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }

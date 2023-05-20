@@ -4,15 +4,17 @@ import {NavLink} from 'react-router-dom';
 const PopNewsCard = ({post, number}) => {
     return (
         <div className="popular-news-card">
-            <div className="number">
-                {number}
-            </div>
-            <div className="popular-news-content">
-                <NavLink
-                    to={`posts/${post.id}`}
-                >
-                    {post.title}
-                </NavLink>
+            <div className="pop-news-container">
+                <div className="number">
+                    {number}
+                </div>
+                <div className="popular-news-content">
+                    <NavLink
+                        to={`posts/${post.id}`}
+                    >
+                        {post.title}
+                    </NavLink>
+                </div>
             </div>
         </div>
     )
