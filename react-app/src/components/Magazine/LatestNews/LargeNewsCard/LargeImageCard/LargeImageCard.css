@@ -1,11 +1,14 @@
-.large-image-container > img{ 
+.large-image-container > img{
     height: 23rem;
     width: 45rem;
     display: block;
     object-fit: cover;
+    margin-bottom: 1rem;
 }
-/* @media screen and (max-width: 1024px){
-    .modular-image{
-        width: 25vw;
+@media screen and (max-width: 1024px){
+    .large-image-container > img{
+        width: 35rem;
+        height: 20rem;
+        border: 2px solid palegreen;
     }
-} */
+}

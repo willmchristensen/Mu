@@ -1,13 +1,13 @@
-.post-image-container > img{
+/* .post-image-container > img{
     height: 370px;
     width: 320px;
-}
+} */
 /* @media screen and (max-width: 1024px){
     .modular-image{
         width: 25vw;
     }
 } */
-/* .post-image-container > img{
-    height: 45vh;
-    width: 45vw;
-} */
+.post-image-container > img{
+    height: 50vh;
+    width: 30vw;
+}

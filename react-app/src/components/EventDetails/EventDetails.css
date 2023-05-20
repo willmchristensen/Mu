@@ -9,7 +9,7 @@
     margin-top: 3rem;
 }
 .event-details {
-    width: 75%;
+    width: 80%;
 }
 .event-details-subheader-section{
     display: flex;
@@ -22,17 +22,17 @@
     margin-right: 0.5rem;
     margin-top: .5rem;
 }
-.event-quad-footer { 
+.event-quad-footer {
     display: grid;
     grid-template-columns: repeat(2,1fr);
 }
 .tickets {
     width: 50%;
 }
-.ticket-price-tiers { 
+.ticket-price-tiers {
     background-color: var(--grey);
 }
-.ticket-price-tier { 
+.ticket-price-tier {
     color: var(--off-white);
     display: flex;
     justify-content: space-between;
@@ -41,7 +41,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 75%;
+    width: 80%;
 }
 .lineup-header{
     margin-top: 4rem;
@@ -52,7 +52,7 @@
     display: flex;
     justify-content: flex-end;
 }
-.lineup-artists { 
+.lineup-artists {
     display: flex;
     margin-bottom: 1rem;
     margin-top: 1rem;
