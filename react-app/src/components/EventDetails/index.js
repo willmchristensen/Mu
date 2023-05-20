@@ -7,7 +7,7 @@ import { deleteEvent, editOneEvent } from '../../store/event';
 import OpenModalButton from '../OpenModalButton';
 import EditEventPage from '../EditEventPage';
 import PageHeader from '../PageHeader';
-import ShareButtons from '../../ShareButtons';
+import ShareButtons from '../ShareButtons';
 import ExtraLargeImage from './ExtraLargeImage';
 const EventDetails = () => {
 
