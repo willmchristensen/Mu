@@ -5,7 +5,7 @@ import { getAllPosts } from '../../store/post';
 import { getAllEvents } from '../../store/event';
 
 const SplashPage = () => {
-    // --state---------------
+    // --state--------------------------------------------------------------
     const events = useSelector(state => state.event.events);
     const eventsArray = Object.values(events);
     const sessionUser = useSelector(state => state.session.user);
@@ -18,8 +18,8 @@ const SplashPage = () => {
         }else{
             return i.imageUrl
         }
-    })
-    // ---randomimage------------
+    });
+    // ---randomimage-------------------------------------------------------
     const randomImage = (images) => {
         const randomIndex = Math.floor(Math.random() * images.length);
         if(!images[randomIndex]) { 
@@ -41,7 +41,7 @@ const SplashPage = () => {
     useEffect(()=>{
         dispatch(getAllPosts())
         dispatch(getAllEvents())
-    },[])
+    },[]);
     
     if(!posts || !events) return null
 
@@ -50,7 +50,6 @@ const SplashPage = () => {
             className="splash-page-container" 
             id="splash-background"
         >
-            
             <h1 className="splash-header">bruh  </h1>
         </div>
     )
