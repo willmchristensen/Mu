@@ -11,7 +11,6 @@
 }
 .main-content-area{
     display: flex;
-    align-items: center;
     flex-direction: column;
 }
 .content-header > h2{
@@ -26,6 +25,7 @@
     display: flex;
     align-items: center;
     height: 30%;
+    gap: 1rem;
 }
 .popular-content-button{
     display: flex;
@@ -34,4 +34,5 @@
 }
 .popular-header-container {
     display: flex;
+    justify-content: space-between;
 }

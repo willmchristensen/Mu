@@ -1,20 +1,20 @@
 import './PostPreview.css';
 import {NavLink} from 'react-router-dom';
 
-const PostPreview = ({post, type}) => {
+const PostPreview = ({event, post, type}) => {
     // conditional rendering a descriptive component for a variety of content cards.
-    if(!post) return null
-
+    if(!post && !event) return null
+    console.log(event)
     // classes----------
     const dynamicTitle = type === 'large' ? 'big-title' : 'post-title';
     const textClass = type === 'news' ?  "post-preview-text" : "news-preview-container";
     // data-----------
     const options = { day: 'numeric', month: 'long', year: 'numeric'}
-    let date = new Date(post.createdAt).toLocaleDateString('en-US', options);
-    let [month, day,year] = date.split(' ');
+    let date = post ? new Date(post.createdAt).toLocaleDateString('en-US', options)  : new Date(event.createdAt).toLocaleDateString('en-US', options);
+    let [month, day, year] = date.split(' ');
     let formattedDate = `${day} ${month} ${year}`;
-    const time = post.createdAt.substring(11,16);
-    const sentence = post.description.split('.')[0].trim();
+    const time = post ? post.createdAt.substring(11,16)  : event.createdAt.substring(11,16);
+    const sentence = post ? post.description.split('.')[0].trim() : event.description.split('.')[0].trim();
 
     return (
 
@@ -49,19 +49,36 @@ const PostPreview = ({post, type}) => {
                 </div>
             }
             {
-                type == 'square' &&<div className="time">
+                type == 'square' && <div className="time">
                     {year}
                 </div>
             }
+            {/* { 
+                type == 'main-event-content' && 
+                <div className="main-event-content">
+                    {}
+                </div>
+            } */}
             <div className={textClass}>
                 <div className="single-post-title">
-                    <NavLink
-                        to={`posts/${post.id}`}
-                    >
-                        <h3 className={dynamicTitle}>
-                            {post.title}
-                        </h3>
-                    </NavLink>
+                    {
+                        post ? 
+                        <NavLink
+                            to={`posts/${post.id}`}
+                        >
+                            <h3 className={dynamicTitle}>
+                                {post.title}
+                            </h3>
+                        </NavLink>
+                        :
+                        <NavLink
+                            to={`posts/${event.id}`}
+                        >
+                            <h3 className={dynamicTitle}>
+                                {event.title}
+                            </h3>
+                        </NavLink>
+                    }
                 </div>
                 <div className="single-post-sentence">
                     {sentence}
