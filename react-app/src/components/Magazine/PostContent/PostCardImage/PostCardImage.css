@@ -2,11 +2,7 @@
     height: 370px;
     width: 320px;
 } */
-/* @media screen and (max-width: 1024px){
-    .modular-image{
-        width: 25vw;
-    }
-} */
+
 .post-image-container > img{
     height: 420px;
     width: 315px;

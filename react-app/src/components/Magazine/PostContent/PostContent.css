@@ -2,3 +2,13 @@
     display: grid;
     grid-template-columns: repeat(3,1fr);
 }
+/* TODO: media queries > all three images = screen width at smaller screens */
+@media screen  and (max-width: 1024px){
+    /* .posts-container {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    } */
+    .posts-container {
+        width: 1024px;
+    }
+}

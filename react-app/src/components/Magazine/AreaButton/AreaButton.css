@@ -7,13 +7,18 @@
 .oval-button-area{
     color:var(--black);
     font-size: 11px;
+    font-weight: 400;
     line-height: 11px;
+    letter-spacing: 1px;
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--white);
     border-radius: 70rem;
     border: .18rem solid var(--red);
-    padding: .7rem;
-    width: 11rem;
+    /* padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem; */
+    padding: 1rem;
     margin: 1rem;
     display: flex;
     flex-direction: row;
@@ -24,4 +29,4 @@
     background-color: var(--red);
     color:var(--white);
     cursor: pointer;
-} 
+}

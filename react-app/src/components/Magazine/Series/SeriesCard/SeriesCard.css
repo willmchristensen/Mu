@@ -6,7 +6,7 @@
     background-color: var(--off-white);
 }
 .series-card-container > img {
-    width: 15vw;
-    height: 11vh;
+    /* width: 15vw; */
+    /* height: 11vh; */
     object-fit: cover;
 }

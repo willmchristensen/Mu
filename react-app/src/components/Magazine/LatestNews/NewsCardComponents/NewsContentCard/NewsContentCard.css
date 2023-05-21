@@ -1,7 +1,6 @@
 .news-content{
     display: flex;
     align-items: center;
-    justify-content: center;
     padding-top: .5rem;
     margin-top: .5rem;
     width: 100%;
