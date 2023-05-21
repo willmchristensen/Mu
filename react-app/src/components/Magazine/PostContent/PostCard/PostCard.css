@@ -21,6 +21,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    overflow: hidden;
 }
 .regular-post-primary-text{
     text-align: left;

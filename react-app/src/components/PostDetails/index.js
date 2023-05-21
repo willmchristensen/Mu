@@ -39,11 +39,12 @@ const PostDetails = () => {
         history.push('/')
     }
 
-    if(!post) return null;
+    if(!post ||!post.title) return null;
 
     return (
         <div className="post-details-container">
-            <PageHeader header={post.title} subheader={post.description} />
+            <PageHeader header={post.title.split(' ')[0] + ' ' + post.title.split(' ')[1]} subheader={post.description} />
+            {console.log(post)}
             { sessionUser && post.userId === sessionUser.id &&
                 <>
                     <button

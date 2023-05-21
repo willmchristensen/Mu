@@ -22,20 +22,3 @@
     align-items: center;
     flex-direction: column;
 }
-.primary-text{
-    font-size: 1rem;
-    margin-left: 1rem;
-}
-.primary-text{
-    font-size: 1rem;
-    margin-left: 1rem;
-}
-.location > *{
-    margin: .2rem;
-}
-/* .support-text{
-    padding-top: .2rem;
-    margin-top: .2rem;
-    padding-bottom: 4rem;
-    overflow-wrap: anywhere;
-} */

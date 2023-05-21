@@ -1,10 +1,32 @@
 /* TODO: FIX MEEEEEEEEE */
 .content-header {
+    display: flex;
+    align-items: center;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    font-size: 2rem;
+    font-size: 3rem;
     line-height: 50px;
     color: var(--red);
-    font-weight: 700;
+    font-weight: 400;
     width: 100%;
+}
+.content-header-content-container{
+    margin-left: 3.5rem;
+}
+.triangle-container { 
+    position: relative;
+    /* width: 45px; */
+    height: 45px;
+}
+.triangle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: rotate(-45deg);
+    width: 55px;
+    height: 1px;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-bottom: 1px solid red;
 }
