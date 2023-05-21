@@ -1,14 +1,18 @@
 import './SquareImageCard.css'
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min'
 
-const SquareImageCard = ({image}) => {
+const SquareImageCard = ({post}) => {
 
     return (
-        <div className="square-post-image-container">
-            <img 
-                src={image} 
-                alt="basic-alt" 
+        <NavLink
+            className="square-post-image-container"
+            to={`/posts/${post.id}`}
+        >
+            <img
+                src={post.imageUrl}
+                alt="basic-alt"
             />
-        </div> 
+        </NavLink>
     )
 
 }
