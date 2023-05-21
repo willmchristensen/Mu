@@ -124,3 +124,6 @@ a:hover{
 .flex-row{
     display: flex;
 }
+h1{
+    font-weight: 400;
+}

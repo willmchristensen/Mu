@@ -5,10 +5,17 @@
     object-fit: cover;
     margin-bottom: 1rem;
 }
+@media screen and (min-width: 1025px){
+    .large-image-container > img{
+        width: 41rem;
+        height: 23rem;
+        border: 2px solid palegreen;
+    }
+}
 @media screen and (max-width: 1024px){
     .large-image-container > img{
         width: 35rem;
         height: 20rem;
-        border: 2px solid palegreen;
+        border: 2px solid yellow;
     }
 }

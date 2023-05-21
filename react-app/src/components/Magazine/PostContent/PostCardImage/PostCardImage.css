@@ -8,6 +8,7 @@
     }
 } */
 .post-image-container > img{
-    height: 40vh;
+    height: 420px;
+    width: 315px;
     /* width: 30vw; */
 }
