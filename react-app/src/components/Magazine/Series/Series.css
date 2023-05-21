@@ -1,8 +1,11 @@
 .series-section {
     /* margin: 3rem; */
     max-width: 100%;
+    overflow: hidden;
 }
 .series-cards {
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    
 }
