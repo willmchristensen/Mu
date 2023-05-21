@@ -12,7 +12,7 @@ const SplashPage = () => {
     const dispatch = useDispatch();
     const posts = useSelector(state => state.post.posts);
     const allPosts = Object.values(posts);
-    const info = [...allPosts.slice(0,3),...eventsArray.slice(0,3)];
+    const info = [...allPosts.slice(0)];
     let images = info.map(i => {
         if(!i.imageUrl){
             return null
