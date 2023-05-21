@@ -8,6 +8,7 @@ import { getAllEvents } from '../../store/event';
 // import { useParams } from 'react-router-dom';
 import PopularCardArea from './PopularCardArea';
 import SecondaryNavBar from './SecondaryNavBar';
+import ContentHeader from '../ContentHeader';
 
 const MainContent = () => {
     // state---------
@@ -34,7 +35,7 @@ const MainContent = () => {
     let formattedDate = `${weekday} ${day} ${month}`;
 
     return(
-        <div className="main-content">
+        <div className="main-content-container">
             <div className="location">
                 <i class="fas fa-flag-usa"></i>
                 <h1>Location</h1>
@@ -42,40 +43,42 @@ const MainContent = () => {
             <div className="secondary-nav-bar-container">
                 <SecondaryNavBar/>
             </div>
-            <div className="popular-container">
-                <div className='content-header'>
-                    <h2>
-                        / Popular
-                    </h2>
-                    <NavLink 
-                        className="oval-button"
-                        to={'/create-event'}
-                    >
-                        create event
-                    </NavLink>
+            <div className="main-content">
+                <div className="popular-header-container">
+                    <div className="popular-content-header">
+                        <ContentHeader content={'Popular'} />
+                    </div>
+                    <div className="popular-content-button">
+                        <NavLink 
+                            className="oval-button-area"
+                            to={'/create-event'}
+                        >
+                            create event
+                        </NavLink>  
+                    </div>
                 </div>
                 <div className="popular-content">
                     <PopularCardArea events={recentEvents}/>
                 </div>
-            </div>
-            {/* TODO: 
-                sections of content separated by days??! dont have much data tho  
-                make a slash similar to RA
-            */}
-            <div className="main-content-area">
-                <div className='content-header'>
-                    <h2>
-                        {formattedDate}
-                    </h2>
+                {/* TODO: 
+                    sections of content separated by days??! dont have much data tho  
+                    make a slash similar to RA
+                */}
+                <div className="main-content-area">
+                    <div className='content-header'>
+                        <h2>
+                            {formattedDate}
+                        </h2>
+                    </div>
+                    {
+                        eventsArray.map(event => {
+                            return (
+                                <ContentCard event={event}>
+                                </ContentCard>
+                            )
+                        })
+                    }
                 </div>
-                {
-                    eventsArray.map(event => {
-                        return (
-                            <ContentCard event={event}>
-                            </ContentCard>
-                        )
-                    })
-                }
             </div>
         </div>
     )

@@ -14,10 +14,7 @@
     background-color: var(--white);
     border-radius: 70rem;
     border: .18rem solid var(--red);
-    /* padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: .5rem;
-    padding-bottom: .5rem; */
+    width: 10rem;
     padding: 1rem;
     margin: 1rem;
     display: flex;

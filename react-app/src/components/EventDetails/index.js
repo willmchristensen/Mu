@@ -10,7 +10,6 @@ import PageHeader from '../PageHeader';
 import ShareButtons from '../ShareButtons';
 import ExtraLargeImage from './ExtraLargeImage';
 const EventDetails = () => {
-
     const {eventId} = useParams();
     const history = useHistory();
     const dispatch = useDispatch();

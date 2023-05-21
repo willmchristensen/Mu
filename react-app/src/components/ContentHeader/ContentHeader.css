@@ -8,7 +8,7 @@
     line-height: 50px;
     color: var(--red);
     font-weight: 400;
-    width: 100%;
+    /* width: 100%; */
 }
 .content-header-content-container{
     margin-left: 3.5rem;
