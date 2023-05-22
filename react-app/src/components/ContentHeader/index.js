@@ -1,5 +1,5 @@
 import './ContentHeader.css'
-
+// TODO: implement types and change padding according to type of content header
 const ContentHeader = ({content}) => { 
     return (
         <h2 className='content-header'>

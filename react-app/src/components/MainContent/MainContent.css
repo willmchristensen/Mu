@@ -31,6 +31,10 @@
     align-items: center;
     justify-content: center;
 }
+.popular-content-button > a { 
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
 .popular-header-container {
     display: flex;
     justify-content: space-between;

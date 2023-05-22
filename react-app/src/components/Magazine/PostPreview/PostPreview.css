@@ -2,9 +2,6 @@
     display: flex;
     align-items: center;
 }
-.time-type > *{
-    margin: .3em;
-}
 .fa-circle{
     font-size: .3rem;
 }
@@ -24,6 +21,18 @@
 .location {
     margin-top: .5rem;
 }
+.attending-content {
+    margin-top: .2rem;
+}
 .location > i { 
+    color: var(--red);
+    margin-right: .5rem;
+}
+.location-content > i{ 
+    margin-right: .5rem;
+    color: var(--red);
+}
+.attending-content > i{
+    color: var(--red);
     margin-right: .5rem;
 }

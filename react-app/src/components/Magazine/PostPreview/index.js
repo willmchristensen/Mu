@@ -98,12 +98,21 @@ const PostPreview = ({event, post, type}) => {
                             }
                             {
                                 event && type == 'popular' &&
-                                <>
-                                    <i class="fas fa-map-pin"></i>
-                                    <span className='location-text'>
-                                        {`TBA ${event.location.split(',')[0]}`}
-                                    </span>
-                                </> 
+                                <div className="location-container">
+                                    <div className="location-content">
+                                            <i class="fas fa-map-pin"></i>
+                                            <span className='location-text'>
+                                                {`TBA ${event.location.split(',')[0]}`}
+                                            </span>
+                                    </div>
+                                    <div className="attending-content">
+                                        <i class="fas fa-user"></i>
+                                        <span className='location-text'>
+                                            {`${event.attendees.length}`}
+                                        </span>
+                                    </div>
+                                </div>
+                                    
                             }
                         </p>
                     }

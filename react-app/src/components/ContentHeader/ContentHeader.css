@@ -2,8 +2,8 @@
 .content-header {
     display: flex;
     align-items: center;
-    /* margin-top: 2rem;
-    margin-bottom: 1rem; */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     font-size: 3rem;
     line-height: 50px;
     color: var(--red);
