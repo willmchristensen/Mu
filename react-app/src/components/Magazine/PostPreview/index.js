@@ -16,7 +16,6 @@ const PostPreview = ({event, post, type}) => {
     const sentence = post ? post.description.split('.')[0].trim() : event.description.split('.')[0].trim();
 
     return (
-
         <div className="post-preview-container">
             {
                 type == 'large' && <div className="time-type">
@@ -52,14 +51,8 @@ const PostPreview = ({event, post, type}) => {
                     {year}
                 </div>
             }
-            {/* {
-                type == 'main-event-content' &&
-                <div className="main-event-content">
-                    {}
-                </div>
-            } */}
             <div className={textClass}>
-                <div className="single-post-title">
+                <div className="post-preview-title">
                     {
                         post ?
                         <NavLink
@@ -79,22 +72,30 @@ const PostPreview = ({event, post, type}) => {
                         </NavLink>
                     }
                 </div>
-                <div className="single-post-sentence">
-                    <span className="post-sentence">
-                        {sentence}
+                <div className="post-preview-description">
+                    <span className="slice-of-description">
+                        {type !== 'main-event-content' && sentence}
                     </span>
                     {
                         event &&
-                        <p className='location'>
+                        <div className='dynamic-location-content'>
 
                             {
                                 event && type!== 'popular' &&
-                                <>
-                                    <i class="fas fa-map-pin"></i>
-                                    <span className='location-text'>
-                                        {event.location}
-                                    </span>
-                                </>
+                                <div className='popular-location-content'>
+                                    <div className="location-content-location">
+                                        <i class="fas fa-map-pin"></i>
+                                        <span className='location-text'>
+                                            {event.location}
+                                        </span>
+                                    </div>
+                                    <div className="location-content-attendees">
+                                        <i class="fas fa-user"></i>
+                                        <span className='location-text'>
+                                            {`${event.attendees.length}`}
+                                        </span>
+                                    </div>
+                                </div>
                             }
                             {
                                 event && type == 'popular' &&
@@ -114,7 +115,7 @@ const PostPreview = ({event, post, type}) => {
                                 </div>
 
                             }
-                        </p>
+                        </div>
                     }
                 </div>
             </div>
