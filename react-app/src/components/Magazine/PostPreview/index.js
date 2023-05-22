@@ -82,7 +82,7 @@ const PostPreview = ({event, post, type}) => {
 
                             {
                                 event && type!== 'popular' &&
-                                <div className='popular-location-content'>
+                                <div className='regular-event-location-content'>
                                     <div className="location-content-location">
                                         <i class="fas fa-map-pin"></i>
                                         <span className='location-text'>

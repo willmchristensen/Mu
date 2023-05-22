@@ -1,11 +1,11 @@
 import './ShareButtons.css';
 const ShareButtons = ({orientation}) => {
-    const shareButtons = orientation == 'row' ? 'row-share-buttons' : 'share-buttons';
+    const shareButtons = orientation == 'row' ? 'row-share-buttons' : 'column-share-buttons';
     return (
         <div className={shareButtons}>
-            <h1 className="share-header">
-                share
-            </h1>
+            <span className="share-header">
+                Share
+            </span>
             <button className="share-button circle-button">
                 <i class="fab fa-facebook"></i>
             </button>

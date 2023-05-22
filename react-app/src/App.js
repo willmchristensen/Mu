@@ -30,14 +30,14 @@ function App() {
       <NavBar isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/events/:eventId">
+          <Route path={["/events/:eventId/edit","/events/new"]} exact>
+            <CreateEventPage />
+          </Route>
+          <Route path="/events/:eventId" exact>
             <EventDetails />
           </Route>
           <Route path="/posts/:postId">
             <PostDetails />
-          </Route>
-          <Route path="/create-event">
-            <CreateEventPage />
           </Route>
           <Route path="/create-post">
             <CreatePostPage />

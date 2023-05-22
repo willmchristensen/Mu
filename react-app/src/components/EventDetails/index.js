@@ -15,8 +15,13 @@ const EventDetails = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const event = useSelector(state => state.event.singleEvent);
-    const artists = event.artists ? Object.values(event.artists) : [];
-    const attendees = event.attendees ? Object.values(event.attendees) : [];
+    const options = { day: 'numeric', month: 'long', year: 'numeric'}
+    let date = new Date(event?.createdAt)?.toLocaleDateString('en-US', options);
+    let [month, day, year] = date.split(' ');
+    let formattedDate = `${day} ${month} ${year}`;
+    const time = event?.createdAt?.substring(11,16);
+    const artists = event?.artists ? Object.values(event.artists) : [];
+    const attendees = event?.attendees ? Object.values(event.attendees) : [];
 
     useEffect(()=>{
         dispatch(getOneEvent(eventId))
@@ -33,16 +38,6 @@ const EventDetails = () => {
         await dispatch(editOneEvent(event.id))
         history.push('/')
     }
-
-    // useEffect(() => {
-        
-    // }, [])
-
-    // <button
-    // onClick={handleEdit}
-    // >
-    //     edit
-    // </button>
 
     if(!event) return null;
 
@@ -61,9 +56,9 @@ const EventDetails = () => {
                                     onClick={handleDelete}
                                 >delete</button>
                                 <OpenModalButton
+                                    className='oval-button'
                                     buttonText="Edit Event"
                                     modalComponent={<EditEventPage event={event}/>}
-                                    className='oval-button'
                                 />
                             </>
                         }
@@ -92,7 +87,11 @@ const EventDetails = () => {
                                 </button>
                             </div>
                             <div className="event-details-subheader-section">
-                                <span>{event.date}</span>
+                                <span>Date</span>
+                                <button className="subheader-button">
+                                    {formattedDate}
+                                </button>
+                                <span>{time} - {time}</span>
                             </div>
                             <div className="event-details-subheader-section">
                                 <span>Promoters</span>
@@ -184,7 +183,11 @@ const EventDetails = () => {
                             {
                                 artists.map(a => {
                                     return (
-                                        <h1>{a}</h1>
+                                        <NavLink
+                                            className='lineup-button'
+                                            // to={`artists/${artist.id}`}
+                                            to={`/events/${event.id}`}
+                                        >{a}</NavLink>
                                     )
                                 })
                             }
@@ -201,16 +204,16 @@ const EventDetails = () => {
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At vel architecto porro aperiam officiis pariatur cupiditate ducimus nemo? Iste quibusdam explicabo ea ullam quasi culpa rem sed sapiente quia fugiat!
                                     </p>
                                     <p>Cupiditate molestiae, obcaecati beatae unde pariatur atque temporibus inventore eum provident fugit deserunt facilis quae repellendus. Placeat reprehenderit nulla vitae aspernatur eius est debitis voluptas non! Magni placeat itaque molestiae.</p>
-                                    <p>Tenetur mollitia odit quia molestiae est id quibusdam eius. Explicabo, veniam eaque consectetur, deleniti dolorum placeat sit sequi similique officia laboriosam nam esse atque dignissimos possimus eum rerum ad unde.</p>
-                                    <p>Placeat qui commodi, voluptates veritatis delectus fugit repudiandae cum sed assumenda ad? At aliquam, sit quis consectetur voluptatibus, obcaecati beatae ex rerum similique possimus tempore nobis ab omnis sed ducimus.</p>
-                                    <p>Accusamus at rem commodi necessitatibus. Sit, porro nostrum. Praesentium sit dolores, assumenda tempore, sint et architecto earum iure unde delectus corrupti nostrum quibusdam quia nisi laborum esse ratione rerum temporibus.</p>
                                 </div>
                                 <div className="event-quad-footer">
                                     <div className="event-quad-footer-item">
                                         <span>Event admin</span>
-                                        <button className="subheader-button">
+                                        <NavLink 
+                                            className="subheader-button"
+                                            to={`/events/${event.id}/edit`}
+                                        >
                                             Update this event
-                                        </button>
+                                        </NavLink>
                                     </div>
                                     <div className="event-quad-footer-item">
                                         <span>Last updated</span>

@@ -1,16 +1,22 @@
 import './CreateEventPage.css';
 import ContentHeader from '../ContentHeader';
 import FormNavBar from '../FormNavBar';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createEvent } from '../../store/event';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory,useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { editOneEvent } from '../../store/event';
+import { getOneEvent } from '../../store/event';
+
 const CreateEventPage = () => {
-    const [title,setTitle] = useState('titletitletitletitletitletitletitle');
-    const [description,setDescription] = useState('descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription');
-    const [date,setDate] = useState();
-    const [location,setLocation] = useState('location');
-    const [imageUrl,setImageUrl] = useState('https://archives.bulbagarden.net/media/upload/thumb/7/75/Iris_Dragonite.png/800px-Iris_Dragonite.png');
+	const {eventId} = useParams();
+	const event = useSelector(state => state.event.singleEvent);
+    const [title,setTitle] = useState(event?.title);
+    const [description,setDescription] = useState(event?.description);
+    const [date,setDate] = useState(event.date);
+    const [location,setLocation] = useState(event?.location);
+    const [imageUrl,setImageUrl] = useState(event?.imageUrl);
+	const [formTitle, setFormTitle] = useState('');
 	const currentUser = useSelector((state) => state.session.user)
 	const dispatch = useDispatch();
 	const history = useHistory();
@@ -25,7 +31,12 @@ const CreateEventPage = () => {
             'image_url': imageUrl,
 			'owner_id': currentUser.id,
         }
-	 	await dispatch(createEvent(data))
+		const payload = {'eventId':event.id, 'item': data}
+		if(eventId){
+			await dispatch(editOneEvent(payload))
+		}else {
+			await dispatch(createEvent(data))
+		} 
 		history.push('/')
     }
 
@@ -34,6 +45,11 @@ const CreateEventPage = () => {
 		history.push('/events');
 	}
 
+	useEffect(()=>{
+        dispatch(getOneEvent(eventId))
+		setFormTitle(eventId ? 'Edit Event' : 'Create Event')
+    },[dispatch, eventId])
+
     return(
         <div className="create-event-container">
 			<FormNavBar pages={['Lineup', 'Details', 'Profile', 'Promotional']}/>
@@ -41,7 +57,7 @@ const CreateEventPage = () => {
 				className='create-event-form'
 				onSubmit={handleSubmit}
 			>
-				<ContentHeader content={'Create Event'} />
+				<ContentHeader content={formTitle} />
 				<div className="form-section">
 					<ContentHeader content={'Basic'} />
 					<div className="form-row-column">

@@ -1,7 +1,11 @@
+.single-event-container {
+    color: var(--white);
+}
 .event-details-container{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 7%;
 }
 .event-details-subheader{
     display: flex;
@@ -54,12 +58,12 @@
 }
 .lineup-artists {
     display: flex;
+    flex-direction: column;
     margin-bottom: 1rem;
     margin-top: 1rem;
 }
 .lineup-artists > * {
     margin-right: 1rem;
-
 }
 .event-description > p{
     margin-bottom: 1rem;
@@ -70,6 +74,13 @@
 }
 .lineup-details-section{
     margin-right: 3rem;
+}
+.lineup-button { 
+    margin-bottom: 1rem;
+    width: 20%;
+}
+.lineup-button:hover { 
+    cursor: not-allowed;
 }
 .event-quad-footer {
     margin-top: 5rem;

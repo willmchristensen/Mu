@@ -53,7 +53,7 @@ const MainContent = () => {
                             {sessionUser &&
                                 <NavLink
                                     className="oval-button-area"
-                                    to={'/create-event'}
+                                    to={'/events/new'}
                                 >
                                     create event
                                 </NavLink>
