@@ -2,27 +2,31 @@
     display: flex;
     justify-content: flex-start;
     height: 250px;
-    border-right: 1px solid var(--off-white);
     padding-right: 3rem;
     margin-right: 7rem;
     margin-top: 7rem;
 }
 .form-nav-item{
     margin: 1rem;
+    margin-right: 2rem;
 }
 .form-nav-link:hover {
     cursor: not-allowed;
 }
 .form-nav-item-number {
-    border-radius: 100px;
-    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+    border-radius: 100%;
     background-color: var(--red);
     color: var(--white);
     border: none;
-    margin-right: 1rem;
+    height: 30px;
+    width: 30px;
 }
 .form-nav-container {
     display: flex;
     flex-direction: column;
-    height: 100px;
+    border-right: 1px solid var(--off-white);
 }

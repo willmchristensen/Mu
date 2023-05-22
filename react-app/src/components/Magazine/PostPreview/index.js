@@ -14,9 +14,12 @@ const PostPreview = ({event, post, type}) => {
     let formattedDate = `${day} ${month} ${year}`;
     const time = post ? post.createdAt.substring(11,16)  : event.createdAt.substring(11,16);
     const sentence = post ? post.description.split('.')[0].trim() : event.description.split('.')[0].trim();
+    const postPreview = (type == 'post' || type == 'news') ? 'dark-post-preview-container' : 'post-preview-container';
+    const postPreviewTitle = (type == 'post' || type == 'news') ? 'dark-post-preview-title' : 'post-preview-title';
+    const sliceOfDescription = type == 'popular' ? "light-slice-of-description" : "slice-of-description";
 
     return (
-        <div className="post-preview-container">
+        <div className={postPreview}>
             {
                 type == 'large' && <div className="time-type">
                     <div className="time">
@@ -52,7 +55,7 @@ const PostPreview = ({event, post, type}) => {
                 </div>
             }
             <div className={textClass}>
-                <div className="post-preview-title">
+                <div className={postPreviewTitle}>
                     {
                         post ?
                         <NavLink
@@ -73,9 +76,11 @@ const PostPreview = ({event, post, type}) => {
                     }
                 </div>
                 <div className="post-preview-description">
-                    <span className="slice-of-description">
-                        {type !== 'main-event-content' && sentence}
-                    </span>
+                    <div className="description">
+                        <span className={sliceOfDescription}>
+                            {type !== 'main-event-content' && sentence}
+                        </span>
+                    </div>
                     {
                         event &&
                         <div className='dynamic-location-content'>

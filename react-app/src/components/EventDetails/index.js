@@ -9,6 +9,8 @@ import EditEventPage from '../EditEventPage';
 import PageHeader from '../PageHeader';
 import ShareButtons from '../ShareButtons';
 import ExtraLargeImage from './ExtraLargeImage';
+import ContentHeader from '../ContentHeader';
+//  TODO: ticket pricing components 
 const EventDetails = () => {
     const {eventId} = useParams();
     const history = useHistory();
@@ -106,7 +108,8 @@ const EventDetails = () => {
                                 </div>
                                 <div className="interested">
                                     <button className="oval-button">
-                                        interested
+                                        <i class="fas fa-user-plus"></i>
+                                        Interested
                                     </button>
                                 </div>
                             </div>
@@ -125,7 +128,7 @@ const EventDetails = () => {
                         } */}
                     </div>
                     {/* TODO: ticket pricing components */}
-                    <div className="tickets">
+                    {/* <div className="tickets">
                         <p>tickets availability text</p>
                         <div className="ticket-price-tiers">
                             <div className="ticket-price-tier">
@@ -169,14 +172,12 @@ const EventDetails = () => {
                                 </span>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="lineup">
                         <div className="lineup-header">
-                            <div className="header">
-                                / LINEUP
-                            </div>
+                            <ContentHeader content={"LINEUP"} />
                             <div className="event-share">
-                                <ShareButtons orientation={'row'} />
+                                <ShareButtons orientation={'row'}  type='dark'/>
                             </div>
                         </div>
                         <div className="lineup-artists">
@@ -229,7 +230,7 @@ const EventDetails = () => {
                                     </div>
                                     <div className="event-quad-footer-item">
                                         <span>Do you have a question about the event?</span>
-                                        <button className="subheader-button">Contact the promoter</button>
+                                        <a className="subheader-button">Contact the promoter</a>
                                     </div>
                                 </div>
                                 <div className="about-resale">
@@ -237,9 +238,9 @@ const EventDetails = () => {
                                     <p>
                                         The event is at event.ticketStatus and the  
                                         <span>
-                                            <button className="subheader-button">
+                                            <a className="subheader-button">
                                                  resale que is event.resaleStatus.
-                                            </button>
+                                            </a>
                                         </span>
                                     </p>
                                     

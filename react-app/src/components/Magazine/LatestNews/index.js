@@ -11,9 +11,7 @@ const LatestNews = ({posts}) => {
     return (
         <div className="latest-news-container">
             <ContentHeader content={'Latest news'} />
-            <div className="large-news-card-container">
-                <LargeNewsCard post={singlePost}/> 
-            </div>
+            <LargeNewsCard post={singlePost}/> 
             <NewsContentArea posts={posts} />
         </div>
     )

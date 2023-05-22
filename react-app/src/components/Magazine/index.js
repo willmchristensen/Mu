@@ -21,41 +21,43 @@ const Magazine = () => {
     },[])
 
     return (
-        <div className="magazine-wrapper">
+        <>
             <PageHeader header={'Magazine'} subheader={'Interviews, films, news and more from the industry.'}/>
-            <div className="magazine-container">
-                <div className="magazine-page-one">
-                    {/* TODO: local resource of every page's header data */}
-                    <div className="m-p-section">
-                        <LatestNews posts={allPosts}/>
-                        <PopularNews posts={allPosts.reverse()}/>
+            <div className="magazine-wrapper">
+                <div className="magazine-container">
+                    <div className="magazine-page-one">
+                        {/* TODO: local resource of every page's header data */}
+                        <div className="m-p-section">
+                            <LatestNews posts={allPosts}/>
+                            <PopularNews posts={allPosts.reverse()}/>
+                        </div>
                     </div>
+                    <ContentHeader content={'Latest features'}/>
+                    <div className="latest features">
+                        <PostContent posts={allPosts.slice(0,3)}/>
+                    </div>
+                    <AreaButton area={'features'} />
+                    <ContentHeader content={'Latest Film'}/>
+                    <div className="latest film">
+                        <iframe width="821" height="450" src="https://www.youtube.com/embed/1Ee1TWHoCRM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div className="film-text">
+                        <h2>title</h2>
+                        <p>description</p>
+                    </div>
+                    <AreaButton area={'film'} />
+                    <ContentHeader content={'RA Exchange'}/>
+                    <div className="ra-exchange">
+                        <SquarePostCardArea posts={allPosts}/>
+                    </div>
+                    <AreaButton area={"exchanges"} />
+                    <div className="series">
+                        <Series posts={allPosts}/>
+                    </div>
+                    {/* TODO: add news sections with daily headers */}
                 </div>
-                <ContentHeader content={'Latest features'}/>
-                <div className="latest features">
-                    <PostContent posts={allPosts.slice(0,3)}/>
-                </div>
-                <AreaButton area={'features'} />
-                <ContentHeader content={'Latest Film'}/>
-                <div className="latest film">
-                    <iframe width="821" height="450" src="https://www.youtube.com/embed/1Ee1TWHoCRM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div className="film-text">
-                    <h2>title</h2>
-                    <p>description</p>
-                </div>
-                <AreaButton area={'film'} />
-                <ContentHeader content={'RA Exchange'}/>
-                <div className="ra-exchange">
-                    <SquarePostCardArea posts={allPosts}/>
-                </div>
-                <AreaButton area={"exchanges"} />
-                <div className="series">
-                    <Series posts={allPosts}/>
-                </div>
-                {/* TODO: add news sections with daily headers */}
             </div>
-        </div>
+        </>
     )
 
 }
