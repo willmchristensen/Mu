@@ -5,7 +5,7 @@ const PostPreview = ({event, post, type}) => {
     // conditional rendering a descriptive component for a variety of content cards.
     if(!post && !event) return null
     // classes----------
-    const dynamicTitle = type === 'large' ? 'big-title' : 'post-title';
+    const dynamicTitle = type === 'large' ? 'big-title' : (type === 'popular' || type === 'main-event-content') ? 'popular-title' :'post-title';
     const textClass = type === 'news' ?  "post-preview-text" : "news-preview-container";
     // data-----------
     const options = { day: 'numeric', month: 'long', year: 'numeric'}
@@ -17,7 +17,7 @@ const PostPreview = ({event, post, type}) => {
     const postPreview = (type == 'post' || type == 'news') ? 'dark-post-preview-container' : 'post-preview-container';
     const postPreviewTitle = (type == 'post' || type == 'news') ? 'dark-post-preview-title' : 'post-preview-title';
     const sliceOfDescription = type == 'popular' ? "light-slice-of-description" : "slice-of-description";
-
+    // TODO: location and attending content: divs for each item and uniform margin around both
     return (
         <div className={postPreview}>
             {

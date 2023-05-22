@@ -5,7 +5,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 7%;
 }
 .event-details-subheader{
     display: flex;
@@ -13,7 +12,8 @@
     margin-top: 3rem;
 }
 .event-details {
-    width: 75%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 .event-details-subheader-section{
     display: flex;
@@ -45,7 +45,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 75%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 .lineup-header{
     margin-top: 4rem;
@@ -78,11 +79,14 @@
 .lineup-button { 
     font-size: 2rem;
     margin-bottom: 1rem;
-    width: 20%;
     color: var(--white);
 }
-.lineup-button:hover { 
+/* .lineup-button:hover { 
     cursor: not-allowed;
+} */
+.lineup-button-text:hover { 
+    cursor: pointer;
+    color: var(--red);
 }
 .event-quad-footer {
     margin-top: 5rem;

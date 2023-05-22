@@ -7,15 +7,23 @@
     color: var(--white);
     background-color: var(--black);
 }
-/* .secondary-nav-container  > *{
-    background-color: var(--black);
+.secondary-nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
 }
-.nav-section{
-    background-color: var(--black);
-}*/
-.nav-section-two {
-
+.secondary-nav-section{
+    display: flex;
+    align-items: center;
+    justify-content:center;
 }
 .filter-by-text {
     font-size: .8rem;
+}
+.slash-bruh{
+    height: 150%;
+    display: flex;
+    border-right: 1px solid var(--grey);
+    transform: rotate(45deg);
+    margin-right: 3rem;
 }

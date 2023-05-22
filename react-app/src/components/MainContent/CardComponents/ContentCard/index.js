@@ -9,13 +9,8 @@ const ContentCard = ({event}) => {
     return(
         <div className='content'>
             <div className="content-containers">
-                <NavLink
-                    to={`/events/${event.id}`}
-                >
-                    <ImageCard
-                        image={event.imageUrl}
-                    >
-                    </ImageCard>
+                <NavLink to={`/events/${event.id}`}>
+                    <ImageCard image={event.imageUrl} />
                 </NavLink>
                 <PostPreview event={event} type={'main-event-content'} />
             </div>

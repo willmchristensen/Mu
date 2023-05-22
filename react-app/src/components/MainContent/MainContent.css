@@ -8,7 +8,7 @@
 .main-content{
     display: flex;
     flex-direction: column;
-    width: 75%;
+    width: 80%;
     margin-top: 2rem;
 }
 .main-content-area{
@@ -37,6 +37,7 @@
 .popular-content-button > a {
     margin-top: 2rem;
     margin-bottom: 2rem;
+    margin-right: 0rem;
 }
 .popular-header-container {
     display: flex;

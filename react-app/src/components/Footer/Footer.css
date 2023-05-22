@@ -1,6 +1,9 @@
 .footer-container{
     background-color: var(--red);
 }
+.footer-wrapper { 
+    width: 80%;
+}
 .footer-nav {
     margin: 1rem;
 }
@@ -49,4 +52,7 @@
 }
 .footer-logo > a > i:hover{
     color: var(--black);
+}
+.footer-share-buttons { 
+    display: flex;
 }

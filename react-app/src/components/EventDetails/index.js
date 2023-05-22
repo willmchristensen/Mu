@@ -44,235 +44,235 @@ const EventDetails = () => {
     if(!event) return null;
 
     return (
-            <div className="single-event-container">
-                <PageHeader header={event.title} subheader={event.description} />
-                <div className="event-details-container">
-                    {/* conditional rendering of delete button */}
-                    {/* TODO: event date and time  */}
-                    <div className="event-details">
-                        {
-                            sessionUser && event.ownerId === sessionUser.id && 
-                            <>
-                                <button
-                                    className='oval-button'
-                                    onClick={handleDelete}
-                                >delete</button>
-                                <OpenModalButton
-                                    className='oval-button'
-                                    buttonText="Edit Event"
-                                    modalComponent={<EditEventPage event={event}/>}
-                                />
-                            </>
-                        }
-                        <div className="location">
-                            <i class="fas fa-flag-usa"></i>
-                            <span>Location</span>
-                            <i class="fas fa-circle"></i>
-                            <span>Events</span>
+        <div className="single-event-container">
+            <PageHeader header={event.title} subheader={event.description} />
+            <div className="event-details-container">
+                {/* conditional rendering of delete button */}
+                {/* TODO: event date and time  */}
+                <div className="event-details">
+                    {
+                        sessionUser && event.ownerId === sessionUser.id && 
+                        <>
+                            <button
+                                className='oval-button'
+                                onClick={handleDelete}
+                            >delete</button>
+                            <OpenModalButton
+                                className='oval-button'
+                                buttonText="Edit Event"
+                                modalComponent={<EditEventPage event={event}/>}
+                            />
+                        </>
+                    }
+                    <div className="location">
+                        <i class="fas fa-flag-usa"></i>
+                        <span>Location</span>
+                        <i class="fas fa-circle"></i>
+                        <span>Events</span>
+                    </div>
+                    <div className="event-details-titles">
+                        <h2>{event.title}:</h2>
+                        <h2>{event.description}</h2>
+                    </div>
+                    <div className="event-details-subheader">
+                        <div className="event-details-subheader-section">
+                            <span>Venue</span>
+                            <button className="subheader-button">
+                                TBA - {event.location}
+                            </button>
                         </div>
-                        <div className="event-details-titles">
-                            <h2>{event.title}:</h2>
-                            <h2>{event.description}</h2>
+                        <div className="event-details-subheader-section">
+                            <span>Venue</span>
+                            <button className="subheader-button">
+                                {/* {event.location.split(',')[0]} */}
+                                {event.location}
+                            </button>
                         </div>
-                        <div className="event-details-subheader">
-                            <div className="event-details-subheader-section">
-                                <span>Venue</span>
-                                <button className="subheader-button">
-                                    TBA - {event.location}
-                                </button>
+                        <div className="event-details-subheader-section">
+                            <span>Date</span>
+                            <button className="subheader-button">
+                                {formattedDate}
+                            </button>
+                            <span>{time} - {time}</span>
+                        </div>
+                        <div className="event-details-subheader-section">
+                            <span>Promoters</span>
+                            <button className="subheader-button">
+                                event.promoters
+                            </button>
+                        </div>
+                        <div className="event-details-subheader-section">
+                            <div className="event-attendees">
+                                <p>attending</p>
+                                {attendees.length}
                             </div>
-                            <div className="event-details-subheader-section">
-                                <span>Venue</span>
-                                <button className="subheader-button">
-                                    {/* {event.location.split(',')[0]} */}
-                                    {event.location}
+                            <div className="interested">
+                                <button className="oval-button">
+                                    <i class="fas fa-user-plus"></i>
+                                    Interested
                                 </button>
-                            </div>
-                            <div className="event-details-subheader-section">
-                                <span>Date</span>
-                                <button className="subheader-button">
-                                    {formattedDate}
-                                </button>
-                                <span>{time} - {time}</span>
-                            </div>
-                            <div className="event-details-subheader-section">
-                                <span>Promoters</span>
-                                <button className="subheader-button">
-                                    event.promoters
-                                </button>
-                            </div>
-                            <div className="event-details-subheader-section">
-                                <div className="event-attendees">
-                                    <p>attending</p>
-                                    {attendees.length}
-                                </div>
-                                <div className="interested">
-                                    <button className="oval-button">
-                                        <i class="fas fa-user-plus"></i>
-                                        Interested
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="event-artists">
-                        {/* <h3 className="event-artists-title">
-                            / Lineup
-                        </h3>
+                </div>
+                <div className="event-artists">
+                    {/* <h3 className="event-artists-title">
+                        / Lineup
+                    </h3>
+                    {
+                        artists.map(a => {
+                            return (
+                                <p>{a}</p>
+                            )
+                        })
+                    } */}
+                </div>
+                {/* TODO: ticket pricing components */}
+                {/* <div className="tickets">
+                    <p>tickets availability text</p>
+                    <div className="ticket-price-tiers">
+                        <div className="ticket-price-tier">
+                            <span>
+                                Early bird
+                            </span>
+                            <span>
+                                $1.11
+                            </span>
+                        </div>
+                        <div className="ticket-price-tier">
+                            <span>
+                                1st release
+                            </span>
+                            <span>
+                                $11.11
+                            </span>
+                        </div>
+                        <div className="ticket-price-tier">
+                            <span>
+                                2nd release
+                            </span>
+                            <span>
+                                $22.22
+                            </span>
+                        </div>
+                        <div className="ticket-price-tier">
+                            <span>
+                                3rd release
+                            </span>
+                            <span>
+                                $33.33  
+                            </span>
+                        </div>
+                        <div className="ticket-price-tier">
+                            <span>
+                                4th release
+                            </span>
+                            <span>
+                                $44.44
+                            </span>
+                        </div>
+                    </div>
+                </div> */}
+                <div className="lineup">
+                    <div className="lineup-header">
+                        <ContentHeader content={"LINEUP"} />
+                        <div className="event-share">
+                            <ShareButtons orientation={'row'}  type='dark'/>
+                        </div>
+                    </div>
+                    <div className="lineup-artists">
                         {
                             artists.map(a => {
                                 return (
-                                    <p>{a}</p>
+                                    <NavLink
+                                        className='lineup-button'
+                                        // to={`artists/${artist.id}`}
+                                        to={`/events/${event.id}`}
+                                    ><span className='lineup-button-text'>{a}</span></NavLink>
                                 )
                             })
-                        } */}
+                        }
                     </div>
-                    {/* TODO: ticket pricing components */}
-                    {/* <div className="tickets">
-                        <p>tickets availability text</p>
-                        <div className="ticket-price-tiers">
-                            <div className="ticket-price-tier">
-                                <span>
-                                    Early bird
-                                </span>
-                                <span>
-                                    $1.11
-                                </span>
+                    {/* TODO: genres */}
+                    <span>Genre</span>
+                    <button className="square-button">
+                        event.genre
+                    </button>
+                    <div className="lineup-details">
+                        <div className="lineup-details-section">
+                            <div className="event-description">
+                                <p>{event.description}</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At vel architecto porro aperiam officiis pariatur cupiditate ducimus nemo? Iste quibusdam explicabo ea ullam quasi culpa rem sed sapiente quia fugiat!
+                                </p>
+                                <p>Cupiditate molestiae, obcaecati beatae unde pariatur atque temporibus inventore eum provident fugit deserunt facilis quae repellendus. Placeat reprehenderit nulla vitae aspernatur eius est debitis voluptas non! Magni placeat itaque molestiae.</p>
                             </div>
-                            <div className="ticket-price-tier">
-                                <span>
-                                    1st release
-                                </span>
-                                <span>
-                                    $11.11
-                                </span>
-                            </div>
-                            <div className="ticket-price-tier">
-                                <span>
-                                    2nd release
-                                </span>
-                                <span>
-                                    $22.22
-                                </span>
-                            </div>
-                            <div className="ticket-price-tier">
-                                <span>
-                                    3rd release
-                                </span>
-                                <span>
-                                    $33.33  
-                                </span>
-                            </div>
-                            <div className="ticket-price-tier">
-                                <span>
-                                    4th release
-                                </span>
-                                <span>
-                                    $44.44
-                                </span>
-                            </div>
-                        </div>
-                    </div> */}
-                    <div className="lineup">
-                        <div className="lineup-header">
-                            <ContentHeader content={"LINEUP"} />
-                            <div className="event-share">
-                                <ShareButtons orientation={'row'}  type='dark'/>
-                            </div>
-                        </div>
-                        <div className="lineup-artists">
-                            {
-                                artists.map(a => {
-                                    return (
-                                        <NavLink
-                                            className='lineup-button'
-                                            // to={`artists/${artist.id}`}
-                                            to={`/events/${event.id}`}
-                                        >{a}</NavLink>
-                                    )
-                                })
-                            }
-                        </div>
-                        {/* TODO: genres */}
-                        <span>Genre</span>
-                        <button className="square-button">
-                            event.genre
-                        </button>
-                        <div className="lineup-details">
-                            <div className="lineup-details-section">
-                                <div className="event-description">
-                                    <p>{event.description}</p>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At vel architecto porro aperiam officiis pariatur cupiditate ducimus nemo? Iste quibusdam explicabo ea ullam quasi culpa rem sed sapiente quia fugiat!
-                                    </p>
-                                    <p>Cupiditate molestiae, obcaecati beatae unde pariatur atque temporibus inventore eum provident fugit deserunt facilis quae repellendus. Placeat reprehenderit nulla vitae aspernatur eius est debitis voluptas non! Magni placeat itaque molestiae.</p>
+                            <div className="event-quad-footer">
+                                <div className="event-quad-footer-item">
+                                    <span>Event admin</span>
+                                    <NavLink 
+                                        className="subheader-button"
+                                        to={`/events/${event.id}/edit`}
+                                    >
+                                        Update this event
+                                    </NavLink>
                                 </div>
-                                <div className="event-quad-footer">
-                                    <div className="event-quad-footer-item">
-                                        <span>Event admin</span>
-                                        <NavLink 
-                                            className="subheader-button"
-                                            to={`/events/${event.id}/edit`}
-                                        >
-                                            Update this event
-                                        </NavLink>
-                                    </div>
-                                    <div className="event-quad-footer-item">
-                                        <span>Last updated</span>
-                                        <span>2 months ago</span>
-                                    </div>
-                                    <div className="event-quad-footer-item">
-                                        <span>Cost</span>
-                                        <span>30-50</span>
-                                    </div>
-                                    <div className="event-quad-footer-item">
-                                       <span>Min. age</span>
-                                       <span>21+</span>
-                                    </div>
-                                    <div className="event-quad-footer-item">
-                                        <span>Do you have a question about the event?</span>
-                                        <a className="subheader-button">Contact the promoter</a>
-                                    </div>
+                                <div className="event-quad-footer-item">
+                                    <span>Last updated</span>
+                                    <span>2 months ago</span>
                                 </div>
-                                <div className="about-resale">
-                                    <h2>About resale</h2>
-                                    <p>
-                                        The event is at event.ticketStatus and the  
-                                        <span>
-                                            <a className="subheader-button">
-                                                 resale que is event.resaleStatus.
-                                            </a>
-                                        </span>
-                                    </p>
-                                    
-                                    <p>
-                                        Check back to purchase tickets.
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos rem optio harum voluptatem vero enim.
-                                    </p>
+                                <div className="event-quad-footer-item">
+                                    <span>Cost</span>
+                                    <span>30-50</span>
+                                </div>
+                                <div className="event-quad-footer-item">
+                                    <span>Min. age</span>
+                                    <span>21+</span>
+                                </div>
+                                <div className="event-quad-footer-item">
+                                    <span>Do you have a question about the event?</span>
+                                    <a className="subheader-button">Contact the promoter</a>
                                 </div>
                             </div>
-                            <div className="event-image-xl">
-                                <ExtraLargeImage src={event.imageUrl} />
+                            <div className="about-resale">
+                                <h2>About resale</h2>
+                                <p>
+                                    The event is at event.ticketStatus and the  
+                                    <span>
+                                        <a className="subheader-button">
+                                                resale que is event.resaleStatus.
+                                        </a>
+                                    </span>
+                                </p>
+                                
+                                <p>
+                                    Check back to purchase tickets.
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos rem optio harum voluptatem vero enim.
+                                </p>
                             </div>
                         </div>
-                        <div className="event-advertisements">
-                            {/* TODO: add event host profiles */}
-                            <div className="event-advertisements-header">
-                                <h3>/ MORE ON {event.title}</h3>
-                                <div className="promoter-buttons flex-row">
-                                    <button className="oval-button">
-                                        follow
-                                    </button>
-                                    <button className="oval-button">
-                                        view profile
-                                    </button>
-                                </div>
+                        <div className="event-image-xl">
+                            <ExtraLargeImage src={event.imageUrl} />
+                        </div>
+                    </div>
+                    <div className="event-advertisements">
+                        {/* TODO: add event host profiles */}
+                        <div className="event-advertisements-header">
+                            <h3>/ MORE ON {event.title}</h3>
+                            <div className="promoter-buttons flex-row">
+                                <button className="oval-button">
+                                    follow
+                                </button>
+                                <button className="oval-button">
+                                    view profile
+                                </button>
                             </div>
                         </div>
                     </div>
-                </div> 
-            </div>
+                </div>
+            </div> 
+        </div>
     )
 }
 

@@ -14,11 +14,11 @@ const PageHeader = ({header,subheader}) => {
                 </div>
             </div>
             <div className="page-subheader-container">
-            <div className="page-subheader-wrapper">
-                <div className="sub-header">
-                    <h2>{subheader.split('.')[0]}</h2>
+                <div className="page-subheader-wrapper">
+                    <div className="sub-header">
+                        <h2>{subheader.split('.')[0]}</h2>
+                    </div>
                 </div>
-            </div>
             </div>
         </>
     )

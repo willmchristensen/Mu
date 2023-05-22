@@ -46,10 +46,12 @@ h2 {
     border: none;
     padding: .5rem 3rem;
     width: 4rem;
-    margin: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.oval-button-container { 
+    margin-left: 2rem;
 }
 .oval-button > i {
     font-size: .79rem;
@@ -80,6 +82,7 @@ h2 {
 }
 .subheader-button:hover{
     cursor: not-allowed;
+    color: var(--red);
 }
 .slash {
     font-weight: normal;
@@ -130,7 +133,7 @@ a {
     text-decoration: none;
 }
 a:hover{
-    color: var(--red);
+    cursor: default;
 }
 .flex-row{
     display: flex;
