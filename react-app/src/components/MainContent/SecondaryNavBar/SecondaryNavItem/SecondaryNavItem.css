@@ -1,0 +1,31 @@
+.secondary-nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 1rem;
+    background-color: var(--black);
+    color: var(--off-white);
+    text-decoration: none;
+}
+.secondary-nav-item:hover{
+    border-bottom: .1rem solid var(--red);
+}
+.secondary-nav-item-container{
+    width: 9rem;
+    height: 4rem;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo > a{
+    color: whitesmoke;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+.logo > a:hover {
+    color: var(--black);
+}

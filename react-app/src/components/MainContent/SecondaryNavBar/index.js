@@ -1,13 +1,12 @@
 import './SecondaryNavBar.css'
-import NavItem from '../../NavBar/NavItem';
+import SecondaryNavItem from './SecondaryNavItem';
 import { useSelector } from 'react-redux';
 
 const SecondaryNavBar = ({ isLoaded }) => {
     const sessionUser = useSelector(state => state.session.user);
 
     return(
-        <div className="secondary-nav-container white-background">
-            <nav className="nav">
+            <nav className="secondary-nav-container">
                 {/* <div className="nav-section-two">
                     <div className="logo">
                         <NavLink
@@ -18,30 +17,30 @@ const SecondaryNavBar = ({ isLoaded }) => {
                     </div>
                 </div> */}
                 <div className="nav-section">
-                    <NavItem
+                    <SecondaryNavItem
                         url={"/overview"}
                         text={"Overview"}
                     >
-                    </NavItem>
-                    <NavItem
+                    </SecondaryNavItem>
+                    <SecondaryNavItem
                         url={"/events"}
                         text={"events"}
                     >
-                    </NavItem>
-                    <NavItem
+                    </SecondaryNavItem>
+                    <SecondaryNavItem
                         url={"/for-you"}
                         text={"For you"}
                     >
-                    </NavItem>
-                    <NavItem
+                    </SecondaryNavItem>
+                    <SecondaryNavItem
                         url={"/just-announced"}
                         text={"Just announced"}
                     >
-                    </NavItem>
+                    </SecondaryNavItem>
                 </div>
                 <div className="nav-section-two">
                     <i class="fas fa-filter"></i>
-                    Filter by:
+                    <span className='filter-by-text'>Filter by:</span>
                     <button className="oval-button">
                         Genre
                     </button>
@@ -53,7 +52,6 @@ const SecondaryNavBar = ({ isLoaded }) => {
                     </button>
                 </div>
             </nav>
-        </div>
     )
 
 }

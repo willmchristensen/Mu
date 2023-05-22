@@ -1,8 +1,21 @@
 .secondary-nav-container{
-    height: 1rem;
-    background-color: var(--red);
     display: flex;
-    padding: 1rem;
+    padding: .2rem;
+    width: 100%;
     align-items: center;
     justify-content:center;
+    color: var(--white);
+    background-color: var(--black);
+}
+/* .secondary-nav-container  > *{
+    background-color: var(--black);
+}
+.nav-section{
+    background-color: var(--black);
+}*/
+.nav-section-two {
+
+}
+.filter-by-text {
+    font-size: .8rem;
 }

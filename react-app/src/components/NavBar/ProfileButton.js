@@ -44,44 +44,84 @@ function ProfileButton({ user }) {
   const closeMenu = () => setShowMenu(false);
 
   return (
+    // <>
+    // <div className="navbar-profile-button">
+    //   <button onClick={openMenu}>
+    //     {/* TODO: my account open modal > login/register */}
+    //     {/* <p>My Account</p> */}
+    //     <i className="fas fa-user-circle" />
+    //   </button>
+    // </div>
+    // <div className="navbar-profile-dropdown-container">
+    //   <ul className={ulClassName} ref={ulRef}>
+    //     {user ? (
+    //       <>
+    //         <li>{user.username}</li>
+    //         <li>{user.email}</li>
+    //         <li>
+    //           <button
+    //             onClick={handleLogout}
+    //             id="profile-dropdown-logout-button"
+    //           >Log Out</button>
+    //         </li>
+    //       </>
+    //     ) : (
+    //       <>
+    //         <OpenModalButton
+    //           buttonText="Log In"
+    //           onItemClick={closeMenu}
+    //           modalComponent={<MyAccountModal />}
+    //         />
+    //         <button onClick={handleClick}>Demo User</button>
+    //         <OpenModalButton
+    //           buttonText="Sign Up"
+    //           onItemClick={closeMenu}
+    //           modalComponent={<SignupFormModal />}
+    //         />
+    //       </>
+    //     )}
+    //   </ul>
+    // </div>
+    // </>
     <>
     <div className="navbar-profile-button">
-      <button onClick={openMenu}>
-        {/* TODO: my account open modal > login/register */}
-        {/* <p>My Account</p> */}
-        <i className="fas fa-user-circle" />
-      </button>
+      <OpenModalButton
+        onClick={openMenu}
+        modalComponent={<MyAccountModal/>}
+        buttonText={<i className="fas fa-user-circle" />}
+      >
+      </OpenModalButton>
     </div>
-      <div className="navbar-profile-dropdown-container">
-        <ul className={ulClassName} ref={ulRef}>
-          {user ? (
-            <>
-              <li>{user.username}</li>
-              <li>{user.email}</li>
-              <li>
-                <button 
-                  onClick={handleLogout}
-                  id="profile-dropdown-logout-button"
-                >Log Out</button>
-              </li>
-            </>
-          ) : (
-            <>
-              <OpenModalButton
-                buttonText="Log In"
-                onItemClick={closeMenu}
-                modalComponent={<MyAccountModal />}
-              />
-              <button onClick={handleClick}>Demo User</button>
-              <OpenModalButton
-                buttonText="Sign Up"
-                onItemClick={closeMenu}
-                modalComponent={<SignupFormModal />}
-              />
-            </>
-          )}
-        </ul>
-      </div>
+    <div className="navbar-profile-dropdown-container">
+      <ul className={ulClassName} ref={ulRef}>
+        {user ? (
+          <>
+            <li>{user.username}</li>
+            <li>{user.email}</li>
+            <li>
+              <button
+                onClick={handleLogout}
+                id="profile-dropdown-logout-button"
+              >Log Out</button>
+            </li>
+          </>
+        ) : (
+          <>
+            <OpenModalButton
+              buttonText="Log In"
+              onItemClick={closeMenu}
+              modalComponent={<MyAccountModal />}
+            />
+            <button onClick={handleClick}>Demo User</button>
+            <OpenModalButton
+              buttonText="Sign Up"
+              onItemClick={closeMenu}
+              modalComponent={<SignupFormModal />}
+            />
+          </>
+        )}
+      </ul>
+    </div>
     </>
   );
 }

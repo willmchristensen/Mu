@@ -10,8 +10,12 @@
 }
 .single-post-title {
     margin-bottom: .5rem;
+
 }
-.single-post-sentence { 
+.single-post-title > *{
+    color: var(--off-white);
+}
+.single-post-sentence {
     word-break: break-all;
 }
 .post-sentence{
@@ -24,15 +28,24 @@
 .attending-content {
     margin-top: .2rem;
 }
-.location > i { 
+.location > i {
     color: var(--red);
     margin-right: .5rem;
 }
-.location-content > i{ 
+.location-content > i{
     margin-right: .5rem;
     color: var(--red);
 }
 .attending-content > i{
     color: var(--red);
     margin-right: .5rem;
+}
+.news-preview-container{
+    color: var(--off-white);
+}
+.location-text {
+    color: var(--off-white);
+}
+.post-preview-container > * {
+    color: var(--white);
 }

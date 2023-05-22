@@ -42,46 +42,46 @@ const MainContent = () => {
                     <h1>Location</h1>
                 </div>
             </div>
-            <div className="secondary-nav-bar-container">
-                <SecondaryNavBar/>
-            </div>
-            <div className="main-content">
-                <div className="popular-header-container">
-                    <div className="popular-content-header">
-                        <ContentHeader content={'Popular'} />
+            <SecondaryNavBar/>
+            <div className="popular-container">
+                <div className="main-content">
+                    <div className="popular-header-container">
+                        <div className="popular-content-header">
+                            <ContentHeader content={'Popular'} />
+                        </div>
+                        <div className="popular-content-button">
+                            {sessionUser &&
+                                <NavLink
+                                    className="oval-button-area"
+                                    to={'/create-event'}
+                                >
+                                    create event
+                                </NavLink>
+                            }
+                        </div>
                     </div>
-                    <div className="popular-content-button">
-                        {sessionUser &&
-                            <NavLink
-                                className="oval-button-area"
-                                to={'/create-event'}
-                            >
-                                create event
-                            </NavLink>
+                    <div className="popular-content">
+                        <PopularCardArea events={recentEvents}/>
+                    </div>
+                    {/* TODO:
+                        sections of content separated by days??! dont have much data tho
+                        make a slash similar to RA
+                    */}
+                    <div className="main-content-area">
+                        <div className='content-header'>
+                            <h2>
+                                {formattedDate}
+                            </h2>
+                        </div>
+                        {
+                            eventsArray.map(event => {
+                                return (
+                                    <ContentCard event={event}>
+                                    </ContentCard>
+                                )
+                            })
                         }
                     </div>
-                </div>
-                <div className="popular-content">
-                    <PopularCardArea events={recentEvents}/>
-                </div>
-                {/* TODO:
-                    sections of content separated by days??! dont have much data tho
-                    make a slash similar to RA
-                */}
-                <div className="main-content-area">
-                    <div className='content-header'>
-                        <h2>
-                            {formattedDate}
-                        </h2>
-                    </div>
-                    {
-                        eventsArray.map(event => {
-                            return (
-                                <ContentCard event={event}>
-                                </ContentCard>
-                            )
-                        })
-                    }
                 </div>
             </div>
         </div>
