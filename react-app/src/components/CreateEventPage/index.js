@@ -29,6 +29,11 @@ const CreateEventPage = () => {
 		history.push('/')
     }
 
+	const handleCancel = (e) => {
+		e.preventDefault();
+		history.push('/events');
+	}
+
     return(
         <div className="create-event-container">
 			<FormNavBar pages={['Lineup', 'Details', 'Profile', 'Promotional']}/>
@@ -127,7 +132,7 @@ const CreateEventPage = () => {
 					</div>
 				</div> */}
 				<div className="form-buttons">
-					<button type='cancel' className='oval-button-area small-button'>Cancel</button>
+					<button type='cancel' className='oval-button-area small-button' onClick={handleCancel}>Cancel</button>
 					<button type='submit' className='oval-button-area small-button'>submit</button>
 				</div>
             </form>

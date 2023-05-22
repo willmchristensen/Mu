@@ -1,10 +1,8 @@
-/* .post-image-container > img{
-    height: 370px;
-    width: 320px;
-} */
-
 .post-image-container > img{
-    height: 420px;
-    width: 315px;
-    /* width: 30vw; */
+    height: 450px;
+}
+@media screen and (max-width: 1024px) {
+    .post-image-container > img{
+        height: 320px;
+    }
 }

@@ -52,8 +52,8 @@ const PostPreview = ({event, post, type}) => {
                     {year}
                 </div>
             }
-            {/* { 
-                type == 'main-event-content' && 
+            {/* {
+                type == 'main-event-content' &&
                 <div className="main-event-content">
                     {}
                 </div>
@@ -61,7 +61,7 @@ const PostPreview = ({event, post, type}) => {
             <div className={textClass}>
                 <div className="single-post-title">
                     {
-                        post ? 
+                        post ?
                         <NavLink
                             to={`posts/${post.id}`}
                         >
@@ -71,7 +71,7 @@ const PostPreview = ({event, post, type}) => {
                         </NavLink>
                         :
                         <NavLink
-                            to={`posts/${event.id}`}
+                            to={`events/${event.id}`}
                         >
                             <h3 className={dynamicTitle}>
                                 {event.title}
@@ -84,9 +84,9 @@ const PostPreview = ({event, post, type}) => {
                         {sentence}
                     </span>
                     {
-                        event && 
+                        event &&
                         <p className='location'>
-                            
+
                             {
                                 event && type!== 'popular' &&
                                 <>
@@ -94,11 +94,11 @@ const PostPreview = ({event, post, type}) => {
                                     <span className='location-text'>
                                         {event.location}
                                     </span>
-                                </> 
+                                </>
                             }
                             {
                                 event && type == 'popular' &&
-                                <div className="location-container">
+                                <div className="location-container-small">
                                     <div className="location-content">
                                             <i class="fas fa-map-pin"></i>
                                             <span className='location-text'>
@@ -112,7 +112,7 @@ const PostPreview = ({event, post, type}) => {
                                         </span>
                                     </div>
                                 </div>
-                                    
+
                             }
                         </p>
                     }

@@ -1,7 +1,7 @@
 .main-content{
     display: flex;
     flex-direction: column;
-    width: 83%;
+    width: 75%;
     background-color: var(--white);
 }
 .main-content-container {
@@ -31,11 +31,27 @@
     align-items: center;
     justify-content: center;
 }
-.popular-content-button > a { 
+.popular-content-button > a {
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
 .popular-header-container {
     display: flex;
     justify-content: space-between;
+}
+.location-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+    height: 20rem;
+}
+.location-header {
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+}
+.location-header > i {
+    margin-right: 4rem;
+    color: var(--red);
 }

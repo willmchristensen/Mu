@@ -11,7 +11,7 @@ const PostCard = ({post}) => {
             className="post-content-card"
         >
             <NavLink
-                className="post-content-container"
+                // className="post-content-container"
                 to={`/posts/${post.id}`}
             >
                 <PostCardImage
@@ -19,9 +19,7 @@ const PostCard = ({post}) => {
                 >
                 </PostCardImage>
             </NavLink>
-            <div className="post-content-container text">
-                <PostPreview post={post} type={"exchange"}/>
-            </div>
+            <PostPreview post={post} type={"exchange"}/>
         </div>
     )
 

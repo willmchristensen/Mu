@@ -6,17 +6,12 @@
     margin-bottom: 0.5rem;
     width: 75%;
 }
-/* .content:hover{
-    filter: brightness(99%);
-} */
 .content-containers {
     margin-top: 1rem;
     display: flex;
 }
 .content-container{
     display: flex;
-    /* align-items: center; */
-    width: 100%;
     flex-direction: column;
 }
 .text{

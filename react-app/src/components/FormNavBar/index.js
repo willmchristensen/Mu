@@ -11,6 +11,7 @@ const FormNavBar = ({pages}) => {
                             <div className="form-nav-item">
                                 <span className='form-nav-item-number'>{pages.indexOf(page)}</span>
                                 <NavLink
+                                    className='form-nav-link'
                                     to={`form/${page}`}
                                 >{page}</NavLink>
                             </div>

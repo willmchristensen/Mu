@@ -10,6 +10,9 @@
 .form-nav-item{
     margin: 1rem;
 }
+.form-nav-link:hover {
+    cursor: not-allowed;
+}
 .form-nav-item-number {
     border-radius: 100px;
     padding: .5rem;

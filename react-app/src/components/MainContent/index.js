@@ -36,9 +36,11 @@ const MainContent = () => {
 
     return(
         <div className="main-content-container">
-            <div className="location">
-                <i class="fas fa-flag-usa"></i>
-                <h1>Location</h1>
+            <div className="location-container">
+                <div className="location-header">
+                    <i class="fas fa-flag-usa"></i>
+                    <h1>Location</h1>
+                </div>
             </div>
             <div className="secondary-nav-bar-container">
                 <SecondaryNavBar/>
