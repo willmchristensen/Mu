@@ -1,5 +1,6 @@
 import './NewsContentCard.css'
-import ImageCard from '../ImageCard'
+// import ImageCard from '../ImageCard'
+import NewsImageCard from '../NewsImageCard'
 import { NavLink } from 'react-router-dom/cjs/react-router-dom'
 import PostPreview from '../../../PostPreview'
 const NewsContentCard = ({post}) => {
@@ -13,7 +14,7 @@ const NewsContentCard = ({post}) => {
             <NavLink
                 to={`/posts/${post.id}`}
             >
-                <ImageCard image={post.imageUrl}/>
+                <NewsImageCard image={post.imageUrl}/>
             </NavLink>
             <PostPreview post={post} type={'news'}/>
         </div>

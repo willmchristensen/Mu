@@ -81,7 +81,16 @@ const PostPreview = ({event, post, type}) => {
                     }
                 </div>
                 <div className="single-post-sentence">
-                    {sentence}
+                    <span className="post-sentence">
+                        {sentence}
+                    </span>
+                    {
+                        event && 
+                        <p className='location'>
+                            <i class="fas fa-map-pin"></i>
+                            {event?.location}
+                        </p>
+                    }
                 </div>
             </div>
 

@@ -3,7 +3,7 @@ import './PopularCardImage.css'
 const PopularCardImage = ({image}) => {
 
     return (
-        <div className="image-container">
+        <div className="popular-image-container">
             <img 
                 src={image} 
                 alt="basic-alt" 

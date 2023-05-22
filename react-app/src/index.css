@@ -101,9 +101,11 @@ p{
 .location{
     display: flex;
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
-.location > *{
-    margin: .5rem;
+.location > i{
+    margin-left: 0;
 }
 .title {
     font-size: 1.2rem;

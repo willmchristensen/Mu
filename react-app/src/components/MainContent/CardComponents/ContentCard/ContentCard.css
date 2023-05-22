@@ -1,19 +1,21 @@
 .content{
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-top: .01rem solid var(--grey);
-    border-bottom: .01rem solid var(--grey);
-    padding-bottom: .5rem;
-    padding-top: .5rem;
-    width: 50%;
+    border-top: 0.01rem solid var(--grey);
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 75%;
 }
 /* .content:hover{
     filter: brightness(99%);
 } */
+.content-containers {
+    margin-top: 1rem;
+    display: flex;
+}
 .content-container{
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     width: 100%;
     flex-direction: column;
 }

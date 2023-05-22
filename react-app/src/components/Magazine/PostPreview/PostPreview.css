@@ -17,3 +17,7 @@
 .single-post-sentence { 
     word-break: break-all;
 }
+.post-sentence{
+    height: .1rem;
+    overflow: hidden;
+}

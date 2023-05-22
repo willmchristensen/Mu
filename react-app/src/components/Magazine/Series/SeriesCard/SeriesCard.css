@@ -2,6 +2,3 @@
     cursor: not-allowed;
     background-color: var(--off-white);
 }
-.series-card-container > img {
-    object-fit: cover;
-}

@@ -1,7 +1,7 @@
-import './ImageCard.css'
+import './NewsImageCard.css'
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min'
 
-const ImageCard = ({image}) => {
+const NewsImageCard = ({image}) => {
 
     return (
         <div className="news-image-container">
@@ -14,4 +14,4 @@ const ImageCard = ({image}) => {
 
 }
 
-export default ImageCard
+export default NewsImageCard

@@ -9,36 +9,38 @@ const ContentCard = ({event}) => {
 
     return(
         <div className='content'>
-            <div className="content-container"
-            >
-                <NavLink
-                    to={`/events/${event.id}`}
+            <div className="content-containers">
+                <div className="content-container"
                 >
-                    <ImageCard
-                        image={event.imageUrl}
+                    <NavLink
+                        to={`/events/${event.id}`}
                     >
-                    </ImageCard>
-                </NavLink>
-            </div>  
-            <div className="content-container text">
-                    <PostPreview event={event} type={'main-event-content'} />
-                    {/* <h2 className="content-primary-text">
-                        {event.title}
-                    </h2>
-                    <p
-                        className='primary-text'
+                        <ImageCard
+                            image={event.imageUrl}
+                        >
+                        </ImageCard>
+                    </NavLink>
+                </div>  
+                <div className="content-container text">
+                        <PostPreview event={event} type={'main-event-content'} />
+                        {/* <h2 className="content-primary-text">
+                            {event.title}
+                        </h2>
+                        <p
+                            className='primary-text'
+                        >
+                            {event.description}
+                        </p>
+                        <p className='location'>
+                            <i class="fas fa-map-pin"></i>
+                            {event.location}
+                        </p> */}
+                    {/* <p
+                        className='support-text'
                     >
-                        {event.description}
-                    </p>
-                    <p className='location'>
-                        <i class="fas fa-map-pin"></i>
-                        {event.location}
+                            {seed.question.details}
                     </p> */}
-                {/* <p
-                    className='support-text'
-                >
-                        {seed.question.details}
-                </p> */}
+                </div>
             </div>
         </div>
     )
