@@ -22,11 +22,11 @@ const MainContent = () => {
         dispatch(getAllEvents())
     }, [])
 
-    
+
     // guard clauses---
     // if (!sessionUser) return <Redirect to="/" />
     if(!eventsArray.length) return null;
-    
+
     // date------
     let date = new Date();
     const options = { weekday: 'short', day: 'numeric', month: 'long' }
@@ -49,19 +49,21 @@ const MainContent = () => {
                         <ContentHeader content={'Popular'} />
                     </div>
                     <div className="popular-content-button">
-                        <NavLink 
-                            className="oval-button-area"
-                            to={'/create-event'}
-                        >
-                            create event
-                        </NavLink>  
+                        {sessionUser &&
+                            <NavLink
+                                className="oval-button-area"
+                                to={'/create-event'}
+                            >
+                                create event
+                            </NavLink>
+                        }
                     </div>
                 </div>
                 <div className="popular-content">
                     <PopularCardArea events={recentEvents}/>
                 </div>
-                {/* TODO: 
-                    sections of content separated by days??! dont have much data tho  
+                {/* TODO:
+                    sections of content separated by days??! dont have much data tho
                     make a slash similar to RA
                 */}
                 <div className="main-content-area">

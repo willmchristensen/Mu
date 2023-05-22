@@ -1,4 +1,6 @@
 import './CreateEventPage.css';
+import ContentHeader from '../ContentHeader';
+import FormNavBar from '../FormNavBar';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createEvent } from '../../store/event';
@@ -12,7 +14,7 @@ const CreateEventPage = () => {
 	const currentUser = useSelector((state) => state.session.user)
 	const dispatch = useDispatch();
 	const history = useHistory();
-		
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = {
@@ -29,63 +31,105 @@ const CreateEventPage = () => {
 
     return(
         <div className="create-event-container">
-            <form onSubmit={handleSubmit}>
-                <div className="form-row">
-                    <label>
-					title
-					<input
-						type="text"
-						value={title}
-						onChange={(e) => setTitle(e.target.value)}
-						required
-					/>
-				</label>
-                </div>
-                <div className="form-row">
-                    <label>
-					description
-					<input
-						type="text"
-						value={description}
-						onChange={(e) => setDescription(e.target.value)}
-						required
-					/>
-				</label>
-                </div>
-                <div className="form-row">
-                    <label>
-						date
+			<FormNavBar pages={['Lineup', 'Details', 'Profile', 'Promotional']}/>
+            <form
+				className='create-event-form'
+				onSubmit={handleSubmit}
+			>
+				<ContentHeader content={'Create Event'} />
+				<div className="form-section">
+					<ContentHeader content={'Basic'} />
+					<div className="form-row-column">
+						<label>
+						title
+						</label>
 						<input
-							type="date"
-							value={date}
-							onChange={(e) => setDate(e.target.value)}
+							type="text"
+							value={title}
+							onChange={(e) => setTitle(e.target.value)}
 							required
 						/>
-					</label>
-                </div>
-                <div className="form-row">
-                    <label>
-					location
-					<input
-						type="text"
-						value={location}
-						onChange={(e) => setLocation(e.target.value)}
-						required
-					/>
-				</label>
-                </div>
-                <div className="form-row">
-                    <label>
-					imageUrl
-					<input
-						type="text"
-						value={imageUrl}
-						onChange={(e) => setImageUrl(e.target.value)}
-						required
-					/>
-				</label>
-                </div>
-                <button type='submit'>submit</button>
+					</div>
+					<div className="form-row-column">
+						<label>
+						description
+						</label>
+						<input
+							type="text"
+							value={description}
+							onChange={(e) => setDescription(e.target.value)}
+							required
+						/>
+					</div>
+					<div className="form-row-column">
+						<label>
+							date
+						</label>
+							<input
+								type="date"
+								value={date}
+								onChange={(e) => setDate(e.target.value)}
+								required
+							/>
+					</div>
+					<div className="form-row-column">
+						<label>
+						location
+						</label>
+						<input
+							type="text"
+							value={location}
+							onChange={(e) => setLocation(e.target.value)}
+							required
+						/>
+					</div>
+					<div className="form-row-column">
+						<label>
+						imageUrl
+						</label>
+						<input
+							type="text"
+							value={imageUrl}
+							onChange={(e) => setImageUrl(e.target.value)}
+							required
+						/>
+					</div>
+				</div>
+				<div className="form-section">
+					<ContentHeader content={'Venue'} />
+					<div className="form-row">
+						<label htmlFor="">Venue Known</label>
+						<input type="radio" />
+						<label htmlFor="">Venue TBA</label>
+						<input type="radio" />
+					</div>
+					<div className="form-row">
+						<label htmlFor="">Venue</label>
+						<input type="text" />
+					</div>
+				</div>
+				{/* <div className="form-section">
+					<div className="form-row">
+						<label htmlFor=""></label>
+						<input type="text" />
+					</div>
+					<div className="form-row">
+						<label htmlFor=""></label>
+						<input type="text" />
+					</div>
+					<div className="form-row">
+						<label htmlFor=""></label>
+						<input type="text" />
+					</div>
+					<div className="form-row">
+						<label htmlFor=""></label>
+						<input type="text" />
+					</div>
+				</div> */}
+				<div className="form-buttons">
+					<button type='cancel' className='oval-button-area small-button'>Cancel</button>
+					<button type='submit' className='oval-button-area small-button'>submit</button>
+				</div>
             </form>
         </div>
     )
