@@ -44,7 +44,6 @@ const PostDetails = () => {
     return (
         <div className="post-details-container">
             <PageHeader header={post.title.split(' ')[0] + ' ' + post.title.split(' ')[1]} subheader={post.description} />
-            {console.log(post)}
             { sessionUser && post.userId === sessionUser.id &&
                 <>
                     <button

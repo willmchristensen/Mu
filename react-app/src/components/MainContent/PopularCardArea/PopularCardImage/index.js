@@ -1,15 +1,19 @@
 import './PopularCardImage.css'
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min'
 
-const PopularCardImage = ({image}) => {
+const PopularCardImage = ({event}) => {
 
     return (
-        <div className="popular-image-container">
+        <NavLink 
+            className="popular-image-container"
+            to={`/events/${event.id}`}
+        >
             <img 
-                src={image} 
+                src={event.imageUrl} 
                 alt="basic-alt" 
                 className='post-image'
             />
-        </div> 
+        </NavLink> 
     )
 
 }

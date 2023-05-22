@@ -21,3 +21,9 @@
     height: .1rem;
     overflow: hidden;
 }
+.location {
+    margin-top: .5rem;
+}
+.location > i { 
+    margin-right: .5rem;
+}

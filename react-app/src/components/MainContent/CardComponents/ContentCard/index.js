@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom/cjs/react-router-dom'
 import PostPreview from '../../../Magazine/PostPreview'
 
 const ContentCard = ({event}) => {
-    // console.log(event)
     if(!event) return null;
 
     return(

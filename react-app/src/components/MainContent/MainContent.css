@@ -22,9 +22,8 @@
     align-items: center;
 }
 .popular-content {
-    display: flex;
-    align-items: center;
-    height: 30%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
     gap: 1rem;
 }
 .popular-content-button{

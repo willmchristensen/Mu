@@ -7,7 +7,7 @@ const editTicket = (details) => ({
     details
 })
 export const editOneTicket = (payload) => async (dispatch) => {
-    console.log('payload in Edit Thunk', payload);
+    // console.log('payload in Edit Thunk', payload);
     const { item, ticketId } = payload;
     const response = await fetch(`/api/tickets/${ticketId}`, {
         method: "PUT",
@@ -104,7 +104,7 @@ export const getOneTicket = (id) => async (dispatch) => {
 }
 
 export const createTicket = (details) => async (dispatch) => {
-    console.log('--------------details in CREATE Ticket THUNK--------------', details)
+    // console.log('--------------details in CREATE Ticket THUNK--------------', details)
     const response = await fetch("/api/tickets/new", {
         method: "POST",
         headers: {
@@ -117,7 +117,7 @@ export const createTicket = (details) => async (dispatch) => {
     });
     if (response.ok) {
         const data = await response.json();
-        console.log('RESPONSE OK: this is response.json:', data)
+        // console.log('RESPONSE OK: this is response.json:', data)
         dispatch(makeTicket(data.ticket));
         return data;
     } else if (response.status < 500) {

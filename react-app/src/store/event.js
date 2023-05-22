@@ -54,7 +54,7 @@ export const getOneEvent = (id) => async (dispatch) => {
 }
 
 export const createEvent = (details) => async (dispatch) => {
-    console.log('--------------details in CREATE EVENT THUNK--------------', details)
+    // console.log('--------------details in CREATE EVENT THUNK--------------', details)
     const response = await fetch("/api/events/new", {
         method: "POST",
         headers: {
@@ -67,7 +67,7 @@ export const createEvent = (details) => async (dispatch) => {
     });
     if (response.ok) {
         const data = await response.json();
-        console.log('RESPONSE OK: this is response.json:', data)
+        // console.log('RESPONSE OK: this is response.json:', data)
         dispatch(postEvent(data.event));
         return data;
     } else if (response.status < 500) {
@@ -83,7 +83,7 @@ export const createEvent = (details) => async (dispatch) => {
 }
 
 export const editOneEvent = (payload) => async (dispatch) => {
-    console.log('payload in Edit Thunk', payload);
+    // console.log('payload in Edit Thunk', payload);
     const { item, eventId } = payload;
     const response = await fetch(`/api/events/${eventId}`, {
         method: "PUT",
@@ -158,7 +158,7 @@ const eventReducer = (state = initialState, action) => {
             return newState;
         }
         case POST_EVENT: {
-            console.log('------------------------------ACTION', action);
+            // console.log('------------------------------ACTION', action);
             const newState = { ...state, events: { ...action.payload } };
             newState.events[action.payload.id] = action.payload;
             return newState;

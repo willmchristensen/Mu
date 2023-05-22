@@ -5,9 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { editOneEvent } from '../../store/event';
 
 const EditEventPage = ({event}) => {
-	console.log('------------------------------event.date',event.date);
 	const bruh = new Date(event.date)
-	console.log(bruh)
     const [title,setTitle] = useState(event.title);
     const [description,setDescription] = useState(event.description);
     const [date,setDate] = useState(bruh.toISOString().split('T')[0]);

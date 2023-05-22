@@ -4,7 +4,6 @@ import {NavLink} from 'react-router-dom';
 const PostPreview = ({event, post, type}) => {
     // conditional rendering a descriptive component for a variety of content cards.
     if(!post && !event) return null
-    console.log(event)
     // classes----------
     const dynamicTitle = type === 'large' ? 'big-title' : 'post-title';
     const textClass = type === 'news' ?  "post-preview-text" : "news-preview-container";
@@ -42,7 +41,7 @@ const PostPreview = ({event, post, type}) => {
                 </div>
             }
             {
-                type == 'exchange' && <div className="time-type">
+                type == 'exchange' || type == 'popular' && <div className="time-type">
                     <div className="time">
                         {formattedDate}
                     </div>
@@ -87,8 +86,25 @@ const PostPreview = ({event, post, type}) => {
                     {
                         event && 
                         <p className='location'>
-                            <i class="fas fa-map-pin"></i>
-                            {event?.location}
+                            
+                            {
+                                event && type!== 'popular' &&
+                                <>
+                                    <i class="fas fa-map-pin"></i>
+                                    <span className='location-text'>
+                                        {event.location}
+                                    </span>
+                                </> 
+                            }
+                            {
+                                event && type == 'popular' &&
+                                <>
+                                    <i class="fas fa-map-pin"></i>
+                                    <span className='location-text'>
+                                        {`TBA ${event.location.split(',')[0]}`}
+                                    </span>
+                                </> 
+                            }
                         </p>
                     }
                 </div>

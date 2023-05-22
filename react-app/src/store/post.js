@@ -7,7 +7,7 @@ const editPost = (details) => ({
     details
 })
 export const editOnePost = (payload) => async (dispatch) => {
-    console.log('payload in Edit Thunk', payload);
+    // console.log('payload in Edit Thunk', payload);
     const { item, postId } = payload;
     const response = await fetch(`/api/posts/${postId}`, {
         method: "PUT",
@@ -104,7 +104,7 @@ export const getOnePost = (id) => async (dispatch) => {
 }
 
 export const createPost = (details) => async (dispatch) => {
-    console.log('--------------details in CREATE Post THUNK--------------', details)
+    // console.log('--------------details in CREATE Post THUNK--------------', details)
     const response = await fetch("/api/posts/new", {
         method: "POST",
         headers: {
@@ -117,7 +117,7 @@ export const createPost = (details) => async (dispatch) => {
     });
     if (response.ok) {
         const data = await response.json();
-        console.log('RESPONSE OK: this is response.json:', data)
+        // console.log('RESPONSE OK: this is response.json:', data)
         dispatch(makePost(data.post));
         return data;
     } else if (response.status < 500) {
