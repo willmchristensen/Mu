@@ -1,5 +1,7 @@
 .footer-container{
     background-color: var(--red);
+    display: flex;
+    justify-content: center;
 }
 .footer-wrapper { 
     width: 80%;

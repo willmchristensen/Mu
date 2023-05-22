@@ -103,14 +103,18 @@ const EventDetails = () => {
                         </div>
                         <div className="event-details-subheader-section">
                             <div className="event-attendees">
-                                <p>attending</p>
-                                {attendees.length}
-                            </div>
-                            <div className="interested">
-                                <button className="oval-button">
-                                    <i class="fas fa-user-plus"></i>
-                                    Interested
-                                </button>
+                                <p>Interested</p>
+                                <div className="attendees-length-container">
+                                    <span className="attendees-length">
+                                        {attendees.length}
+                                    </span>
+                                    <div className="interested">
+                                        <button className="oval-button">
+                                            <i class="fas fa-user-plus"></i>
+                                            Interested
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -50,17 +50,17 @@ h2 {
     align-items: center;
     justify-content: center;
 }
+.oval-button:hover{
+    background-color: var(--off-white);
+    color:var(--black);
+    cursor: not-allowed;
+}
 .oval-button-container { 
     margin-left: 2rem;
 }
 .oval-button > i {
     font-size: .79rem;
     margin-right: .2rem; 
-}
-.oval-button:hover{
-    background-color: var(--off-white);
-    color:var(--black);
-    cursor: pointer;
 }
 .square-button {
     width: 10%;

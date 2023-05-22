@@ -30,6 +30,12 @@
     display: grid;
     grid-template-columns: repeat(2,1fr);
 }
+.attendees-length-container {
+    display: flex;
+}
+.attendees-length { 
+    margin-right: 5rem;
+}
 .tickets {
     width: 50%;
 }
