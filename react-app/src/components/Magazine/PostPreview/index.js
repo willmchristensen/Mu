@@ -9,7 +9,7 @@ const PostPreview = ({event, post, type}) => {
     const textClass = type === 'news' ?  "post-preview-text" : "news-preview-container";
     // data-----------
     const options = { day: 'numeric', month: 'long', year: 'numeric'}
-    let date = post ? new Date(post.createdAt).toLocaleDateString('en-US', options)  : new Date(event.createdAt).toLocaleDateString('en-US', options);
+    let date = post ? new Date(post.createdAt).toLocaleDateString('en-US', options)  : new Date(event.date).toLocaleDateString('en-US', options);
     let [month, day, year] = date.split(' ');
     let formattedDate = `${day} ${month} ${year}`;
     const time = post ? post.createdAt.substring(11,16)  : event.createdAt.substring(11,16);
