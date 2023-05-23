@@ -11,21 +11,23 @@
 .nav-item:hover{
     color: var(--black);
     filter: brightness(90%);
+    cursor: pointer;
 }
 .nav-item-container{
-    width: 9rem;
-    height: 4rem;
+    margin-right: 3rem;
 }
 .logo{
+    height: 100px;
+    width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .logo > a{
     color: whitesmoke;
-    margin-right: 1rem;
     font-size: 1.5rem;
 }
 .logo > a:hover {
     color: var(--black);
+    cursor: pointer;
 }

@@ -9,6 +9,9 @@
     color: var(--off-white);
     text-decoration: none;
 }
+.secondary-nav-item:hover {
+    cursor: not-allowed;
+}
 .secondary-nav-item-container:hover{
     border-bottom: .1rem solid var(--red);
 }

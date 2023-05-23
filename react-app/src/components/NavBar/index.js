@@ -10,7 +10,7 @@ const NavBar = ({ isLoaded }) => {
     return(
         <div className="nav-container white-background">
             <nav className="nav">
-                <div className="nav-section-two">
+                <div className="nav-section">
                     <div className="logo">
                         <NavLink
                             to='/'
@@ -18,8 +18,6 @@ const NavBar = ({ isLoaded }) => {
                             <i class="fas fa-yin-yang"></i>
                         </NavLink>
                     </div>
-                </div>
-                <div className="nav-section">
                     <NavItem
                         url={"/events"}
                         text={"Events"}
@@ -35,11 +33,11 @@ const NavBar = ({ isLoaded }) => {
                         text={"Magazine"}
                     >
                     </NavItem>
-                    <NavItem
+                    {/* <NavItem
                         url={"/festivals"}
                         text={"Festivals"}
                     >
-                    </NavItem>
+                    </NavItem> */}
                     <i class="fas fa-search"></i>
                     {/* TODO: SEARCH */}
                     {/* <OpenModalButton

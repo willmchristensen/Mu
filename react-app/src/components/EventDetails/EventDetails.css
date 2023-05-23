@@ -91,7 +91,7 @@
     cursor: not-allowed;
 } */
 .lineup-button-text:hover { 
-    cursor: pointer;
+    cursor: not-allowed;
     color: var(--red);
 }
 .event-quad-footer {
