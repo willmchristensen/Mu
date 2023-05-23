@@ -29,8 +29,13 @@
     align-items: center;
     justify-content: center;
 }
-.navbar-profile-button {
+.navbar-profile-button-container {
     position: relative;
+}
+.navbar-profile-button > button {
+    border: none;
+    background-color: var(--red);
+    font-size: 1.5rem;
 }
 .fa-user-circle:hover{
     cursor: pointer;

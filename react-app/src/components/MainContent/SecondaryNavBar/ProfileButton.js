@@ -46,7 +46,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-    <div className="navbar-profile-button">
+    <div className="navbar-profile-button-container">
       <button onClick={openMenu}>
         {/* TODO: my account open modal > login/register */}
         {/* <p>My Account</p> */}
@@ -60,7 +60,7 @@ function ProfileButton({ user }) {
               <li>{user.username}</li>
               <li>{user.email}</li>
               <li>
-                <button 
+                <button
                   onClick={handleLogout}
                   id="profile-dropdown-logout-button"
                 >Log Out</button>
