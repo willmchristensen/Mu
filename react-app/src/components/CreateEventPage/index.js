@@ -11,11 +11,11 @@ import { getOneEvent } from '../../store/event';
 const CreateEventPage = () => {
 	const {eventId} = useParams();
 	const event = useSelector(state => state.event.singleEvent);
-    const [title,setTitle] = useState(eventId ? event.title : '');
-    const [description,setDescription] = useState(eventId ? event.description: '');
-    const [date,setDate] = useState(eventId ? event.date : '');
-    const [location,setLocation] = useState(eventId ? event.location : '');
-    const [imageUrl,setImageUrl] = useState(eventId ? event.imageUrl : '');
+    const [title,setTitle] = useState();
+    const [description,setDescription] = useState();
+    const [date,setDate] = useState();
+    const [location,setLocation] = useState();
+    const [imageUrl,setImageUrl] = useState();
 	const [formTitle, setFormTitle] = useState('');
 
 	const currentUser = useSelector((state) => state.session.user)
@@ -54,6 +54,16 @@ const CreateEventPage = () => {
 			setFormTitle('Create Event')
 		}
     },[dispatch, eventId])
+// ---------------THIS IS SO COOL-----------------------------
+	useEffect(()=>{
+		if(eventId && event) {
+			setDate(event.date ? new Date(event.date).toISOString().split('T')[0] : '')
+			setTitle(event.title)
+			setDescription(event.description)
+			setLocation(event.location)
+			setImageUrl(event.imageUrl)
+		}
+    },[eventId, event])
 
     return(
         <div className="create-event-container">

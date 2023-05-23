@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { editOneEvent } from '../../store/event';
 
 const EditEventPage = ({event}) => {
-	const bruh = new Date(event.date)
-    const [title,setTitle] = useState(event.title);
+	const [title,setTitle] = useState(event.title);
     const [description,setDescription] = useState(event.description);
-    const [date,setDate] = useState(bruh.toISOString().split('T')[0]);
+	const bruh = new Date(event.date)
+	const formFriendlyDate = bruh.toISOString().split('T')[0];
+    const [date,setDate] = useState(formFriendlyDate);
     const [location,setLocation] = useState(event.location);
     const [imageUrl,setImageUrl] = useState(event.imageUrl);
 	const currentUser = useSelector((state) => state.session.user)
