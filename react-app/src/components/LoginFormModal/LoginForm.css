@@ -1,4 +1,5 @@
 .login-title {
+    color: var(--white);
     margin-bottom: 1rem;
 }
 .login-form-row {
@@ -11,6 +12,10 @@
      margin-left: .1rem;
      margin-bottom: .7rem;
      border-radius: 40px;
-     background-color: var(--grey);
+     background-color: var(--off-black);
+     color: var(--white);
      border: none;
+}
+.login-form-row > label { 
+    color: var(--white);
 }

@@ -24,7 +24,7 @@ function LoginFormModal() {
 
   return (
     <>
-      <h1 className="login-title title">Login to your account</h1>
+      <h2 className="login-title">Login to your account</h2>
       <form onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (

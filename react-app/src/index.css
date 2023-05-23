@@ -28,6 +28,17 @@ h2 {
     border-bottom: .01rem solid var(--grey);
 }
 /* buttons-------------------------------------------- */
+.oval-button.inverse {
+    font-size: .7rem;
+    border: .15rem solid var(--red);
+    background-color: var(--black);
+    color: var(--white);
+}
+.oval-button.inverse:hover {
+    background-color: var(--red);
+    color: white;
+    cursor: pointer;
+}
 .oval-button.negative {
     background-color: var(--off-white);
     color: var(--black);
@@ -44,7 +55,7 @@ h2 {
     background-color: var(--red);
     border-radius: 70rem;
     border: none;
-    padding: .5rem 3rem;
+    padding: .7rem 3rem;
     width: 4rem;
     display: flex;
     align-items: center;
@@ -131,6 +142,7 @@ input {
 a {
     color: var(--black);
     text-decoration: none;
+    letter-spacing: .02rem;
 }
 a:hover{
     cursor: default;
@@ -144,4 +156,7 @@ h1{
 }
 .fas fa-flag {
     font-size: 4rem;
+}
+button { 
+    letter-spacing: .02rem;
 }

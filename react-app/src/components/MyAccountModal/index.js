@@ -2,22 +2,21 @@ import './MyAccountModal.css';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import OpenModalButton from '../OpenModalButton';
-import {NavLink} from 'react-router-dom';
+import {NavLink, useHistory} from 'react-router-dom';
 import { useModal } from '../../context/Modal';
 
 const MyAccountModal = () => {
 
     const {closeModal} = useModal();
+    const history = useHistory();
+    const handleClick = (e) => {
+        e.preventDefault();
+        history.push('/register')
+        closeModal()
+    }
 
     return (
         <div className="modal-wrapper">
-            <div className="x">
-                <button
-                    onClick={closeModal}
-                >
-                    x
-                </button>
-            </div>
             <div className="my-account-modal-container">
                 <div className="log-in">
                     <LoginFormModal></LoginFormModal>
@@ -25,13 +24,20 @@ const MyAccountModal = () => {
                 <div className="vl"></div>
                 <div className="sign-up">
                     <div className="sign-up-top-row">
-                        <h2 className='sign-up-title title'>New to Mu? Sign up</h2>
+                        <h2 className='sign-up-title'>New to Mu? Sign up</h2>
+                        <button
+                            className='x'
+                            onClick={closeModal}
+                        >
+                            <i class="fas fa-times"></i>
+                        </button>
                     </div>
-                    <NavLink
-                        to='/register'
+                    <button
+                        className='oval-button inverse'
+                        onClick={handleClick}
                     >
-                        breh
-                    </NavLink>
+                        Register
+                    </button>
                 </div>
             </div>
         </div>

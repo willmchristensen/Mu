@@ -56,16 +56,12 @@ const EventDetails = () => {
                             <button
                                 className='oval-button'
                                 onClick={handleDelete}
-                            >delete</button>
-                            {/* <OpenModalButton
-                                className='oval-button'
-                                buttonText="Edit Event"
-                                modalComponent={<EditEventPage event={event}/>}
-                            /> */}
+                            >Delete</button>
                             <NavLink
+                                className='oval-button'
                                 to={`/events/${event.id}/edit`}
                             >
-                                Edit bruh
+                                Edit
                             </NavLink>
                         </>
                     }
@@ -218,12 +214,17 @@ const EventDetails = () => {
                             <div className="event-quad-footer">
                                 <div className="event-quad-footer-item">
                                     <span>Event admin</span>
-                                    <NavLink
-                                        className="subheader-button"
-                                        to={`/events/${event.id}/edit`}
-                                    >
-                                        Update this event
-                                    </NavLink>
+                                    {
+                                        sessionUser && event.ownerId === sessionUser.id &&
+                                        <>
+                                            <NavLink
+                                                className="subheader-button"
+                                                to={`/events/${event.id}/edit`}
+                                            >
+                                                Update this event
+                                            </NavLink>
+                                        </>
+                                    }   
                                 </div>
                                 <div className="event-quad-footer-item">
                                     <span>Last updated</span>
