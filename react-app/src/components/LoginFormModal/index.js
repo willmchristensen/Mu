@@ -57,7 +57,7 @@ function LoginFormModal() {
           type="submit"
           className="oval-button"
         >
-          Log In
+          Login
         </button>
       </form>
     </>

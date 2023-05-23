@@ -116,3 +116,10 @@
 .about-resale > p {
     margin-bottom: 1rem;
 }
+.event-buttons-container { 
+    display: flex;
+    width: 30%;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}

@@ -52,7 +52,7 @@ const EventDetails = () => {
                 <div className="event-details">
                     {
                         sessionUser && event.ownerId === sessionUser.id &&
-                        <>
+                        <div className='event-buttons-container'>
                             <button
                                 className='oval-button'
                                 onClick={handleDelete}
@@ -63,7 +63,7 @@ const EventDetails = () => {
                             >
                                 Edit
                             </NavLink>
-                        </>
+                        </div>
                     }
                     <div className="location">
                         <i class="fas fa-flag-usa"></i>

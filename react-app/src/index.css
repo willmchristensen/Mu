@@ -14,6 +14,7 @@ p{
 h2 { 
     word-break: keep-all;
     overflow: hidden;
+    color: white;
 }
 :root {
     --red: #ff4848;
@@ -64,7 +65,8 @@ h2 {
 .oval-button:hover{
     background-color: var(--off-white);
     color:var(--black);
-    cursor: not-allowed;
+    cursor: pointer;
+    /* cursor: not-allowed; */
 }
 .oval-button-container { 
     margin-left: 2rem;

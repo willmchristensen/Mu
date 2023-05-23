@@ -4,12 +4,14 @@ import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import SignupFormModal from "../SignupFormModal";
 import { login } from '../../store/session'
+import { useModal } from "../../context/Modal";
 import MyAccountModal from "../MyAccountModal";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
+  const { closeModal } = useModal();
 
   const openMenu = () => {
     if (showMenu) return;
@@ -33,6 +35,7 @@ function ProfileButton({ user }) {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
+    closeModal()
   };
 
   const handleClick = async (e) => {
@@ -48,11 +51,11 @@ function ProfileButton({ user }) {
       <div className="navbar-profile-button">
         <OpenModalButton
           onClick={openMenu}
-          modalComponent={<MyAccountModal />}
+          modalComponent={<MyAccountModal user={user} logout={handleLogout}/>} 
           buttonText={<i className="fas fa-user-circle" />}
         />
       </div>
-      <div className="navbar-profile-dropdown-container">
+      {/* <div className="navbar-profile-dropdown-container">
         <ul className={ulClassName} ref={ulRef}>
           {user ?
             (
@@ -84,7 +87,7 @@ function ProfileButton({ user }) {
               </>
             )}
         </ul>
-      </div>
+      </div> */}
     </>
   );
 }
