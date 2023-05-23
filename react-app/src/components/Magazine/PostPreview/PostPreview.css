@@ -11,8 +11,12 @@
     color: var(--black);
 }
 .time-type{
+    color: var(--black);
     display: flex;
     align-items: center;
+}
+.time-type > * { 
+    margin-right: .5rem;
 }
 .fa-circle{
     font-size: .3rem;
@@ -20,6 +24,13 @@
 .big-title {
     font-size: 2rem;
     color: var(--black);
+}
+.fa-circle { 
+    margin-right: .5rem;
+}
+.big-title:hover {
+    cursor: pointer;
+    color: var(--red);
 }
 .post-preview-title {
     margin-bottom: .5rem;
@@ -98,4 +109,8 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+.post-title:hover { 
+    cursor: pointer;
+    color: var(--red);
 }

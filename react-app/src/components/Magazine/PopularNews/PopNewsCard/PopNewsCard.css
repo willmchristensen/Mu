@@ -6,6 +6,7 @@
 .number{
     font-size: 1.8rem;
     margin-right: 1rem;
+    color: var(--grey);
 }
 .popular-news-content{
     display: flex;
@@ -18,4 +19,11 @@
     display: flex;
     padding-top: 15px;
     padding-bottom: 15px;
+}
+.pop-news { 
+    font-weight: 600;
+}
+.pop-news:hover{
+    cursor: pointer;
+    color: var(--red);
 }

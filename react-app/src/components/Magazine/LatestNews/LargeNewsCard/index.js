@@ -5,7 +5,7 @@ const LargeNewsCard = ({post}) => {
     if(!post) return null;
     return (
         <div className="large-news-card">
-            <LargeImageCard image={post.imageUrl}/>
+            <LargeImageCard post={post}/>
             <PostPreview post={post} type={'large'}/>
         </div>
     )
