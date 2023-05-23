@@ -34,7 +34,7 @@ const Footer = () => {
                             </span>
                         </div>
                         <nav className='footer-nav-bar'>
-                            <NavItem  url={'/ra-guide'} text={'Ra Guide'} />
+                            <NavItem  url={'/ra-guide'} text={'RA Guide'} />
                             <NavItem  url={'/ra-scanner'} text={'RA Scanner'} />
                         </nav>
                     </div>
@@ -49,7 +49,9 @@ const Footer = () => {
                     <div className="footer-footer-section-one">
                         <div className="footer-footer-section-one-left">
                             <div className="footer-footer-flag">
-                                <button><i class="fas -usa"></i></button>
+                                <button>
+                                    <i class="fas fa-flag-usa"></i>
+                                </button>
                             </div>
                             <div className="footer-footer-location">
                                 <span>California</span>

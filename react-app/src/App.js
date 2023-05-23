@@ -42,9 +42,9 @@ function App() {
           <Route path="/create-post">
             <CreatePostPage />
           </Route>
-          <Route path="/tickets">
+          {/* <Route path="/tickets">
             <Tickets />
-          </Route> 
+          </Route>  */}
           <Route path="/magazine">
             <Magazine />
           </Route>
