@@ -10,7 +10,7 @@ import PageHeader from '../PageHeader';
 import ShareButtons from '../ShareButtons';
 import ExtraLargeImage from './ExtraLargeImage';
 import ContentHeader from '../ContentHeader';
-//  TODO: ticket pricing components 
+//  TODO: ticket pricing components
 const EventDetails = () => {
     const {eventId} = useParams();
     const history = useHistory();
@@ -51,17 +51,22 @@ const EventDetails = () => {
                 {/* TODO: event date and time  */}
                 <div className="event-details">
                     {
-                        sessionUser && event.ownerId === sessionUser.id && 
+                        sessionUser && event.ownerId === sessionUser.id &&
                         <>
                             <button
                                 className='oval-button'
                                 onClick={handleDelete}
                             >delete</button>
-                            <OpenModalButton
+                            {/* <OpenModalButton
                                 className='oval-button'
                                 buttonText="Edit Event"
                                 modalComponent={<EditEventPage event={event}/>}
-                            />
+                            /> */}
+                            <NavLink
+                                to={`/events/${event.id}/edit`}
+                            >
+                                Edit bruh
+                            </NavLink>
                         </>
                     }
                     <div className="location">
@@ -164,7 +169,7 @@ const EventDetails = () => {
                                 3rd release
                             </span>
                             <span>
-                                $33.33  
+                                $33.33
                             </span>
                         </div>
                         <div className="ticket-price-tier">
@@ -213,7 +218,7 @@ const EventDetails = () => {
                             <div className="event-quad-footer">
                                 <div className="event-quad-footer-item">
                                     <span>Event admin</span>
-                                    <NavLink 
+                                    <NavLink
                                         className="subheader-button"
                                         to={`/events/${event.id}/edit`}
                                     >
@@ -240,14 +245,14 @@ const EventDetails = () => {
                             <div className="about-resale">
                                 <h2>About resale</h2>
                                 <p>
-                                    The event is at event.ticketStatus and the  
+                                    The event is at event.ticketStatus and the
                                     <span>
                                         <a className="subheader-button">
                                                 resale que is event.resaleStatus.
                                         </a>
                                     </span>
                                 </p>
-                                
+
                                 <p>
                                     Check back to purchase tickets.
                                 </p>
@@ -275,7 +280,7 @@ const EventDetails = () => {
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
     )
 }

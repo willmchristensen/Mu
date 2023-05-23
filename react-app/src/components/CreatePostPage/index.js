@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { createPost } from '../../store/post';
 const CreatePostPage = () => {
-    const [title,setTitle] = useState('titletitletitletitletitletitletitle');
-    const [description,setDescription] = useState('descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription');
-    const [type,setType] = useState('Song');
-    const [imageUrl,setImageUrl] = useState('https://archives.bulbagarden.net/media/upload/thumb/7/75/Iris_Dragonite.png/800px-Iris_Dragonite.png');
+    const [title,setTitle] = useState('');
+    const [description,setDescription] = useState('');
+    const [type,setType] = useState('');
+    const [imageUrl,setImageUrl] = useState('');
 	const currentUser = useSelector((state) => state.session.user)
 	const dispatch = useDispatch();
 	const history = useHistory();
@@ -15,7 +15,7 @@ const CreatePostPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = {
-            'title': type,
+            'title': title,
             'description': description,
             'type': type,
             'image_url': imageUrl,

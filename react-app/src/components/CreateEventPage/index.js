@@ -11,32 +11,33 @@ import { getOneEvent } from '../../store/event';
 const CreateEventPage = () => {
 	const {eventId} = useParams();
 	const event = useSelector(state => state.event.singleEvent);
-    const [title,setTitle] = useState(event?.title);
-    const [description,setDescription] = useState(event?.description);
-    const [date,setDate] = useState(event.date);
-    const [location,setLocation] = useState(event?.location);
-    const [imageUrl,setImageUrl] = useState(event?.imageUrl);
+    const [title,setTitle] = useState(eventId ? event.title : '');
+    const [description,setDescription] = useState(eventId ? event.description: '');
+    const [date,setDate] = useState(eventId ? event.date : '');
+    const [location,setLocation] = useState(eventId ? event.location : '');
+    const [imageUrl,setImageUrl] = useState(eventId ? event.imageUrl : '');
 	const [formTitle, setFormTitle] = useState('');
+
 	const currentUser = useSelector((state) => state.session.user)
 	const dispatch = useDispatch();
 	const history = useHistory();
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+		e.preventDefault();
         const data = {
-            'title': title,
+			'title': title,
             'description': description,
             'date': date,
             'location': location,
             'image_url': imageUrl,
 			'owner_id': currentUser.id,
         }
-		const payload = {'eventId':event.id, 'item': data}
+		const payload = {'eventId':eventId, 'item': data}
 		if(eventId){
 			await dispatch(editOneEvent(payload))
 		}else {
 			await dispatch(createEvent(data))
-		} 
+		}
 		history.push('/')
     }
 
@@ -46,8 +47,12 @@ const CreateEventPage = () => {
 	}
 
 	useEffect(()=>{
-        dispatch(getOneEvent(eventId))
-		setFormTitle(eventId ? 'Edit Event' : 'Create Event')
+		if(eventId) {
+			dispatch(getOneEvent(eventId))
+			setFormTitle('Edit Event')
+		}else {
+			setFormTitle('Create Event')
+		}
     },[dispatch, eventId])
 
     return(
@@ -61,7 +66,7 @@ const CreateEventPage = () => {
 				<div className="form-section">
 					<ContentHeader content={'Basic'} />
 					<div className="form-row-column">
-						<label>
+						<label for='title'>
 						title
 						</label>
 						<input
@@ -72,7 +77,7 @@ const CreateEventPage = () => {
 						/>
 					</div>
 					<div className="form-row-column">
-						<label>
+						<label for='description'>
 						description
 						</label>
 						<input
@@ -83,7 +88,7 @@ const CreateEventPage = () => {
 						/>
 					</div>
 					<div className="form-row-column">
-						<label>
+						<label for='date'>
 							date
 						</label>
 							<input
@@ -94,7 +99,7 @@ const CreateEventPage = () => {
 							/>
 					</div>
 					<div className="form-row-column">
-						<label>
+						<label for='location'>
 						location
 						</label>
 						<input
@@ -105,7 +110,7 @@ const CreateEventPage = () => {
 						/>
 					</div>
 					<div className="form-row-column">
-						<label>
+						<label for='imageUrl'>
 						imageUrl
 						</label>
 						<input
@@ -119,34 +124,16 @@ const CreateEventPage = () => {
 				<div className="form-section">
 					<ContentHeader content={'Venue'} />
 					<div className="form-row">
-						<label htmlFor="">Venue Known</label>
+						<label for='venueknown'>Venue Known</label>
 						<input type="radio" />
-						<label htmlFor="">Venue TBA</label>
+						<label form='venuetba'>Venue TBA</label>
 						<input type="radio" />
 					</div>
 					<div className="form-row">
-						<label htmlFor="">Venue</label>
+						<label for='venue'>Venue</label>
 						<input type="text" />
 					</div>
 				</div>
-				{/* <div className="form-section">
-					<div className="form-row">
-						<label htmlFor=""></label>
-						<input type="text" />
-					</div>
-					<div className="form-row">
-						<label htmlFor=""></label>
-						<input type="text" />
-					</div>
-					<div className="form-row">
-						<label htmlFor=""></label>
-						<input type="text" />
-					</div>
-					<div className="form-row">
-						<label htmlFor=""></label>
-						<input type="text" />
-					</div>
-				</div> */}
 				<div className="form-buttons">
 					<button type='cancel' className='oval-button-area small-button' onClick={handleCancel}>Cancel</button>
 					<button type='submit' className='oval-button-area small-button'>submit</button>
