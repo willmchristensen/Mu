@@ -1,13 +1,16 @@
 import './PostCardImage.css'
 
 const PostCardImage = ({image}) => {
-
+    const handleImageError = (e) => {
+        e.target.src = 'https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg';
+    }
     return (
         <div className="post-image-container">
             <img 
-                src={ image ? image : 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/SNice.svg/1200px-SNice.svg.png' } 
+                src={ image } 
                 alt="basic-alt" 
                 className='post-image'
+                onError={handleImageError}
             />
         </div> 
     )

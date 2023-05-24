@@ -10,7 +10,10 @@
     margin: 1rem;
     margin-right: 2rem;
 }
-.form-nav-link:hover {
+.form-nav-link{
+    color: var(--white);
+}
+.form-nav-item:hover {
     cursor: not-allowed;
 }
 .form-nav-item-number {

@@ -1,26 +1,27 @@
-import './PostPreview.css';
+import './EventPreview.css';
 import {NavLink} from 'react-router-dom';
 
-const PostPreview = ({event, post, type}) => {
+const EventPreview = ({event,type}) => {
     // conditional rendering a descriptive component for a variety of content cards.
-    if(!post && !event) return null
+    if(!event) return null
     // classes----------
     const dynamicTitle = type === 'large' ? 'big-title' : (type === 'popular' || type === 'main-event-content') ? 'popular-title' :'post-title';
     const textClass = type === 'news' ?  "post-preview-text" : "news-preview-container";
     // data-----------
     const options = { day: 'numeric', month: 'long', year: 'numeric'}
-    let date = post ? new Date(post.createdAt).toLocaleDateString('en-US', options)  : new Date(event.date).toLocaleDateString('en-US', options);
+    let date = new Date(event?.date).toLocaleDateString('en-US', options);
     let [month, day, year] = date.split(' ');
     let formattedDate = `${day} ${month} ${year}`;
     // console.log('UNDEFINED?',post)
-    const time = post ? post?.createdAt?.substring(11,16)  : event?.createdAt?.substring(11,16);
-    const sentence = post ? post?.description?.split('.')[0].trim() : event?.description?.split('.')[0].trim();
-    const postPreview = (type == 'post' || type == 'news') ? 'dark-post-preview-container' : 'post-preview-container';
-    const postPreviewTitle = (type == 'post' || type == 'news') ? 'dark-post-preview-title' : 'post-preview-title';
+    const time = event?.createdAt?.substring(11,16);
+    const sentence = event?.description?.split('.')[0].trim();
+    const eventPreview = (type == 'post' || type == 'news') ? 'dark-post-preview-container' : 'post-preview-container';
+    const eventPreviewTitle = (type == 'post' || type == 'news') ? 'dark-post-preview-title' : 'post-preview-title';
     const sliceOfDescription = type == 'popular' ? "light-slice-of-description" : "slice-of-description";
     // TODO: location and attending content: divs for each item and uniform margin around both
+    
     return (
-        <div className={postPreview}>
+        <div className={eventPreview}>
             {
                 type == 'large' && <div className="time-type">
                     <div className="time">
@@ -56,22 +57,13 @@ const PostPreview = ({event, post, type}) => {
                 </div>
             }
             <div className={textClass}>
-                <div className={postPreviewTitle}>
+                <div className={eventPreviewTitle}>
                     {
-                        post ?
                         <NavLink
-                            to={`posts/${post.id}`}
+                            to={`events/${event?.id}`}
                         >
                             <h3 className={dynamicTitle}>
-                                {post.title}
-                            </h3>
-                        </NavLink>
-                        :
-                        <NavLink
-                            to={`events/${event.id}`}
-                        >
-                            <h3 className={dynamicTitle}>
-                                {event.title}
+                                {event?.title}
                             </h3>
                         </NavLink>
                     }
@@ -132,4 +124,4 @@ const PostPreview = ({event, post, type}) => {
 
 }
 
-export default PostPreview;
+export default EventPreview;

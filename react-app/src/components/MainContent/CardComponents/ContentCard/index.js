@@ -1,7 +1,8 @@
 import './ContentCard.css'
 import ImageCard from '../ImageCard'
 import { NavLink } from 'react-router-dom/cjs/react-router-dom'
-import PostPreview from '../../../Magazine/PostPreview'
+// import PostPreview from '../../../Magazine/PostPreview'
+import EventPreview from '../../EventPreview'
 
 const ContentCard = ({event}) => {
     if(!event) return null;
@@ -12,7 +13,8 @@ const ContentCard = ({event}) => {
                 <NavLink to={`/events/${event.id}`}>
                     <ImageCard image={event.imageUrl} />
                 </NavLink>
-                <PostPreview event={event} type={'main-event-content'} />
+                {/* <PostPreview event={event} type={'main-event-content'} /> */}
+                <EventPreview event={event} type={'main-event-content'} />
             </div>
         </div>
     )

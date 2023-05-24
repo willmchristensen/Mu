@@ -17,13 +17,16 @@ const CreateEventPage = () => {
     const [location,setLocation] = useState();
     const [imageUrl,setImageUrl] = useState();
 	const [formTitle, setFormTitle] = useState('');
-
+	const [errors, setErrors] = useState({});
+	const [isDisabled, setIsDisabled] = useState(false);
+	const [isSubmitted, setIsSubmitted] = useState(false);
 	const currentUser = useSelector((state) => state.session.user)
 	const dispatch = useDispatch();
 	const history = useHistory();
 
     const handleSubmit = async (e) => {
 		e.preventDefault();
+		setIsSubmitted(true);
         const data = {
 			'title': title,
             'description': description,
@@ -34,11 +37,19 @@ const CreateEventPage = () => {
         }
 		const payload = {'eventId':eventId, 'item': data}
 		if(eventId){
-			await dispatch(editOneEvent(payload))
+			if(!title || !description || !imageUrl || !date || !location){
+				setIsDisabled(true)
+			}else{ 
+				await dispatch(editOneEvent(payload)).then(history.push('/events'));
+			}
 		}else {
-			await dispatch(createEvent(data))
+			if(!title || !description || !imageUrl || !date || !location){
+				setIsDisabled(true)
+			}else{ 
+				await dispatch(createEvent(data)).then(history.push('/events'));
+			}
 		}
-		history.push('/')
+		
     }
 
 	const handleCancel = (e) => {
@@ -65,6 +76,18 @@ const CreateEventPage = () => {
 		}
     },[eventId, event])
 
+	useEffect(() => {
+		const errors = {};
+		if(!title) errors.title = "Title is required"
+		if(!description) errors.description = "Description is required"
+		if(!imageUrl) errors.imageUrl = "Image is required"
+		if(!date) errors.date = "Date is required"
+		if(!location) errors.location = "Location is required"
+		setErrors(errors)
+		// setIsDisabled(true)
+	  }, [title ,description ,imageUrl]);
+
+
     return(
         <div className="create-event-container">
 			<FormNavBar pages={['Lineup', 'Details', 'Profile', 'Promotional']}/>
@@ -77,57 +100,62 @@ const CreateEventPage = () => {
 					<ContentHeader content={'Basic'} />
 					<div className="form-row-column">
 						<label for='title'>
-						title
+						Title
 						</label>
+						{isSubmitted && <span className='errors'> {errors.title} </span>}
 						<input
 							type="text"
 							value={title}
 							onChange={(e) => setTitle(e.target.value)}
-							required
+							// required
 						/>
 					</div>
 					<div className="form-row-column">
 						<label for='description'>
-						description
+						Description
 						</label>
+						{isSubmitted && <span className='errors'> {errors.description} </span>}
 						<input
 							type="text"
 							value={description}
 							onChange={(e) => setDescription(e.target.value)}
-							required
+							// required
 						/>
 					</div>
 					<div className="form-row-column">
 						<label for='date'>
-							date
+							Date
 						</label>
+						{isSubmitted && <span className='errors'> {errors.date} </span>}
 							<input
 								type="date"
 								value={date}
 								onChange={(e) => setDate(e.target.value)}
-								required
+								// required
 							/>
 					</div>
 					<div className="form-row-column">
 						<label for='location'>
-						location
+						Location
 						</label>
+						{isSubmitted && <span className='errors'> {errors.location} </span>}
 						<input
 							type="text"
 							value={location}
 							onChange={(e) => setLocation(e.target.value)}
-							required
+							// required
 						/>
 					</div>
 					<div className="form-row-column">
 						<label for='imageUrl'>
-						imageUrl
+						Image
 						</label>
+						{isSubmitted && <span className='errors'> {errors.imageUrl} </span>}
 						<input
 							type="text"
 							value={imageUrl}
 							onChange={(e) => setImageUrl(e.target.value)}
-							required
+							// required
 						/>
 					</div>
 				</div>
@@ -157,8 +185,8 @@ const CreateEventPage = () => {
 					</div>
 				</div>
 				<div className="form-buttons">
-					<button type='cancel' className='oval-button-area small-button' onClick={handleCancel}>Cancel</button>
-					<button type='submit' className='oval-button-area small-button'>submit</button>
+					<button type='cancel' className='oval-button-area small-button' onClick={handleCancel} >Cancel</button>
+					<button type='submit' className='oval-button-area small-button' disabled={isDisabled}>Submit</button>
 				</div>
             </form>
         </div>

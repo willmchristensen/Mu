@@ -2,6 +2,7 @@ import './PostContent.css'
 import PostCard from "./PostCard"
 
 const PostContent = ({posts}) => {
+    if(!posts) return null;
     return(
         <div className="posts-container">
             {

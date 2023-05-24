@@ -1,6 +1,7 @@
 import './Magazine.css';
 import PostContent from './PostContent';
 import {useEffect} from 'react';
+import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import { getAllPosts } from '../../store/post';
 import LatestNews from './LatestNews';
@@ -20,10 +21,18 @@ const Magazine = () => {
         dispatch(getAllPosts())
     },[])
 
+    if(!posts || !allPosts.length) return null;
+
     return (
         <>
             <PageHeader header={'Magazine'} subheader={'Interviews, films, news and more from the industry.'}/>
             <div className="magazine-wrapper">
+                <NavLink
+                    className='oval-button post-create'
+                    to={`/posts/new`}
+                >
+                    Create post
+                </NavLink>
                 <div className="magazine-container">
                     <div className="magazine-page-one">
                         {/* TODO: local resource of every page's header data */}
