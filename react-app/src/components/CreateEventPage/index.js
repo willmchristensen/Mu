@@ -134,14 +134,26 @@ const CreateEventPage = () => {
 				<div className="form-section">
 					<ContentHeader content={'Venue'} />
 					<div className="form-row">
-						<label for='venueknown'>Venue Known</label>
-						<input type="radio" />
-						<label form='venuetba'>Venue TBA</label>
-						<input type="radio" />
+						<label
+							className='venue'
+							for='venueknown'>Venue Known</label>
+						<input
+							className='venue'
+							type="radio" />
+						<label
+							className='venue'
+							form='venuetba'>Venue TBA</label>
+						<input
+							className='venue'
+							type="radio" />
 					</div>
 					<div className="form-row">
-						<label for='venue'>Venue</label>
-						<input type="text" />
+						<label
+							className='venue'
+							for='venue'>Venue</label>
+						<input
+							className='venue'
+							type="text" />
 					</div>
 				</div>
 				<div className="form-buttons">

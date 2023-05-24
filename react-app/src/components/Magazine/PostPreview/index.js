@@ -12,8 +12,9 @@ const PostPreview = ({event, post, type}) => {
     let date = post ? new Date(post.createdAt).toLocaleDateString('en-US', options)  : new Date(event.date).toLocaleDateString('en-US', options);
     let [month, day, year] = date.split(' ');
     let formattedDate = `${day} ${month} ${year}`;
-    const time = post ? post.createdAt.substring(11,16)  : event.createdAt.substring(11,16);
-    const sentence = post ? post.description.split('.')[0].trim() : event.description.split('.')[0].trim();
+    // console.log('UNDEFINED?',post)
+    const time = post ? post?.createdAt?.substring(11,16)  : event?.createdAt.substring(11,16);
+    const sentence = post ? post?.description?.split('.')[0].trim() : event?.description?.split('.')[0].trim();
     const postPreview = (type == 'post' || type == 'news') ? 'dark-post-preview-container' : 'post-preview-container';
     const postPreviewTitle = (type == 'post' || type == 'news') ? 'dark-post-preview-title' : 'post-preview-title';
     const sliceOfDescription = type == 'popular' ? "light-slice-of-description" : "slice-of-description";
@@ -27,7 +28,7 @@ const PostPreview = ({event, post, type}) => {
                     </div>
                     {<i class="fas fa-circle"></i>}
                     <div className="type">
-                        {post.type}
+                        post
                     </div>
                 </div>
             }
@@ -38,7 +39,7 @@ const PostPreview = ({event, post, type}) => {
                     </div>
                 {<i class="fas fa-circle"></i>}
                     <div className="type">
-                        {post.type}
+                        post
                     </div>
                 </div>
             }

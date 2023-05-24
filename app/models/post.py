@@ -11,7 +11,6 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
     description = db.Column(db.String, nullable=False)
-    type = db.Column(Enum('Article', 'Song', 'Mix', 'Review', name='post_types'), nullable=False)
     image_url = db.Column(db.String, nullable=False)
     music_url = db.Column(db.String)
     artist = db.Column(db.String)
@@ -26,7 +25,6 @@ class Post(db.Model):
             "id": self.id,
             "title": self.title,
             "description": self.description,
-            "type": self.type,
             "artist": self.artist,
             "song":self.song,
             "album":self.album,

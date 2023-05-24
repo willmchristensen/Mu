@@ -6,7 +6,6 @@ import { createPost } from '../../store/post';
 const CreatePostPage = () => {
     const [title,setTitle] = useState('');
     const [description,setDescription] = useState('');
-    const [type,setType] = useState('');
     const [imageUrl,setImageUrl] = useState('');
 	const currentUser = useSelector((state) => state.session.user)
 	const dispatch = useDispatch();
@@ -17,12 +16,10 @@ const CreatePostPage = () => {
         const data = {
             'title': title,
             'description': description,
-            'type': type,
             'image_url': imageUrl,
 			'user_id': currentUser.id,
         }
-        await dispatch(createPost(data))
-		history.push('/')
+        await dispatch(createPost(data)).then(history.push('/magazine'))
     }
 
     return(
@@ -49,17 +46,6 @@ const CreatePostPage = () => {
 						required
 					/>
 				</label>
-                </div>
-                <div className="form-row">
-                    <label>
-						type
-						<input
-							type="text"
-							value={type}
-							onChange={(e) => setType(e.target.value)}
-							required
-						/>
-					</label>
                 </div>
                 <div className="form-row">
                     <label>

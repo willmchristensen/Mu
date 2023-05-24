@@ -22,7 +22,7 @@ const SplashPage = () => {
     // ---randomimage-------------------------------------------------------
     const randomImage = (images) => {
         const randomIndex = Math.floor(Math.random() * images.length);
-        if(!images[randomIndex]) { 
+        if(!images[randomIndex]) {
             return null
         }else {
             return images[randomIndex];
@@ -42,12 +42,12 @@ const SplashPage = () => {
         dispatch(getAllPosts())
         dispatch(getAllEvents())
     },[]);
-    
+
     if(!posts || !events) return null
 
     return (
-        <div 
-            className="splash-page-container" 
+        <div
+            className="splash-page-container"
             id="splash-background"
         >
             <h1 className="splash-header">bruh  </h1>

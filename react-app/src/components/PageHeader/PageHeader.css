@@ -49,3 +49,6 @@
     font-size: 2rem;
     font-weight: 500;
 }
+.venue:hover {
+    cursor: not-allowed;
+}

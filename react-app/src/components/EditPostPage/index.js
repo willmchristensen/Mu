@@ -7,7 +7,6 @@ import { editOnePost } from '../../store/post';
 const EditPostPage = ({post}) => {
     const [title,setTitle] = useState(post.title);
     const [description,setDescription] = useState(post.description);
-    const [type,setType] = useState(post.type);
     const [imageUrl,setImageUrl] = useState(post.imageUrl);
 	const currentUser = useSelector((state) => state.session.user)
 	const dispatch = useDispatch();
@@ -18,7 +17,6 @@ const EditPostPage = ({post}) => {
         const data = {
             'title': title,
             'description': description,
-            'type':type,
             'image_url': imageUrl,
 			'owner_id': currentUser.id,
         }
@@ -51,17 +49,6 @@ const EditPostPage = ({post}) => {
 					required
 				/>
 			</label>
-			</div>
-			<div className="form-row">
-				<label>
-					type
-					<input
-						type="text"
-						value={type}
-						onChange={(e) => setType(e.target.value)}
-						required
-					/>
-				</label>
 			</div>
 			<div className="form-row">
 				<label>

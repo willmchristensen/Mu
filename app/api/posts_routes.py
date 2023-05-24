@@ -38,7 +38,6 @@ def create_one_post():
         new_post = Post(
             title = data['title'],
             description = data['description'],
-            type = data['type'],
             user_id = data['user_id'],
             image_url = data['image_url']
         )
@@ -84,7 +83,6 @@ def edit_one_post(id):
         if current_user.id == post.user_id:
             post.title = data['title']
             post.description = data['description']
-            post.type = data['type']
             post.image_url = data['image_url']
 
             db.session.commit()

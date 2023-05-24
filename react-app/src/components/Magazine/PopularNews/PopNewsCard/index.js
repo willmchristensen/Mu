@@ -2,6 +2,7 @@ import './PopNewsCard.css';
 import {NavLink} from 'react-router-dom';
 
 const PopNewsCard = ({post, number}) => {
+    if(!post) return null;
     return (
         <div className="popular-news-card">
             <div className="pop-news-container">
