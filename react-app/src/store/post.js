@@ -117,13 +117,15 @@ export const createPost = (details) => async (dispatch) => {
     });
     if (response.ok) {
         const data = await response.json();
-        // console.log('RESPONSE OK: this is response.json:', data)
+        console.log('RESPONSE OK: this is response.json:', data)
         dispatch(makePost(data.post));
         return data;
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
             return data.errors;
+        }else { 
+            return data
         }
     } else {
         return [

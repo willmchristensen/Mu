@@ -1,6 +1,6 @@
 import './PopularCard.css'
 import PopularCardImage from '../PopularCardImage';
-import PostPreview from '../../../Magazine/PostPreview';
+import EventPreview from '../../EventPreview';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom'
 
 const PopularCard = ({event}) => {
@@ -17,12 +17,7 @@ const PopularCard = ({event}) => {
                 <PopularCardImage event={event} />
             </div>  
             <div className="post-content-container text">
-                <PostPreview event={event} type={'popular'} />
-                    {/* <h1
-                        className='post-primary-text'
-                    >
-                        {event.title}
-                    </h1> */}
+            <EventPreview event={event} type={'popular'} /> 
             </div>
         </div>
     )

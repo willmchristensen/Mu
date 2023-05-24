@@ -33,15 +33,18 @@ function App() {
           <Route path={["/events/:eventId/edit","/events/new"]} exact>
             <CreateEventPage />
           </Route>
+          <Route path={["/posts/:postId/edit","/posts/new"]} exact>
+            <CreatePostPage />
+          </Route>
           <Route path="/events/:eventId" exact>
             <EventDetails />
           </Route>
           <Route path="/posts/:postId">
             <PostDetails />
           </Route>
-          <Route path="/create-post">
+          {/* <Route path="/create-post">
             <CreatePostPage />
-          </Route>
+          </Route> */}
           {/* <Route path="/tickets">
             <Tickets />
           </Route>  */}

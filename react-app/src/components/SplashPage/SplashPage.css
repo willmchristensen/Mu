@@ -8,3 +8,6 @@
 .splash-background {
     width: 1px;
 }
+.splash:hover { 
+    cursor: pointer;
+}
