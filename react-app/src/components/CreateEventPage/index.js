@@ -81,7 +81,16 @@ const CreateEventPage = () => {
 		if(!title) errors.title = "Title is required"
 		if(!description) errors.description = "Description is required"
 		if(!imageUrl) errors.imageUrl = "Image is required"
-		if(!date) errors.date = "Date is required"
+		if(!date){ 
+			errors.date = "Date is required"
+		}else {
+			const today = new Date();
+			const selectedDate = new Date(date);
+			if(selectedDate < today) { 
+				errors.date = "Date must be before today"
+				// setIsDisabled(true)
+			}
+		}
 		if(!location) errors.location = "Location is required"
 		setErrors(errors)
 		// setIsDisabled(true)
@@ -159,7 +168,8 @@ const CreateEventPage = () => {
 						/>
 					</div>
 				</div>
-				<div className="form-section">
+				{/* TODO: VENUES */}
+				{/* <div className="form-section">
 					<ContentHeader content={'Venue'} />
 					<div className="form-row">
 						<label
@@ -183,7 +193,7 @@ const CreateEventPage = () => {
 							className='venue'
 							type="text" />
 					</div>
-				</div>
+				</div> */}
 				<div className="form-buttons">
 					<button type='cancel' className='oval-button-area small-button' onClick={handleCancel} >Cancel</button>
 					<button type='submit' className='oval-button-area small-button' disabled={isDisabled}>Submit</button>
