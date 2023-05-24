@@ -38,7 +38,7 @@ const CreateEventPage = () => {
 		}else {
 			await dispatch(createEvent(data))
 		}
-		history.push('/')
+		history.push('/events')
     }
 
 	const handleCancel = (e) => {

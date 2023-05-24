@@ -13,7 +13,7 @@ const PostPreview = ({event, post, type}) => {
     let [month, day, year] = date.split(' ');
     let formattedDate = `${day} ${month} ${year}`;
     // console.log('UNDEFINED?',post)
-    const time = post ? post?.createdAt?.substring(11,16)  : event?.createdAt.substring(11,16);
+    const time = post ? post?.createdAt?.substring(11,16)  : event?.createdAt?.substring(11,16);
     const sentence = post ? post?.description?.split('.')[0].trim() : event?.description?.split('.')[0].trim();
     const postPreview = (type == 'post' || type == 'news') ? 'dark-post-preview-container' : 'post-preview-container';
     const postPreviewTitle = (type == 'post' || type == 'news') ? 'dark-post-preview-title' : 'post-preview-title';
@@ -92,13 +92,13 @@ const PostPreview = ({event, post, type}) => {
                                     <div className="location-content-location">
                                         <i class="fas fa-map-pin"></i>
                                         <span className='location-text'>
-                                            {event.location}
+                                            {event?.location}
                                         </span>
                                     </div>
                                     <div className="location-content-attendees">
                                         <i class="fas fa-user"></i>
                                         <span className='location-text'>
-                                            {`${event.attendees.length}`}
+                                            {`${event?.attendees?.length}`}
                                         </span>
                                     </div>
                                 </div>
@@ -109,13 +109,13 @@ const PostPreview = ({event, post, type}) => {
                                     <div className="location-content">
                                             <i class="fas fa-map-pin"></i>
                                             <span className='location-text'>
-                                                {`TBA ${event.location.split(',')[0]}`}
+                                                {`TBA ${event?.location?.split(',')[0]}`}
                                             </span>
                                     </div>
                                     <div className="attending-content">
                                         <i class="fas fa-user"></i>
                                         <span className='location-text'>
-                                            {`${event.attendees.length}`}
+                                            {`${event?.attendees?.length}`}
                                         </span>
                                     </div>
                                 </div>
