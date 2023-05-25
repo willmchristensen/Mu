@@ -1,7 +1,7 @@
 .secondary-nav-container{
     display: flex;
     padding: .2rem;
-    width: 100%;
+    width: 100vw;
     align-items: center;
     justify-content:center;
     color: var(--white);
@@ -10,12 +10,13 @@
 .secondary-nav-wrapper {
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    width: 100vw;
 }
 .secondary-nav-section{
     display: flex;
     align-items: center;
     justify-content:center;
+    width: 100%;
 }
 .filter-by-text {
     font-size: .8rem;

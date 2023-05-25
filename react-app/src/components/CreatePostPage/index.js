@@ -28,18 +28,18 @@ const CreatePostPage = () => {
 			'user_id': currentUser.id,
         }
 		const payload = {'postId': postId, 'item': data}
-        if(postId) { 
+        if(postId) {
 			if(!title || !description || !imageUrl){
 				setIsDisabled(true);
 				setIsSubmitted(true);
-			}else { 
+			}else {
 				await dispatch(editOnePost(payload)).then(history.push('/magazine'));
 			}
         }else {
 			if(!title || !description || !imageUrl){
 				setIsDisabled(true);
 				setIsSubmitted(true);
-			}else { 
+			}else {
 				await dispatch(createPost(data)).then(history.push('/magazine'));
 			}
         }
@@ -68,7 +68,7 @@ const CreatePostPage = () => {
     },[postId, post])
 
 	useEffect(() => {
-		if(isSubmitted) { 
+		if(isSubmitted) {
 			const errors = {};
 			if(!title) errors.title = "Title is required"
 			if(!description) errors.description = "Description is required"
@@ -78,10 +78,12 @@ const CreatePostPage = () => {
 		}
 	  }, [title ,description ,imageUrl,isSubmitted]);
 
+	  if(!currentUser) history.push('/')
+
     return(
         <div className="create-event-container">
             <FormNavBar pages={['Content', 'Details', 'Profile', 'Promotional']}/>
-            <form 
+            <form
                 className='create-event-form'
                 onSubmit={handleSubmit}
             >
@@ -121,18 +123,18 @@ const CreatePostPage = () => {
 						onChange={(e) => setImageUrl(e.target.value)}
 						// required
 					/>
-				
+
                 </div>
                 <div className="form-buttons">
-					<button 
-						type='cancel' 
-						className='oval-button-area small-button' 
+					<button
+						type='cancel'
+						className='oval-button-area small-button'
 						onClick={handleCancel}
 					>
 						Cancel
 					</button>
-					<button 
-						type='submit' 
+					<button
+						type='submit'
 						className='oval-button-area small-button'
 						disabled={isDisabled}
 					>

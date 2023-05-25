@@ -11,3 +11,6 @@
         width: 25vw;
     }
 } */
+.popular-image-container:hover {
+    cursor: pointer;
+}

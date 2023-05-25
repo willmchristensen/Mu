@@ -17,3 +17,6 @@
     flex-direction: column;
     width: 100%;
 }
+.event-image-link:hover {
+    cursor: pointer;
+}

@@ -38,24 +38,24 @@ const CreateEventPage = () => {
 		const payload = {'eventId':eventId, 'item': data};
 		const today = new Date();
 		const selectedDate = new Date(date);
-		if(selectedDate.getDate() < today.getDate()) { 
+		if(selectedDate.getDate() < today.getDate()) {
 			setIsDisabled(true)
 			return;
 		}
 		if(eventId){
 			if(!title || !description || !imageUrl || !date || !location){
 				setIsDisabled(true)
-			}else{ 
+			}else{
 				await dispatch(editOneEvent(payload)).then(history.push('/events'));
 			}
 		}else {
 			if(!title || !description || !imageUrl || !date || !location){
 				setIsDisabled(true)
-			}else{ 
+			}else{
 				await dispatch(createEvent(data)).then(history.push('/events'));
 			}
 		}
-		
+
     }
 
 	const handleCancel = (e) => {
@@ -83,18 +83,18 @@ const CreateEventPage = () => {
     },[eventId, event])
 
 	useEffect(() => {
-		if(isSubmitted) { 
+		if(isSubmitted) {
 			const errors = {};
 			if(!title) errors.title = "Title is required"
 			if(!description) errors.description = "Description is required"
 			if(!imageUrl) errors.imageUrl = "Image is required"
 			if(!location) errors.location = "Location is required"
-			if(!date){ 
+			if(!date){
 				errors.date = "Date is required"
 			}else {
 				const today = new Date();
 				const selectedDate = new Date(date);
-				if(selectedDate.getDate() < today.getDate()) { 
+				if(selectedDate.getDate() < today.getDate()) {
 					errors.date = "Date must be after today"
 				}
 			}
@@ -102,6 +102,9 @@ const CreateEventPage = () => {
 			setIsDisabled(Object.values(errors).length > 0)
 		}
 	  }, [isSubmitted, title ,description ,imageUrl, date, location]);
+
+
+	if(!currentUser) history.push('/')
 
 
     return(

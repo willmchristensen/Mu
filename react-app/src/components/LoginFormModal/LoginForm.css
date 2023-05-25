@@ -16,6 +16,9 @@
      color: var(--white);
      border: none;
 }
-.login-form-row > label { 
+.login-form-row > label {
     color: var(--white);
+}
+.errors-container > li{
+    list-style: none;
 }

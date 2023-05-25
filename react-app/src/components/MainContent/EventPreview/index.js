@@ -19,7 +19,7 @@ const EventPreview = ({event,type}) => {
     const eventPreviewTitle = (type == 'post' || type == 'news') ? 'dark-post-preview-title' : 'post-preview-title';
     const sliceOfDescription = type == 'popular' ? "light-slice-of-description" : "slice-of-description";
     // TODO: location and attending content: divs for each item and uniform margin around both
-    
+
     return (
         <div className={eventPreview}>
             {
@@ -46,7 +46,7 @@ const EventPreview = ({event,type}) => {
             }
             {
                 type == 'exchange' || type == 'popular' && <div className="time-type">
-                    <div className="time">
+                    <div className="formatted-date">
                         {formattedDate}
                     </div>
                 </div>
