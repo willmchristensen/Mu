@@ -15,6 +15,7 @@ import ContentHeader from '../ContentHeader';
 const Magazine = () => {
     const dispatch = useDispatch();
     const posts = useSelector(state => state.post.posts);
+    const sessionUser = useSelector(state => state.session.user);
     const allPosts = Object.values(posts);
 
     useEffect(()=>{
@@ -27,12 +28,14 @@ const Magazine = () => {
         <>
             <PageHeader header={'Magazine'} subheader={'Interviews, films, news and more from the industry.'}/>
             <div className="magazine-wrapper">
-                <NavLink
-                    className='oval-button post-create'
-                    to={`/posts/new`}
-                >
-                    Create post
-                </NavLink>
+                {sessionUser && 
+                    <NavLink
+                        className='oval-button post-create'
+                        to={`/posts/new`}
+                    >
+                        Create post
+                    </NavLink>
+                }
                 <div className="magazine-container">
                     <div className="magazine-page-one">
                         {/* TODO: local resource of every page's header data */}

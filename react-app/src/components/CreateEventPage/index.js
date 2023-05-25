@@ -35,7 +35,13 @@ const CreateEventPage = () => {
             'image_url': imageUrl,
 			'owner_id': currentUser.id,
         }
-		const payload = {'eventId':eventId, 'item': data}
+		const payload = {'eventId':eventId, 'item': data};
+		const today = new Date();
+		const selectedDate = new Date(date);
+		if(selectedDate.getDate() < today.getDate()) { 
+			setIsDisabled(true)
+			return;
+		}
 		if(eventId){
 			if(!title || !description || !imageUrl || !date || !location){
 				setIsDisabled(true)
@@ -65,7 +71,7 @@ const CreateEventPage = () => {
 			setFormTitle('Create Event')
 		}
     },[dispatch, eventId])
-// ---------------THIS IS SO COOL-----------------------------
+
 	useEffect(()=>{
 		if(eventId && event) {
 			setDate(event.date ? new Date(event.date).toISOString().split('T')[0] : '')
@@ -77,24 +83,25 @@ const CreateEventPage = () => {
     },[eventId, event])
 
 	useEffect(() => {
-		const errors = {};
-		if(!title) errors.title = "Title is required"
-		if(!description) errors.description = "Description is required"
-		if(!imageUrl) errors.imageUrl = "Image is required"
-		if(!date){ 
-			errors.date = "Date is required"
-		}else {
-			const today = new Date();
-			const selectedDate = new Date(date);
-			if(selectedDate < today) { 
-				errors.date = "Date must be before today"
-				// setIsDisabled(true)
+		if(isSubmitted) { 
+			const errors = {};
+			if(!title) errors.title = "Title is required"
+			if(!description) errors.description = "Description is required"
+			if(!imageUrl) errors.imageUrl = "Image is required"
+			if(!location) errors.location = "Location is required"
+			if(!date){ 
+				errors.date = "Date is required"
+			}else {
+				const today = new Date();
+				const selectedDate = new Date(date);
+				if(selectedDate.getDate() < today.getDate()) { 
+					errors.date = "Date must be after today"
+				}
 			}
+			setErrors(errors)
+			setIsDisabled(Object.values(errors).length > 0)
 		}
-		if(!location) errors.location = "Location is required"
-		setErrors(errors)
-		// setIsDisabled(true)
-	  }, [title ,description ,imageUrl]);
+	  }, [isSubmitted, title ,description ,imageUrl, date, location]);
 
 
     return(
@@ -111,7 +118,7 @@ const CreateEventPage = () => {
 						<label for='title'>
 						Title
 						</label>
-						{isSubmitted && <span className='errors'> {errors.title} </span>}
+						{errors.title && <span className='errors'> {errors.title} </span>}
 						<input
 							type="text"
 							value={title}
@@ -123,7 +130,7 @@ const CreateEventPage = () => {
 						<label for='description'>
 						Description
 						</label>
-						{isSubmitted && <span className='errors'> {errors.description} </span>}
+						{errors.description && <span className='errors'> {errors.description} </span>}
 						<input
 							type="text"
 							value={description}
@@ -135,7 +142,7 @@ const CreateEventPage = () => {
 						<label for='date'>
 							Date
 						</label>
-						{isSubmitted && <span className='errors'> {errors.date} </span>}
+						{ errors.date && <span className='errors'> {errors.date} </span>}
 							<input
 								type="date"
 								value={date}
@@ -147,7 +154,7 @@ const CreateEventPage = () => {
 						<label for='location'>
 						Location
 						</label>
-						{isSubmitted && <span className='errors'> {errors.location} </span>}
+						{errors.location && <span className='errors'> {errors.location} </span>}
 						<input
 							type="text"
 							value={location}
@@ -159,7 +166,7 @@ const CreateEventPage = () => {
 						<label for='imageUrl'>
 						Image
 						</label>
-						{isSubmitted && <span className='errors'> {errors.imageUrl} </span>}
+						{errors.imageUrl && <span className='errors'> {errors.imageUrl} </span>}
 						<input
 							type="text"
 							value={imageUrl}

@@ -12,45 +12,61 @@ function SignupFormPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [errors, setErrors] = useState([]);
-  const [validationErrors, setValidationErrors] = useState({});
+  const [errors, setErrors] = useState({});
+  const [validationErrors, setValidationErrors] = useState([]);
   const [isDisabled, setIsDisabled] = useState(false);
 	const [isSubmitted, setIsSubmitted] = useState(false);
 
- 
   const handleSubmit = async (e) => {
     e.preventDefault();
-		setIsSubmitted(true);
-    if(!email || !username || !password) {
-      setIsDisabled(true)
-    }else if (password === confirmPassword) {
-        const data = await dispatch(signUp(username, email, password));
-        if (data) {
-          const valErrors = data.map((error) => {
-            const [field, message] = error.split(':');
-            return {field: field, message: message}
-          })
-          const newErrors = [];
-          valErrors.forEach(e => {
-            newErrors.push(e.message)
-          })
-          setErrors(newErrors);
-        }
-    } else {
-        setErrors(['Confirm Password field must be the same as the Password field']);
+    setIsSubmitted(true);
+    const valErr = {};
+		if(!email) { 
+      valErr.email = "Email is required.";   
+    } else if(email.length <= 3 || email.split('@')[0].length <= 3) {
+      valErr.email = 'Email must be 3 or more characters.'
     }
+		if(!username) valErr.username = "Username is required.";
+		if(!password) valErr.password = "Password is required.";
+
+    if(!email || !username || !password || Object.values(valErr).length > 0) {
+      setIsDisabled(true);
+      setErrors(valErr);
+      return;
+    }
+    if (password !== confirmPassword) {
+      setErrors(['Confirm Password field must be the same as the Password field']);
+    }else { 
+      const data = await dispatch(signUp(username, email, password));
+      if (data) {
+        const valErrors = data.map((error) => {
+          const [field, message] = error.split(':');
+          return {field: field, message: message}
+        })
+        const newErrors = [];
+        valErrors.forEach(e => {
+          newErrors.push(e.message)
+        })
+        setValidationErrors(newErrors);
+      }
+      setIsDisabled(false);
+    }
+		setErrors(valErr)
   };
 
   useEffect(() => {
-		const errors = {};
-		if(!email) errors.email = "Email is required"
-    // email?.split('@')
-    // if{}
-		if(!username) errors.username = "Username is required"
-		if(!password) errors.password = "Password is required"
-		setValidationErrors(errors)
-		// setIsDisabled(true)
-  }, [email ,username ,password]);
+    if(isSubmitted) { 
+      const valErrors = {};
+      if(!email) valErrors.email = "Email is required.";  
+      console.log('------------------------------a',email.split('@'));  
+      if(email.length < 11 || email.split('@')[0].length <= 2 || email.split('@').length < 2 || email.split('@').length > 2 || email.split('.').length > 2 || email.split('.').length < 1) valErrors.email = 'Invalid Email.'
+      if(!username) valErrors.username = "Username is required.";
+      if(!password) valErrors.password = "Password is required.";
+      setErrors(valErrors)
+      setIsDisabled(Object.values(valErrors).length > 0)
+    }
+  }, [isSubmitted, email ,username ,password]);
+  
   if (sessionUser) return <Redirect to="/" />;
 
   return (
@@ -61,39 +77,39 @@ function SignupFormPage() {
         >
           <ContentHeader content={'Register'} />
           <div>
-            {errors.map((error, idx) => (
+            {validationErrors.map((error, idx) => (
               <span className="errors" key={idx}>{error}</span>
             ))}
           </div>
           <label>
             Email
           </label>
-          {isSubmitted && <span className='errors'> {errors.email} </span>}
+          {errors.email && <span className='errors'> {errors.email} </span>}
             <input
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
+              // required
             />
           <label>
             Username
             </label>
-            {isSubmitted && <span className='errors'> {errors.username} </span>}
+            {errors.username && <span className='errors'> {errors.username} </span>}
             <input
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              required
+              // required
             />
           <label>
             Password
           </label>
-          {isSubmitted && <span className='errors'> {errors.password} </span>}
+          {errors.password && <span className='errors'> {errors.password} </span>}
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
+              // required
             />
           <label>
             Confirm Password
@@ -102,10 +118,15 @@ function SignupFormPage() {
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              required
+              // required
             />
             <div className="form-buttons">
-              <button type="submit" className="oval-button" disabled={isDisabled}>Sign Up</button>
+              <button 
+                type="submit" className="oval-button" 
+                disabled={isDisabled}
+              >
+                Sign Up
+              </button>
             </div>
         </form>
     </div>

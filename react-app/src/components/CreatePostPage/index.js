@@ -21,7 +21,6 @@ const CreatePostPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-		setIsSubmitted(true);
         const data = {
             'title': title,
             'description': description,
@@ -31,13 +30,15 @@ const CreatePostPage = () => {
 		const payload = {'postId': postId, 'item': data}
         if(postId) { 
 			if(!title || !description || !imageUrl){
-				setIsDisabled(true)
+				setIsDisabled(true);
+				setIsSubmitted(true);
 			}else { 
 				await dispatch(editOnePost(payload)).then(history.push('/magazine'));
 			}
         }else {
 			if(!title || !description || !imageUrl){
-				setIsDisabled(true)
+				setIsDisabled(true);
+				setIsSubmitted(true);
 			}else { 
 				await dispatch(createPost(data)).then(history.push('/magazine'));
 			}
@@ -67,13 +68,15 @@ const CreatePostPage = () => {
     },[postId, post])
 
 	useEffect(() => {
-		const errors = {};
-		if(!title) errors.title = "Title is required"
-		if(!description) errors.description = "Description is required"
-		if(!imageUrl) errors.imageUrl = "Image is required"
-		setErrors(errors)
-		// setIsDisabled(true)
-	  }, [title ,description ,imageUrl]);
+		if(isSubmitted) { 
+			const errors = {};
+			if(!title) errors.title = "Title is required"
+			if(!description) errors.description = "Description is required"
+			if(!imageUrl) errors.imageUrl = "Image is required"
+			setErrors(errors)
+			setIsDisabled(Object.values(errors).length > 0)
+		}
+	  }, [title ,description ,imageUrl,isSubmitted]);
 
     return(
         <div className="create-event-container">
@@ -87,36 +90,36 @@ const CreatePostPage = () => {
                     <label>
 						title
 					</label>
-					{isSubmitted && <span className='errors'> {errors.title} </span>}
+					{errors.title && <span className='errors'> {errors.title} </span>}
 					<input
 						type="text"
 						value={title}
 						onChange={(e) => setTitle(e.target.value)}
-						required
+						// required
 					/>
                 </div>
                 <div className="form-row-column">
                     <label>
 						description
 					</label>
-					{isSubmitted && <span className='errors'> {errors.description} </span>}
+					{errors.description && <span className='errors'> {errors.description} </span>}
 					<input
 						type="text"
 						value={description}
 						onChange={(e) => setDescription(e.target.value)}
-						required
+						// required
 					/>
                 </div>
                 <div className="form-row-column">
                     <label>
 						imageUrl
 					</label>
-					{isSubmitted && <span className='errors'> {errors.imageUrl} </span>}
+					{errors.imageUrl && <span className='errors'> {errors.imageUrl} </span>}
 					<input
 						type="text"
 						value={imageUrl}
 						onChange={(e) => setImageUrl(e.target.value)}
-						required
+						// required
 					/>
 				
                 </div>
