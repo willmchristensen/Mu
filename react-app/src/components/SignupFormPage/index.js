@@ -44,8 +44,8 @@ function SignupFormPage() {
   useEffect(() => {
 		const errors = {};
 		if(!email) errors.email = "Email is required"
-    email?.split('@')
-    if{}
+    // email?.split('@')
+    // if{}
 		if(!username) errors.username = "Username is required"
 		if(!password) errors.password = "Password is required"
 		setValidationErrors(errors)
