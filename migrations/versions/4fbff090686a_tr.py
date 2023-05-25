@@ -75,7 +75,7 @@ def upgrade():
     sa.ForeignKeyConstraint(['users'], ['users.id'], )
     )
     if environment == "production":
-        op.execute(f"ALTER TABLE event_attendees SET {SCHEMA};")
+        op.execute(f"ALTER TABLE event_attendees SET SCHEMA {SCHEMA};")
     op.create_table('tickets',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('price', sa.Numeric(precision=8, scale=2), nullable=False),
