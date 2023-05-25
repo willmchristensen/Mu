@@ -2,8 +2,7 @@
     display: flex;
     justify-content: flex-start;
     height: 250px;
-    padding-right: 3rem;
-    margin-right: 7rem;
+    margin-right: 5rem;
     margin-top: 7rem;
 }
 .form-nav-item{
@@ -11,7 +10,7 @@
     margin-right: 2rem;
 }
 .form-nav-link{
-    color: var(--white);
+    color: var(--black);
 }
 .form-nav-item:hover {
     cursor: not-allowed;

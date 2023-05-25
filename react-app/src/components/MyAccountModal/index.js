@@ -18,10 +18,12 @@ const MyAccountModal = ({user, logout}) => {
         history.push('/register')
         closeModal()
     }
+    
     const demoLogin = async (e) => {
         e.preventDefault();
         await dispatch(login('demo@aa.io', 'password')).then(closeModal())
-      }
+    }
+    
     return (
         <div className="modal-wrapper">
              {
