@@ -1,8 +1,8 @@
-"""table and relationships
+"""tr
 
-Revision ID: 77226ae5bbdc
+Revision ID: a604f8a0990e
 Revises: 
-Create Date: 2023-05-24 19:35:40.250615
+Create Date: 2023-05-24 19:46:18.636846
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '77226ae5bbdc'
+revision = 'a604f8a0990e'
 down_revision = None
 branch_labels = None
 depends_on = None
