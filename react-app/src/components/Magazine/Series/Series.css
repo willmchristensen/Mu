@@ -12,3 +12,6 @@
 .series-card-container > img {
     max-width: 100%
 }
+.series-cards-flex-container {
+    display: flex;
+}

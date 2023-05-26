@@ -51,23 +51,17 @@
 .slice-of-description{
     color: var(--black);
     font-size: .8rem;
-    height: .1rem;
-    overflow: hidden;
-    word-wrap: break-word;
-    word-break:break-all;
     font-family: Arial, Helvetica, sans-serif;
 }
 .light-slice-of-description {
     color: var(--off-white);
     font-size: .8rem;
     height: .1rem;
-    overflow: hidden;
-    word-wrap: break-word;
-    word-break:break-all;
     font-family: Arial, Helvetica, sans-serif;
 }
 .description {
     margin-bottom: 1rem;
+    width: 80%;
 }
 .location {
     margin-top: .5rem;

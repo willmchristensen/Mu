@@ -8,8 +8,8 @@ const SecondaryNavBar = ({ isLoaded }) => {
     return(
             <nav className="secondary-nav-container">
                 <div className="secondary-nav-wrapper">
-                    <div className="secondary-nav-section">
-                        
+                    <div className="secondary-nav-section-one">
+
                             <SecondaryNavItem
                                 url={"/overview"}
                                 text={"Overview"}
@@ -27,7 +27,7 @@ const SecondaryNavBar = ({ isLoaded }) => {
                                 text={"Just announced"}
                             />
                     </div>
-                    <div className="secondary-nav-section">
+                    <div className="secondary-nav-section-two">
                         <div className="slash-bruh">
                         </div>
                         <i class="fas fa-filter"></i>

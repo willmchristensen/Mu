@@ -17,8 +17,11 @@
 .post-details-description{
     margin-top: 2rem;
 }
-.post-owner-buttons { 
+.post-owner-buttons {
     width: 100%;
     height: 10%;
     display: flex;
+}
+.post-owner-buttons > * {
+    margin-right: 1rem;
 }

@@ -1,6 +1,6 @@
-.post-image-container > img{
+/* .post-image-container > img{
     height: 450px;
-}
+} */
 @media screen and (max-width: 1024px) {
     .post-image-container > img{
         height: 320px;

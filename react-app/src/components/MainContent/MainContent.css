@@ -47,9 +47,9 @@
 .location-container {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-end;
     width: 80%;
-    height: 20rem;
+    height: 15rem;
 }
 .location-header {
     display: flex;

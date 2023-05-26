@@ -7,14 +7,17 @@ const Series = ({posts}) => {
                 <h1 className="header">
                     Film Series
                 </h1>
-                <div className="series-cards">
-                    {
-                        posts.map(p=> {
-                            return(
-                                <SeriesCard />
-                            )
-                        })
-                    }
+                {/* FIXME: shrinky or wrappy */}
+                <div className="series-cards-flex-container">
+                    <div className="series-cards">
+                            {
+                                posts.map(p=> {
+                                    return(
+                                        <SeriesCard />
+                                    )
+                                })
+                            }
+                    </div>
                 </div>
             </div>
             <div className="series-section">

@@ -2,14 +2,15 @@
     height: 1rem;
     background-color: var(--red);
     display: flex;
-    padding: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     align-items: center;
     justify-content:center;
+    width: 100%;
 }
 .nav{
     width: 80%;
     display: flex;
-    padding: 1rem;
     align-items: center;
     justify-content: space-between;
 }
@@ -82,8 +83,8 @@
 }
 #profile-dropdown-logout-button {
     padding: 5px 50px;
-    border: .1rem solid red;
-    color:red;
+    border: .1rem solid var(--red);
+    color: var(--red);
     font-weight: 900;
     font-size: 1.1rem;
     background-color: white;
@@ -95,7 +96,7 @@
 }
 
 #profile-dropdown-logout-button:hover{
-    background-color: red;
+    background-color: var(--red);
     color: white;
     cursor: pointer;
 }

@@ -18,23 +18,23 @@ const MyAccountModal = ({user, logout}) => {
         history.push('/register')
         closeModal()
     }
-    
+
     const demoLogin = async (e) => {
         e.preventDefault();
         await dispatch(login('demo@aa.io', 'password')).then(closeModal())
     }
-    
+
     return (
         <div className="modal-wrapper">
+                <button
+                    className='x'
+                    onClick={closeModal}
+                >
+                    <i class="fas fa-times"></i>
+                </button>
              {
-                user ? 
-                    <div className="my-account-user-dropdown">
-                            <button
-                                className='x'
-                                onClick={closeModal}
-                            >
-                                <i class="fas fa-times"></i>
-                            </button>
+                user ?
+                <div className="my-account-user-dropdown">
                     <div className="user-dropdown-container">
                         <NavLink
                             className='lineup-button'
@@ -74,32 +74,29 @@ const MyAccountModal = ({user, logout}) => {
                 </div>
                 :
                 <div className="my-account-modal-container">
-                <div className="log-in">
-                    <LoginFormModal></LoginFormModal>
-                </div>
-                <button onClick={demoLogin}>Demo User</button>
-                <div className="vl"></div>
-                <div className="sign-up">
-                    <div className="sign-up-top-row">
-                        <h2 className='sign-up-title'>New to Mu? Sign up</h2>
+                    <div className="log-in">
+                        <LoginFormModal demoLogin={demoLogin} />
+                    </div>
+                    <div className="vl"></div>
+                    <div className="sign-up">
+                        <div className="sign-up-top-row">
+                            <h2 className='sign-up-title'>New to Mu? Sign up</h2>
+                            {/* <button
+                                className='x'
+                                onClick={closeModal}
+                            >
+                                <i class="fas fa-times"></i>
+                            </button> */}
+                        </div>
                         <button
-                            className='x'
-                            onClick={closeModal}
+                            className='oval-button inverse'
+                            onClick={handleClick}
                         >
-                            <i class="fas fa-times"></i>
+                            Register
                         </button>
                     </div>
-                    <button
-                        className='oval-button inverse'
-                        onClick={handleClick}
-                    >
-                        Register
-                    </button>
                 </div>
-            </div>
             }
-            
-            
         </div>
     )
 }

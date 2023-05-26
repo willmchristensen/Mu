@@ -12,6 +12,7 @@
     margin-top: 3rem;
 }
 .event-details {
+    width: 80vw;
     margin-left: 10%;
     margin-right: 10%;
 }
@@ -33,7 +34,7 @@
 .attendees-length-container {
     display: flex;
 }
-.attendees-length { 
+.attendees-length {
     margin-right: 5rem;
 }
 .tickets {
@@ -82,15 +83,15 @@
 .lineup-details-section{
     margin-right: 3rem;
 }
-.lineup-button { 
+.lineup-button {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: var(--white);
 }
-/* .lineup-button:hover { 
+/* .lineup-button:hover {
     cursor: not-allowed;
 } */
-.lineup-button-text:hover { 
+.lineup-button-text:hover {
     cursor: not-allowed;
     color: var(--red);
 }
@@ -110,16 +111,22 @@
 .event-quad-footer-item > span:nth-child(2) {
     color: red;
 }
+.about-resale  {
+    margin-bottom: 5rem;
+}
 .about-resale > h2 {
     margin-bottom: 1rem;
 }
 .about-resale > p {
     margin-bottom: 1rem;
 }
-.event-buttons-container { 
+.event-buttons-container {
     display: flex;
     width: 30%;
     justify-content: space-between;
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+.event-advertisements {
+    margin-bottom: 5rem;
 }

@@ -10,7 +10,6 @@
 }
 .popular-news-content{
     display: flex;
-    justify-content: center;
     align-items: center;
     font-size: 1.1rem;
     letter-spacing: .1px;
@@ -20,8 +19,9 @@
     padding-top: 15px;
     padding-bottom: 15px;
 }
-.pop-news { 
+.pop-news {
     font-weight: 600;
+    width: 90%
 }
 .pop-news:hover{
     cursor: pointer;

@@ -1,7 +1,7 @@
 .modal-wrapper {
     width: 100vw;
     height: 100vh;
-    background-color: var(--grey);
+    background-color: var(--black);
 }
 .my-account-modal-container {
     display: flex;
@@ -29,26 +29,33 @@
     color: var(--off-white);
     font-size: 2rem;
     font-weight: 100;
-    margin-right: 5rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
-.x:hover { 
+.x:hover {
     cursor: pointer;
 }
-.fa-times { 
+.x:hover > i {
+    color: var(--red);
+}
+.fa-times {
     color: var(--grey);
 }
 .sign-up-title{
     color: var(--white);
 }
-.my-account-user-dropdown { 
+.my-account-user-dropdown {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 .user-dropdown-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-left: 1px solid red;
-    padding-left: 1rem;
 }

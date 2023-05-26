@@ -28,7 +28,7 @@ const Magazine = () => {
         <>
             <PageHeader header={'Magazine'} subheader={'Interviews, films, news and more from the industry.'}/>
             <div className="magazine-wrapper">
-                {sessionUser && 
+                {sessionUser &&
                     <NavLink
                         className='oval-button post-create'
                         to={`/posts/new`}
@@ -41,7 +41,7 @@ const Magazine = () => {
                         {/* TODO: local resource of every page's header data */}
                         <div className="m-p-section">
                             <LatestNews posts={allPosts}/>
-                            <PopularNews posts={allPosts.reverse()}/>
+                            {/* <PopularNews posts={allPosts.reverse()}/> */}
                         </div>
                     </div>
                     <ContentHeader content={'Latest features'}/>

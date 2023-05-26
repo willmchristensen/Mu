@@ -6,12 +6,11 @@
 }
 body{
     background-color: var(--off-black);
-
 }
 p{
     font-family: Arial, Helvetica, sans-serif;
 }
-h2 { 
+h2 {
     word-break: keep-all;
     overflow: hidden;
     color: white;
@@ -68,12 +67,12 @@ h2 {
     cursor: pointer;
     /* cursor: not-allowed; */
 }
-.oval-button-container { 
+.oval-button-container {
     margin-left: 2rem;
 }
 .oval-button > i {
     font-size: .79rem;
-    margin-right: .2rem; 
+    margin-right: .2rem;
 }
 .square-button {
     width: 10%;
@@ -119,7 +118,7 @@ h2 {
 .title {
     font-size: 1.2rem;
 }
-.errors { 
+.errors {
     color: var(--red);
     margin-top: .5rem;
     margin-bottom: .5rem;
@@ -164,6 +163,6 @@ h1{
 .fas fa-flag {
     font-size: 4rem;
 }
-button { 
+button {
     letter-spacing: .02rem;
 }

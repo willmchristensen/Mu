@@ -1,6 +1,6 @@
 .square-post-image-container > img{
     height: 20rem;
-    width: 20rem;
+    width: 100%;
     object-fit: cover;
     margin-bottom: 1rem;
 }

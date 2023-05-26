@@ -3,6 +3,8 @@
     flex-direction: column;
     align-items: center;
     background-color: var(--white);
+    /* overflow-x: hidden */
+    width: 100vw;
 }
 .magazine-container {
     width: 80%;
@@ -47,10 +49,10 @@
 .film-text{
     margin-left: 1rem;
 }
-.ra-exchange{
+/* .ra-exchange{
     display: grid;
     grid-template-columns: repeat(4,1fr);
-}
+} */
 .series{
     display: flex;
     flex-direction: column;
@@ -61,6 +63,6 @@
 
 /* .latest{
 } */
-.post-create { 
+.post-create {
     margin-top: 1rem;
 }

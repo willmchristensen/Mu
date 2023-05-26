@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import "./LoginForm.css";
 
-function LoginFormModal() {
+function LoginFormModal({demoLogin}) {
   const dispatch = useDispatch();
   // const [email, setEmail] = useState("");
   const [credential, setCredential] = useState("");
@@ -62,12 +62,15 @@ function LoginFormModal() {
             required
           />
         </div>
-        <button
-          type="submit"
-          className="oval-button"
-        >
-          Login
-        </button>
+        <div className="post-owner-buttons">
+          <button
+            type="submit"
+            className="oval-button"
+          >
+            Login
+          </button>
+          <button onClick={demoLogin} className='oval-button'>Demo User</button>
+        </div>
       </form>
     </>
   );
