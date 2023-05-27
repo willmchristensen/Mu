@@ -21,57 +21,61 @@ function SignupFormPage() {
     e.preventDefault();
     setIsSubmitted(true);
     const valErr = {};
-		if(!email) { 
-      valErr.email = "Email is required.";   
-    } else if(email.length <= 3 || email.split('@')[0].length <= 3) {
-      valErr.email = 'Email must be 3 or more characters.'
+    if (!email) {
+      valErr.email = "Email is required.";
+    }else if(email.split('@')[0].length < 3) {
+      valErr.email = 'Email must be 3 or more characters.';
     }
-		if(!username) valErr.username = "Username is required.";
-		if(!password) valErr.password = "Password is required.";
-
-    if(!email || !username || !password || Object.values(valErr).length > 0) {
+    if (!username) {
+      valErr.username = "Username is required.";
+    }
+    if (!password) {
+      valErr.password = "Password is required.";
+    }
+    if (!email || !username || !password || Object.values(valErr).length > 0) {
       setIsDisabled(true);
       setErrors(valErr);
       return;
     }
     if (password !== confirmPassword) {
       setErrors(['Confirm Password field must be the same as the Password field']);
-    }else { 
+    } else {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         const valErrors = data.map((error) => {
           const [field, message] = error.split(':');
-          return {field: field, message: message}
-        })
-        const newErrors = [];
-        valErrors.forEach(e => {
-          newErrors.push(e.message)
-        })
+          return { field: field, message: message };
+        });
+        const newErrors = valErrors.map((e) => e.message);
         setValidationErrors(newErrors);
       }
       setIsDisabled(false);
     }
-		setErrors(valErr)
+    setErrors(valErr);
   };
 
+
   useEffect(() => {
-    if(isSubmitted) { 
+    if(isSubmitted) {
       const valErrors = {};
-      if(!email) valErrors.email = "Email is required.";  
-      console.log('------------------------------a',email.split('@'));  
-      if(email.length < 11 || email.split('@')[0].length <= 2 || email.split('@').length < 2 || email.split('@').length > 2 || email.split('.').length > 2 || email.split('.').length < 1) valErrors.email = 'Invalid Email.'
+      if(!email) valErrors.email = "Email is required.";
+      if(email.split('@')[0].length < 3) {
+        valErrors.email = 'Email must be 3 or more characters.';
+      }
       if(!username) valErrors.username = "Username is required.";
       if(!password) valErrors.password = "Password is required.";
       setErrors(valErrors)
       setIsDisabled(Object.values(valErrors).length > 0)
+    }else  {
+      setIsDisabled(false)
     }
   }, [isSubmitted, email ,username ,password]);
-  
+
   if (sessionUser) return <Redirect to="/" />;
 
   return (
     <div className="create-event-container">
-        <form 
+        <form
           onSubmit={handleSubmit}
           className="create-event-form"
         >
@@ -89,7 +93,7 @@ function SignupFormPage() {
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              // required
+              required
             />
           <label>
             Username
@@ -99,7 +103,7 @@ function SignupFormPage() {
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              // required
+              required
             />
           <label>
             Password
@@ -109,7 +113,7 @@ function SignupFormPage() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              // required
+              required
             />
           <label>
             Confirm Password
@@ -118,11 +122,11 @@ function SignupFormPage() {
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              // required
+              required
             />
             <div className="form-buttons">
-              <button 
-                type="submit" className="oval-button" 
+              <button
+                type="submit" className="oval-button"
                 disabled={isDisabled}
               >
                 Sign Up

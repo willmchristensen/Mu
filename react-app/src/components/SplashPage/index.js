@@ -12,7 +12,7 @@ const SplashPage = () => {
     const dispatch = useDispatch();
     const posts = useSelector(state => state.post.posts);
     const allPosts = Object.values(posts);
-    const [postId, setPostId] = useState(null); 
+    const [postId, setPostId] = useState(null);
 
     let images = allPosts.map(i => {
         if(!i.imageUrl){
@@ -34,6 +34,7 @@ const SplashPage = () => {
         const randomIndex = Math.floor(Math.random() * validImages.length);
         return validImages[randomIndex];
     };
+
     useEffect(() => {
         let intervalId;
         const updateBackgroundImage = () => {
@@ -41,15 +42,17 @@ const SplashPage = () => {
             document.getElementById('splash-background').style.backgroundImage = `url(${img})`;
             const post = allPosts.find((p) => p.imageUrl === img);
             if (post) {
-                setPostId(post.id); 
+                setPostId(post.id);
             } else {
-                setPostId(null); 
+                setPostId(null);
             }
         };
         updateBackgroundImage();
         intervalId = setInterval(updateBackgroundImage, 10000);
         return () => clearInterval(intervalId);
     }, [images]);
+
+    // ---------------------------------------------------------------
     useEffect(()=>{
         dispatch(getAllPosts())
         dispatch(getAllEvents())
@@ -58,12 +61,12 @@ const SplashPage = () => {
     if(!posts || !events) return null
 
     return (
-         <NavLink 
+         <NavLink
             className='splash'
             to={postId ? `/posts/${postId}/information` : '/'}
         >
             <div className="splash-page-container" id="splash-background">
-                <h1 className="splash-header">breh </h1>
+                <h1 className="splash-header"></h1>
             </div>
         </NavLink>
     )
