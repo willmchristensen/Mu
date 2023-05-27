@@ -25,5 +25,5 @@
 .oval-button-area:hover{
     background-color: var(--red);
     color:var(--white);
-    cursor: pointer;
+    cursor: not-allowed;
 }
