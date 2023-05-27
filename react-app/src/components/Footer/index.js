@@ -39,12 +39,12 @@ const Footer = () => {
                         </nav>
                     </div>
                 </div>
-                <div className="footer-promoter">
+                {/* <div className="footer-promoter">
                     <h3>Are you a promoter?</h3>
                     <button className="oval-button negative">
                         Submit event
                     </button>
-                </div>
+                </div> */}
                 <div className="footer-footer">
                     <div className="footer-footer-section-one">
                         <div className="footer-footer-section-one-left">
