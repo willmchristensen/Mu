@@ -38,7 +38,7 @@ const CreateEventPage = () => {
 		const payload = {'eventId':eventId, 'item': data};
 		const today = new Date();
 		const selectedDate = new Date(date);
-		if(selectedDate.getDate() < today.getDate()) {
+		if(selectedDate < today) {
 			setIsDisabled(true)
 			return;
 		}
@@ -94,7 +94,7 @@ const CreateEventPage = () => {
 			}else {
 				const today = new Date();
 				const selectedDate = new Date(date);
-				if(selectedDate.getDate() < today.getDate()) {
+				if(selectedDate < today) {
 					errors.date = "Date must be after today"
 				}
 			}
