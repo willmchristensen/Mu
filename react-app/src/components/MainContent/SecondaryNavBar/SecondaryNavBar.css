@@ -24,6 +24,29 @@
 .filter-by-text {
     font-size: .8rem;
 }
+.oval-button-not-allowed-red{
+    color:var(--black);
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 11px;
+    letter-spacing: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--red);
+    border-radius: 70rem;
+    border: .18rem solid var(--red);
+    width: 5rem;
+    padding: .7rem;
+    margin: .1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.oval-button-not-allowed-red:hover{
+    background-color: var(--white);
+    color:var(--red);
+    cursor: not-allowed;
+}
 .slash-bruh{
     height: 140%;
     display: flex;

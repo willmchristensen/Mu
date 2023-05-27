@@ -110,7 +110,7 @@ const EventDetails = () => {
                                         {attendees.length}
                                     </span>
                                     <div className="interested">
-                                        <button className="oval-button">
+                                        <button className="oval-button-not-allowed-red">
                                             <i class="fas fa-user-plus"></i>
                                             Interested
                                         </button>
@@ -224,7 +224,7 @@ const EventDetails = () => {
                                                 Update this event
                                             </NavLink>
                                         </>
-                                    }   
+                                    }
                                 </div>
                                 <div className="event-quad-footer-item">
                                     <span>Last updated</span>
@@ -271,10 +271,10 @@ const EventDetails = () => {
                         <div className="event-advertisements-header">
                             <h3>/ MORE ON {event.title}</h3>
                             <div className="promoter-buttons flex-row">
-                                <button className="oval-button">
+                                <button className="oval-button-not-allowed-red">
                                     follow
                                 </button>
-                                <button className="oval-button">
+                                <button className="oval-button-not-allowed-red">
                                     view profile
                                 </button>
                             </div>

@@ -4,6 +4,29 @@
     justify-content: center;
     width: 100%;
 }
+.oval-button-not-allowed{
+    color:var(--black);
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 11px;
+    letter-spacing: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--white);
+    border-radius: 70rem;
+    border: .18rem solid var(--red);
+    width: 10rem;
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.oval-button-not-allowed:hover{
+    background-color: var(--red);
+    color:var(--white);
+    cursor: not-allowed;
+}
 .oval-button-area{
     color:var(--black);
     font-size: 11px;
@@ -25,5 +48,5 @@
 .oval-button-area:hover{
     background-color: var(--red);
     color:var(--white);
-    cursor: not-allowed;
+    cursor: pointer;
 }

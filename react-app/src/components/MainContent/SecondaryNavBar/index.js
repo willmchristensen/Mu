@@ -33,17 +33,17 @@ const SecondaryNavBar = ({ isLoaded }) => {
                         <i class="fas fa-filter"></i>
                         <span className='filter-by-text'>Filter by:</span>
                         <div className="oval-button-container">
-                            <button className="oval-button">
+                            <button className="oval-button-not-allowed-red">
                                 Genre
                             </button>
                         </div>
                         <div className="oval-button-container">
-                            <button className="oval-button">
+                            <button className="oval-button-not-allowed-red">
                                 Date
                             </button>
                         </div>
                         <div className="oval-button-container">
-                            <button className="oval-button">
+                            <button className="oval-button-not-allowed-red">
                                 California
                             </button>
                         </div>
