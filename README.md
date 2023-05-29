@@ -17,9 +17,8 @@ Check out [Mu](https://mu-zfwi.onrender.com)
 ## Getting started
 1. Clone this repository:
 
-   `
-   https://github.com/willmchristensen/Mu
-   `
+   ` https://github.com/willmchristensen/Mu `
+   
 2. Install dependencies into the react-app and the (flask) app by making a terminal for each one and then run the following:
 
    * `npm install`
