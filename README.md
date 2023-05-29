@@ -58,26 +58,37 @@ Check out [Mu](https://mu-zfwi.onrender.com)
 # Features:
   
 1. ## Events (Full CRUD)
-   * Logged in users can create events.
-   * Any user can view their events.
-   * Logged in users can edit their events.
-   * Logged in users can delete their events.
+   * Logged in users can create events.
+   
+   * Any user can view their events.
+   
+   * Logged in users can edit their events.
+   
+   * Logged in users can delete their events.
 
 2. ## POSTS (Full CRUD)
    * Logged in users can create posts.
+
    * Any user can view their posts.
+   
    * Logged in users can edit their posts.
+   
    * Logged in users can delete their posts.
     
 3. ## MUSIC (Full CRUD)
    * Logged in users can post music.
+   
    * Any user can listen to their music.
+   
    * Logged in users can edit their music.
+   
    * Logged in users can delete their music.
 
 4. ## TICKETS (Full CRUD)
    * Logged in users can buy tickets to events.
+   
    * Any user can add an ticket to their cart.
+   
    * Logged in users can edit cart.
 
 # Bonus Features:
