@@ -11,7 +11,7 @@
 .post-details-content-container {
     display: flex;
     justify-content: center;
-    width: 50%;
+    width: 80%;
     margin-top: 1rem;
 }
 .post-details-description{

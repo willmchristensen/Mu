@@ -49,7 +49,7 @@ const Footer = () => {
                     <div className="footer-footer-section-one">
                         <div className="footer-footer-section-one-left">
                             <div className="footer-footer-flag">
-                                <button>
+                                <button className='footer-flag'>
                                     <i class="fas fa-flag-usa"></i>
                                 </button>
                             </div>

@@ -61,3 +61,6 @@
 .footer-share-buttons {
     display: flex;
 }
+.footer-flag:hover {
+    cursor: not-allowed;
+}

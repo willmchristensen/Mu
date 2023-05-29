@@ -5,6 +5,8 @@
     font-family: 'Oswald', sans-serif;
 }
 body{
+    margin: 0;
+    padding: 0;
     background-color: var(--off-black);
 }
 p{

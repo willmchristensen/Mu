@@ -2,6 +2,9 @@
     width: 100%;
 }
 .post-preview-container > * {
+    overflow: hidden;
+}
+.post-preview-container > * {
     color: var(--white);
 }
 .dark-post-preview-container  > *{
@@ -37,9 +40,14 @@
 }
 .post-preview-title {
     margin-bottom: .5rem;
+    overflow: hidden;
 }
 .popular-title {
     color: var(--white);
+    overflow: hidden;
+}
+.location-text {
+    overflow: hidden;
 }
 .popular-title:hover{
     cursor: pointer;
@@ -107,6 +115,13 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+.post-title {
+    width: 90%;
+    word-break: keep-all;
+    display: block;
+    overflow: hidden;
+    /* height: 10rem; */
 }
 .post-title:hover {
     cursor: pointer;

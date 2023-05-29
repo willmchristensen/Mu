@@ -48,7 +48,7 @@ const SplashPage = () => {
             }
         };
         updateBackgroundImage();
-        intervalId = setInterval(updateBackgroundImage, 10000);
+        intervalId = setInterval(updateBackgroundImage, 15000);
         return () => clearInterval(intervalId);
     }, [images]);
 
