@@ -68,8 +68,8 @@ Check out [Mu](https://mu-zfwi.onrender.com)
 
 2. ## POSTS (Full CRUD)
    * Logged in users can create posts.
-
-   * Any user can view their posts.
+   
+   *  * Any user can view their posts.
    
    * Logged in users can edit their posts.
    
