@@ -97,7 +97,7 @@ const CreatePostPage = () => {
 						type="text"
 						value={title}
 						onChange={(e) => setTitle(e.target.value)}
-						// required
+						required
 					/>
                 </div>
                 <div className="form-row-column">
@@ -109,7 +109,7 @@ const CreatePostPage = () => {
 						type="text"
 						value={description}
 						onChange={(e) => setDescription(e.target.value)}
-						// required
+						required
 					/>
                 </div>
                 <div className="form-row-column">
@@ -121,7 +121,7 @@ const CreatePostPage = () => {
 						type="text"
 						value={imageUrl}
 						onChange={(e) => setImageUrl(e.target.value)}
-						// required
+						required
 					/>
 
                 </div>
