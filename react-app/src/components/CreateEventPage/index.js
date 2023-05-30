@@ -84,7 +84,7 @@ const CreateEventPage = () => {
 			setLocation(event.location)
 			setImageUrl(event.imageUrl)
 		}
-    },[eventId, event])
+    },[eventId, event, date])
 
 	useEffect(() => {
 		if(isSubmitted) {
@@ -133,7 +133,7 @@ const CreateEventPage = () => {
 							type="text"
 							value={title}
 							onChange={(e) => setTitle(e.target.value)}
-							// required
+							required
 						/>
 					</div>
 					<div className="form-row-column">
@@ -145,7 +145,7 @@ const CreateEventPage = () => {
 							type="text"
 							value={description}
 							onChange={(e) => setDescription(e.target.value)}
-							// required
+							required
 						/>
 					</div>
 					<div className="form-row-column">
@@ -155,9 +155,9 @@ const CreateEventPage = () => {
 						{ errors.date && <span className='errors'> {errors.date} </span>}
 							<input
 								type="date"
-								value={date}
+								value={date ? date.toISOString().slice(0, 10) : ''}
 								onChange={(e) => setDate(e.target.value)}
-								// required
+								required
 							/>
 					</div>
 					<div className="form-row-column">
@@ -169,7 +169,7 @@ const CreateEventPage = () => {
 							type="text"
 							value={location}
 							onChange={(e) => setLocation(e.target.value)}
-							// required
+							required
 						/>
 					</div>
 					<div className="form-row-column">
@@ -181,7 +181,7 @@ const CreateEventPage = () => {
 							type="text"
 							value={imageUrl}
 							onChange={(e) => setImageUrl(e.target.value)}
-							// required
+							required
 						/>
 					</div>
 				</div>
