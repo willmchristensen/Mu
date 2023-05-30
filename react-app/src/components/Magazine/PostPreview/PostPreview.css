@@ -41,6 +41,7 @@
 .post-preview-title {
     margin-bottom: .5rem;
     overflow: hidden;
+    width: 90%;
 }
 .popular-title {
     color: var(--white);
@@ -117,7 +118,7 @@
     width: 100%;
 }
 .post-title {
-    width: 90%;
+    width: 70%;
     word-break: keep-all;
     display: block;
     overflow: hidden;

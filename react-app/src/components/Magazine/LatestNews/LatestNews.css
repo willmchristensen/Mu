@@ -10,3 +10,6 @@
 .latest-popular {
     display: flex;
 }
+.latest-news-header {
+    width: 50%;
+}

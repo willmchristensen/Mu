@@ -63,7 +63,7 @@ const PostPreview = ({event, post, type}) => {
                             to={`posts/${post.id}`}
                         >
                             <h3 className={dynamicTitle}>
-                                {post.title.split(' ').slice(0, 5).join(' ') + '...'}
+                                {post?.title?.length > 100 ? post?.title?.slice(0,100) + '...': post?.title}
                             </h3>
                         </NavLink>
                         :
