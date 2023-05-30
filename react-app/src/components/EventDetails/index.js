@@ -18,7 +18,7 @@ const EventDetails = () => {
     const sessionUser = useSelector((state) => state.session.user);
     const event = useSelector(state => state.event.singleEvent);
     const options = { day: 'numeric', month: 'long', year: 'numeric'}
-    let date = new Date(event?.createdAt)?.toLocaleDateString('en-US', options);
+    let date = new Date(event?.date)?.toLocaleDateString('en-US', options);
     let [month, day, year] = date.split(' ');
     let formattedDate = `${day} ${month} ${year}`;
     const time = event?.createdAt?.substring(11,16);
