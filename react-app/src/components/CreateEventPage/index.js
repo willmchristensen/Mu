@@ -37,8 +37,11 @@ const CreateEventPage = () => {
         }
 		const payload = {'eventId':eventId, 'item': data};
 		const today = new Date();
+		today.setHours(0, 0, 0, 0);
 		const selectedDate = new Date(date);
-		if(selectedDate < today) {
+		selectedDate.setHours(0, 0, 0, 0);
+		console.log(today, "SELECTED", selectedDate);
+		if (selectedDate < today) {
 			setIsDisabled(true)
 			return;
 		}
@@ -74,7 +77,8 @@ const CreateEventPage = () => {
 
 	useEffect(()=>{
 		if(eventId && event) {
-			setDate(event.date ? new Date(event.date).toISOString().split('T')[0] : '')
+			const eventDate = event.date ? new Date(event.date) : null;
+			setDate(eventDate)
 			setTitle(event.title)
 			setDescription(event.description)
 			setLocation(event.location)
@@ -93,9 +97,12 @@ const CreateEventPage = () => {
 				errors.date = "Date is required"
 			}else {
 				const today = new Date();
+				today.setHours(0, 0, 0, 0);
 				const selectedDate = new Date(date);
-				if(selectedDate < today) {
-					errors.date = "Date must be after today"
+				selectedDate.setHours(0, 0, 0, 0);
+				console.log(today, "SELECTED", selectedDate);
+				if (selectedDate < today) {
+				  errors.date = "Date must be after today";
 				}
 			}
 			setErrors(errors)
