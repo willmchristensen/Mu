@@ -77,14 +77,14 @@ const CreateEventPage = () => {
 
 	useEffect(()=>{
 		if(eventId && event) {
-			const eventDate = event.date ? new Date(event.date) : null;
+			const eventDate = event.date ? new Date(event.date).toISOString().split('T')[0] : '';
 			setDate(eventDate)
 			setTitle(event.title)
 			setDescription(event.description)
 			setLocation(event.location)
 			setImageUrl(event.imageUrl)
 		}
-    },[eventId, event, date])
+    },[eventId, event])
 
 	useEffect(() => {
 		if(isSubmitted) {
@@ -155,7 +155,7 @@ const CreateEventPage = () => {
 						{ errors.date && <span className='errors'> {errors.date} </span>}
 							<input
 								type="date"
-								value={date ? date.toISOString().slice(0, 10) : ''}
+								value={date}
 								onChange={(e) => setDate(e.target.value)}
 								required
 							/>
