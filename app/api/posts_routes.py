@@ -39,7 +39,8 @@ def create_one_post():
             title = data['title'],
             description = data['description'],
             user_id = data['user_id'],
-            image_url = data['image_url']
+            image_url = data['image_url'],
+            music_url = data['music_url']
         )
         db.session.add(new_post)
         db.session.commit()

@@ -29,6 +29,7 @@ class Post(db.Model):
             "song":self.song,
             "album":self.album,
             "imageUrl":self.image_url,
+            "musicUrl":self.music_url,
             "userId":self.user_id,
             "createdAt": str(self.created_at),
             "updatedAt": str(self.updated_at)

@@ -11,6 +11,7 @@ const CreatePostPage = () => {
     const [title,setTitle] = useState('');
     const [description,setDescription] = useState('');
     const [imageUrl,setImageUrl] = useState('');
+	const [musicUrl,setMusicUrl] = useState('');
     const [formTitle, setFormTitle] = useState('');
 	const [errors, setErrors] = useState({});
 	const [isDisabled, setIsDisabled] = useState(false);
@@ -26,6 +27,7 @@ const CreatePostPage = () => {
             'description': description,
             'image_url': imageUrl,
 			'user_id': currentUser.id,
+			'music_url': musicUrl,
         }
 		const payload = {'postId': postId, 'item': data}
         if(postId) {
@@ -64,6 +66,7 @@ const CreatePostPage = () => {
 			setTitle(post.title)
             setDescription(post.description)
             setImageUrl(post.imageUrl)
+			setMusicUrl(post.musicUrl)
 		}
     },[postId, post])
 
@@ -121,6 +124,19 @@ const CreatePostPage = () => {
 						type="text"
 						value={imageUrl}
 						onChange={(e) => setImageUrl(e.target.value)}
+						required
+					/>
+
+                </div>
+				<div className="form-row-column">
+                    <label>
+						musicUrl
+					</label>
+					{errors.imageUrl && <span className='errors'> {errors.musicUrl} </span>}
+					<input
+						type="text"
+						value={musicUrl}
+						onChange={(e) => setMusicUrl(e.target.value)}
 						required
 					/>
 
