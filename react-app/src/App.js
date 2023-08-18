@@ -10,6 +10,7 @@ import PostDetails from "./components/PostDetails";
 import Magazine from "./components/Magazine";
 import CreateEventPage from "./components/CreateEventPage";
 import CreatePostPage from "./components/CreatePostPage";
+import CreateMusicPage from "./components/CreateMusicPage";
 // import EditEventPage from "./components/EditEventPage";
 // import Tickets from "./components/Tickets";
 import SplashPage from "./components/SplashPage";
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route path={["/posts/:postId/edit","/posts/new"]} exact>
             <CreatePostPage />
+          </Route>
+          <Route path={["/music/:musicId/edit","/music"]}>
+            <CreateMusicPage />
           </Route>
           <Route path="/events/:eventId" exact>
             <EventDetails />

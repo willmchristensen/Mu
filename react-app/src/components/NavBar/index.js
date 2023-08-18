@@ -33,11 +33,6 @@ const NavBar = ({ isLoaded }) => {
                         text={"Magazine"}
                     >
                     </NavItem>
-                    {/* <NavItem
-                        url={"/festivals"}
-                        text={"Festivals"}
-                    >
-                    </NavItem> */}
                     <i class="fas fa-search"></i>
                     {/* TODO: SEARCH */}
                     {/* <OpenModalButton

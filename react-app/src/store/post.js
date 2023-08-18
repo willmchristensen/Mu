@@ -74,8 +74,6 @@ export const deletePost = (postId) => async (dispatch) => {
     }
 }
 
-
-
 export const getAllPosts = () => async (dispatch) => {
     const response = await fetch("/api/posts")
     if (response.ok) {
@@ -104,7 +102,7 @@ export const getOnePost = (id) => async (dispatch) => {
 }
 
 export const createPost = (details) => async (dispatch) => {
-    // console.log('--------------details in CREATE Post THUNK--------------', details)
+    console.log('--------------details in CREATE Post THUNK--------------', details)
     const response = await fetch("/api/posts/new", {
         method: "POST",
         headers: {
@@ -124,7 +122,7 @@ export const createPost = (details) => async (dispatch) => {
         const data = await response.json();
         if (data.errors) {
             return data.errors;
-        }else { 
+        } else {
             return data
         }
     } else {
