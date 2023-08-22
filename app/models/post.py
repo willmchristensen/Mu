@@ -11,6 +11,7 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
     description = db.Column(db.String, nullable=False)
+    # TODO: eventually change to non-nullable
     image_url = db.Column(db.String, nullable=False)
     music_url = db.Column(db.String)
     artist = db.Column(db.String)
@@ -29,6 +30,7 @@ class Post(db.Model):
             "song":self.song,
             "album":self.album,
             "imageUrl":self.image_url,
+            "musicUrl":self.music_url,
             "userId":self.user_id,
             "createdAt": str(self.created_at),
             "updatedAt": str(self.updated_at)

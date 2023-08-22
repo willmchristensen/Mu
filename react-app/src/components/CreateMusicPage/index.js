@@ -1,4 +1,4 @@
-import './CreatePostPage.css';
+// import './CreatePostPage.css';
 import FormNavBar from '../FormNavBar';
 import ContentHeader from '../ContentHeader';
 import { useState, useEffect } from 'react';
@@ -6,12 +6,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { createPost, editOnePost, getOnePost } from '../../store/post';
 
-const CreatePostPage = () => {
-
+const CreateMusicPage = () => {
+	//TODO:
+		// grab music from url (from edit button)
+		// img url in form
 	const { postId } = useParams();
 	const post = useSelector(state => state.post.singlePost);
+
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
+	const [musicUrl, setMusicUrl] = useState('');
 	const [imageUrl, setImageUrl] = useState('');
 	const [formTitle, setFormTitle] = useState('');
 	const [errors, setErrors] = useState({});
@@ -20,44 +24,52 @@ const CreatePostPage = () => {
 	const currentUser = useSelector((state) => state.session.user)
 	const dispatch = useDispatch();
 	const history = useHistory();
-
+// currently grabbing the correct data but:
+	// backend not receiving music_url
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const data = {
+			'music_url': musicUrl,
 			'title': title,
-			'description': description,
+			// 'artist': artist,
+			// 'song': song,
+			// 'album': album,
+			// 'title': title,
 			'image_url': imageUrl,
+			'description': description,
 			'user_id': currentUser.id,
 		}
+		console.log('HANDLE SUBMIT:',data )
 		const payload = { 'postId': postId, 'item': data }
+		// if editing a music post
 		if (postId) {
-			if (!title || !description || !imageUrl) {
+			if (!title || !description || !musicUrl) {
 				setIsDisabled(true);
 				setIsSubmitted(true);
 			} else {
-				await dispatch(editOnePost(payload)).then(history.push('/magazine'));
+				await dispatch(editOnePost(payload)).then(history.push('/music'));
 			}
 		} else {
-			if (!title || !description || !imageUrl) {
+			if (!title || !description || !musicUrl) {
 				setIsDisabled(true);
 				setIsSubmitted(true);
 			} else {
-				await dispatch(createPost(data)).then(history.push('/magazine'));
+				await dispatch(createPost(data)).then(history.push('/music'));
 			}
 		}
 	}
 
 	const handleCancel = (e) => {
 		e.preventDefault();
-		history.push('/magazine');
+		history.push('/music');
 	}
-
+	// grab post
 	useEffect(() => {
 		if (postId) {
 			dispatch(getOnePost(postId))
-			setFormTitle('Edit Post')
+			setFormTitle('Edit Music')
 		} else {
-			setFormTitle('Create Post')
+			setFormTitle('Create Music')
 		}
 	}, [dispatch, postId])
 
@@ -65,7 +77,8 @@ const CreatePostPage = () => {
 		if (postId && post) {
 			setTitle(post.title)
 			setDescription(post.description)
-			setImageUrl(post.imageUrl)
+			setMusicUrl(post.musicUrl)
+			// add image url
 		}
 	}, [postId, post])
 
@@ -74,17 +87,17 @@ const CreatePostPage = () => {
 			const errors = {};
 			if (!title) errors.title = "Title is required"
 			if (!description) errors.description = "Description is required"
-			if (!imageUrl) errors.imageUrl = "Image is required"
+			if (!musicUrl) errors.musicUrl = "Music URL is required"
 			setErrors(errors)
 			setIsDisabled(Object.values(errors).length > 0)
 		}
-	}, [title, description, imageUrl, isSubmitted]);
+	}, [title, description, musicUrl, isSubmitted]);
 
 	if (!currentUser) history.push('/')
 
 	return (
 		<div className="create-event-container">
-			<FormNavBar pages={['Content', 'Details', 'Profile', 'Promotional']} />
+			<FormNavBar pages={['Content', 'Details']} />
 			<form
 				className='create-event-form'
 				onSubmit={handleSubmit}
@@ -92,7 +105,7 @@ const CreatePostPage = () => {
 				<ContentHeader content={formTitle} />
 				<div className="form-row-column">
 					<label>
-						title
+						Title
 					</label>
 					{errors.title && <span className='errors'> {errors.title} </span>}
 					<input
@@ -104,7 +117,7 @@ const CreatePostPage = () => {
 				</div>
 				<div className="form-row-column">
 					<label>
-						description
+						Description
 					</label>
 					{errors.description && <span className='errors'> {errors.description} </span>}
 					<input
@@ -116,13 +129,13 @@ const CreatePostPage = () => {
 				</div>
 				<div className="form-row-column">
 					<label>
-						imageUrl
+						Music Url
 					</label>
-					{errors.imageUrl && <span className='errors'> {errors.imageUrl} </span>}
+					{errors.musicUrl && <span className='errors'> {errors.imageUrl} </span>}
 					<input
 						type="text"
-						value={imageUrl}
-						onChange={(e) => setImageUrl(e.target.value)}
+						value={musicUrl}
+						onChange={(e) => setMusicUrl(e.target.value)}
 						required
 					/>
 
@@ -148,4 +161,4 @@ const CreatePostPage = () => {
 	)
 }
 
-export default CreatePostPage;
+export default CreateMusicPage;
