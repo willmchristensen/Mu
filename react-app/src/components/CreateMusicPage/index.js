@@ -26,7 +26,7 @@ const CreateMusicPage = () => {
 	const posts = useSelector(state => state.post.posts);
 	const sessionUser = useSelector(state => state.session.user);
 	const allPosts = Object.values(posts);
-	const allMusic = allPosts.filter(p => p.musicUrl?.length > 0);
+	const allMusic = allPosts.filter(p => p?.musicUrl?.length > 0);
 	const dispatch = useDispatch();
 	const history = useHistory();
 // currently grabbing the correct data but:
