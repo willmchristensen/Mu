@@ -1,4 +1,5 @@
 // import './CreatePostPage.css';
+import MusicCard from '../MusicCard';
 import FormNavBar from '../FormNavBar';
 import ContentHeader from '../ContentHeader';
 import { useState, useEffect } from 'react';
@@ -113,7 +114,7 @@ const CreateMusicPage = () => {
 					{
 						allMusic.map(m => {
 							return (
-								m.title
+								<MusicCard music={m} />
 							)
 						})
 					}
