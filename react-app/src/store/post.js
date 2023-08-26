@@ -143,6 +143,7 @@ const postReducer = (state = initialState, action) => {
             return {
                 ...state,
                 posts: {
+                    ...state.posts,
                     ...action.payload
                 }
             }
@@ -160,7 +161,7 @@ const postReducer = (state = initialState, action) => {
             return newState;
         }
         case CREATE_POST: {
-            const newState = { ...state, posts: { ...action.payload } };
+            const newState = { ...state, posts: { ...state.posts } };
             newState.posts[action.payload.id] = action.payload;
             return newState;
         }

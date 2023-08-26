@@ -2,12 +2,12 @@
 import FormNavBar from '../FormNavBar';
 import ContentHeader from '../ContentHeader';
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { createPost, editOnePost, getOnePost } from '../../store/post';
+import { createPost, editOnePost, getOnePost, getAllPosts } from '../../store/post';
 
 const CreateMusicPage = () => {
-	//TODO:
+		//TODO:UPDATE MUSIC
 		// grab music from url (from edit button)
 		// img url in form
 	const { postId } = useParams();
@@ -22,6 +22,11 @@ const CreateMusicPage = () => {
 	const [isDisabled, setIsDisabled] = useState(false);
 	const [isSubmitted, setIsSubmitted] = useState(false);
 	const currentUser = useSelector((state) => state.session.user)
+	// TODO: READ MUSIC
+	const posts = useSelector(state => state.post.posts);
+	const sessionUser = useSelector(state => state.session.user);
+	const allPosts = Object.values(posts);
+	const allMusic = allPosts.filter(p => p?.musicUrl?.length > 0);
 	const dispatch = useDispatch();
 	const history = useHistory();
 // currently grabbing the correct data but:
@@ -93,71 +98,91 @@ const CreateMusicPage = () => {
 		}
 	}, [title, description, musicUrl, isSubmitted]);
 
-	if (!currentUser) history.push('/')
+	useEffect(()=>{
+        dispatch(getAllPosts())
+    },[])
+
+	if (!currentUser) history.push('/');
+	if(!posts || !allPosts.length) return null;
 
 	return (
-		<div className="create-event-container">
-			<FormNavBar pages={['Content', 'Details']} />
-			<form
-				className='create-event-form'
-				onSubmit={handleSubmit}
-			>
-				<ContentHeader content={formTitle} />
-				<div className="form-row-column">
-					<label>
-						Title
-					</label>
-					{errors.title && <span className='errors'> {errors.title} </span>}
-					<input
-						type="text"
-						value={title}
-						onChange={(e) => setTitle(e.target.value)}
-						required
-					/>
-				</div>
-				<div className="form-row-column">
-					<label>
-						Description
-					</label>
-					{errors.description && <span className='errors'> {errors.description} </span>}
-					<input
-						type="text"
-						value={description}
-						onChange={(e) => setDescription(e.target.value)}
-						required
-					/>
-				</div>
-				<div className="form-row-column">
-					<label>
-						Music Url
-					</label>
-					{errors.musicUrl && <span className='errors'> {errors.imageUrl} </span>}
-					<input
-						type="text"
-						value={musicUrl}
-						onChange={(e) => setMusicUrl(e.target.value)}
-						required
-					/>
+		<>
+			<div className="read-event-container">
+				<h1>read</h1>
+				<h2>
+					{
+						allMusic.map(m => {
+							return (
+								m.title
+							)
+						})
+					}
+				</h2>
+			</div>
+			<hr />
+			<div className="create-event-container">
+				<FormNavBar pages={['Content', 'Details']} />
+				<form
+					className='create-event-form'
+					onSubmit={handleSubmit}
+				>
+					<ContentHeader content={formTitle} />
+					<div className="form-row-column">
+						<label>
+							Title
+						</label>
+						{errors.title && <span className='errors'> {errors.title} </span>}
+						<input
+							type="text"
+							value={title}
+							onChange={(e) => setTitle(e.target.value)}
+							required
+						/>
+					</div>
+					<div className="form-row-column">
+						<label>
+							Description
+						</label>
+						{errors.description && <span className='errors'> {errors.description} </span>}
+						<input
+							type="text"
+							value={description}
+							onChange={(e) => setDescription(e.target.value)}
+							required
+						/>
+					</div>
+					<div className="form-row-column">
+						<label>
+							Music Url
+						</label>
+						{errors.musicUrl && <span className='errors'> {errors.imageUrl} </span>}
+						<input
+							type="text"
+							value={musicUrl}
+							onChange={(e) => setMusicUrl(e.target.value)}
+							required
+						/>
 
-				</div>
-				<div className="form-buttons">
-					<button
-						type='cancel'
-						className='oval-button-area small-button'
-						onClick={handleCancel}
-					>
-						Cancel
-					</button>
-					<button
-						type='submit'
-						className='oval-button-area small-button'
-						disabled={isDisabled}
-					>
-						Submit
-					</button>
-				</div>
-			</form>
-		</div>
+					</div>
+					<div className="form-buttons">
+						<button
+							type='cancel'
+							className='oval-button-area small-button'
+							onClick={handleCancel}
+						>
+							Cancel
+						</button>
+						<button
+							type='submit'
+							className='oval-button-area small-button'
+							disabled={isDisabled}
+						>
+							Submit
+						</button>
+					</div>
+				</form>
+			</div>
+		</>
 	)
 }
 
