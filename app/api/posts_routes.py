@@ -34,12 +34,13 @@ def create_one_post():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         data = form.data
-        print('DERTER', data)
+        print('DERTER IN CREATE POST/MUSIC', data)
         new_post = Post(
             title = data['title'],
             description = data['description'],
             user_id = data['user_id'],
             image_url = data['image_url'],
+            # grab music url from the post, should be covered by notrequired in model
             music_url = data['music_url']
         )
         db.session.add(new_post)

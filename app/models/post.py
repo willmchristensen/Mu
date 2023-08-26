@@ -11,6 +11,7 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
     description = db.Column(db.String, nullable=False)
+    # TODO: eventually change to non-nullable
     image_url = db.Column(db.String, nullable=False)
     music_url = db.Column(db.String)
     artist = db.Column(db.String)

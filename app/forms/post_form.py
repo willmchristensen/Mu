@@ -12,3 +12,4 @@ class PostForm(FlaskForm):
     song = StringField('song')
     album = StringField('album')
     user_id = StringField('user_id')
+    music_url = StringField('music_url')
