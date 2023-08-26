@@ -1,18 +1,26 @@
-const MusicCard = (music) => {
+import './MusicCard.css'
+
+const MusicCard = ({music}) => {
     console.log(music)
     return (
         <div className="music-card-container">
-            <div className="music-card-wrapper">
-                {/* <div className="music-card-image">
-                    <img src={music.musicUrl} alt="music-image" className=""/>
-                </div> */}
-                <div className="music-card-content">
-                    <div className="music-card-title">
-                        <h1> {music.music.title}</h1>
-                    </div>
-                    {/* <div className="music-card-description">
+            {/* 
+                TODO: 
+                MUSIC-IMAGE COMPONENT with default image -- use previous
+                        && 
+                IMAGE-URL IN CREATE MUSIC
+            */}
+            <div className="music-card-image">
+                <img src={music.imageUrl} alt="music-image-alt" className=""/>
+            </div>
+            <div className="music-card-content">
+                <div className="music-card-title">
+                    <h1>{music.title}</h1>
+                </div>
+                <div className="music-card-description">
+                    <p className="music-description">
                         {music.description}
-                    </div> */}
+                    </p>
                 </div>
             </div>
         </div>

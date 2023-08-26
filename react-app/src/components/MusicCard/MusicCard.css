@@ -1,0 +1,8 @@
+.music-card-image > img{ 
+    width: 100%;
+    height: 35vh;
+    object-fit: cover;
+}
+.music-card-container { 
+    width: 25%;
+}

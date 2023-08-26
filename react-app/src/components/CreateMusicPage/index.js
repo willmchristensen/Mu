@@ -1,7 +1,8 @@
-// import './CreatePostPage.css';
+import './CreateMusicPage.css';
 import MusicCard from '../MusicCard';
 import FormNavBar from '../FormNavBar';
 import ContentHeader from '../ContentHeader';
+import AreaButton from '../Magazine/AreaButton';
 import { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
@@ -30,8 +31,6 @@ const CreateMusicPage = () => {
 	const allMusic = allPosts.filter(p => p?.musicUrl?.length > 0);
 	const dispatch = useDispatch();
 	const history = useHistory();
-// currently grabbing the correct data but:
-	// backend not receiving music_url
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const data = {
@@ -108,25 +107,48 @@ const CreateMusicPage = () => {
 
 	return (
 		<>
-			<div className="read-event-container">
-				<h1>read</h1>
-				<h2>
-					{
-						allMusic.map(m => {
-							return (
-								<MusicCard music={m} />
-							)
-						})
-					}
-				</h2>
+			<ContentHeader content={'first music section'} />
+			<div className="music-cards-container">
+				{
+					allMusic.map(m => {
+						return (
+							<MusicCard music={m} />
+						)
+					})
+				}
+				<div className="button">
+					<AreaButton area={'albums'} />
+				</div>
 			</div>
-			<hr />
+			<ContentHeader content={'Singles & EPs'} />
+			<div className="button">
+					<AreaButton area={'singles & EPs'} />
+			</div>
+			<ContentHeader content={'Podcasts'} />
+			<div className="button">
+					<AreaButton area={'podcasts'} />
+			</div>
+			<ContentHeader content={'Mixes'} />
+			<div className="button">
+					<AreaButton area={'mixes'} />
+			</div>
+			<ContentHeader content={'Playlists'} />
+			<div className="button">
+					<AreaButton area={'playlists'} />
+			</div>
+			<ContentHeader content={'RA Reccomends'} />
+			<div className="button">
+					<AreaButton area={'RA Reccomends'} />
+			</div>
 			<div className="create-event-container">
 				<FormNavBar pages={['Content', 'Details']} />
 				<form
 					className='create-event-form'
 					onSubmit={handleSubmit}
-				>
+				>	
+					{/* formTitle: 
+						fills the title of the page with either create or edit music based on the presence of an id in the url params
+					 */}
 					<ContentHeader content={formTitle} />
 					<div className="form-row-column">
 						<label>
