@@ -1,5 +1,6 @@
 import './CreateMusicPage.css';
 import MusicCard from '../MusicCard';
+import PodcastCard from '../PodcastCard';
 import FormNavBar from '../FormNavBar';
 import ContentHeader from '../ContentHeader';
 import AreaButton from '../Magazine/AreaButton';
@@ -150,32 +151,76 @@ const CreateMusicPage = () => {
 					<ContentHeader content={'Podcasts'} />
 				</div>
 			</div>
-			<div className="button">
-					<AreaButton area={'podcasts'} />
+			<div className="music-cards-container">
+				<div className="music-cards-wrapper">
+					{
+						allMusic.map(m => {
+							return (
+								<PodcastCard music={m} />
+							)
+						})
+					}
+				</div>
+				<div className="button">
+						<AreaButton area={'podcasts'} />
+				</div>
 			</div>
 			<div className="content-header-container">
 				<div className="content-header-wrapper">
 					<ContentHeader content={'Mixes'} />
 				</div>
 			</div>
-			<div className="button">
+			<div className="music-cards-container">
+				<div className="music-cards-wrapper">
+					{
+						allMusic.map(m => {
+							return (
+								<MusicCard music={m} />
+							)
+						})
+					}
+				</div>
+				<div className="button">
 					<AreaButton area={'mixes'} />
+				</div>
 			</div>
 			<div className="content-header-container">
 				<div className="content-header-wrapper">
 					<ContentHeader content={'Playlists'} />
 				</div>
 			</div>
+			<div className="music-cards-container">
+				<div className="music-cards-wrapper">
+					{
+						allMusic.map(m => {
+							return (
+								<MusicCard music={m} />
+							)
+						})
+					}
+				</div>
 			<div className="button">
 					<AreaButton area={'playlists'} />
 			</div>
+						</div>
 			<div className="content-header-container">
 				<div className="content-header-wrapper">
 					<ContentHeader content={'RA Reccomends'} />
 				</div>
 			</div>
-			<div className="button">
-					<AreaButton area={'RA Reccomends'} />
+			<div className="music-cards-container">
+				<div className="music-cards-wrapper">
+					{
+						allMusic.map(m => {
+							return (
+								<PodcastCard music={m} />
+							)
+						})
+					}
+				</div>
+				<div className="button">
+						<AreaButton area={'RA Reccomends'} />
+				</div>
 			</div>
 			<div className="create-event-container">
 				<FormNavBar pages={['Content', 'Details']} />
