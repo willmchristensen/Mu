@@ -107,36 +107,73 @@ const CreateMusicPage = () => {
 
 	return (
 		<>
-			<ContentHeader content={'first music section'} />
+			<div className="content-header-container">
+				<div className="content-header-wrapper">
+					<ContentHeader content={'Albums'} />
+				</div>
+			</div>
 			<div className="music-cards-container">
-				{
-					allMusic.map(m => {
-						return (
-							<MusicCard music={m} />
-						)
-					})
-				}
+				<div className="music-cards-wrapper">
+					{
+						allMusic.map(m => {
+							return (
+								<MusicCard music={m} />
+							)
+						})
+					}
+				</div>
 				<div className="button">
 					<AreaButton area={'albums'} />
 				</div>
 			</div>
-			<ContentHeader content={'Singles & EPs'} />
+			<div className="content-header-container">
+				<div className="content-header-wrapper">
+					<ContentHeader content={'Singles & EPs'} />
+				</div>
+			</div>
+			<div className="music-cards-container">
+				<div className="music-cards-wrapper">
+					{
+						allMusic.map(m => {
+							return (
+								<MusicCard music={m} />
+							)
+						})
+					}
+				</div>
 			<div className="button">
 					<AreaButton area={'singles & EPs'} />
 			</div>
-			<ContentHeader content={'Podcasts'} />
+			</div>
+			<div className="content-header-container">
+				<div className="content-header-wrapper">
+					<ContentHeader content={'Podcasts'} />
+				</div>
+			</div>
 			<div className="button">
 					<AreaButton area={'podcasts'} />
 			</div>
-			<ContentHeader content={'Mixes'} />
+			<div className="content-header-container">
+				<div className="content-header-wrapper">
+					<ContentHeader content={'Mixes'} />
+				</div>
+			</div>
 			<div className="button">
 					<AreaButton area={'mixes'} />
 			</div>
-			<ContentHeader content={'Playlists'} />
+			<div className="content-header-container">
+				<div className="content-header-wrapper">
+					<ContentHeader content={'Playlists'} />
+				</div>
+			</div>
 			<div className="button">
 					<AreaButton area={'playlists'} />
 			</div>
-			<ContentHeader content={'RA Reccomends'} />
+			<div className="content-header-container">
+				<div className="content-header-wrapper">
+					<ContentHeader content={'RA Reccomends'} />
+				</div>
+			</div>
 			<div className="button">
 					<AreaButton area={'RA Reccomends'} />
 			</div>

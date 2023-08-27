@@ -34,7 +34,7 @@
     justify-content: space-between;
 }
 .x {
-    background-color: var(--black);
+    /* background-color: var(--black); */
     border: none;
     color: var(--off-white);
     font-size: 2rem;

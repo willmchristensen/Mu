@@ -1,6 +1,29 @@
 .music-cards-container { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+    background-color: var(--white);
+}
+.music-cards-wrapper { 
+    width: 80%;
     display: flex;
     flex-direction: row;
+    gap: 2.5vw;
+}
+.content-header-container { 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: var(--white);
+}
+.content-header-wrapper > *{ 
+    width: 80%;
+    /* margin: 1rem 1rem 4rem 0; */
+    margin: 0;
+    padding: 1rem 0 1rem 0;
+}
+.content-header-wrapper { 
+    width: 80%;
 }

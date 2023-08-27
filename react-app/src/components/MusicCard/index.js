@@ -15,7 +15,7 @@ const MusicCard = ({music}) => {
             </div>
             <div className="music-card-content">
                 <div className="music-card-title">
-                    <h1>{music.title}</h1>
+                    <h3>{music.title}</h3>
                 </div>
                 <div className="music-card-description">
                     <p className="music-description">
