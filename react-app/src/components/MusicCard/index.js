@@ -1,7 +1,9 @@
 import './MusicCard.css'
 import MusicImageCard from '../MusicImage'
+import { NavLink } from 'react-router-dom/cjs/react-router-dom'
+
 const MusicCard = ({music}) => {
-    console.log(music)
+    // console.log(music)
     return (
         <div className="music-card-container">
             {/* 
@@ -16,7 +18,10 @@ const MusicCard = ({music}) => {
             </div>
             <div className="music-card-content">
                 <div className="music-card-title">
-                    <h3>{music.title}</h3>
+                    <NavLink
+                         to={`/music/${music.id}`}
+                         className='event-image-link'
+                    ><h3>{music.title}</h3></NavLink>
                 </div>
                 <div className="music-card-description">
                     <p className="music-description">

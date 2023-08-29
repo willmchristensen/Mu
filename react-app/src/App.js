@@ -7,7 +7,9 @@ import NavBar from "./components/NavBar";
 import MainContent from "./components/MainContent";
 import EventDetails from "./components/EventDetails";
 import PostDetails from "./components/PostDetails";
+import MusicDetails from "./components/MusicDetails";
 import Magazine from "./components/Magazine";
+import Music from "./components/Music";
 import CreateEventPage from "./components/CreateEventPage";
 import CreatePostPage from "./components/CreatePostPage";
 import CreateMusicPage from "./components/CreateMusicPage";
@@ -35,7 +37,7 @@ function App() {
           <Route path={["/posts/:postId/edit","/posts/new"]} exact>
             <CreatePostPage />
           </Route>
-          <Route path={["/music/:musicId/edit","/music"]}>
+          <Route path={["/music/:musicId/edit","/music/new"]}>
             <CreateMusicPage />
           </Route>
           <Route path="/events/:eventId" exact>
@@ -43,6 +45,9 @@ function App() {
           </Route>
           <Route path="/posts/:postId">
             <PostDetails />
+          </Route>
+          <Route path="/music/:musicId">
+            <MusicDetails />``
           </Route>
           {/* <Route path="/create-post">
             <CreatePostPage />
@@ -58,6 +63,9 @@ function App() {
           </Route>
           <Route path="/events">
             <MainContent />
+          </Route>
+          <Route path="/music">
+            <Music />
           </Route>
           <Route path="/">
             <SplashPage />

@@ -165,12 +165,13 @@ const postReducer = (state = initialState, action) => {
             newState.posts[action.payload.id] = action.payload;
             return newState;
         }
+        // TODO: change state correctly 
         case DELETE_POST: {
+            delete newState.posts[action.postId]
             const newState = {
                 ...state,
                 posts: { ...state.posts }
             }
-            delete newState.posts[action.postId]
             return newState
         }
         case EDIT_POST: {

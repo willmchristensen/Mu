@@ -1,0 +1,27 @@
+.music-details-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--off-white);
+}
+.share {
+    display: flex;
+    flex-direction: column;
+}
+.music-details-content-container {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin-top: 1rem;
+}
+.music-details-description{
+    margin-top: 2rem;
+}
+.music-owner-buttons {
+    width: 100%;
+    height: 10%;
+    display: flex;
+}
+.music-owner-buttons > * {
+    margin-right: 1rem;
+}

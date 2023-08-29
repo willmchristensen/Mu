@@ -4,6 +4,7 @@ import PodcastCard from '../PodcastCard';
 import FormNavBar from '../FormNavBar';
 import ContentHeader from '../ContentHeader';
 import AreaButton from '../Magazine/AreaButton';
+import MusicDetails from '../MusicDetails';
 import { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
@@ -45,7 +46,6 @@ const CreateMusicPage = () => {
 			'description': description,
 			'user_id': currentUser.id,
 		}
-		console.log('HANDLE SUBMIT:',data )
 		const payload = { 'postId': postId, 'item': data }
 		// if editing a music post
 		if (postId) {
@@ -84,7 +84,7 @@ const CreateMusicPage = () => {
 			setTitle(post.title)
 			setDescription(post.description)
 			setMusicUrl(post.musicUrl)
-			// add image url
+			// TODO: add image url
 		}
 	}, [postId, post])
 
@@ -108,120 +108,7 @@ const CreateMusicPage = () => {
 
 	return (
 		<>
-			<div className="content-header-container">
-				<div className="content-header-wrapper">
-					<ContentHeader content={'Albums'} />
-				</div>
-			</div>
-			<div className="music-cards-container">
-				<div className="music-cards-wrapper">
-					{
-						allMusic.map(m => {
-							return (
-								<MusicCard music={m} />
-							)
-						})
-					}
-				</div>
-				<div className="button">
-					<AreaButton area={'albums'} />
-				</div>
-			</div>
-			<div className="content-header-container">
-				<div className="content-header-wrapper">
-					<ContentHeader content={'Singles & EPs'} />
-				</div>
-			</div>
-			<div className="music-cards-container">
-				<div className="music-cards-wrapper">
-					{
-						allMusic.map(m => {
-							return (
-								<MusicCard music={m} />
-							)
-						})
-					}
-				</div>
-			<div className="button">
-					<AreaButton area={'singles & EPs'} />
-			</div>
-			</div>
-			<div className="content-header-container">
-				<div className="content-header-wrapper">
-					<ContentHeader content={'Podcasts'} />
-				</div>
-			</div>
-			<div className="music-cards-container">
-				<div className="music-cards-wrapper">
-					{
-						allMusic.map(m => {
-							return (
-								<PodcastCard music={m} />
-							)
-						})
-					}
-				</div>
-				<div className="button">
-						<AreaButton area={'podcasts'} />
-				</div>
-			</div>
-			<div className="content-header-container">
-				<div className="content-header-wrapper">
-					<ContentHeader content={'Mixes'} />
-				</div>
-			</div>
-			<div className="music-cards-container">
-				<div className="music-cards-wrapper">
-					{
-						allMusic.map(m => {
-							return (
-								<MusicCard music={m} />
-							)
-						})
-					}
-				</div>
-				<div className="button">
-					<AreaButton area={'mixes'} />
-				</div>
-			</div>
-			<div className="content-header-container">
-				<div className="content-header-wrapper">
-					<ContentHeader content={'Playlists'} />
-				</div>
-			</div>
-			<div className="music-cards-container">
-				<div className="music-cards-wrapper">
-					{
-						allMusic.map(m => {
-							return (
-								<MusicCard music={m} />
-							)
-						})
-					}
-				</div>
-			<div className="button">
-					<AreaButton area={'playlists'} />
-			</div>
-						</div>
-			<div className="content-header-container">
-				<div className="content-header-wrapper">
-					<ContentHeader content={'RA Reccomends'} />
-				</div>
-			</div>
-			<div className="music-cards-container">
-				<div className="music-cards-wrapper">
-					{
-						allMusic.map(m => {
-							return (
-								<PodcastCard music={m} />
-							)
-						})
-					}
-				</div>
-				<div className="button">
-						<AreaButton area={'RA Reccomends'} />
-				</div>
-			</div>
+
 			<div className="create-event-container">
 				<FormNavBar pages={['Content', 'Details']} />
 				<form
