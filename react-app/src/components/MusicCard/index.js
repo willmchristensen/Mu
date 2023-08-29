@@ -1,5 +1,5 @@
 import './MusicCard.css'
-
+import MusicImageCard from '../MusicImage'
 const MusicCard = ({music}) => {
     console.log(music)
     return (
@@ -11,7 +11,8 @@ const MusicCard = ({music}) => {
                 IMAGE-URL IN CREATE MUSIC
             */}
             <div className="music-card-image">
-                <img src={music.imageUrl} alt="music-image-alt" className=""/>
+                {/* <img src={music.imageUrl} alt="music-image-alt" className=""/> */}
+                <MusicImageCard image={music.imageUrl}></MusicImageCard>
             </div>
             <div className="music-card-content">
                 <div className="music-card-title">
