@@ -108,7 +108,6 @@ export const createPost = (details) => async (dispatch) => {
         headers: {
             "Content-Type": "application/json",
         },
-        // body: details
         body: JSON.stringify(
             details
         ),

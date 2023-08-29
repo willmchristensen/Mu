@@ -86,6 +86,8 @@ def edit_one_post(id):
             post.title = data['title']
             post.description = data['description']
             post.image_url = data['image_url']
+            if data['music_url']:
+                post.music_url = data['music_url']
 
             db.session.commit()
             return {

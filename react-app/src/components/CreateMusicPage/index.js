@@ -14,7 +14,8 @@ const CreateMusicPage = () => {
 		//TODO:UPDATE MUSIC
 		// grab music from url (from edit button)
 		// img url in form
-	const { postId } = useParams();
+	const { musicId } = useParams();
+	console.log('------------------------------musicId OUTSIDE OF HANDLE SUBMIT', musicId);
 	const post = useSelector(state => state.post.singlePost);
 
 	const [title, setTitle] = useState('');
@@ -46,9 +47,10 @@ const CreateMusicPage = () => {
 			'description': description,
 			'user_id': currentUser.id,
 		}
-		const payload = { 'postId': postId, 'item': data }
+		const payload = { 'musicId': musicId, 'item': data }
 		// if editing a music post
-		if (postId) {
+		if (musicId) {
+			console.log('------------------------------musicID INSIDE OF EXISITING MUSIC ID', musicId);
 			if (!title || !description || !musicUrl) {
 				setIsDisabled(true);
 				setIsSubmitted(true);
@@ -71,22 +73,22 @@ const CreateMusicPage = () => {
 	}
 	// grab post
 	useEffect(() => {
-		if (postId) {
-			dispatch(getOnePost(postId))
+		if (musicId) {
+			dispatch(getOnePost(musicId))
 			setFormTitle('Edit Music')
 		} else {
 			setFormTitle('Create Music')
 		}
-	}, [dispatch, postId])
+	}, [dispatch, musicId])
 
 	useEffect(() => {
-		if (postId && post) {
+		if (musicId && post) {
 			setTitle(post.title)
 			setDescription(post.description)
 			setMusicUrl(post.musicUrl)
 			// TODO: add image url
 		}
-	}, [postId, post])
+	}, [musicId, post])
 
 	useEffect(() => {
 		if (isSubmitted) {
