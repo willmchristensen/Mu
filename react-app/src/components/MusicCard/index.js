@@ -20,7 +20,7 @@ const MusicCard = ({music}) => {
                 <div className="music-card-title">
                     <NavLink
                          to={`/music/${music.id}`}
-                         className='event-image-link'
+                         className='music-image-link'
                     ><h3>{music.title}</h3></NavLink>
                 </div>
                 <div className="music-card-description">

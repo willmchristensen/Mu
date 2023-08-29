@@ -8,12 +8,16 @@ import MusicDetails from '../MusicDetails';
 import { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { createPost, editOnePost, getOnePost, getAllPosts } from '../../store/post';
+import { getAllPosts } from '../../store/post';
 
 const Music = () => {
     const posts = useSelector(state => state.post.posts);
     const allPosts = Object.values(posts);
     const allMusic = allPosts.filter(p => p?.musicUrl?.length > 0);
+	const dispatch = useDispatch();
+	useEffect(()=>{
+		dispatch(getAllPosts())
+	},[])
     return ( 
         <div className="music-container">
             <div className="music-create-button">

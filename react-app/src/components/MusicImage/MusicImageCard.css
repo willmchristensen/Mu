@@ -1,3 +1,13 @@
-.news-image-container:hover{
+.music-image-container:hover{
     cursor: pointer;
+}
+.music-image-container > img{ 
+        /* width: 14rem; */
+        height: 8rem;
+        padding-right: 1.5rem;
+        display: block;
+        object-fit: cover;
+}
+.music-card-container{
+    padding-right: 2rem;
 }
