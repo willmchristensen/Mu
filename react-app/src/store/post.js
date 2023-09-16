@@ -1,6 +1,6 @@
 import normalize from './normalizer'
 const DELETE_POST = "posts/delete"
-
+const DELETE_MUSIC_POST = "posts/delete";
 const EDIT_POST = "posts/edit"
 const editPost = (details) => ({
     type: EDIT_POST,
@@ -34,6 +34,33 @@ export const editOnePost = (payload) => async (dispatch) => {
     }
 }
 
+export const editOneMusicPost = (payload) => async (dispatch) => {
+    console.log('payload in Edit Music Thunk', payload);
+    const { item, musicId } = payload;
+    const response = await fetch(`/api/posts/${musicId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+            item
+        ),
+    });
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(editPost(data.post));
+        return data
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return [
+            "An error occurred. Please try again."
+        ];
+    }
+}
 const LOAD = "posts/load";
 const LOAD_ONE = "posts/load_one";
 const CREATE_POST = "posts/new";
@@ -58,6 +85,11 @@ const removePost = (postId) => ({
     postId
 });
 
+const removeMusicPost = (musicId) => ({
+    type: DELETE_MUSIC_POST,
+    musicId
+});
+
 export const deletePost = (postId) => async (dispatch) => {
     const response = await fetch(`/api/posts/${postId}`, {
         method: "DELETE",
@@ -67,6 +99,21 @@ export const deletePost = (postId) => async (dispatch) => {
     });
     if (response.ok) {
         dispatch(removePost(postId));
+    } else {
+        return [
+            "An error occurred. Please try again."
+        ];
+    }
+}
+export const deleteMusicPost = (musicId) => async (dispatch) => {
+    const response = await fetch(`/api/posts/${musicId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    });
+    if (response.ok) {
+        dispatch(removePost(musicId));
     } else {
         return [
             "An error occurred. Please try again."
@@ -166,11 +213,19 @@ const postReducer = (state = initialState, action) => {
         }
         // TODO: change state correctly 
         case DELETE_POST: {
-            delete newState.posts[action.postId]
             const newState = {
                 ...state,
                 posts: { ...state.posts }
             }
+            delete newState.posts[action.postId]
+            return newState
+        }
+        case DELETE_MUSIC_POST: {
+            const newState = {
+                ...state,
+                posts: { ...state.posts }
+            }
+            delete newState.posts[action.musicId]
             return newState
         }
         case EDIT_POST: {

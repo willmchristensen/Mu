@@ -8,7 +8,7 @@ import MusicDetails from '../MusicDetails';
 import { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { createPost, editOnePost, getOnePost, getAllPosts } from '../../store/post';
+import { createPost, editOneMusicPost, getOnePost, getAllPosts } from '../../store/post';
 
 const CreateMusicPage = () => {
 		//TODO:UPDATE MUSIC
@@ -46,8 +46,8 @@ const CreateMusicPage = () => {
 			'image_url': 'https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg',
 			'description': description,
 			'user_id': currentUser.id,
-		}
-		const payload = { 'musicId': musicId, 'item': data }
+		};
+		const payload = { 'musicId': musicId, 'item': data };
 		// if editing a music post
 		if (musicId) {
 			console.log('------------------------------musicID INSIDE OF EXISITING MUSIC ID', musicId);
@@ -55,7 +55,7 @@ const CreateMusicPage = () => {
 				setIsDisabled(true);
 				setIsSubmitted(true);
 			} else {
-				await dispatch(editOnePost(payload)).then(history.push('/music'));
+				await dispatch(editOneMusicPost(payload)).then(history.push('/music'));
 			}
 		} else {
 			if (!title || !description || !musicUrl) {
@@ -110,7 +110,6 @@ const CreateMusicPage = () => {
 
 	return (
 		<>
-
 			<div className="create-event-container">
 				<FormNavBar pages={['Content', 'Details']} />
 				<form
@@ -119,7 +118,7 @@ const CreateMusicPage = () => {
 				>	
 					{/* formTitle: 
 						fills the title of the page with either create or edit music based on the presence of an id in the url params
-					 */}
+						*/}
 					<ContentHeader content={formTitle} />
 					<div className="form-row-column">
 						<label>

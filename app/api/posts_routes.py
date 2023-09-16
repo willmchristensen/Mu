@@ -75,7 +75,6 @@ def edit_one_post(id):
     """
     Edit post
     """
-    print('no way')
     form = PostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():

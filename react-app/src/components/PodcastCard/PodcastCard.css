@@ -6,6 +6,17 @@
 .podcast-card-container { 
     max-width: 11vw;
 }
+.podcast-card-container > * { 
+    max-width: 10vw;
+    overflow: hidden;
+}
 .podcast-card-title { 
     margin-bottom: .1rem;
+}
+.music-card-container { 
+    max-width: 11vw;
+}
+.music-card-container > * { 
+    max-width: 10vw;
+    overflow: hidden;
 }
