@@ -34,7 +34,7 @@ const MusicDetails = () => {
     const handleDelete = async (e) => {
         e.preventDefault()
         await dispatch(deletePost(post.id))
-        history.push('/magazine')
+        history.push('/music')
     }
     // TODO: music slice of title etc
     // const firstTwo = (post?.title?.split(' ')[0] + ' ' + post?.title?.split(' ')[1]);

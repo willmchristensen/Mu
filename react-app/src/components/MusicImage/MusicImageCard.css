@@ -2,8 +2,8 @@
     cursor: pointer;
 }
 .music-image-container > img{ 
-        /* width: 14rem; */
-        height: 8rem;
+        width: 14rem;
+        height: 18rem;
         padding-right: 1.5rem;
         display: block;
         object-fit: cover;

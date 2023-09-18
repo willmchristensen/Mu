@@ -1,22 +1,11 @@
 .podcast-image { 
-    width:100%;
-    /* max-width: 300px;  */
+    height: 18rem;
     object-fit: cover;
 }
-.podcast-card-container { 
-    max-width: 11vw;
-}
 .podcast-card-container > * { 
-    max-width: 10vw;
+    max-width: 30vw;    
     overflow: hidden;
 }
 .podcast-card-title { 
     margin-bottom: .1rem;
-}
-.music-card-container { 
-    max-width: 11vw;
-}
-.music-card-container > * { 
-    max-width: 10vw;
-    overflow: hidden;
 }
