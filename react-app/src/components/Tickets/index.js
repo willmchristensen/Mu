@@ -8,13 +8,33 @@ const Tickets = () => {
     const { eventId } = useParams();
     const location = useLocation();
     const dispatch = useDispatch();
+    const ticket = useSelector(state => state.ticket.singleTicket);
+    const event = useSelector(state=> state.event.singleEvent);
+    const handlePurchase = async () => {
+        try {
+            const response = await fetch(`/api/tickets/buy/${eventId}`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            });
+      
+            if (response.ok) {
+              console.log('Ticket purchased successfully');
+              // Optionally, you can perform any additional actions here.
+            } else {
+              console.error('Failed to purchase ticket');
+              // Handle the error as needed.
+            }
+          } catch (error) {
+            console.error('Error purchasing ticket', error);
+            // Handle network or other errors.
+          }
+    };
     useEffect(()=>{
         dispatch(getOneTicket(eventId))
         dispatch(getOneEvent(eventId))
     },[])
-    const ticket = useSelector(state => state.ticket.singleTicket);
-    const event = useSelector(state=> state.event.singleEvent);
-    const artists = Object.values(event.artists)
     return (
         <div className="tickets-container">
             <h1>tickets</h1>
@@ -22,15 +42,7 @@ const Tickets = () => {
             <h4>{ticket.price}</h4>
             <h3>event:</h3>
             <span>{event.description}</span>
-            <h3>artists: </h3>
-            {
-                artists.map(a=> {
-                    return (
-                        <span>{a} </span>
-                    )
-                })
-            }
-            <button>buy me</button>
+            <button onClick={handlePurchase}>buy me</button>
         </div>
     )
 }

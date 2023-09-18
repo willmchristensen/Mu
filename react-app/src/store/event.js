@@ -143,7 +143,7 @@ const eventReducer = (state = initialState, action) => {
             }
         }
         case LOAD_ONE: {
-            const newState = { ...state }
+            const newState = { ...state, events: {...state.events}, singleEvent: {...state.singleEvent}}
             newState.singleEvent = {
                 ...action.payload,
                 artists: { ...action.payload.artists },
