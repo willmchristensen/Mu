@@ -112,7 +112,7 @@ const EventDetails = () => {
                                     <div className="interested">
                                         <button className="oval-button-not-allowed-red">
                                             <i class="fas fa-user-plus"></i>
-                                            Interested
+                                            <NavLink to={`/tickets/${event.id}`}>Interested</NavLink>
                                         </button>
                                     </div>
                                 </div>

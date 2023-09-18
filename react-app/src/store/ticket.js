@@ -73,9 +73,6 @@ export const deleteTicket = (ticketId) => async (dispatch) => {
         ];
     }
 }
-
-
-
 export const getAllTickets = () => async (dispatch) => {
     const response = await fetch("/api/tickets")
     if (response.ok) {
@@ -89,7 +86,6 @@ export const getAllTickets = () => async (dispatch) => {
         ];
     }
 }
-
 export const getOneTicket = (id) => async (dispatch) => {
     const response = await fetch(`/api/tickets/${id}`)
     if (response.ok) {

@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session';
 import event from './event';
 import post from './post';
+import ticket from './ticket'
 
 const rootReducer = combineReducers({
   session,
   event,
   post,
+  ticket,
 });
 
 

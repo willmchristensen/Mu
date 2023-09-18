@@ -14,7 +14,7 @@ import CreateEventPage from "./components/CreateEventPage";
 import CreatePostPage from "./components/CreatePostPage";
 import CreateMusicPage from "./components/CreateMusicPage";
 // import EditEventPage from "./components/EditEventPage";
-// import Tickets from "./components/Tickets";
+import Tickets from "./components/Tickets";
 import SplashPage from "./components/SplashPage";
 import Footer from "./components/Footer";
 
@@ -52,9 +52,9 @@ function App() {
           {/* <Route path="/create-post">
             <CreatePostPage />
           </Route> */}
-          {/* <Route path="/tickets">
+          <Route path='/tickets/:eventId'>
             <Tickets />
-          </Route>  */}
+          </Route> 
           <Route path="/magazine">
             <Magazine />
           </Route>

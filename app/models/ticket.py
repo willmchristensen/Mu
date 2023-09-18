@@ -22,7 +22,7 @@ class Ticket(db.Model):
           'id':self.id,
           'event_id': self.event_id,
           'price': self.price,
-          'event': self.event,
+         #  'event': self.event,
           "createdAt": str(self.created_at),
           "updatedAt": str(self.updated_at)
        }
