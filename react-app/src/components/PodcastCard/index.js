@@ -1,16 +1,22 @@
 import './PodcastCard.css'
-
+import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 const PodcastCard = ({music}) =>  { 
 
     return (
         <div className="podcast-card-container">
-            <div className="podcast-card-image">
+            <NavLink 
+                className="podcast-card-image"
+                to={`music/${music.id}`}
+            >
                 <img src={music.imageUrl} alt="podcast-image-alt" className="podcast-image" />
-            </div>
+            </NavLink>
             <div className="podcast-card-title">
-                <h3 className="podcast-title">
-                    {music.title}
-                </h3>
+                <NavLink 
+                className="podcast-title"
+                    to={`music/${music.id}`}
+                >
+                    <h3>{music.title}</h3>
+                </NavLink>
             </div>
             <div className="podcast-card-description">
                 <p className="podcast-description">

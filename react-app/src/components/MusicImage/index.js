@@ -1,21 +1,23 @@
+import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 import './MusicImageCard.css'
 
-const MusicImageCard = ({image}) => {
+const MusicImageCard = ({music}) => {
 
     const handleImageError = (e) => {
         e.target.src = 'https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg';
     }
-    if(!image) return null;
+    if(!music.imageUrl) return null;
     return (
-        <div
+        <NavLink
+            to={`/music/${music.id}`}
             className="music-image-container"
         >
             <img
-                src={image}
+                src={music.imageUrl}
                 alt="basic-alt"
                 onError={handleImageError}
             />
-        </div>
+        </NavLink>
     )
 
 }

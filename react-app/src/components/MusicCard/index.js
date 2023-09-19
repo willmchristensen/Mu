@@ -14,7 +14,7 @@ const MusicCard = ({music}) => {
             */}
             <div className="music-card-image">
                 {/* <img src={music.imageUrl} alt="music-image-alt" className=""/> */}
-                <MusicImageCard image={music.imageUrl}></MusicImageCard>
+                <MusicImageCard music={music}></MusicImageCard>
             </div>
             <div className="music-card-content">
                 <div className="music-card-title">

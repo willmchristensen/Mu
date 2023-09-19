@@ -84,6 +84,7 @@ const Music = () => {
 						<AreaButton area={'podcasts'} />
 				</div>
 			</div>
+			{/*
 			<div className="content-header-container">
 				<div className="content-header-wrapper">
 					<ContentHeader content={'Mixes'} />
@@ -140,7 +141,7 @@ const Music = () => {
 				<div className="button">
 						<AreaButton area={'RA Reccomends'} />
 				</div>
-			</div>
+			</div> */}
         </div>
     )
 }

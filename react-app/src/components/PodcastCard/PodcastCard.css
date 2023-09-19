@@ -9,3 +9,10 @@
 .podcast-card-title { 
     margin-bottom: .1rem;
 }
+.podcast-card-image:hover {
+    cursor: pointer; 
+}
+.podcast-title:hover {
+    cursor: pointer; 
+    color: var(--red)
+}
