@@ -32,7 +32,7 @@ const EventDetails = () => {
     const handleDelete = async (e) => {
         e.preventDefault()
         await dispatch(deleteEvent(event.id))
-        history.push('/')
+        history.push('/events')
     }
 
     const handleEdit = async (e) => {
@@ -110,10 +110,10 @@ const EventDetails = () => {
                                         {attendees.length}
                                     </span>
                                     <div className="interested">
-                                        <button className="oval-button-not-allowed-red">
+                                        <NavLink className="oval-button red" to={`/tickets/${event.id}`}>
                                             <i class="fas fa-user-plus"></i>
-                                            <NavLink to={`/tickets/${event.id}`}>Interested</NavLink>
-                                        </button>
+                                            Interested
+                                        </NavLink>
                                     </div>
                                 </div>
                             </div>
