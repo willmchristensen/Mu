@@ -1,10 +1,6 @@
 import './CreateMusicPage.css';
-import MusicCard from '../MusicCard';
-import PodcastCard from '../PodcastCard';
 import FormNavBar from '../FormNavBar';
 import ContentHeader from '../ContentHeader';
-import AreaButton from '../Magazine/AreaButton';
-import MusicDetails from '../MusicDetails';
 import { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
@@ -21,7 +17,7 @@ const CreateMusicPage = () => {
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [musicUrl, setMusicUrl] = useState('');
-	const [imageUrl, setImageUrl] = useState('');
+	// const [imageUrl, setImageUrl] = useState('');
 	const [formTitle, setFormTitle] = useState('');
 	const [errors, setErrors] = useState({});
 	const [isDisabled, setIsDisabled] = useState(false);
@@ -29,9 +25,9 @@ const CreateMusicPage = () => {
 	const currentUser = useSelector((state) => state.session.user)
 	// TODO: READ MUSIC
 	const posts = useSelector(state => state.post.posts);
-	const sessionUser = useSelector(state => state.session.user);
+	// const sessionUser = useSelector(state => state.session.user);
 	const allPosts = Object.values(posts);
-	const allMusic = allPosts.filter(p => p?.musicUrl?.length > 0);
+	// const allMusic = allPosts.filter(p => p?.musicUrl?.length > 0);
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const handleSubmit = async (e) => {

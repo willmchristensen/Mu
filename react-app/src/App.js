@@ -13,6 +13,7 @@ import Music from "./components/Music";
 import CreateEventPage from "./components/CreateEventPage";
 import CreatePostPage from "./components/CreatePostPage";
 import CreateMusicPage from "./components/CreateMusicPage";
+import MyTickets from "./components/MyTickets";
 // import EditEventPage from "./components/EditEventPage";
 import Tickets from "./components/Tickets";
 import SplashPage from "./components/SplashPage";
@@ -24,7 +25,7 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -54,6 +55,9 @@ function App() {
           </Route> */}
           <Route path='/tickets/:eventId'>
             <Tickets />
+          </Route> 
+          <Route path='/my-tickets' exact>
+            <MyTickets />
           </Route> 
           <Route path="/magazine">
             <Magazine />
