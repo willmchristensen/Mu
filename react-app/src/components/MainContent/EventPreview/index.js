@@ -60,7 +60,7 @@ const EventPreview = ({event,type}) => {
                 <div className={eventPreviewTitle}>
                     {
                         <NavLink
-                            to={`events/${event?.id}`}
+                            to={`/events/${event?.id}`}
                         >
                             <h3 className={dynamicTitle}>
                                 {event?.title}

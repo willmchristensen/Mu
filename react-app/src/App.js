@@ -56,7 +56,7 @@ function App() {
           <Route path='/tickets/:eventId'>
             <Tickets />
           </Route> 
-          <Route path='/my-tickets' exact>
+          <Route path='/my-tickets'>
             <MyTickets />
           </Route> 
           <Route path="/magazine">

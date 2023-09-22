@@ -1,6 +1,9 @@
+import './MyTickets.css'
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getUserTickets, getOneTicket } from '../../store/ticket'; 
+import { getUserTickets } from '../../store/ticket'; 
+import PageHeader from '../PageHeader';
+import {NavLink} from 'react-router-dom';
 
 const MyTickets = () => {
   const dispatch = useDispatch();
@@ -13,13 +16,19 @@ const MyTickets = () => {
   }, [dispatch, user]);
 
   return (
-    <div>
-      <h2>My Tickets</h2>
-      {events.map(e => {
-        return (
-          <h1>{e.title}</h1>
-        )
-      })}
+    <div className='my-tickets-container'>
+      <PageHeader header={'My Tickets'} />
+      {
+        events.map(e => {
+          return (
+            <NavLink 
+              class='big-title'
+              to={`events/${e.id}`}
+            ><h1>{e.title}</h1>
+            </NavLink >
+          )
+        })
+      }
     </div>
   );
 };

@@ -60,7 +60,7 @@ const PostPreview = ({event, post, type}) => {
                     {
                         post ?
                         <NavLink
-                            to={`posts/${post.id}`}
+                            to={`/posts/${post.id}`}
                         >
                             <h3 className={dynamicTitle}>
                                 {post?.title?.length > 100 ? post?.title?.slice(0,100) + '...': post?.title}
@@ -68,7 +68,7 @@ const PostPreview = ({event, post, type}) => {
                         </NavLink>
                         :
                         <NavLink
-                            to={`events/${event.id}`}
+                            to={`/events/${event.id}`}
                         >
                             <h3 className={dynamicTitle}>
                                 {event.title}

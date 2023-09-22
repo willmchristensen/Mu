@@ -4,12 +4,14 @@ import session from './session';
 import event from './event';
 import post from './post';
 import ticket from './ticket'
+import cart from './cart'
 
 const rootReducer = combineReducers({
   session,
   event,
   post,
   ticket,
+  cart
 });
 
 

@@ -4,37 +4,39 @@ import {useSelector, useDispatch} from 'react-redux';
 import { NavLink, useHistory, useParams, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import { getOneTicket } from '../../store/ticket'; 
 import {getOneEvent} from '../../store/event'
+import { addOneTicket, loadTickets } from '../../store/cart';
 const Tickets = () => {
     const { eventId } = useParams();
-    const location = useLocation();
     const dispatch = useDispatch();
     const ticket = useSelector(state => state.ticket.singleTicket);
     const event = useSelector(state=> state.event.singleEvent);
+    const tickets = useSelector(state=> state.cart.tickets);
     const handlePurchase = async () => {
-        try {
-            const response = await fetch(`/api/tickets/buy/${eventId}`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-            });
-      
-            if (response.ok) {
-              console.log('Ticket purchased successfully');
-              // Optionally, you can perform any additional actions here.
-            } else {
-              console.error('Failed to purchase ticket');
-              // Handle the error as needed.
-            }
-          } catch (error) {
-            console.error('Error purchasing ticket', error);
-            // Handle network or other errors.
+      try {
+          const response = await fetch(`/api/tickets/buy/${eventId}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+    
+          if (response.ok) {
+            console.log('Ticket purchased successfully');
+          } else {
+            console.error('Failed to purchase ticket');
           }
+        } catch (error) {
+          console.error('Error purchasing ticket', error);
+        }
     };
+    const handleAddToCart = (ticket) => {
+      dispatch(addOneTicket(ticket))
+    }
     useEffect(()=>{
-        dispatch(getOneTicket(eventId))
-        dispatch(getOneEvent(eventId))
-    },[])
+      dispatch(getOneTicket(eventId))
+      dispatch(getOneEvent(eventId))
+      dispatch(loadTickets());
+    },[eventId])
     return (
         <div className="tickets-container">
             <h1>tickets</h1>
@@ -43,6 +45,16 @@ const Tickets = () => {
             <h3>event:</h3>
             <span>{event.description}</span>
             <button onClick={handlePurchase}>buy me</button>
+            <button onClick={e => handleAddToCart(ticket)}>add to cart</button>
+            <div className="cart">
+              <h1>cart</h1>
+              {tickets && Object.values(tickets).map((t) => (
+                    <div key={t.id}>
+                        <p>{t.title}</p>
+                        <p>{t.price}</p>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
