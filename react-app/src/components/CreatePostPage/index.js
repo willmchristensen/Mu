@@ -13,7 +13,7 @@ const CreatePostPage = () => {
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [imageUrl, setImageUrl] = useState('');
-	const [musicUrl,setMusicUrl] = useState('');
+	// const [musicUrl,setMusicUrl] = useState('');
 	const [formTitle, setFormTitle] = useState('');
 	const [errors, setErrors] = useState({});
 	const [isDisabled, setIsDisabled] = useState(false);
@@ -128,7 +128,7 @@ const CreatePostPage = () => {
 					/>
 
                 </div>
-				<div className="form-row-column">
+				{/* <div className="form-row-column">
                     <label>
 						musicUrl
 					</label>
@@ -140,7 +140,7 @@ const CreatePostPage = () => {
 						required
 					/>
 
-				</div>
+				</div> */}
 				<div className="form-buttons">
 					<button
 						type='cancel'
