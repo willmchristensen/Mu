@@ -27,3 +27,9 @@
 .content-header-wrapper { 
     width: 80%;
 }
+.tooltip{
+    visibility: hidden;
+}
+.tooltip-container:hover .tooltip{
+    visibility: visible;
+}

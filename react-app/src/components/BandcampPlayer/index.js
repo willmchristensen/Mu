@@ -6,7 +6,7 @@ const BandcampPlayer = ({url}) => {
       title="Bandcamp Player"
       width="350"
       height="470"
-      src="https://bandcamp.com/EmbeddedPlayer/album=3875264052/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/track=888794823/transparent=true/"
+      src={url}
       frameBorder="0"
       seamless
     >

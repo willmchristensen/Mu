@@ -63,7 +63,7 @@ const SplashPage = () => {
     return (
          <NavLink
             className='splash'
-            to={postId ? `/posts/${postId}/information` : '/'}
+            to={postId ? `/posts/${postId}` : '/'}
         >
             <div className="splash-page-container" id="splash-background">
                 <h1 className="splash-header"></h1>
