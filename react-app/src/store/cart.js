@@ -1,5 +1,6 @@
 const ADD_TICKET = 'cart/add';
 const LOAD_TICKET = 'cart/load'
+const CLEAR_CART = 'cart/clear';
 const addOne = (data) => ({
     type:ADD_TICKET,
     payload: data
@@ -8,6 +9,9 @@ const load = (data) => ({
     type: LOAD_TICKET,
     payload: data
 });
+export const clearCart = () => ({
+    type: CLEAR_CART,
+  });
 export const addOneTicket = (data) => (dispatch, getState) => {
     dispatch(addOne(data));
     const updatedState = getState().cart;
@@ -52,6 +56,12 @@ const cartReducer = (state = initialState, action) => {
             newState.tickets[action.payload.id] = action.payload;
             return newState
         }
+        case CLEAR_CART: {
+            return {
+              ...state,
+              tickets: {},
+            };
+          }
         case LOAD_TICKET:
             return action.payload;
         default: 

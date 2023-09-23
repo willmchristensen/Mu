@@ -4,13 +4,14 @@ import {useSelector, useDispatch} from 'react-redux';
 import { NavLink, useHistory, useParams, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import { getOneTicket } from '../../store/ticket'; 
 import {getOneEvent} from '../../store/event'
-import { addOneTicket, loadTickets } from '../../store/cart';
+import { addOneTicket, loadTickets, clearCart } from '../../store/cart';
 const Tickets = () => {
     const { eventId } = useParams();
     const dispatch = useDispatch();
     const ticket = useSelector(state => state.ticket.singleTicket);
     const event = useSelector(state=> state.event.singleEvent);
     const tickets = useSelector(state=> state.cart.tickets);
+    const user = useSelector(state => state.session.user);
     const handlePurchase = async () => {
       try {
           const response = await fetch(`/api/tickets/buy/${eventId}`, {
@@ -37,6 +38,13 @@ const Tickets = () => {
       dispatch(getOneEvent(eventId))
       dispatch(loadTickets());
     },[eventId])
+
+    // FIXME: cart does not clear with user change
+    useEffect(() => {
+      localStorage.clear();
+      dispatch(clearCart());
+    },[user])
+
     return (
         <div className="tickets-container">
             <h1>tickets</h1>
