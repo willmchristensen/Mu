@@ -1,33 +1,38 @@
 import './EventDetails.css'
-import {useParams, useHistory, NavLink} from 'react-router-dom';
-import { useEffect} from 'react';
-import { useSelector, useDispatch} from 'react-redux';
+import { useParams, useHistory, NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { getOneEvent } from '../../store/event';
 import { deleteEvent, editOneEvent } from '../../store/event';
-import OpenModalButton from '../OpenModalButton';
-import EditEventPage from '../EditEventPage';
+import { getOneTicket } from '../../store/ticket';
 import PageHeader from '../PageHeader';
 import ShareButtons from '../ShareButtons';
 import ExtraLargeImage from './ExtraLargeImage';
 import ContentHeader from '../ContentHeader';
-//  TODO: ticket pricing components
+
 const EventDetails = () => {
-    const {eventId} = useParams();
+
+    const { eventId } = useParams();
     const history = useHistory();
     const dispatch = useDispatch();
+    const [quantity, setQuantity] = useState(1)
     const sessionUser = useSelector((state) => state.session.user);
     const event = useSelector(state => state.event.singleEvent);
-    const options = { day: 'numeric', month: 'long', year: 'numeric'}
+    const ticket = useSelector(state => state.ticket.singleTicket);
+
+    const options = { day: 'numeric', month: 'long', year: 'numeric' }
     let date = new Date(event?.createdAt)?.toLocaleDateString('en-US', options);
     let [month, day, year] = date.split(' ');
     let formattedDate = `${day} ${month} ${year}`;
-    const time = event?.createdAt?.substring(11,16);
+    const time = event?.createdAt?.substring(11, 16);
+
     const artists = event?.artists ? Object.values(event.artists) : [];
     const attendees = event?.attendees ? Object.values(event.attendees) : [];
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getOneEvent(eventId))
-    },[dispatch, eventId])
+        dispatch(getOneTicket(eventId))
+    }, [dispatch, eventId])
 
     const handleDelete = async (e) => {
         e.preventDefault()
@@ -35,20 +40,24 @@ const EventDetails = () => {
         history.push('/events')
     }
 
-    const handleEdit = async (e) => {
-        e.preventDefault()
-        await dispatch(editOneEvent(event.id))
-        history.push('/')
+    const handleIncQuantity = () => {
+        if (quantity < 6) {
+            setQuantity(quantity+1)
+        }
     }
 
-    if(!event) return null;
+    const handleDecQuantity = () => {
+        if(quantity > 1){
+            setQuantity(quantity-1)
+        }
+    }
+
+    if (!event) return null;
 
     return (
         <div className="single-event-container">
             <PageHeader header={event.title} subheader={event.description} />
             <div className="event-details-container">
-                {/* conditional rendering of delete button */}
-                {/* TODO: event date and time  */}
                 <div className="event-details">
                     {
                         sessionUser && event.ownerId === sessionUser.id &&
@@ -111,8 +120,8 @@ const EventDetails = () => {
                                     </span>
                                     <div className="interested">
                                         <NavLink className="oval-button red" to={`/tickets/${event.id}`}>
-                                            <i class="fas fa-user-plus"></i>
-                                            Interested
+                                                <i class="fas fa-user-plus"></i>
+                                                Interested
                                         </NavLink>
                                     </div>
                                 </div>
@@ -132,57 +141,60 @@ const EventDetails = () => {
                         })
                     } */}
                 </div>
-                {/* TODO: ticket pricing components */}
-                {/* <div className="tickets">
-                    <p>tickets availability text</p>
+                <div className="tickets">
                     <div className="ticket-price-tiers">
-                        <div className="ticket-price-tier">
+                        <ContentHeader content={"RA TICKETS"} />
+                        <span className='ticket-info'>
                             <span>
-                                Early bird
+                                Ticket including RA fee
+                                <span className='errors'>(?)</span>
                             </span>
-                            <span>
-                                $1.11
-                            </span>
-                        </div>
+                            <span>USD</span>
+                        </span>
                         <div className="ticket-price-tier">
-                            <span>
+                            <span className='ticket-price-tier-info'>
                                 1st release
                             </span>
-                            <span>
-                                $11.11
+                            <span className='ticket-price-tier-info'>
+                                ${ticket.price}
                             </span>
                         </div>
-                        <div className="ticket-price-tier">
-                            <span>
-                                2nd release
-                            </span>
-                            <span>
-                                $22.22
-                            </span>
-                        </div>
-                        <div className="ticket-price-tier">
-                            <span>
-                                3rd release
-                            </span>
-                            <span>
-                                $33.33
-                            </span>
-                        </div>
-                        <div className="ticket-price-tier">
-                            <span>
-                                4th release
-                            </span>
-                            <span>
-                                $44.44
-                            </span>
+                        {/* TODO: black minus button when tickets is 1, red when greater than 1  */}
+                        <div className="ticket-buttons">
+                            <div className="ticket-button-quantity">
+                                <button 
+                                    onClick={handleDecQuantity}
+                                    className='circle-button'
+                                >
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <span className="quantity">
+                                    {quantity}
+                                </span>
+                                <button 
+                                    onClick={handleIncQuantity}
+                                    className='circle-button'
+                                >
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div className="ticket-button-buy">
+                                <NavLink
+                                    className="oval-button red"
+                                    to={`/tickets/${event.id}`}
+                                >
+                                    <i class="fas fa-ticket-alt"></i>
+                                    <span className='buy-tickets'>Buy Tickets</span>
+                                </NavLink>
+                            </div>
                         </div>
                     </div>
-                </div> */}
+                </div>
                 <div className="lineup">
                     <div className="lineup-header">
                         <ContentHeader content={"LINEUP"} />
                         <div className="event-share">
-                            <ShareButtons orientation={'row'}  type='dark'/>
+                            <ShareButtons orientation={'row'} type='dark' />
                         </div>
                     </div>
                     <div className="lineup-artists">
@@ -249,7 +261,7 @@ const EventDetails = () => {
                                     The event is at event.ticketStatus and the
                                     <span>
                                         <a className="subheader-button">
-                                                resale que is event.resaleStatus.
+                                            resale que is event.resaleStatus.
                                         </a>
                                     </span>
                                 </p>

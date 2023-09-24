@@ -43,15 +43,31 @@
     margin-right: 5rem;
 }
 .tickets {
-    width: 50%;
+    width: 95%;
 }
 .ticket-price-tiers {
+    padding: 1rem;
     background-color: var(--grey);
 }
 .ticket-price-tier {
     color: var(--off-white);
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    padding-top: 1rem;
+}
+.ticket-price-tier-info{
+    font-weight: 100;
+    padding-bottom: .5rem;
+}
+.ticket-info{
+    display: flex;
+    justify-content: space-between;
+}
+.ticket-buttons { 
+    display: flex;
+    justify-content: space-between;
+    padding-top: 3rem;
 }
 .lineup{
     width: 80%;
@@ -135,4 +151,30 @@
 }
 .event-advertisements {
     margin-bottom: 5rem;
+}
+.circle-button { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 50%;
+    background-color: var(--grey);
+    border: .1rem solid var(--red);
+    color: var(--white);
+}
+.circle-button:hover{
+
+}
+.ticket-button-quantity{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.quantity{
+    font-size: 2rem;
+}
+.buy-tickets{
+    display: flex;
 }

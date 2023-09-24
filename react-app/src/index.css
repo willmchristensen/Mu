@@ -50,18 +50,18 @@ h2 {
     cursor: not-allowed;
 }
 .oval-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family:Arial, Helvetica, sans-serif;
     color:var(--off-white);
-    font-size: .55rem;
+    font-size: .75rem;
     letter-spacing: .02rem;
     background-color: var(--red);
     border-radius: 70rem;
     border: none;
-    padding: .7rem 3rem;
+    padding: 1rem 2rem;
     width: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 .oval-button:hover{
     background-color: var(--off-white);
