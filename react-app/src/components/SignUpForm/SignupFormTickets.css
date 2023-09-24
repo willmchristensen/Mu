@@ -1,0 +1,13 @@
+.sign-up-form-container{
+    padding-top: 4rem;
+    background-color: var(--white);
+}
+.signup-form{
+    width: 50%;
+}
+.signup-form-buttons{
+    padding-top: 1rem;
+}
+.signup-form-input{
+    padding: 0.5rem;
+}

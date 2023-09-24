@@ -5,23 +5,16 @@ import OpenModalButton from '../OpenModalButton';
 import {NavLink, useHistory} from 'react-router-dom';
 import { useModal } from '../../context/Modal';
 import { useDispatch } from "react-redux";
-import {login} from '../../store/session'
 
 
 const MyAccountModal = ({user, logout}) => {
 
     const {closeModal} = useModal();
     const history = useHistory();
-    const dispatch = useDispatch();
     const handleClick = (e) => {
         e.preventDefault();
         history.push('/register')
         closeModal()
-    }
-
-    const demoLogin = async (e) => {
-        e.preventDefault();
-        await dispatch(login('demo@aa.io', 'password')).then(closeModal())
     }
 
     return (
@@ -75,7 +68,7 @@ const MyAccountModal = ({user, logout}) => {
                 :
                 <div className="my-account-modal-container">
                     <div className="log-in">
-                        <LoginFormModal demoLogin={demoLogin} />
+                        <LoginFormModal title={'Login to your account'}/>
                     </div>
                     <div className="vl"></div>
                     <div className="sign-up">

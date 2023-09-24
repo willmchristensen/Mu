@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-import "./LoginForm.css";
+import "./LightLoginFormModal.css";
 
-function LoginFormModal() {
+function LightLoginFormModal() {
   const dispatch = useDispatch();
   // const [email, setEmail] = useState("");
   const [credential, setCredential] = useState("");
@@ -35,13 +35,15 @@ function LoginFormModal() {
     await dispatch(login('demo@aa.io', 'password')).then(closeModal())
 }
   return (
-    <>
-      <h2 className="login-title">Login to your account</h2>
+    <div
+        className="light-login-container"
+    >
+      <h2 className="login-title-light">I have a MU account</h2>
       <form onSubmit={handleSubmit}>
         <ul className="errors-container">
           {errors.length > 0 && <span className="errors">Credentials Invalid</span>}
         </ul>
-        <div className="login-form-row">
+        <div className="light-login-form-row">
           <label>
             Username or email
           </label>
@@ -52,7 +54,7 @@ function LoginFormModal() {
             required
           />
         </div>
-        <div className="login-form-row">
+        <div className="light-login-form-row">
           <label>
             Password
           </label>
@@ -66,15 +68,20 @@ function LoginFormModal() {
         <div className="post-owner-buttons">
           <button
             type="submit"
-            className="oval-button"
+            className="light-oval-button"
           >
             Login
           </button>
-          <button onClick={demoLogin} className='oval-button'>Demo User</button>
+          <button 
+            onClick={demoLogin} 
+            className='light-oval-button'
+            >
+            Demo User
+        </button>
         </div>
       </form>
-    </>
+    </div>
   );
 }
 
-export default LoginFormModal;
+export default LightLoginFormModal;

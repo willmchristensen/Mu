@@ -5,6 +5,9 @@ import { NavLink, useHistory, useParams, useLocation } from 'react-router-dom/cj
 import { getOneTicket } from '../../store/ticket'; 
 import {getOneEvent} from '../../store/event'
 import { addOneTicket, loadTickets, clearCart } from '../../store/cart';
+import LightLoginFormModal from '../LightLoginFormModal';
+import SignUpForm from '../SignUpForm';
+
 const Tickets = () => {
     const { eventId } = useParams();
     const dispatch = useDispatch();
@@ -46,23 +49,27 @@ const Tickets = () => {
     },[user])
 
     return (
-        <div className="tickets-container">
-            <h1>tickets</h1>
-            <h3>price:</h3>
-            <h4>{ticket.price}</h4>
-            <h3>event:</h3>
-            <span>{event.description}</span>
-            <button onClick={handlePurchase}>buy me</button>
-            <button onClick={e => handleAddToCart(ticket)}>add to cart</button>
-            <div className="cart">
-              <h1>cart</h1>
-              {tickets && Object.values(tickets).map((t) => (
-                    <div key={t.id}>
-                        <p>{t.title}</p>
-                        <p>{t.price}</p>
-                    </div>
-                ))}
-            </div>
+        <div className="shop-details-container">
+          <LightLoginFormModal />
+          <SignUpForm />
+          <div className="tickets-container">
+              <h2 className='basket'>Basket</h2>
+              <h3>price:</h3>
+              <h4>{ticket.price}</h4>
+              <h3>event:</h3>
+              <span>{event.description}</span>
+              <button onClick={handlePurchase}>buy me</button>
+              <button onClick={e => handleAddToCart(ticket)}>add to cart</button>
+              <div className="cart">
+                <h1>cart</h1>
+                {tickets && Object.values(tickets).map((t) => (
+                      <div key={t.id}>
+                          <p>{t.title}</p>
+                          <p>{t.price}</p>
+                      </div>
+                  ))}
+              </div>
+          </div>
         </div>
     )
 }
