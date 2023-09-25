@@ -12,10 +12,7 @@ const PopularCard = ({event}) => {
             className="post-content-card"
             to={`/events/${event.id}`}
         >
-            <div className="post-content-container"
-            >
-                <PopularCardImage event={event} />
-            </div>  
+            <PopularCardImage event={event} />
             <div className="post-content-container text">
             <EventPreview event={event} type={'popular'} /> 
             </div>
