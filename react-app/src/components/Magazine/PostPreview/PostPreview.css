@@ -54,9 +54,6 @@
     cursor: pointer;
     color: var(--red);
 }
-.post-preview-description {
-    word-break: break-all;
-}
 .slice-of-description{
     color: var(--black);
     font-size: .8rem;

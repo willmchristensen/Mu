@@ -1,6 +1,7 @@
 .popular-news-cards-container{
     margin-left: 1.5rem;
+    width: 65%;
 }
 .popular-news-container { 
-    margin-left: 1.5rem;
+    width: 40%;
 }

@@ -49,14 +49,19 @@
     justify-content: flex-start;
     align-items: flex-end;
     width: 80%;
-    height: 15rem;
+    height: 17rem;
 }
 .location-header {
     display: flex;
     align-items: center;
     font-size: 3rem;
+    padding-bottom: 1rem;
 }
 .location-header > i {
-    margin-right: 4rem;
+    margin-right: 1.5rem;
     color: var(--red);
+}
+.events-location-header{
+    font-weight: 500;
+    font-size: 5.5rem;
 }
