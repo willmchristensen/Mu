@@ -7,7 +7,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: var(--off-black);
+    /* background-color: var(--off-black); */
 }
 p{
     font-family: Arial, Helvetica, sans-serif;

@@ -25,9 +25,8 @@ const Magazine = () => {
     if(!posts || !allPosts.length) return null;
 
     return (
-        <>
+        <div className="magazine-wrapper">
             <PageHeader header={'Magazine'} subheader={'Interviews, films, news and more from the industry.'}/>
-            <div className="magazine-wrapper">
                 {sessionUser &&
                     <NavLink
                         className='oval-button post-create'
@@ -68,7 +67,6 @@ const Magazine = () => {
                     {/* TODO: add news sections with daily headers */}
                 </div>
             </div>
-        </>
     )
 
 }
