@@ -1,9 +1,99 @@
+.shop-details-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.shop-details-new-user-container{
+    display: flex;
+    width: 100%;
+}
+@media screen and (max-width: 1440px){
+    .shop-details-new-user-container{
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 768px){
+    .shop-details-container{
+        display: flex;
+        flex-direction: column;
+    }
+}
 .tickets-container { 
     background-color: var(--white);
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
 }
 .basket{
     font-size: 2.5rem;
     color: var(--black);
+}
+.tickets-wrapper{
+    width: 95%;
+    padding: 1rem;
+}
+.basket-header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.ticket-details{
+    padding: 1rem;
+    background-color: var(--black);
+}
+.today-formatted{
+    color: var(--grey);
+}
+.ticket-title{
+    color: var(--white);
+}
+.ticket-title-two{
+    color: var(--white);
+}
+.ticket-title-two-container{
+    margin-bottom: 1rem;
+}
+.ticket-tier-details{
+    display: flex;
+    justify-content: space-between;
+    color: var(--white);
+    background-color: var(--off-black);
+}
+.ticket-tier-details-one{
+    display: flex;
+    justify-content: space-between;
+    color: var(--white);
+    background-color: var(--off-black);
+    padding: 0.5rem;
+}
+.ticket-tier-details-two{
+    display: flex;
+    justify-content: space-between;
+    color: var(--white);
+    background-color: var(--off-black);
+    font-size: 1.8rem;
+    background-color: var(--dark-grey);
+    padding: .5rem;
+}
+.oval-button-edit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family:Arial, Helvetica, sans-serif;
+    display: inline-block;
+    margin: 4px 2px;
+    color:var(--black);
+    font-size: .75rem;
+    letter-spacing: .02rem;
+    background-color: var(--white);
+    border: 0.2rem solid var(--red);
+    border-radius: 25px;
+    padding: 15px 25px;
+}
+.oval-button-edit:hover{
+    background-color: var(--off-white);
+    color:var(--black);
+    cursor: pointer;
+    /* cursor: not-allowed; */
 }

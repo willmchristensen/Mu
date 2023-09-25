@@ -1,9 +1,12 @@
 .podcast-image { 
-    height: 18rem;
+    /* height: 316px;
+    width: 316px; */
+    height: 14rem;
+    width: 14rem;
     object-fit: cover;
 }
-.podcast-card-container > * { 
-    max-width: 30vw;    
+.podcast-card-container { 
+    width: 14rem;    
     overflow: hidden;
 }
 .podcast-card-title { 

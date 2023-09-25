@@ -24,6 +24,8 @@ h2 {
     --black: #000000;
     --off-black: #151515;
     --grey: #aaaaad;
+    --dark-grey: #333333;
+    --darkish-grey: #646464;
 }
 .top-bottom-borders{
     border-top: .01rem solid var(--grey);

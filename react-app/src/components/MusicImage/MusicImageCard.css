@@ -2,12 +2,10 @@
     cursor: pointer;
 }
 .music-image-container > img{ 
-        width: 14rem;
-        height: 18rem;
-        padding-right: 1.5rem;
+        /* width: 232px;
+        height: 232px; */
+        height: 11rem;
+        width: 11rem;
         display: block;
         object-fit: cover;
-}
-.music-card-container{
-    padding-right: 2rem;
 }

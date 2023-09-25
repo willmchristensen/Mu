@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { getAllPosts } from '../../store/post';
-
+import PageHeader from '../PageHeader';
 const Music = () => {
     const posts = useSelector(state => state.post.posts);
     const allPosts = Object.values(posts);
@@ -20,13 +20,7 @@ const Music = () => {
 	},[])
     return ( 
         <div className="music-container">
-            <div className="music-create-button">
-                <NavLink 
-                    to={'music/new'}
-                    className="oval-button post-create">
-                    create
-                </NavLink>
-            </div>
+			<PageHeader header={'Music'} subheader={'Electronic music reviews, mixes, podcasts and playlists.'} />
             <div className="music-cards-container">
                 <div className="content-header-container">
                     <div className="content-header-wrapper">
@@ -71,7 +65,7 @@ const Music = () => {
 				</div>
 			</div>
 			<div className="music-cards-container">
-				<div className="music-cards-wrapper">
+				<div className="podcast-cards-wrapper">
 					{
 						allMusic.map(m => {
 							return (

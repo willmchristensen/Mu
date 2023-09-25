@@ -1,9 +1,9 @@
 .sign-up-form-container{
-    padding-top: 4rem;
+    width: 100%;
     background-color: var(--white);
 }
 .signup-form{
-    width: 50%;
+    width: 95%;
 }
 .signup-form-buttons{
     padding-top: 1rem;
