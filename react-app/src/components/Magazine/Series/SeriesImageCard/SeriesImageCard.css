@@ -1,6 +1,4 @@
 .series-image-container > img {
-    /* width: 18vw;
-    height: 18vh; */
     width: 14.6rem;
     height: 8.1rem;
     display: block;
@@ -8,11 +6,6 @@
     padding-bottom: 1rem;
     object-fit: cover;
 }
-/* .news-image-container {
-
-} */
-/* @media screen and (max-width: 1024px){
-    .modular-image{
-        width: 25vw;
-    }
-} */
+.series-image-container > img:hover {
+    cursor: not-allowed;
+}

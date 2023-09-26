@@ -15,6 +15,15 @@ const Series = ({posts}) => {
                             })
                         }
                 </div>
+                <div className="series-cards">
+                        {
+                            posts.slice(0,1).map(p=> {
+                                return(
+                                    <SeriesCard />
+                                )
+                            })
+                        }
+                </div>
             </div>
             <div className="series-section-two">
             <ContentHeader content={'FEATURE SERIES'} />
@@ -26,6 +35,33 @@ const Series = ({posts}) => {
                             )
                         })
                     }
+                </div>
+                <div className="series-cards">
+                        {
+                            posts.map(p=> {
+                                return(
+                                    <SeriesCard />
+                                )
+                            })
+                        }
+                </div>
+                <div className="series-cards">
+                        {
+                            posts.map(p=> {
+                                return(
+                                    <SeriesCard />
+                                )
+                            })
+                        }
+                </div>
+                <div className="series-cards">
+                        {
+                            posts.slice(0,2).map(p=> {
+                                return(
+                                    <SeriesCard />
+                                )
+                            })
+                        }
                 </div>
             </div>
         </>

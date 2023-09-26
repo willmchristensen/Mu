@@ -1,3 +1,7 @@
-.series-card-container:hover{
+.series-card-title{
+    font-size: 1.5rem;
+}
+.series-card-title:hover{
+    color: var(--red);
     cursor: not-allowed;
 }

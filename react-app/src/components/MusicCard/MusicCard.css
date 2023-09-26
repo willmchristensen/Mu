@@ -15,3 +15,26 @@
 .music-image-link:hover > h3 { 
     color: var(--red);
 }
+.record-label{
+    color: var(--grey);
+    margin-top: 1rem;
+}
+.record-label:hover{
+    color: var(--red);
+    cursor: not-allowed;
+}
+.music-card-user{
+    display: flex;
+    align-items: center;
+    margin-top: .75rem;
+}
+.user-profile-pic{
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    margin-right: .5rem;
+}
+.user-name:hover{
+    color: var(--red);
+    cursor: not-allowed;
+}
