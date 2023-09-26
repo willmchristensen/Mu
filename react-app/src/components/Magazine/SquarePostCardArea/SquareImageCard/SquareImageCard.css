@@ -1,8 +1,11 @@
 .square-post-image-container > img{
-    height: 20rem;
+    height: 23rem;
     width: 100%;
     object-fit: cover;
     margin-bottom: 1rem;
+}
+.square-post-content-card{    
+    width: 23rem;
 }
 /* @media screen and (max-width: 1024px){
     .modular-image{

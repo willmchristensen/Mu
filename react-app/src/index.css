@@ -26,6 +26,7 @@ h2 {
     --grey: #aaaaad;
     --dark-grey: #333333;
     --darkish-grey: #646464;
+    --light-grey: #f2f2f2
 }
 .top-bottom-borders{
     border-top: .01rem solid var(--grey);
@@ -62,8 +63,8 @@ h2 {
     background-color: var(--red);
     border-radius: 70rem;
     border: none;
-    padding: 1rem 2rem;
-    width: 4rem;
+    padding: 0.5rem 2rem;
+    width: 5rem;
 }
 .oval-button:hover{
     background-color: var(--off-white);

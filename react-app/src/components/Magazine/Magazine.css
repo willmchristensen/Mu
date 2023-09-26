@@ -12,6 +12,15 @@
 .magazine-container{
     width: 80%;
 }
+.latest-features{
+    margin-top: 2rem;
+}
+.latest-film{
+    margin-top: 2rem;
+}
+.ra-exchange{
+    margin-top: 2rem;
+}
 .film{
     margin-top: 1rem;
     display: grid;
@@ -20,13 +29,29 @@
 .film-text{
     margin-left: 1rem;
 }
-.series{
+.series-wrapper{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    background-color: var(--light-grey);
+    overflow-x: hidden;
+    width: 100vw;
+    padding: 4rem 0;
+    margin-top: 2rem;
 }
 .m-p-section {
     display: flex;
+    margin-top: 2rem;
 }
 .post-create {
     margin-top: 1rem;
+}
+.magazine-subheader{
+    color: var(--grey);
+}
+.magazine-subheader > h1{
+    font-size: 6rem;
+    font-weight: 600;
+    letter-spacing: -1px;
+    padding: 2rem 0;
 }

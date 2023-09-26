@@ -1,13 +1,12 @@
 .podcast-image { 
     /* height: 316px;
     width: 316px; */
-    height: 14rem;
-    width: 14rem;
+    height: 20rem;
+    width: 100%;
     object-fit: cover;
 }
 .podcast-card-container { 
-    width: 14rem;    
-    overflow: hidden;
+    width: 20rem;    
 }
 .podcast-card-title { 
     margin-bottom: .1rem;

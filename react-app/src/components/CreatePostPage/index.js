@@ -93,7 +93,7 @@ const CreatePostPage = () => {
 				<ContentHeader content={formTitle} />
 				<div className="form-row-column">
 					<label>
-						title
+						Title
 					</label>
 					{errors.title && <span className='errors'> {errors.title} </span>}
 					<input

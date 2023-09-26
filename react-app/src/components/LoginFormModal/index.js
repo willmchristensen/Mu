@@ -37,7 +37,7 @@ function LoginFormModal() {
   return (
     <>
       <h2 className="login-title">Login to your account</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="login-form">
         <ul className="errors-container">
           {errors.length > 0 && <span className="errors">Credentials Invalid</span>}
         </ul>

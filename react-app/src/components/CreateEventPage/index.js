@@ -123,7 +123,6 @@ const CreateEventPage = () => {
 			>
 				<ContentHeader content={formTitle} />
 				<div className="form-section">
-					<ContentHeader content={'Basic'} />
 					<div className="form-row-column">
 						<label for='title'>
 						Title

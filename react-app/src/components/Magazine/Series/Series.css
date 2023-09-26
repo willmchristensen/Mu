@@ -3,6 +3,12 @@
     max-width: 100%;
     overflow: hidden;
 }
+.series-section-two {
+    /* margin: 3rem; */
+    max-width: 100%;
+    overflow: hidden;
+    margin-top: 3rem;
+}
 .series-cards {
     width: 100%;
     display: grid;
@@ -12,6 +18,6 @@
 .series-card-container > img {
     max-width: 100%
 }
-.series-cards-flex-container {
+/* .series-cards-flex-container {
     display: flex;
-}
+} */

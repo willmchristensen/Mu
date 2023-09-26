@@ -158,14 +158,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: .1rem;
+    border-radius: 50%;
+    background-color: var(--red);
+    color: var(--white);
+}
+.circle-button-large{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 1rem;
     border-radius: 50%;
     background-color: var(--grey);
     border: .1rem solid var(--red);
     color: var(--white);
-}
-.circle-button:hover{
-
 }
 .ticket-button-quantity{
     display: flex;

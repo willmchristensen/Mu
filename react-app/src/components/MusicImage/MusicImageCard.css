@@ -4,8 +4,11 @@
 .music-image-container > img{ 
         /* width: 232px;
         height: 232px; */
-        height: 11rem;
-        width: 11rem;
+        height: 15rem;
+        width: 100%;
         display: block;
         object-fit: cover;
+}
+.music-image-container{
+    width: 100%;
 }

@@ -1,12 +1,7 @@
-.music-card-image > img{ 
-    max-width: 100%;
-    /* height: 35vh; */
-    object-fit: cover;
-}
 .music-card-container { 
     display: flex;
     flex-direction: column;
-    max-width: 11rem;
+    width: 15rem;
 }
 .music-card-content{
     width: 100%;

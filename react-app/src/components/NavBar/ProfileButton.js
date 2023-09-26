@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
-import SignupFormModal from "../SignupFormModal";
 import { login } from '../../store/session'
 import { useModal } from "../../context/Modal";
 import MyAccountModal from "../MyAccountModal";

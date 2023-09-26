@@ -164,7 +164,7 @@ const EventDetails = () => {
                             <div className="ticket-button-quantity">
                                 <button 
                                     onClick={handleDecQuantity}
-                                    className='circle-button'
+                                    className='circle-button-large'
                                 >
                                     <i class="fas fa-minus"></i>
                                 </button>
@@ -173,7 +173,7 @@ const EventDetails = () => {
                                 </span>
                                 <button 
                                     onClick={handleIncQuantity}
-                                    className='circle-button'
+                                    className='circle-button-large'
                                 >
                                     <i class="fas fa-plus"></i>
                                 </button>

@@ -54,15 +54,15 @@ const Footer = () => {
                                 </button>
                             </div>
                             <div className="footer-footer-location">
-                                <span>California</span>
+                                <span className='english-button'>California</span>
                             </div>
                             <div className="footer-footer-language">
                                 <span>Language: </span>
-                                <span>English</span>
+                                <span className='english-button'>English</span>
                             </div>
                         </div>
                         <div className="footer-footer-section-one-right">
-                            <nav className="footer-nav-bar">
+                            <nav className="footer-nav-bar-small">
                                 <NavItem  url={'/privacy'} text={'Privacy'} />
                                 <NavItem  url={'/terms'} text={'Terms'} />
                                 <NavItem  url={'/cookies'} text={'Cookies'} />

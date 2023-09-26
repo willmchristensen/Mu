@@ -14,7 +14,7 @@
     color: var(--black);
 }
 .time {
-    color: var(--black);
+    color: var(--grey);
 }
 .time-type{
     color: var(--red);
@@ -41,7 +41,7 @@
 .post-preview-title {
     margin-bottom: .5rem;
     overflow: hidden;
-    width: 90%;
+    /* width: 90%; */
 }
 .popular-title {
     color: var(--white);

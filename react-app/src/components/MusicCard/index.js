@@ -6,16 +6,7 @@ const MusicCard = ({music}) => {
     // console.log(music)
     return (
         <div className="music-card-container">
-            {/* 
-                TODO: 
-                MUSIC-IMAGE COMPONENT with default image -- use previous
-                        && 
-                IMAGE-URL IN CREATE MUSIC
-            */}
-            <div className="music-card-image">
-                {/* <img src={music.imageUrl} alt="music-image-alt" className=""/> */}
-                <MusicImageCard music={music}></MusicImageCard>
-            </div>
+            <MusicImageCard music={music}></MusicImageCard>
             <div className="music-card-content">
                 <div className="music-card-title">
                     <NavLink

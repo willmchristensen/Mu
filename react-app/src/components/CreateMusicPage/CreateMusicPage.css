@@ -8,12 +8,12 @@
 .music-cards-wrapper { 
     width: 80%;
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 .podcast-cards-wrapper{
     width: 80%;
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 .content-header-container { 
     width: 100%;

@@ -1,6 +1,5 @@
 import './MyAccountModal.css';
 import LoginFormModal from '../LoginFormModal';
-import SignupFormModal from '../SignupFormModal';
 import OpenModalButton from '../OpenModalButton';
 import {NavLink, useHistory} from 'react-router-dom';
 import { useModal } from '../../context/Modal';
