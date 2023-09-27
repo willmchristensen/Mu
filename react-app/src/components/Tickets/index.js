@@ -1,13 +1,13 @@
 import './tickets.css';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { NavLink, useHistory, useParams, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { getOneTicket } from '../../store/ticket'; 
 import {getOneEvent} from '../../store/event'
 import { addOneTicket, loadTickets, clearCart } from '../../store/cart';
 import LightLoginFormModal from '../LightLoginFormModal';
 import SignUpForm from '../SignUpForm';
-
+import usePrevious from './usePrevious';
 const Tickets = () => {
     const { eventId } = useParams();
     const dispatch = useDispatch();
@@ -15,6 +15,7 @@ const Tickets = () => {
     const event = useSelector(state=> state.event.singleEvent);
     const tickets = useSelector(state=> state.cart.tickets);
     const user = useSelector(state => state.session.user);
+    const previousUser = usePrevious(user);
     const today = new Date();
     const options = { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' };
     const formattedDate = today.toLocaleDateString('en-US', options).toUpperCase();
@@ -47,16 +48,21 @@ const Tickets = () => {
 
     // FIXME: cart does not clear with user change
     useEffect(() => {
-      localStorage.clear();
-      dispatch(clearCart());
-    },[user])
+      if(user !== previousUser){
+        localStorage.clear();
+        dispatch(clearCart());
+      }
+    },[user, previousUser]);
 
     return (
         <div className="shop-details-container">
-          <div className="shop-details-new-user-container">
-            <LightLoginFormModal />
-            <SignUpForm />
-          </div>
+          {
+            !user && 
+            <div className="shop-details-new-user-container">
+              <LightLoginFormModal />
+              <SignUpForm />
+            </div>
+          }
           <div className="tickets-container">
             <div className="tickets-wrapper">
               <div className="basket-header">
@@ -74,8 +80,8 @@ const Tickets = () => {
                 <span className='ticket-tier-details-one'>1 x 1st Release <span>${ticket.price}</span></span>
               </div>
                 <span className='ticket-tier-details-two'>Total USD <span>${ticket.price}</span></span>
-              <button onClick={handlePurchase}>buy me</button>
-              <button onClick={e => handleAddToCart(ticket)}>add to cart</button>
+              {/* <button onClick={handlePurchase}>buy me</button>
+              <button onClick={e => handleAddToCart(ticket)}>add to cart</button> */}
             </div>
           </div>
           {/* <div className="cart">

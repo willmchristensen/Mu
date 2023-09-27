@@ -71,7 +71,7 @@ function SignUpForm() {
     }
   }, [isSubmitted, email ,username ,password]);
 
-  if (sessionUser) return <Redirect to="/" />;
+  // if (sessionUser) return <Redirect to="/" />;
 
   return (
     <div className="sign-up-form-container">

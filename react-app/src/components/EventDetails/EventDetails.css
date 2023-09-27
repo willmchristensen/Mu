@@ -46,10 +46,10 @@
 }
 .tickets {
     width: 95%;
+    margin-top: 1rem;
 }
 .ticket-price-tiers {
-    padding: 1rem;
-    background-color: var(--grey);
+    background-color: var(--light-grey-translucent);
 }
 .ticket-price-tier {
     color: var(--off-white);
@@ -185,4 +185,7 @@
 }
 .buy-tickets{
     display: flex;
+}
+.interested > a:hover{
+    cursor: not-allowed;
 }

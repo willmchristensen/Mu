@@ -12,7 +12,7 @@ const PopNewsCard = ({post, number}) => {
                 <div className="popular-news-content">
                     <NavLink
                         className='pop-news'
-                        to={`posts/${post.id}`}
+                        to={`/posts/${post.id}`}
                     >
                         {post.title}
                     </NavLink>

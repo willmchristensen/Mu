@@ -119,10 +119,10 @@ const EventDetails = () => {
                                         {attendees.length}
                                     </span>
                                     <div className="interested">
-                                        <NavLink className="oval-button red" to={`/tickets/${event.id}`}>
+                                        <button className="oval-button red" >
                                                 <i class="fas fa-user-plus"></i>
                                                 Interested
-                                        </NavLink>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -160,34 +160,34 @@ const EventDetails = () => {
                             </span>
                         </div>
                         {/* TODO: black minus button when tickets is 1, red when greater than 1  */}
-                        <div className="ticket-buttons">
-                            <div className="ticket-button-quantity">
-                                <button 
-                                    onClick={handleDecQuantity}
-                                    className='circle-button-large'
-                                >
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span className="quantity">
-                                    {quantity}
-                                </span>
-                                <button 
-                                    onClick={handleIncQuantity}
-                                    className='circle-button-large'
-                                >
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                            <div className="ticket-button-buy">
-                                <NavLink
-                                    className="oval-button red"
-                                    to={`/tickets/${event.id}`}
-                                >
-                                    <i class="fas fa-ticket-alt"></i>
-                                    <span className='buy-tickets'>Buy Tickets</span>
-                                </NavLink>
-                            </div>
+                    </div>
+                    <div className="ticket-buttons">
+                        <div className="ticket-button-quantity">
+                            <button 
+                                onClick={handleDecQuantity}
+                                className='circle-button-large'
+                            >
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span className="quantity">
+                                {quantity}
+                            </span>
+                            <button 
+                                onClick={handleIncQuantity}
+                                className='circle-button-large'
+                            >
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
+                        {/* <div className="ticket-button-buy"> */}
+                            <NavLink
+                                className="oval-button red"
+                                to={`/tickets/${event.id}`}
+                            >
+                                <i class="fas fa-ticket-alt"></i>
+                                <span className='buy-tickets'>Buy Tickets</span>
+                            </NavLink>
+                        {/* </div> */}
                     </div>
                 </div>
                 <div className="lineup">

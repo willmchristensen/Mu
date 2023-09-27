@@ -51,7 +51,7 @@
     margin: .75rem;
 }
 .share-button:hover{
-    color: var(--white);
+    color: var(--whitea);
     cursor: not-allowed;
 }
 .dark-share-button:hover{

@@ -26,7 +26,8 @@ h2 {
     --grey: #aaaaad;
     --dark-grey: #333333;
     --darkish-grey: #646464;
-    --light-grey: #f2f2f2
+    --light-grey: #f2f2f2;
+    --light-grey-translucent: #f2f2f225;
 }
 .top-bottom-borders{
     border-top: .01rem solid var(--grey);

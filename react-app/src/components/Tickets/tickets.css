@@ -1,6 +1,7 @@
 .shop-details-container{
     display: flex;
     justify-content: space-evenly;
+    height: 100vh;
 }
 .shop-details-new-user-container{
     display: flex;
