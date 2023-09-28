@@ -18,7 +18,7 @@ import MyTickets from "./components/MyTickets";
 import Tickets from "./components/Tickets";
 import SplashPage from "./components/SplashPage";
 import Footer from "./components/Footer";
-
+import SuccessPage from "./components/SuccessPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -70,6 +70,9 @@ function App() {
           </Route>
           <Route path="/music">
             <Music />
+          </Route>
+          <Route path='/success'>
+            <SuccessPage />
           </Route>
           <Route path="/">
             <SplashPage />

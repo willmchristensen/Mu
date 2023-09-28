@@ -39,18 +39,19 @@ const EventDetails = () => {
         await dispatch(deleteEvent(event.id))
         history.push('/events')
     }
+    
+    {/* FIXME: quantity included with purchase */}
+    // const handleIncQuantity = () => {
+    //     if (quantity < 6) {
+    //         setQuantity(quantity+1)
+    //     }
+    // }
 
-    const handleIncQuantity = () => {
-        if (quantity < 6) {
-            setQuantity(quantity+1)
-        }
-    }
-
-    const handleDecQuantity = () => {
-        if(quantity > 1){
-            setQuantity(quantity-1)
-        }
-    }
+    // const handleDecQuantity = () => {
+    //     if(quantity > 1){
+    //         setQuantity(quantity-1)
+    //     }
+    // }
 
     if (!event) return null;
 
@@ -162,7 +163,8 @@ const EventDetails = () => {
                         {/* TODO: black minus button when tickets is 1, red when greater than 1  */}
                     </div>
                     <div className="ticket-buttons">
-                        <div className="ticket-button-quantity">
+                        {/* FIXME: quantity included with purchase */}
+                        {/* <div className="ticket-button-quantity">
                             <button 
                                 onClick={handleDecQuantity}
                                 className='circle-button-large'
@@ -178,16 +180,14 @@ const EventDetails = () => {
                             >
                                 <i class="fas fa-plus"></i>
                             </button>
-                        </div>
-                        {/* <div className="ticket-button-buy"> */}
-                            <NavLink
-                                className="oval-button red"
-                                to={`/tickets/${event.id}`}
-                            >
-                                <i class="fas fa-ticket-alt"></i>
-                                <span className='buy-tickets'>Buy Tickets</span>
-                            </NavLink>
-                        {/* </div> */}
+                        </div> */}
+                        <NavLink
+                            className="oval-button red"
+                            to={`/tickets/${event.id}`}
+                        >
+                            <i class="fas fa-ticket-alt"></i>
+                            <span className='buy-tickets'>Buy Tickets</span>
+                        </NavLink>
                     </div>
                 </div>
                 <div className="lineup">

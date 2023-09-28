@@ -180,6 +180,9 @@
     flex-wrap: wrap;
     gap: 1rem;
 }
+.circle-button-large:hover{
+    cursor: not-allowed;
+}
 .quantity{
     font-size: 2rem;
 }

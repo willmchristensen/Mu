@@ -1,7 +1,7 @@
 import './tickets.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { useParams, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { getOneTicket } from '../../store/ticket'; 
 import {getOneEvent} from '../../store/event'
 import { addOneTicket, loadTickets, clearCart } from '../../store/cart';
@@ -9,8 +9,10 @@ import LightLoginFormModal from '../LightLoginFormModal';
 import SignUpForm from '../SignUpForm';
 import usePrevious from './usePrevious';
 const Tickets = () => {
+    const [remove, setRemove] = useState(false);
     const { eventId } = useParams();
     const dispatch = useDispatch();
+    const history = useHistory();
     const ticket = useSelector(state => state.ticket.singleTicket);
     const event = useSelector(state=> state.event.singleEvent);
     const tickets = useSelector(state=> state.cart.tickets);
@@ -27,9 +29,9 @@ const Tickets = () => {
               'Content-Type': 'application/json',
             },
           });
-    
           if (response.ok) {
             console.log('Ticket purchased successfully');
+            history.push('/success');
           } else {
             console.error('Failed to purchase ticket');
           }
@@ -38,7 +40,15 @@ const Tickets = () => {
         }
     };
     const handleAddToCart = (ticket) => {
+      console.log('------------------------------ticket', ticket);
       dispatch(addOneTicket(ticket))
+    }
+    const handleRemove = () => {
+      if(remove){
+        setRemove(false)
+      }else{
+        setRemove(true)
+      }
     }
     useEffect(()=>{
       dispatch(getOneTicket(eventId))
@@ -46,13 +56,13 @@ const Tickets = () => {
       dispatch(loadTickets());
     },[eventId])
 
-    // FIXME: cart does not clear with user change
-    useEffect(() => {
-      if(user !== previousUser){
-        localStorage.clear();
-        dispatch(clearCart());
-      }
-    },[user, previousUser]);
+    // FIXME: cart clears with change page
+    // useEffect(() => {
+    //   if(user !== previousUser){
+    //     localStorage.clear();
+    //     dispatch(clearCart());
+    //   }
+    // },[user, previousUser]);
 
     return (
         <div className="shop-details-container">
@@ -67,32 +77,31 @@ const Tickets = () => {
             <div className="tickets-wrapper">
               <div className="basket-header">
                 <h2 className='basket'>Basket</h2>
-                {/* FIXME: not-allowed */}
-                <button className="oval-button-edit">Edit</button>
+                {/* FIXME: EDIT CART: currently not-allowed */}
+                <button onClick={handleRemove}                   className="oval-button-edit"
+                >Remove / Add Ticket</button>
               </div>
-              <div className="ticket-details">
-                <h4 className='today-formatted'>{formattedDate}</h4>
-                <span className='ticket-title'><h2>{event.title}</h2></span>
-                {/* TODO: pin icon */}
-                <div className="ticket-title-two-container">
-                  <span className='ticket-title-two'>{event.location}</span>
+              {
+                !remove &&
+                <div className="ticket-details">
+                  <div className="ticket-details-top-row">
+                    <h4 className='today-formatted'>{formattedDate}</h4>
+                    <div className="ticket-details-buttons">
+                    </div>
+                  </div>
+                  <span className='ticket-title'><h2>{event.title}</h2></span>
+                  {/* TODO: pin icon */}
+                  <div className="ticket-title-two-container">
+                    <span className='ticket-title-two'>{event.location}</span>
+                  </div>
+                  <span className='ticket-tier-details-one'>1 x 1st Release <span>${ticket.price}</span></span>
                 </div>
-                <span className='ticket-tier-details-one'>1 x 1st Release <span>${ticket.price}</span></span>
-              </div>
-                <span className='ticket-tier-details-two'>Total USD <span>${ticket.price}</span></span>
-              {/* <button onClick={handlePurchase}>buy me</button>
-              <button onClick={e => handleAddToCart(ticket)}>add to cart</button> */}
+              }
+                <span className='ticket-tier-details-two'>Total USD <span>${!remove ? ticket.price : 0}</span></span>
+              {user && !remove && <button onClick={handlePurchase}>buy me</button>}
+              {/* <button onClick={e => handleAddToCart(ticket)}>add to cart</button> */}
             </div>
           </div>
-          {/* <div className="cart">
-            <h1>cart</h1>
-            {tickets && Object.values(tickets).map((t) => (
-                  <div key={t.id}>
-                      <p>{t.title}</p>
-                      <p>{t.price}</p>
-                  </div>
-              ))}
-          </div> */}
         </div>
     )
 }
