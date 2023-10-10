@@ -120,7 +120,7 @@ const EventDetails = () => {
                                         {attendees.length}
                                     </span>
                                     <div className="interested">
-                                        <button className="oval-button red" >
+                                        <button className="oval-button-not-allowed-red" >
                                                 <i class="fas fa-user-plus"></i>
                                                 Interested
                                         </button>

@@ -37,6 +37,7 @@ const MyAccountModal = ({user, logout}) => {
                         <NavLink
                             className='lineup-button'
                             to={'/my-tickets'}
+                            onClick={closeModal}
                         >
                             <span className='lineup-button-text'>My Tickets</span>
                         </NavLink>

@@ -4,6 +4,7 @@
     align-items: center;
     width: 100%;
     background-color: var(--white);
+    height: 100vh;
 }
 .music-cards-wrapper { 
     width: 80%;

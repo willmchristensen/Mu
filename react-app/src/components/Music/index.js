@@ -40,12 +40,12 @@ const Music = () => {
 					<AreaButton area={'albums'} />
 				</div>
 			</div>
-			<div className="content-header-container">
-				<div className="content-header-wrapper">
-					<ContentHeader content={'Singles & EPs'} />
-				</div>
-			</div>
 			<div className="music-cards-container">
+				<div className="content-header-container">
+					<div className="content-header-wrapper">
+						<ContentHeader content={'Singles & EPs'} />
+					</div>
+				</div>
 				<div className="music-cards-wrapper">
 					{
 						allMusic.map(m => {
@@ -59,12 +59,12 @@ const Music = () => {
 					<AreaButton area={'singles & EPs'} />
 			</div>
 			</div>
-			<div className="content-header-container">
-				<div className="content-header-wrapper">
-					<ContentHeader content={'Podcasts'} />
-				</div>
-			</div>
 			<div className="music-cards-container">
+				<div className="content-header-container">
+					<div className="content-header-wrapper">
+						<ContentHeader content={'Podcasts'} />
+					</div>
+				</div>
 				<div className="podcast-cards-wrapper">
 					{
 						allMusic.map(m => {

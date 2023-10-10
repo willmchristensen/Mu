@@ -24,7 +24,8 @@ const MyTickets = () => {
             <NavLink 
               class='big-title'
               to={`events/${e.id}`}
-            ><h1>{e.title}</h1>
+            >
+              <h1>{e.title}</h1>
             </NavLink >
           )
         })
