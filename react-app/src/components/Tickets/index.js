@@ -98,7 +98,9 @@ const Tickets = () => {
                 </div>
               }
                 <span className='ticket-tier-details-two'>Total USD <span>${!remove ? ticket.price : 0}</span></span>
-              {user && !remove && <button onClick={handlePurchase}>buy me</button>}
+              {user && !remove && 
+                <button className="oval-button red" onClick={handlePurchase}>buy me</button>
+              }
               {/* <button onClick={e => handleAddToCart(ticket)}>add to cart</button> */}
             </div>
           </div>

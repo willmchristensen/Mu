@@ -69,3 +69,6 @@
     flex-direction: column;
     align-items: center;
 }
+.my-tickets-button:hover{
+    cursor: pointer !important;
+}
