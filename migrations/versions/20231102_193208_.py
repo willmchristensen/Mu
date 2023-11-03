@@ -8,6 +8,9 @@ Create Date: 2023-11-02 19:32:08.858912
 from alembic import op
 import sqlalchemy as sa
 
+import os
+environment = os.getenv("FLASK_ENV")
+SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
 revision = '5cfd84b3d991'
@@ -28,6 +31,8 @@ def upgrade():
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
     op.create_table('events',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(), nullable=False),
@@ -43,6 +48,8 @@ def upgrade():
     sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE events SET SCHEMA {SCHEMA};")
     op.create_table('posts',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(), nullable=False),
@@ -58,12 +65,16 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE posts SET SCHEMA {SCHEMA};")
     op.create_table('event_attendees',
     sa.Column('users', sa.Integer(), nullable=True),
     sa.Column('events', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['events'], ['events.id'], ),
     sa.ForeignKeyConstraint(['users'], ['users.id'], )
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE event_attendees SET SCHEMA {SCHEMA};")
     op.create_table('tickets',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('price', sa.Numeric(precision=8, scale=2), nullable=False),
@@ -76,6 +87,8 @@ def upgrade():
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('user_id', 'event_id', name='_user_event_uc')
     )
+    if environment == "production":
+        op.execute(f"ALTER TABLE tickets SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 

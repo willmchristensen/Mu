@@ -10,6 +10,3 @@ event_attendees = db.Table(
 
 if environment == "production":
     event_attendees.schema = SCHEMA
-
-if environment == "production":
-    event_attendees.schema = SCHEMA
