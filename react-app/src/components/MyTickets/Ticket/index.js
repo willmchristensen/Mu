@@ -5,8 +5,9 @@ import { deleteTicket,getUserTickets } from "../../../store/ticket";
 function Ticket({ event, userId }) {
     // const user = useSelector((state) => state.session.user);
     const dispatch = useDispatch();
-    const handleDelete = (eventId) => {
-        dispatch(deleteTicket(eventId)).then(dispatch(getUserTickets(userId)))
+    const handleDelete = async (eventId) => {
+        await dispatch(deleteTicket(eventId))
+        await dispatch(getUserTickets(userId))
     }
     return (
         <>
