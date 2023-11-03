@@ -17,10 +17,10 @@ const loadOne = (data) => ({
 //     type: CREATE_TICKET,
 //     payload: details
 // });
-// const removeTicket = (ticketId) => ({
-//     type: DELETE_TICKET,
-//     ticketId
-// });
+const removeTicket = (ticketId) => ({
+    type: DELETE_TICKET,
+    ticketId
+});
 // const editTicket = (details) => ({
 //     type: EDIT_TICKET,
 //     details
@@ -37,6 +37,7 @@ export const getUserTickets = (user_id) => async(dispatch) => {
     const response = await fetch(`/api/tickets/user/${user_id}/tickets`);
     if(response.ok) { 
         const data = await response.json();
+        console.log('------------------------------data', data);
         dispatch(loadUserTickets(data.events))
         return data
     }else{
@@ -59,21 +60,21 @@ export const getOneTicket = (id) => async (dispatch) => {
     }
 };
 
-// export const deleteTicket = (ticketId) => async (dispatch) => {
-//     const response = await fetch(`/api/tickets/${ticketId}`, {
-//         method: "DELETE",
-//         headers: {
-//             "Content-Type": "application/json",
-//         }
-//     });
-//     if (response.ok) {
-//         dispatch(removeTicket(ticketId));
-//     } else {
-//         return [
-//             "An error occurred. Please try again."
-//         ];
-//     }
-// }
+export const deleteTicket = (ticketId) => async (dispatch) => {
+    const response = await fetch(`/api/tickets/${ticketId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    });
+    if (response.ok) {
+        dispatch(removeTicket(ticketId));
+    } else {
+        return [
+            "An error occurred. Please try again."
+        ];
+    }
+}
 // export const getAllTickets = () => async (dispatch) => {
 //     const response = await fetch("/api/tickets")
 //     if (response.ok) {
@@ -175,14 +176,14 @@ const TicketReducer = (state = initialState, action) => {
         //     newState.tickets[action.payload.id] = action.payload;
         //     return newState;
         // }
-        // case DELETE_TICKET: {
-        //     const newState = {
-        //         ...state,
-        //         tickets: { ...state.tickets }
-        //     }
-        //     delete newState.tickets[action.ticketId]
-        //     return newState
-        // }
+        case DELETE_TICKET: {
+            const newState = {
+                ...state,
+                userTickets: { ...state.userTickets }
+            }
+            delete newState.userTickets[action.ticketId]
+            return newState
+        }
         // case EDIT_TICKET: {
         //     const newState = { ...state, tickets: { ...state.tickets } };
         //     newState.tickets[action.details.id] = action.details

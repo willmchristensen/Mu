@@ -7,6 +7,27 @@ from sqlalchemy.orm import joinedload
 ticket_routes = Blueprint("tickets", __name__)
 
 
+@ticket_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
+def delete_one_ticket(id):
+    """
+    Delete event from user's events_attended
+    """
+    event = Event.query.get(id)
+
+    if not event:
+        return {'message': 'Event not found'}, 404
+
+    if event in current_user.events_attended:
+        current_user.events_attended.remove(event)
+        db.session.commit()
+        return "Event Removed from User's Events Attended"
+    else:
+        return {
+            "errors": "This event is not in your events attended list."
+        }
+
+
 @ticket_routes.route('/user/<int:user_id>/tickets')
 def get_user_tickets(user_id):
     """
@@ -15,30 +36,13 @@ def get_user_tickets(user_id):
     user = User.query.get(user_id)
 
     if user:
-        unique_events = set() 
-        user_events = user.events_attended
+        events = user.events_attended  # Retrieve the user's tickets
+        print('events!!',events)
+        event_data = [event.to_dict() for event in events]
 
-        for event in user_events:
-            if event not in unique_events:
-                unique_events.add(event)  
-
-        events = [event.to_dict() for event in unique_events]
-        return {'events': events}
+        return {'events': event_data}
     else:
         return {'message': 'User not found'}, 404
-    
-    # user_tickets = (
-    #     Ticket.query
-    #     .join(User, User.id == event_attendees.c.users)
-    #     .join(Event, Event.id == event_attendees.c.events)
-    #     .filter(User.id == user_id)
-    #     .all()
-    # )
-
-    # response = [ticket.to_dict() for ticket in user_tickets]
-    # return { 'tickets': response }
-
-
 
 #ALL TICKETS
 @ticket_routes.route('')
@@ -62,6 +66,7 @@ def get_one_ticket(id):
 @ticket_routes.route('/buy/<int:event_id>', methods=['POST'])
 @login_required  # Use login_required to ensure the user is authenticated
 def buy_ticket(event_id):
+    print('ENTER BUY TICKET')
     event = Event.query.get(event_id)
     if not event:
         return {"message": "Event not found"}, 404

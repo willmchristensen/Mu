@@ -2,6 +2,7 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from .event_attendees import event_attendees
+from .ticket import Ticket
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -16,7 +17,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     posts = db.relationship("Post", cascade="all, delete", backref="user")
     events_attended = db.relationship("Event", secondary=event_attendees, back_populates="attendees")
-
+    
     @property
     def password(self):
         return self.hashed_password
@@ -28,12 +29,13 @@ class User(db.Model, UserMixin):
     def check_password(self, password):
         return check_password_hash(self.password, password)
     # ------------ATTEND EVENT------------
-    def add_attended_event(self,event):
+    def add_attended_event(self, event):
         if event not in self.events_attended:
-            self.events_attended.append(event);
+            self.events_attended.append(event)
             event.tickets_purchased += 1
             db.session.commit()
 
+            
     def to_dict(self):
         return {
             'id': self.id,

@@ -4,13 +4,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getUserTickets } from '../../store/ticket'; 
 import PageHeader from '../PageHeader';
 import {NavLink} from 'react-router-dom';
+import Ticket from './Ticket';
 
 const MyTickets = () => {
   const dispatch = useDispatch();
   const userEvents = useSelector((state) => state.ticket.userTickets); 
   const user = useSelector((state) => state.session.user);
   const events = Object.values(userEvents);
-
   useEffect(() => {
     dispatch(getUserTickets(user.id));
   }, [dispatch, user]);
@@ -21,12 +21,7 @@ const MyTickets = () => {
       {
         events.map(e => {
           return (
-            <NavLink 
-              class='big-title'
-              to={`events/${e.id}`}
-            >
-              <h1>{e.title}</h1>
-            </NavLink >
+            <Ticket event={e} userId={user.id}/>
           )
         })
       }
