@@ -27,9 +27,7 @@ export const addOneTicket = (data) => (dispatch, getState) => {
     console.log('addoneticket')
     const currentState = getState();
     const existingTickets = Object.values(currentState.cart.tickets);
-    console.log('existingTickets', existingTickets);
     if (Object.values(existingTickets).length > 0) {
-        console.log('cart is not empty')
         const isTicketInCart = existingTickets?.some(ticket => ticket.id === data.id);
 
         if (!isTicketInCart) {
@@ -38,7 +36,6 @@ export const addOneTicket = (data) => (dispatch, getState) => {
             saveStateToLocalStorage(updatedState);
         }
     } else {
-        console.log('cart is empty')
         dispatch(addOne(data));
         const updatedState = getState().cart;
         saveStateToLocalStorage(updatedState);
@@ -47,7 +44,6 @@ export const addOneTicket = (data) => (dispatch, getState) => {
 export const saveStateToLocalStorage = (state) => {
     try {
         const serializedState = JSON.stringify(state);
-        console.log('STATE IN SAVE TO LOCAL STORAGE', serializedState);
         localStorage.setItem('cartState', serializedState);
     } catch (error) {
         console.error('Error saving state to local storage:', error);
