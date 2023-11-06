@@ -11,6 +11,7 @@ import PageHeader from '../PageHeader';
 
 const Music = () => {
     const posts = useSelector(state => state.post.posts);
+	const user = useSelector(state => state.session.user);
     const allPosts = Object.values(posts);
     const allMusic = allPosts.filter(p => p?.musicUrl?.length > 0);
 	const dispatch = useDispatch();
@@ -20,12 +21,15 @@ const Music = () => {
     return ( 
         <div className="music-container">
 			<PageHeader header={'Music'} subheader={'Electronic music reviews, mixes, podcasts and playlists.'} />
-			<div className="music-create-container">
-				<NavLink 
-					className="oval-button"
-					to="/music/new"
-				>Create Music</NavLink>
-			</div>
+			{
+				user && 
+				<div className="music-create-container">
+					<NavLink 
+						className="oval-button"
+						to="/music/new"
+					>Create Music</NavLink>
+				</div>
+			}
             <div className="music-cards-container">
                 <div className="content-header-container">
                     <div className="content-header-wrapper">
