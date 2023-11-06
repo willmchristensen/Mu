@@ -17,7 +17,11 @@ function Ticket({ event, userId }) {
             >
                 <h1>{event.title}</h1>
             </NavLink >
-            <button onClick={() => handleDelete(event.id)}>Delete ticket</button>
+            <button 
+                className="oval-button-area" 
+                onClick={() => handleDelete(event.id)}>
+                Delete ticket
+            </button>
         </>
     )
 }

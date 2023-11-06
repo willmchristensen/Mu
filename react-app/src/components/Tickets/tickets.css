@@ -98,3 +98,7 @@
     cursor: pointer;
     /* cursor: not-allowed; */
 }
+.shop-buttons{
+    display: flex;
+    justify-content: space-between;
+}

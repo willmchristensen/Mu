@@ -1,15 +1,14 @@
 import './Music.css'
 import MusicCard from '../MusicCard';
 import PodcastCard from '../PodcastCard';
-import FormNavBar from '../FormNavBar';
 import ContentHeader from '../ContentHeader';
 import AreaButton from '../Magazine/AreaButton';
-import MusicDetails from '../MusicDetails';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { NavLink, useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { getAllPosts } from '../../store/post';
 import PageHeader from '../PageHeader';
+
 const Music = () => {
     const posts = useSelector(state => state.post.posts);
     const allPosts = Object.values(posts);
@@ -21,6 +20,12 @@ const Music = () => {
     return ( 
         <div className="music-container">
 			<PageHeader header={'Music'} subheader={'Electronic music reviews, mixes, podcasts and playlists.'} />
+			<div className="music-create-container">
+				<NavLink 
+					className="oval-button"
+					to="/music/new"
+				>Create Music</NavLink>
+			</div>
             <div className="music-cards-container">
                 <div className="content-header-container">
                     <div className="content-header-wrapper">

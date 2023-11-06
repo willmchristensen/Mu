@@ -9,9 +9,9 @@ import SignUpForm from '../SignUpForm';
 import TicketDetails from './TicketDetails';
 
 const Tickets = () => {
-
   const dispatch = useDispatch();
   const history = useHistory();
+  const [edit,setEdit] = useState(false);
   const ticket = useSelector(state => state.ticket.singleTicket);
   const user = useSelector(state => state.session.user);
   const cart = useSelector(state => state.cart.tickets);
@@ -27,6 +27,11 @@ const Tickets = () => {
     dispatch(clearCart())
     history.push('/success');
   };
+
+  const handleEdit = () => {
+    setEdit(!edit);
+  }
+
   useEffect(() => {
     dispatch(loadStateFromLocalStorage())
   }, [dispatch])
@@ -48,13 +53,18 @@ const Tickets = () => {
           {
             cartItemsArray.map(ticket => {
               return (
-                <TicketDetails ticket={ticket} formattedDate={formattedDate} />
+                <TicketDetails ticket={ticket} formattedDate={formattedDate} edit={edit}/>
               )
             })
           }
           <span className='ticket-tier-details-two'>Total USD <span>${totalPrice}</span></span>
           {user &&
-            <button className="oval-button red" onClick={() => handlePurchase(eventIds)}>buy me</button>
+            <div className="shop-buttons">
+              <button className="oval-button red" onClick={() => handlePurchase(eventIds)}>Buy Me</button>
+              <button className="oval-button" 
+              onClick={() => handleEdit()}
+              >Edit Cart</button>
+            </div>
           }
         </div>
       </div>

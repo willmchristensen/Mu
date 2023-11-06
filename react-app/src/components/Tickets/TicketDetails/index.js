@@ -1,9 +1,10 @@
 import './TicketDetails.css';
 import { useSelector,useDispatch } from 'react-redux';
-import { getAllEvents, getOneEvent } from '../../../store/event';
+import { getAllEvents } from '../../../store/event';
+import { removeItemFromCart } from '../../../store/cart';
 import { useEffect } from 'react';
 
-function TicketDetails({formattedDate,ticket}){
+function TicketDetails({formattedDate,ticket, edit}){
   const dispatch = useDispatch();
   useEffect(()=>{
     dispatch(getAllEvents())
@@ -11,6 +12,9 @@ function TicketDetails({formattedDate,ticket}){
   const events = useSelector(state => state.event.events);
   const eventsArray = Object.values(events);
   const event = eventsArray.find(e => e.id === ticket.event_id);
+  const handleRemove = (ticketId) => {
+    dispatch(removeItemFromCart(ticketId));
+  }
   if(!ticket || !event) return null;
   return(
         <div className="ticket-details">
@@ -19,7 +23,16 @@ function TicketDetails({formattedDate,ticket}){
               <div className="ticket-details-buttons">
               </div>
             </div>
-            <span className='ticket-title'><h2>{event.title}</h2></span>
+            <div className="ticket-title-container">
+              <span className='ticket-title'><h2>{event.title}</h2></span>
+              {
+                edit &&
+                <button 
+                  className="oval-button"
+                  onClick={() => handleRemove(ticket.id)}
+                >Remove</button>  
+              }
+            </div>
             {/* TODO: pin icon */}
             <div className="ticket-title-two-container">
               <span className='ticket-title-two'>{event.location}</span>
