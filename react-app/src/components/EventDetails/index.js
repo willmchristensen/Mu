@@ -5,29 +5,32 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getOneEvent } from '../../store/event';
 import { deleteEvent, editOneEvent } from '../../store/event';
 import { getOneTicket } from '../../store/ticket';
+import { addOneTicket } from '../../store/cart';
 import PageHeader from '../PageHeader';
 import ShareButtons from '../ShareButtons';
 import ExtraLargeImage from './ExtraLargeImage';
 import ContentHeader from '../ContentHeader';
 
 const EventDetails = () => {
-
     const { eventId } = useParams();
     const history = useHistory();
     const dispatch = useDispatch();
-    const [quantity, setQuantity] = useState(1)
+    // const [quantity, setQuantity] = useState(1)
     const sessionUser = useSelector((state) => state.session.user);
     const event = useSelector(state => state.event.singleEvent);
     const ticket = useSelector(state => state.ticket.singleTicket);
-
     const options = { day: 'numeric', month: 'long', year: 'numeric' }
     let date = new Date(event?.createdAt)?.toLocaleDateString('en-US', options);
     let [month, day, year] = date.split(' ');
     let formattedDate = `${day} ${month} ${year}`;
     const time = event?.createdAt?.substring(11, 16);
-
     const artists = event?.artists ? Object.values(event.artists) : [];
     const attendees = event?.attendees ? Object.values(event.attendees) : [];
+
+    const handlePurchase = (ticket) => {
+        console.log('handle purchase is dispatching addOneTicket', ticket)
+        dispatch(addOneTicket(ticket));
+    }
 
     useEffect(() => {
         dispatch(getOneEvent(eventId))
@@ -39,7 +42,7 @@ const EventDetails = () => {
         await dispatch(deleteEvent(event.id))
         history.push('/events')
     }
-    
+
     {/* FIXME: quantity included with purchase */}
     // const handleIncQuantity = () => {
     //     if (quantity < 6) {
@@ -183,7 +186,8 @@ const EventDetails = () => {
                         </div> */}
                         <NavLink
                             className="oval-button red"
-                            to={`/tickets/${event.id}`}
+                            to={`/shop/cart`}
+                            onClick={() => handlePurchase(ticket)}
                         >
                             <i class="fas fa-ticket-alt"></i>
                             <span className='buy-tickets'>Buy Tickets</span>

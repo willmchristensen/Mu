@@ -53,7 +53,7 @@ function App() {
           {/* <Route path="/create-post">
             <CreatePostPage />
           </Route> */}
-          <Route path='/tickets/:eventId'>
+          <Route path='/shop/cart'>
             <Tickets />
           </Route> 
           <Route path='/my-tickets'>

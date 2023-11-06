@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useModal } from "../../context/Modal";
+import { addOneTicket } from "../../store/cart";
 import "./LightLoginFormModal.css";
 
-function LightLoginFormModal() {
+function LightLoginFormModal({ticket}) {
   const dispatch = useDispatch();
+  const history = useHistory();
   // const [email, setEmail] = useState("");
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
@@ -33,6 +36,11 @@ function LightLoginFormModal() {
   const demoLogin = async (e) => {
     e.preventDefault();
     await dispatch(login('demo@aa.io', 'password')).then(closeModal())
+    if(ticket){
+      history.push('/shop/cart');
+    }else{
+      history.push('/')
+    }
 }
   return (
     <div

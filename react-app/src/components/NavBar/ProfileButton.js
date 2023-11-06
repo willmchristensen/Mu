@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import { login } from '../../store/session'
+import { clearCart } from "../../store/cart";
 import { useModal } from "../../context/Modal";
 import MyAccountModal from "../MyAccountModal";
 
@@ -36,6 +37,7 @@ function ProfileButton({ user }) {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
+    dispatch(clearCart());
     history.push('/')
     closeModal()
   };
