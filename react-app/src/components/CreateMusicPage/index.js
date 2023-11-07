@@ -158,6 +158,12 @@ const CreateMusicPage = () => {
 								<span>must enter valid bandcamp embedded player url</span>
 							</div>
 						</div>
+						<label>
+							Example:
+						</label>
+						<div className="helper-image">
+							<img src="/example-embed.png" alt="example-music-url" />
+						</div>
 					</div>
 					<div className="form-buttons">
 						<button

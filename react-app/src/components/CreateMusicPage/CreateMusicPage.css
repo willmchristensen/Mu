@@ -38,3 +38,10 @@
 .tooltip-container:hover .tooltip{
     visibility: visible;
 }
+.helper-image{
+    height: 45rem;
+    width: 45rem;
+}
+.helper-image > img{
+    height: 100%;
+}
