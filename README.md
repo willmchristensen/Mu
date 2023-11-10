@@ -1,18 +1,28 @@
 # Mu
       
 Mu is a clone of Resident Advisor. Mu provides a place to discuss and share information regarding the electronic music industry. 
+![mu-splash](https://github.com/willmchristensen/Mu/assets/88559384/c8a58d83-4418-438a-8bc6-95b335be4571)
 
-Check out [Mu](https://mu-zfwi.onrender.com)
+#Live Link: 
+[Mu](https://mu-zfwi.onrender.com)
 
-## Index
+#Technologies Used:
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/downloads/release)
+[![Flask](https://img.shields.io/badge/Flask-2.0%2B-brightgreen.svg)](https://palletsprojects.com/p/flask/)
+[![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-1.4%2B-red.svg)](https://www.sqlalchemy.org/)
+[![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=white)](https://reactjs.org/)
+[![Redux](https://img.shields.io/badge/Redux-764ABC?style=flat&logo=redux&logoColor=white)](https://redux.js.org/)
 
-[MVP Feature List](https://github.com/willmchristensen/Mu/wiki/MVP-Feature-List) |
-[Database Scheme](https://github.com/willmchristensen/Mu/wiki/Database-Schema) |
-[User Stories](https://github.com/willmchristensen/Mu/wiki/User-Stories) |
-[Wire Frames](https://github.com/willmchristensen/Mu/wiki/Wireframes) |
+- ORM: SQLAlchemy
+- Backend: Flask
+- Frontend: React
+- State Management: Redux
 
-## Technologies Used
-
+#Contact Me!
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/will-christensen-85531317a/)
 
 ## Getting started
 1. Clone this repository:
