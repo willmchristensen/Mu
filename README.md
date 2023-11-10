@@ -1,7 +1,8 @@
 # Mu
       
 Mu is a clone of Resident Advisor. Mu provides a place to discuss and share information regarding the electronic music industry. 
-![mu-splash](https://github.com/willmchristensen/Mu/assets/88559384/c8a58d83-4418-438a-8bc6-95b335be4571)
+![mu-splash](https://github.com/willmchristensen/Mu/assets/88559384/f8a3010c-e70b-420b-bcb7-bd7a27faf692)
+
 
 #Live Link: 
 [Mu](https://mu-zfwi.onrender.com)
