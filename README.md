@@ -1,18 +1,30 @@
 # Mu
       
-Mu is a clone of Resident Advisor. Mu provides a place to discuss and share information regarding the electronic music industry. 
+This Resident Advisor clone facilitates user-generated events, posts, and music regarding the electronic music industry.
 
-Check out [Mu](https://mu-zfwi.onrender.com)
+![mu-splash](https://github.com/willmchristensen/Mu/assets/88559384/f8a3010c-e70b-420b-bcb7-bd7a27faf692)
 
-## Index
 
-[MVP Feature List](https://github.com/willmchristensen/Mu/wiki/MVP-Feature-List) |
-[Database Scheme](https://github.com/willmchristensen/Mu/wiki/Database-Schema) |
-[User Stories](https://github.com/willmchristensen/Mu/wiki/User-Stories) |
-[Wire Frames](https://github.com/willmchristensen/Mu/wiki/Wireframes) |
+#Live Link: 
+[Mu](https://mu-zfwi.onrender.com)
 
-## Technologies Used
+#Technologies Used:
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/downloads/release)
+[![Flask](https://img.shields.io/badge/Flask-2.0%2B-brightgreen.svg)](https://palletsprojects.com/p/flask/)
+[![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-1.4%2B-red.svg)](https://www.sqlalchemy.org/)
+[![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=white)](https://reactjs.org/)
+[![Redux](https://img.shields.io/badge/Redux-764ABC?style=flat&logo=redux&logoColor=white)](https://redux.js.org/)
 
+- ORM: SQLAlchemy
+- Backend: Flask
+- Frontend: React
+- State Management: Redux
+
+#Contact Me!
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/will-christensen-85531317a/)
 
 ## Getting started
 1. Clone this repository:
