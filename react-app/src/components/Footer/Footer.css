@@ -8,9 +8,6 @@
 .footer-wrapper {
     width: 80%;
 }
-.footer-nav {
-    margin: 1rem;
-}
 .footer-nav > nav{
     display: flex;
 }
@@ -20,7 +17,8 @@
 .footer-nav-section{
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    margin-bottom: 7rem;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
 }
 .footer-footer-section-one-left{
     display: flex;
@@ -58,7 +56,7 @@
     cursor: not-allowed;
 }
 .footer-nav-bar > .nav-item-container > *{
-   font-size: 2.5rem;
+   font-size: 1rem;
 }
 .footer-nav-bar-small{
     display: flex;
@@ -87,4 +85,21 @@
 }
 .english-button {
     color: var(--white);
+}
+.main-footer-container{
+    display: flex;
+    margin-top: 1rem;
+}
+.main-footer-wrapper{
+    width: 100%;
+}
+.footer-title{
+    margin: 0;
+    font-size: 2rem;
+}
+.footer-subtitle{
+    color: var(--blue);
+}
+.footer-content{
+    width: 50%;
 }

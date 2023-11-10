@@ -1,6 +1,7 @@
 import './Footer.css';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import NavItem from '../NavBar/NavItem';
+import FooterPortraitButtons from './FooterButtons';
 const Footer = () => {
     return (
         <div className="footer-container">
@@ -11,6 +12,19 @@ const Footer = () => {
                     >
                         <i class="fas fa-yin-yang"></i>
                     </NavLink>
+                    <div className="main-footer-container">
+                        <div className="footer-content">
+                            <h2 className="footer-title">
+                                Will
+                            </h2>
+                            <span className='footer-subtitle'>
+                                Fullstack Developer
+                            </span>
+                        </div>
+                        <div className="footer-content">
+                            <FooterPortraitButtons />
+                        </div>
+                    </div>
                 </div>
                 <div className="footer-nav-section">
                     <div className="footer-nav">
@@ -20,11 +34,11 @@ const Footer = () => {
                             </span>
                         </div>
                         <nav className='footer-nav-bar'>
-                            <NavItem  url={'/about'} text={'About'} />
-                            <NavItem  url={'/tickets'} text={'Tickets'} />
-                            <NavItem  url={'/resale'} text={'Resale'} />
-                            <NavItem  url={'/advertise'} text={'Advertise'} />
-                            <NavItem  url={'/jobs'} text={'Jobs'} />
+                            <NavItem url={'/about'} text={'About'} />
+                            <NavItem url={'/tickets'} text={'Tickets'} />
+                            <NavItem url={'/resale'} text={'Resale'} />
+                            <NavItem url={'/advertise'} text={'Advertise'} />
+                            <NavItem url={'/jobs'} text={'Jobs'} />
                         </nav>
                     </div>
                     <div className="footer-nav">
@@ -34,8 +48,8 @@ const Footer = () => {
                             </span>
                         </div>
                         <nav className='footer-nav-bar'>
-                            <NavItem  url={'/ra-guide'} text={'RA Guide'} />
-                            <NavItem  url={'/ra-scanner'} text={'RA Scanner'} />
+                            <NavItem url={'/ra-guide'} text={'RA Guide'} />
+                            <NavItem url={'/ra-scanner'} text={'RA Scanner'} />
                         </nav>
                     </div>
                 </div>
@@ -63,12 +77,12 @@ const Footer = () => {
                         </div>
                         <div className="footer-footer-section-one-right">
                             <nav className="footer-nav-bar-small">
-                                <NavItem  url={'/privacy'} text={'Privacy'} />
-                                <NavItem  url={'/terms'} text={'Terms'} />
-                                <NavItem  url={'/cookies'} text={'Cookies'} />
-                                <NavItem  url={'/sitemap'} text={'Sitemap'} />
+                                <NavItem url={'/privacy'} text={'Privacy'} />
+                                <NavItem url={'/terms'} text={'Terms'} />
+                                <NavItem url={'/cookies'} text={'Cookies'} />
+                                <NavItem url={'/sitemap'} text={'Sitemap'} />
                             </nav>
-                    </div>
+                        </div>
                     </div>
                     <div className="footer-footer-section-two">
                         <div className="footer-footer-section-two-left">
