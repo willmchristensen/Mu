@@ -1,70 +1,15 @@
 import normalize from './normalizer'
-const DELETE_POST = "posts/delete"
+const DELETE_POST = "posts/delete";
 const DELETE_MUSIC_POST = "posts/delete";
-const EDIT_POST = "posts/edit"
-const editPost = (details) => ({
-    type: EDIT_POST,
-    details
-})
-export const editOnePost = (payload) => async (dispatch) => {
-    // console.log('payload in Edit Thunk', payload);
-    const { item, postId } = payload;
-    const response = await fetch(`/api/posts/${postId}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(
-            item
-        ),
-    });
-    if (response.ok) {
-        const data = await response.json();
-        dispatch(editPost(data.post));
-        return data
-    } else if (response.status < 500) {
-        const data = await response.json();
-        if (data.errors) {
-            return data.errors;
-        }
-    } else {
-        return [
-            "An error occurred. Please try again."
-        ];
-    }
-}
-
-export const editOneMusicPost = (payload) => async (dispatch) => {
-    console.log('payload in Edit Music Thunk', payload);
-    const { item, musicId } = payload;
-    const response = await fetch(`/api/posts/${musicId}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(
-            item
-        ),
-    });
-    if (response.ok) {
-        const data = await response.json();
-        dispatch(editPost(data.post));
-        return data
-    } else if (response.status < 500) {
-        const data = await response.json();
-        if (data.errors) {
-            return data.errors;
-        }
-    } else {
-        return [
-            "An error occurred. Please try again."
-        ];
-    }
-}
+const EDIT_POST = "posts/edit";
 const LOAD = "posts/load";
 const LOAD_ONE = "posts/load_one";
 const CREATE_POST = "posts/new";
 
+const editPost = (details) => ({
+    type: EDIT_POST,
+    details
+});
 const load = (data) => ({
     type: LOAD,
     payload: data,
@@ -85,11 +30,59 @@ const removePost = (postId) => ({
     postId
 });
 
-const removeMusicPost = (musicId) => ({
-    type: DELETE_MUSIC_POST,
-    musicId
-});
-
+export const editOnePost = (payload) => async (dispatch) => {
+    const { item, postId } = payload;
+    const response = await fetch(`/api/posts/${postId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+            item
+        ),
+    });
+    if (response.ok) {
+        const data = await response.json();
+        await dispatch(editPost(data.post));
+        return data
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return [
+            "An error occurred. Please try again."
+        ];
+    }
+};
+export const editOneMusicPost = (payload) => async (dispatch) => {
+    console.log('payload in Edit Music Thunk', payload);
+    const { item, musicId } = payload;
+    const response = await fetch(`/api/posts/${musicId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+            item
+        ),
+    });
+    if (response.ok) {
+        const data = await response.json();
+        await dispatch(editPost(data.post));
+        return data
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return [
+            "An error occurred. Please try again."
+        ];
+    }
+};
 export const deletePost = (postId) => async (dispatch) => {
     const response = await fetch(`/api/posts/${postId}`, {
         method: "DELETE",
@@ -98,13 +91,13 @@ export const deletePost = (postId) => async (dispatch) => {
         }
     });
     if (response.ok) {
-        dispatch(removePost(postId));
+        await dispatch(removePost(postId));
     } else {
         return [
             "An error occurred. Please try again."
         ];
     }
-}
+};
 export const deleteMusicPost = (musicId) => async (dispatch) => {
     const response = await fetch(`/api/posts/${musicId}`, {
         method: "DELETE",
@@ -113,41 +106,40 @@ export const deleteMusicPost = (musicId) => async (dispatch) => {
         }
     });
     if (response.ok) {
-        dispatch(removePost(musicId));
+        await dispatch(removePost(musicId));
     } else {
         return [
             "An error occurred. Please try again."
         ];
     }
-}
-
+};
 export const getAllPosts = () => async (dispatch) => {
+    console.log('------------------------------GET ALL POSTS THUNK');
     const response = await fetch("/api/posts")
     if (response.ok) {
+        console.log('------------------------------GET ALL POSTS THUNK: RESPONSE OK');
         const data = await response.json();
         const allPosts = normalize(data.posts);
-        dispatch(load(allPosts))
+        await dispatch(load(allPosts))
         return response
     } else {
         return [
             "An error occurred. Please try again."
         ];
     }
-}
-
+};
 export const getOnePost = (id) => async (dispatch) => {
     const response = await fetch(`/api/posts/${id}`)
     if (response.ok) {
         const data = await response.json();
-        dispatch(loadOne(data.post))
+        await dispatch(loadOne(data.post))
         return data
     } else {
         return [
             "An error occurred. Please try again."
         ];
     }
-}
-
+};
 export const createPost = (details) => async (dispatch) => {
     console.log('--------------details in CREATE Post THUNK--------------', details)
     const response = await fetch("/api/posts/new", {
@@ -162,7 +154,7 @@ export const createPost = (details) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         console.log('RESPONSE OK: this is response.json:', data)
-        dispatch(makePost(data.post));
+        await dispatch(makePost(data.post));
         return data;
     } else if (response.status < 500) {
         const data = await response.json();
@@ -176,7 +168,7 @@ export const createPost = (details) => async (dispatch) => {
             "An error occurred. Please try again."
         ];
     }
-}
+};
 
 const initialState = {
     posts: {},
@@ -211,7 +203,6 @@ const postReducer = (state = initialState, action) => {
             newState.posts[action.payload.id] = action.payload;
             return newState;
         }
-        // TODO: change state correctly 
         case DELETE_POST: {
             const newState = {
                 ...state,

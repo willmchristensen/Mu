@@ -1,10 +1,5 @@
-import normalize from './normalizer'
 const DELETE_TICKET = "tickets/delete"
-const BUY_TICKETS = "tickets/buy";
-// const EDIT_TICKET = "tickets/edit"
-// const LOAD = "tickets/load";
 const LOAD_ONE = "tickets/load_one";
-// const CREATE_TICKET = "tickets/new";
 const LOAD_USER_TICKETS = 'tickets/load_user_tickets';
 
 const loadOne = (data) => ({
@@ -19,16 +14,12 @@ const loadUserTickets = (data) => ({
     type: LOAD_USER_TICKETS,
     payload: data
 });
-const buyTickets = (data) => ({
-    type: BUY_TICKETS,
-    payload: data
-});
+
 export const getUserTickets = (user_id) => async (dispatch) => {
     const response = await fetch(`/api/tickets/user/${user_id}/tickets`);
     if (response.ok) {
         const data = await response.json();
-        console.log('------------------------------data', data);
-        dispatch(loadUserTickets(data.events))
+        await dispatch(loadUserTickets(data.events))
         return data
     } else {
         return [
@@ -41,7 +32,7 @@ export const getOneTicket = (id) => async (dispatch) => {
     const response = await fetch(`/api/tickets/${id}`)
     if (response.ok) {
         const data = await response.json();
-        dispatch(loadOne(data.ticket))
+        await dispatch(loadOne(data.ticket))
         return data
     } else {
         return [
@@ -58,7 +49,7 @@ export const deleteTicket = (ticketId) => async (dispatch) => {
         }
     });
     if (response.ok) {
-        dispatch(removeTicket(ticketId));
+        await dispatch(removeTicket(ticketId));
     } else {
         return [
             "An error occurred. Please try again."

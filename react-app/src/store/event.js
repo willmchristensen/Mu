@@ -8,8 +8,7 @@ const EDIT_EVENT = "events/edit"
 const editEvent = (details) => ({
     type: EDIT_EVENT,
     details
-})
-
+});
 const load = (data) => ({
     type: LOAD,
     payload: data,
@@ -31,7 +30,7 @@ export const getAllEvents = () => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         const allEvents = normalize(data.events);
-        dispatch(load(allEvents))
+        await dispatch(load(allEvents))
         return response
     } else {
         return [
@@ -44,7 +43,7 @@ export const getOneEvent = (id) => async (dispatch) => {
     const response = await fetch(`/api/events/${id}`)
     if (response.ok) {
         const data = await response.json();
-        dispatch(loadOne(data.event))
+        await dispatch(loadOne(data.event))
         return data
     } else {
         return [
@@ -68,7 +67,7 @@ export const createEvent = (details) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         // console.log('RESPONSE OK: this is response.json:', data)
-        dispatch(postEvent(data.event));
+        await dispatch(postEvent(data.event));
         return data;
     } else if (response.status < 500) {
         const data = await response.json();
@@ -96,7 +95,7 @@ export const editOneEvent = (payload) => async (dispatch) => {
     });
     if (response.ok) {
         const data = await response.json();
-        dispatch(editEvent(data.event));
+        await dispatch(editEvent(data.event));
         return data
     } else if (response.status < 500) {
         const data = await response.json();
@@ -118,7 +117,7 @@ export const deleteEvent = (eventId) => async (dispatch) => {
         }
     });
     if (response.ok) {
-        dispatch(removeEvent(eventId));
+        await dispatch(removeEvent(eventId));
     } else {
         return [
             "An error occurred. Please try again."

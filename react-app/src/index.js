@@ -31,10 +31,10 @@ function Root() {
 		</ModalProvider>
 	);
 }
-
-ReactDOM.render(
-	<React.StrictMode>
+{/* <React.StrictMode>
 		<Root />
-	</React.StrictMode>,
+	</React.StrictMode>, */}
+ReactDOM.render(
+	<Root />,
 	document.getElementById("root")
 );

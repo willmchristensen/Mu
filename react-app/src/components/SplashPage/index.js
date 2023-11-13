@@ -1,26 +1,26 @@
 import './SplashPage.css'
-import {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts } from '../../store/post';
-import { getAllEvents } from '../../store/event';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 const SplashPage = () => {
+    console.log('------------------------------COMPONENT RENDERS');
     // --state--------------------------------------------------------------
     const events = useSelector(state => state.event.events);
-    const eventsArray = Object.values(events);
-    const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
     const posts = useSelector(state => state.post.posts);
     const allPosts = Object.values(posts);
+    
     const [postId, setPostId] = useState(null);
-
     let images = allPosts.map(i => {
-        if(!i.imageUrl){
+        if (!i.imageUrl) {
             return null
-        }else{
+        } else {
             return i.imageUrl
         }
     });
+
+    console.log('------------------------------1:images:', images);
     // ---randomimage-------------------------------------------------------
     const randomImage = (images) => {
         const validImages = images.filter((image) => {
@@ -28,6 +28,7 @@ const SplashPage = () => {
             img.src = image;
             return img.complete && img.naturalWidth !== 0;
         });
+        console.log('------------------------------2:validImages', validImages);
         if (validImages.length === 0) {
             return null;
         }
@@ -39,6 +40,7 @@ const SplashPage = () => {
         let intervalId;
         const updateBackgroundImage = () => {
             const img = randomImage(images);
+            console.log('------------------------------3:randomImage', img);
             document.getElementById('splash-background').style.backgroundImage = `url(${img})`;
             const post = allPosts.find((p) => p.imageUrl === img);
             if (post) {
@@ -53,20 +55,21 @@ const SplashPage = () => {
     }, [images]);
 
     // ---------------------------------------------------------------
-    useEffect(()=>{
-        dispatch(getAllPosts())
-        dispatch(getAllEvents())
-    },[]);
 
-    if(!posts || !events) return null
+    useEffect(() => {
+        dispatch(getAllPosts())
+    }, [dispatch]);
+
+    console.log('------------------------------4:allPosts', allPosts);
+
+    if (!posts || !events || !images || !allPosts) return null
 
     return (
-         <NavLink
+        <NavLink
             className='splash'
             to={postId ? `/posts/${postId}` : '/'}
         >
             <div className="splash-page-container" id="splash-background">
-                <h1 className="splash-header"></h1>
             </div>
         </NavLink>
     )
