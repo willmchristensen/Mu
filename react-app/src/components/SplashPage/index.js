@@ -8,8 +8,8 @@ const SplashPage = () => {
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.post.posts);
     const allPosts = Object.values(posts);
-    const[postId,setPostId] = useState(null);
-
+    const [postId, setPostId] = useState(null);
+    const [postWithImage, setPostWithImage] = useState(null);
     const [forceRerender, setForceRerender] = useState(false);
 
     useEffect(() => {
@@ -44,21 +44,27 @@ const SplashPage = () => {
 
             document.getElementById('splash-background').style.backgroundImage = `url(${randomImage})`;
 
-            const postWithImage = allPosts.find((post) => post.imageUrl === randomImage);
-            if (postWithImage) {
-                setPostId(postWithImage.id)
+            const post = allPosts.find((post) => post.imageUrl === randomImage);
+            if (post) {
+                setPostWithImage(post);
+                setPostId(post.id);
             } else {
-                setPostId(null)
+                setPostWithImage(null);
+                setPostId(null);
             }
         } else {
+            setPostWithImage(null);
+            setPostId(null);
             setForceRerender((prev) => !prev);
         }
     };
 
+    const navLinkPath = postWithImage && postWithImage.musicUrl ? `/music/${postId}` : `/posts/${postId}`;
+
     return (
         <NavLink
             className="splash"
-            to={postId ? `/posts/${postId}` : '/'}
+            to={navLinkPath}
         >
             <div className="splash-page-container" id="splash-background">
             </div>

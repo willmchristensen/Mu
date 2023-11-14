@@ -48,11 +48,8 @@ function App() {
             <PostDetails />
           </Route>
           <Route path="/music/:musicId">
-            <MusicDetails />``
+            <MusicDetails />
           </Route>
-          {/* <Route path="/create-post">
-            <CreatePostPage />
-          </Route> */}
           <Route path='/shop/cart'>
             <Tickets />
           </Route> 

@@ -25,8 +25,6 @@ const PostDetails = () => {
     const post = useSelector(state => state.post.singlePost);
     const posts = useSelector(state=> state.post.posts);
     const allPosts = Object.values(posts)
-    // const artists = post.artists ? Object.values(post.artists) : [];
-    // const attendees = post.attendees ? Object.values(post.attendees) : [];
 
     useEffect(()=>{
         dispatch(getOnePost(postId))

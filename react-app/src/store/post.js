@@ -183,9 +183,6 @@ const postReducer = (state = initialState, action) => {
         case LOAD_ONE: {
             const newState = {
                 ...state,
-                singlePost: {
-                    ...state.singlePost,
-                }
             }
             newState.singlePost = {
                 ...action.payload,
