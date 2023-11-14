@@ -10,7 +10,6 @@ const BandcampPlayer = ({url}) => {
       frameBorder="0"
       seamless
     >
-      <a href="https://overmono.bandcamp.com/album/good-lies">Good Lies by Overmono</a>
     </iframe>
   );
 };
