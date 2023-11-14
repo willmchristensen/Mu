@@ -1,78 +1,69 @@
-import './SplashPage.css'
-import { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts } from '../../store/post';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom';
-const SplashPage = () => {
-    console.log('------------------------------COMPONENT RENDERS');
-    // --state--------------------------------------------------------------
-    const events = useSelector(state => state.event.events);
-    const dispatch = useDispatch();
-    const posts = useSelector(state => state.post.posts);
-    const allPosts = Object.values(posts);
-    
-    const [postId, setPostId] = useState(null);
-    let images = allPosts.map(i => {
-        if (!i.imageUrl) {
-            return null
-        } else {
-            return i.imageUrl
-        }
-    });
+import './SplashPage.css';
 
-    console.log('------------------------------1:images:', images);
-    // ---randomimage-------------------------------------------------------
-    const randomImage = (images) => {
+const SplashPage = () => {
+    const dispatch = useDispatch();
+    const posts = useSelector((state) => state.post.posts);
+    const allPosts = Object.values(posts);
+    const[postId,setPostId] = useState(null);
+
+    const [forceRerender, setForceRerender] = useState(false);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            await dispatch(getAllPosts());
+            updateBackgroundImage();
+        };
+
+        fetchData();
+
+        const intervalId = setInterval(() => {
+            updateBackgroundImage();
+        }, 10000);
+
+        return () => clearInterval(intervalId);
+    }, [dispatch, forceRerender]);
+
+    const updateBackgroundImage = () => {
+        const images = allPosts
+            .filter((post) => post.imageUrl)
+            .map((post) => post.imageUrl);
+
         const validImages = images.filter((image) => {
             const img = new Image();
             img.src = image;
             return img.complete && img.naturalWidth !== 0;
         });
-        console.log('------------------------------2:validImages', validImages);
-        if (validImages.length === 0) {
-            return null;
-        }
-        const randomIndex = Math.floor(Math.random() * validImages.length);
-        return validImages[randomIndex];
-    };
 
-    useEffect(() => {
-        let intervalId;
-        const updateBackgroundImage = () => {
-            const img = randomImage(images);
-            console.log('------------------------------3:randomImage', img);
-            document.getElementById('splash-background').style.backgroundImage = `url(${img})`;
-            const post = allPosts.find((p) => p.imageUrl === img);
-            if (post) {
-                setPostId(post.id);
+        if (validImages.length > 0) {
+            const randomIndex = Math.floor(Math.random() * validImages.length);
+            const randomImage = validImages[randomIndex];
+
+            document.getElementById('splash-background').style.backgroundImage = `url(${randomImage})`;
+
+            const postWithImage = allPosts.find((post) => post.imageUrl === randomImage);
+            if (postWithImage) {
+                setPostId(postWithImage.id)
             } else {
-                setPostId(null);
+                setPostId(null)
             }
-        };
-        updateBackgroundImage();
-        intervalId = setInterval(updateBackgroundImage, 15000);
-        return () => clearInterval(intervalId);
-    }, [images]);
-
-    // ---------------------------------------------------------------
-
-    useEffect(() => {
-        dispatch(getAllPosts())
-    }, [dispatch]);
-
-    console.log('------------------------------4:allPosts', allPosts);
-
-    if (!posts || !events || !images || !allPosts) return null
+        } else {
+            setForceRerender((prev) => !prev);
+        }
+    };
 
     return (
         <NavLink
-            className='splash'
+            className="splash"
             to={postId ? `/posts/${postId}` : '/'}
         >
             <div className="splash-page-container" id="splash-background">
             </div>
         </NavLink>
-    )
-}
+    );
+};
 
 export default SplashPage;

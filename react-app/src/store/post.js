@@ -141,7 +141,6 @@ export const getOnePost = (id) => async (dispatch) => {
     }
 };
 export const createPost = (details) => async (dispatch) => {
-    console.log('--------------details in CREATE Post THUNK--------------', details)
     const response = await fetch("/api/posts/new", {
         method: "POST",
         headers: {
@@ -153,7 +152,6 @@ export const createPost = (details) => async (dispatch) => {
     });
     if (response.ok) {
         const data = await response.json();
-        console.log('RESPONSE OK: this is response.json:', data)
         await dispatch(makePost(data.post));
         return data;
     } else if (response.status < 500) {
@@ -178,13 +176,9 @@ const initialState = {
 const postReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD: {
-            return {
-                ...state,
-                posts: {
-                    ...state.posts,
-                    ...action.payload
-                }
-            }
+            const newState = {...state}
+            newState.posts = {...action.payload}
+            return newState
         }
         case LOAD_ONE: {
             const newState = {

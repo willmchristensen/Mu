@@ -66,7 +66,6 @@ export const createEvent = (details) => async (dispatch) => {
     });
     if (response.ok) {
         const data = await response.json();
-        // console.log('RESPONSE OK: this is response.json:', data)
         await dispatch(postEvent(data.event));
         return data;
     } else if (response.status < 500) {

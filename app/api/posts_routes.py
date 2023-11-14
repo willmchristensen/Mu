@@ -11,8 +11,11 @@ def get_all_posts():
     """
     Query for all posts and returns a list of dictionaries
     """
+    print('---------------GET ALL---------------')
     all_posts = Post.query.all()
+    print('!!!!!!!!!!!!!!!!!!!!!!!!!!!')
     response = [post.to_dict() for post in all_posts]
+    print('1111111111111111111111111111')
     return { 'posts': response }
 
 @post_routes.route('/<int:id>', methods=["GET"])
@@ -20,6 +23,7 @@ def get_one_post(id):
     """
     Query for post by id
     """
+    print('GET ONE POST')
     post = Post.query.get(id)
     response = post.to_dict()
     return { 'post': response }

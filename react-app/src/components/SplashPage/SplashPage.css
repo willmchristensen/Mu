@@ -10,3 +10,6 @@
 .splash:hover {
     cursor: pointer;
 }
+#loading-screen{
+    display: none;
+}
