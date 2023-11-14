@@ -10,7 +10,6 @@ def get_all_events():
     """
     Query for all events
     """
-    print('444444444444444444444444')
     all_events = Event.query.all()
     response = [event.to_dict() for event in all_events]
     return { 'events': response }
@@ -19,7 +18,6 @@ def get_one_event(id):
     """
     Query for event by id
     """
-    print('55555555555555555555555555555555')
     event = Event.query.get(id)
     response = event.to_dict()
     return { 'event': response }

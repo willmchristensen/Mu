@@ -11,11 +11,8 @@ def get_all_posts():
     """
     Query for all posts and returns a list of dictionaries
     """
-    print('---------------GET ALL---------------')
     all_posts = Post.query.all()
-    print('!!!!!!!!!!!!!!!!!!!!!!!!!!!')
     response = [post.to_dict() for post in all_posts]
-    print('1111111111111111111111111111')
     return { 'posts': response }
 
 @post_routes.route('/<int:id>', methods=["GET"])
@@ -38,7 +35,6 @@ def create_one_post():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         data = form.data
-        print('DERTER IN CREATE POST/MUSIC', data)
         new_post = Post(
             title = data['title'],
             description = data['description'],
