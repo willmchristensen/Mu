@@ -48,9 +48,9 @@ const Magazine = () => {
             <div className="magazine-container">
                 <div className="magazine-page-one">
                     {/* TODO: local resource of every page's header data */}
-                    <div className="m-p-section">
+                    {/* <div className="m-p-section"> */}
                         <LatestNews posts={allPosts} />
-                    </div>
+                    {/* </div> */}
                 </div>
                 <div className="latest-features">
                     <ContentHeader content={'Latest features'} />

@@ -4,4 +4,8 @@
     flex-direction: column;
     align-items:flex-start;
     width: 100vw;
+    gap: 1rem;
+}
+.news-content-area-container{
+    width: 50%;
 }

@@ -1,8 +1,14 @@
+.post-details-wrapper{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--off-white);
+}
 .post-details-container{
     display: flex;
     flex-direction: column;
-    align-items: center;
     background-color: var(--off-white);
+    width: 80%;
 }
 .share {
     display: flex;
@@ -11,11 +17,12 @@
 .post-details-content-container {
     display: flex;
     justify-content: center;
-    width: 90%;
+    width: 80%;
     margin-top: 1rem;
 }
 .post-details-description{
     margin-top: 2rem;
+    margin-bottom: 1.5rem;
 }
 .post-owner-buttons {
     width: 100%;
