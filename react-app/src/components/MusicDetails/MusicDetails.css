@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     background-color: var(--off-white);
+    height: 100vh;
 }
 .share {
     display: flex;

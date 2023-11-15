@@ -48,11 +48,11 @@
         display: flex;
         flex-wrap: wrap;
         gap: 1.5rem;
-        width: 90%;
+        width: 80%;
         justify-content: center;
     }
     .content-header-wrapper { 
-        width: 90%;
+        width: 80%;
     }
     .music-image-container > img {
         height: 14rem;
@@ -62,10 +62,10 @@
         width: 14rem;
     }
     .page-subheader-wrapper{
-        width: 90%;
+        width: 80%;
     }
     .header-wrapper{
-        width: 90%;
+        width: 80%;
     }
 }
 @media screen and (max-width: 1024px ) {
