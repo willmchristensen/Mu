@@ -7,8 +7,8 @@ const LatestNews = ({posts}) => {
 
     if(!posts) return null
 
-    const singlePost = posts.slice(3,4)[0];
-
+    const rand = Math.floor(Math.random() * posts.length);
+    const singlePost = posts[rand];
     return (
         <div className="latest-news-container">
             <div className="latest-popular">

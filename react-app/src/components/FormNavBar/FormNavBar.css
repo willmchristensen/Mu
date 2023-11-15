@@ -5,7 +5,25 @@
     margin-right: 5rem;
     margin-top: 7rem;
 }
+.form-nav-bar-row{
+    display: flex;
+    justify-content: flex-start;
+    height: 7rem;
+}
+.form-nav-container-row{
+    display: flex;
+    width: 100%;
+}
 .form-nav-item{
+    margin: 1rem;
+    margin-right: 2rem;
+}
+.form-nav-item-row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     margin: 1rem;
     margin-right: 2rem;
 }

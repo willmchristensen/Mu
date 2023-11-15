@@ -2,7 +2,6 @@
     background-color: var(--white);
     display: flex;
     justify-content: center;
-    height: 100vh;
 }
 .create-event-form {
     width: 50%;

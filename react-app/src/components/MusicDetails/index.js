@@ -32,7 +32,7 @@ const MusicDetails = () => {
         <>
             <div className="music-details-container">
                 <div className="music-details-content-container">
-                    <ShareButtons />
+                    {/* <ShareButtons /> */}
                     <div className="music-details">
                         <h1>{post?.title}</h1>
                         <p>{post?.description}</p>

@@ -27,6 +27,7 @@
 }
 .popular-content {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 1.5rem;
 }
@@ -49,7 +50,6 @@
     justify-content: flex-start;
     align-items: flex-end;
     width: 80%;
-    height: 17rem;
 }
 .location-header {
     display: flex;
@@ -64,4 +64,24 @@
 .events-location-header{
     font-weight: 500;
     font-size: 5.5rem;
+}
+@media screen and (max-width: 1440px) {
+    .post-image{
+        width: 14rem;
+    }
+    .popular-content-card{
+        width: 14rem;
+    }
+}
+
+@media screen and (max-width: 1024px ) {
+
+}
+
+@media screen and (max-width: 768px ) {
+
+}
+
+@media screen and (max-width: 425px ) {
+
 }

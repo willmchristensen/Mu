@@ -16,7 +16,8 @@ const Magazine = () => {
     const dispatch = useDispatch();
     const posts = useSelector(state => state.post.posts);
     const sessionUser = useSelector(state => state.session.user);
-    const allPosts = Object.values(posts);
+    const postsArray = Object.values(posts);
+    const allPosts = postsArray.filter(p => !p.musicUrl);
     const today = new Date();
     const tomorrow = new Date(today);
     tomorrow.setDate(today.getDate() + 1);
@@ -47,10 +48,7 @@ const Magazine = () => {
             }
             <div className="magazine-container">
                 <div className="magazine-page-one">
-                    {/* TODO: local resource of every page's header data */}
-                    {/* <div className="m-p-section"> */}
-                        <LatestNews posts={allPosts} />
-                    {/* </div> */}
+                    <LatestNews posts={allPosts} />
                 </div>
                 <div className="latest-features">
                     <ContentHeader content={'Latest features'} />

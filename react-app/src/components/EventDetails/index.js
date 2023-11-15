@@ -197,9 +197,9 @@ const EventDetails = () => {
                 <div className="lineup">
                     <div className="lineup-header">
                         <ContentHeader content={"LINEUP"} />
-                        <div className="event-share">
+                        {/* <div className="event-share">
                             <ShareButtons orientation={'row'} type='dark' />
-                        </div>
+                        </div> */}
                     </div>
                     <div className="lineup-artists">
                         {

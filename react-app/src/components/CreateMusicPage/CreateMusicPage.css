@@ -37,12 +37,29 @@
 .tooltip-container:hover .tooltip{
     visibility: visible;
 }
-.helper-image{
-    height: 45rem;
-    width: 45rem;
-}
 .helper-image > img{
-    height: 100%;
+    height: 30rem;
+    width: 100%;
+    object-fit: contain;
+    border: 1px solid var(--off-white);
+    border-radius: 10px;
+}
+.helper-image-four > img{
+    height: 30rem;
+    width: 100%;
+    object-fit:fill;
+    border: 1px solid var(--off-white);
+    border-radius: 10px;
+}
+.helper-images-container{
+    display: flex;
+    width: 70vw;
+}
+.form-nav-bar-container{
+    width: 70vw;
+}
+.helper-image{
+    width: 100%;
 }
 @media screen and (max-width: 1440px) {
     .music-cards-wrapper { 

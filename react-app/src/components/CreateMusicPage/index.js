@@ -22,12 +22,8 @@ const CreateMusicPage = () => {
 	const [errors, setErrors] = useState({});
 	const [isDisabled, setIsDisabled] = useState(false);
 	const [isSubmitted, setIsSubmitted] = useState(false);
-	// dispatching an action allows you to trigger changes to your redux state => UI updates
 	const dispatch = useDispatch();
-	// client-side routing (React Router) allows you the user to navigate between pages via the browser history object => quick load times
 	const history = useHistory();
-	// grab data from state variables, create payload, conditionally dispatch desired functionality of form
-	// conditionally disable submit button based upon a valid/completed form 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const data = {
@@ -55,12 +51,11 @@ const CreateMusicPage = () => {
 			}
 		}
 	}
-	// push user back to music page when cancel is clicked
 	const handleCancel = (e) => {
 		e.preventDefault();
 		history.push('/music');
 	}
-	// grab post & change title of form according to desired functionality 
+
 	useEffect(() => {
 		if (musicId) {
 			dispatch(getOnePost(musicId))
@@ -69,7 +64,6 @@ const CreateMusicPage = () => {
 			setFormTitle('Create Music')
 		}
 	}, [dispatch, musicId])
-	// fill form with post info based upon existence of a music ID in url
 	useEffect(() => {
 		if (musicId && post) {
 			setTitle(post.title)
@@ -78,7 +72,7 @@ const CreateMusicPage = () => {
 			setImageUrl(post.imageUrl)
 		}
 	}, [musicId, post])
-	// error handling, fill error object with errors (conditionally rendered) based on  completion of form
+
 	useEffect(() => {
 		if (isSubmitted) {
 			const errors = {};
@@ -90,7 +84,7 @@ const CreateMusicPage = () => {
 			setIsDisabled(Object.values(errors).length > 0)
 		}
 	}, [title, description, musicUrl, isSubmitted]);
-	// if no user is present, they should not be allowed to access this page, so getem outta here
+
 	if (!currentUser) history.push('/');
 
 	return (
@@ -101,10 +95,6 @@ const CreateMusicPage = () => {
 					className='create-event-form'
 					onSubmit={handleSubmit}
 				>
-					{/* 
-						formTitle: 
-							fills the title of the page with either create or edit music based on the presence of an id in the url params
-					*/}
 					<ContentHeader content={formTitle} />
 					<div className="form-row-column">
 						<label>
@@ -161,8 +151,27 @@ const CreateMusicPage = () => {
 						<label>
 							Example:
 						</label>
-						<div className="helper-image">
-							<img src="/example-embed.png" alt="example-music-url" />
+						<div className="helpers-container">
+							<div className="form-nav-bar-container">
+								<FormNavBar pages={['Embed Album','Select Large Style','Copy Embed Code',"Paste tag into text editor and Copy link from 'src'"]} orientation={'row'} />
+							</div>
+							<div className="helper-images-container">
+								<div className="helper-image">
+									<div className="helper-text">
+										
+									</div>
+									<img src="/1.png" alt="example-music-url" />
+								</div>
+								<div className="helper-image">
+									<img src="/2.png" alt="example-music-url" />
+								</div>
+								<div className="helper-image">
+									<img src="/3.png" alt="example-music-url" />
+								</div>
+								<div className="helper-image-four">
+									<img src="/4.png" alt="example-music-url" />
+								</div>
+							</div>
 						</div>
 					</div>
 					<div className="form-buttons">

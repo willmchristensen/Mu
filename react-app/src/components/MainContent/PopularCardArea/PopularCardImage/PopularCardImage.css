@@ -2,17 +2,9 @@
     display: block;
     object-fit: cover;
     margin-bottom: 1rem;
-    width: 17rem;
-    height: 26.5rem;
+    width: 16rem;
+    height: 25rem;
 }
-/* @media screen and (max-width: 1024px){
-    .modular-image{
-        width: 25vw;
-    }
-} */
 .popular-image-container:hover {
     cursor: pointer;
-}
-.popular-image-container{
-
 }

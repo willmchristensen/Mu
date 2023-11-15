@@ -38,14 +38,13 @@ const MainContent = () => {
         <div className="main-content-container">
             <div className="location-container">
                 <div className="location-header">
-                    <i class="fas fa-flag-usa"></i>
                     <h1 className='events-location-header'>Location</h1>
                     {/* TODO:
                             CARROT THAT OPENS MODAL > locations
                     */}
                 </div>
             </div>
-            <SecondaryNavBar/>
+            {/* <SecondaryNavBar/> */}
             <div className="popular-container">
                 <div className="main-content">
                     <div className="popular-header-container">

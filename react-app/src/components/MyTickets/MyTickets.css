@@ -3,5 +3,7 @@
     align-items: center;
     flex-direction: column;
     background-color: var(--white);
+}
+.my-tickets-wrapper{
     height: 100vh;
 }

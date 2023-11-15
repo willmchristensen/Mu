@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import { useSelector } from "react";
 import { useDispatch } from "react-redux";
 import { deleteTicket,getUserTickets } from "../../../store/ticket";
+import './Ticket.css'
 function Ticket({ event, userId }) {
     // const user = useSelector((state) => state.session.user);
     const dispatch = useDispatch();
@@ -10,7 +11,7 @@ function Ticket({ event, userId }) {
         await dispatch(getUserTickets(userId))
     }
     return (
-        <>
+        <div className="ticket-container">
             <NavLink
                 class='big-title'
                 to={`events/${event.id}`}
@@ -22,7 +23,7 @@ function Ticket({ event, userId }) {
                 onClick={() => handleDelete(event.id)}>
                 Delete ticket
             </button>
-        </>
+        </div>
     )
 }
 export default Ticket;

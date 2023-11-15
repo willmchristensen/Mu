@@ -21,20 +21,22 @@ const MyTickets = () => {
   return (
     <div className='my-tickets-container'>
       <PageHeader header={'My Tickets'} />
-      {events.length > 0 ?
-        events.map(e => {
-          return (
-            <Ticket event={e} userId={user.id}/>
-          )
-        }) :
-        <>
-          <h1>You havent bought any tickets yet!</h1>
-          <NavLink 
-            className="oval-button"
-            to={'/events'}
-          >View events</NavLink>
-        </>
-      }
+      <div className="my-tickets-wrapper">
+        {events.length > 0 ?
+          events.map(e => {
+            return (
+              <Ticket event={e} userId={user.id}/>
+            )
+          }) :
+          <>
+            <h1>You havent bought any tickets yet!</h1>
+            <NavLink 
+              className="oval-button"
+              to={'/events'}
+            >View events</NavLink>
+          </>
+        }
+      </div>
     </div>
   );
 };
