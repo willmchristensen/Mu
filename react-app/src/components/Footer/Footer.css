@@ -71,7 +71,6 @@
 .footer-logo > a > i{
     color: var(--white);
     font-size: 3rem;
-    margin: .5rem;
 }
 .footer-logo > a > i:hover{
     color: var(--black);

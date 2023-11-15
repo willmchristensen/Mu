@@ -2,11 +2,11 @@
     /* height: 316px;
     width: 316px; */
     height: 20rem;
-    width: 100%;
+    width: 20rem;
     object-fit: cover;
 }
 .podcast-card-container { 
-    width: 20rem;    
+    flex-basis: 25%;    
 }
 .podcast-card-title { 
     margin-bottom: .1rem;
@@ -17,4 +17,7 @@
 .podcast-title:hover {
     cursor: pointer; 
     color: var(--red)
+}
+.podcast-card-description{
+    width: 18rem;
 }

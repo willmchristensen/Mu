@@ -8,7 +8,11 @@ const PodcastCard = ({music}) =>  {
                 className="podcast-card-image"
                 to={`music/${music.id}`}
             >
-                <img src={music.imageUrl} alt="podcast-image-alt" className="podcast-image" />
+                <img 
+                    src={music.imageUrl} 
+                    alt="podcast-alt" 
+                    className="podcast-image" 
+                />
             </NavLink>
             <div className="podcast-card-title">
                 <NavLink 
