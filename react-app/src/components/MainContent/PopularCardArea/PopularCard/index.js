@@ -1,7 +1,6 @@
 import './PopularCard.css'
 import PopularCardImage from '../PopularCardImage';
 import EventPreview from '../../EventPreview';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom'
 
 const PopularCard = ({event}) => {
 
@@ -9,7 +8,7 @@ const PopularCard = ({event}) => {
 
     return(
         <div
-            className="post-content-card"
+            className="popular-content-card"
             to={`/events/${event.id}`}
         >
             <PopularCardImage event={event} />
