@@ -1,10 +1,10 @@
 .music-card-container { 
     display: flex;
     flex-direction: column;
-    width: 15rem;
+    width: calc(25% - 1.5rem); /* Set the width for each card with a maximum of 4 cards in a row */
 }
 .music-card-content{
-    width: 100%;
+    width: 18rem;
 }
 .music-card-title { 
     margin-bottom: .1rem;
