@@ -24,7 +24,13 @@ class Event(db.Model):
     # genre_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("genres.id")))
     # genre = db.relationship("Genre", back_populates="events")
 
-    attendees = db.relationship("User",secondary=event_attendees, back_populates="events_attended")
+    attendees = db.relationship(
+    "User",
+    secondary=event_attendees,
+    back_populates="events_attended",
+    cascade="all",  # Remove delete-orphan cascade
+    uselist=True
+    )
 
     def to_dict(self):
         return {

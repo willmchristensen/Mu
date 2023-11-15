@@ -19,13 +19,16 @@ def delete_one_ticket(id):
         return {'message': 'Event not found'}, 404
 
     if event in current_user.events_attended:
-        current_user.events_attended.remove(event)
-        db.session.commit()
-        return "Event Removed from User's Events Attended"
+        try:
+            current_user.events_attended.remove(event)
+            db.session.commit()
+            return "Event Removed from User's Events Attended"
+        except Exception as e:
+            db.session.rollback()
+            return {'error': str(e)}, 500
     else:
-        return {
-            "errors": "This event is not in your events attended list."
-        }
+        return {"errors": "This event is not in your events attended list."}
+
 
 
 @ticket_routes.route('/user/<int:user_id>/tickets')

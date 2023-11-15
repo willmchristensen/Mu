@@ -16,7 +16,12 @@ class User(db.Model, UserMixin):
     profile_img_url=db.Column(db.String(255))
     hashed_password = db.Column(db.String(255), nullable=False)
     posts = db.relationship("Post", cascade="all, delete", backref="user")
-    events_attended = db.relationship("Event", secondary=event_attendees, back_populates="attendees")
+    events_attended = db.relationship(
+    "Event",
+    secondary=event_attendees,
+    back_populates="attendees",
+    uselist=True
+)
     
     @property
     def password(self):
