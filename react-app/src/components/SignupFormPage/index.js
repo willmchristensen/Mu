@@ -74,12 +74,12 @@ function SignupFormPage() {
   if (sessionUser) return <Redirect to="/" />;
 
   return (
-    <div className="create-event-container">
+    <div className="create-user-container">
+      <ContentHeader content={'Register'} />
         <form
           onSubmit={handleSubmit}
-          className="create-event-form"
+          className="create-user-form"
         >
-          <ContentHeader content={'Register'} />
           <div>
             {validationErrors.map((error, idx) => (
               <span className="errors" key={idx}>{error}</span>
