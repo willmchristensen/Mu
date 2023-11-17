@@ -12,17 +12,21 @@ function Ticket({ event, userId }) {
     }
     return (
         <div className="ticket-container">
-            <NavLink
-                class='big-title'
-                to={`events/${event.id}`}
-            >
-                <h3>{event.title}</h3>
-            </NavLink >
-            <button 
-                className="oval-button-area" 
-                onClick={() => handleDelete(event.id)}>
-                Delete ticket
-            </button>
+            <div className="my-ticket-title-container">
+                <NavLink
+                    class='big-title'
+                    to={`events/${event.id}`}
+                >
+                    <h3>{event.title}</h3>
+                </NavLink >
+            </div>
+            <div className="button-container">
+                <button 
+                    className="oval-button-area" 
+                    onClick={() => handleDelete(event.id)}>
+                    Delete ticket
+                </button>
+            </div>
         </div>
     )
 }

@@ -4,3 +4,11 @@
     display: flex; 
     align-items: center;
 }
+.my-ticket-title-container{
+    width: 20rem;
+}
+.button-container{
+    display: flex;
+    justify-content: flex-end;
+    width: 20rem;
+}
