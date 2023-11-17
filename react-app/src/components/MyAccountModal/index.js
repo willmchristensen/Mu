@@ -28,12 +28,12 @@ const MyAccountModal = ({user, logout}) => {
                 user ?
                 <div className="my-account-user-dropdown">
                     <div className="user-dropdown-container">
-                        <NavLink
+                        {/* <NavLink
                             className='lineup-button'
                             to={'/my-account'}
-                        >
-                            <span className='lineup-button-text'>{user.username}</span>
-                        </NavLink>
+                        > */}
+                            <span className='lineup-button'>{user.username}</span>
+                        {/* </NavLink> */}
                         <NavLink
                             id="my-tickets-button"
                             className='lineup-button'
@@ -42,7 +42,7 @@ const MyAccountModal = ({user, logout}) => {
                         >
                             <span className='lineup-button-text'>My Tickets</span>
                         </NavLink>
-                        <NavLink
+                        {/* <NavLink
                             className='lineup-button'
                             to={'/user/following'}
                         >
@@ -59,7 +59,7 @@ const MyAccountModal = ({user, logout}) => {
                             to={'/account-settings'}
                         >
                             <span className='lineup-button-text'>Account Settings</span>
-                        </NavLink>
+                        </NavLink> */}
                         <button
                             onClick={logout}
                             id="profile-dropdown-logout-button"

@@ -36,20 +36,20 @@ const Magazine = () => {
 
     return (
         <>
+        <PageHeader header={'Magazine'} subheader={'Interviews, films, news and more from the industry.'} />
+        {sessionUser &&
+        <div className="create-button-container">
+            <NavLink
+                className='oval-button post-create'
+                to={`/posts/new`}
+            >
+                Create post
+            </NavLink>  
+        </div>
+        }
         <div className="magazine-wrapper">
-            <PageHeader header={'Magazine'} subheader={'Interviews, films, news and more from the industry.'} />
-            {sessionUser &&
-                <NavLink
-                    className='oval-button post-create'
-                    to={`/posts/new`}
-                >
-                    Create post
-                </NavLink>
-            }
             <div className="magazine-container">
-                <div className="magazine-page-one">
-                    <LatestNews posts={allPosts} />
-                </div>
+                <LatestNews posts={allPosts} />
                 <div className="latest-features">
                     <ContentHeader content={'Latest features'} />
                     <PostContent posts={allPosts.slice(0, 3)} />

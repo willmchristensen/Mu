@@ -10,7 +10,8 @@
 .latest-popular {
     margin-top: 1rem;
     display: flex;
+    gap: 2rem;
 }
 .latest-news-header {
-    width: 50%;
+    width: 60%;
 }
