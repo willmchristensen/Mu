@@ -1,9 +1,11 @@
-.my-tickets-container{
+.my-tickets-wrapper{
     display: flex;
     align-items: center;
     flex-direction: column;
     background-color: var(--white);
+    min-height: 100vh; 
+    overflow-y: auto;
 }
-.my-tickets-wrapper{
-    height: 100vh;
+.my-tickets-container {
+    min-height: 100%; 
 }

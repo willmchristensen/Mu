@@ -16,7 +16,7 @@ function Ticket({ event, userId }) {
                 class='big-title'
                 to={`events/${event.id}`}
             >
-                <h1>{event.title}</h1>
+                <h3>{event.title}</h3>
             </NavLink >
             <button 
                 className="oval-button-area" 

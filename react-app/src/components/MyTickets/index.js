@@ -19,9 +19,10 @@ const MyTickets = () => {
   }, [dispatch, user]);
   if(!user) history.push('/');
   return (
-    <div className='my-tickets-container'>
-      <PageHeader header={'My Tickets'} />
-      <div className="my-tickets-wrapper">
+    <>
+    <PageHeader header={'My Tickets'} />
+    <div className='my-tickets-wrapper'>
+      <div className="my-tickets-container">
         {events.length > 0 ?
           events.map(e => {
             return (
@@ -38,6 +39,7 @@ const MyTickets = () => {
         }
       </div>
     </div>
+    </>
   );
 };
 
