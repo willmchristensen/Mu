@@ -7,9 +7,9 @@
     display: block;
     object-fit: cover;
 }
-/* .news-image-container {
-
-} */
+.news-image-container:hover {
+    cursor: pointer;
+}
 /* @media screen and (max-width: 1024px){
     .modular-image{
         width: 25vw;

@@ -92,7 +92,7 @@ const CreateMusicPage = () => {
 			<div className="create-event-container">
 				<FormNavBar pages={['Content', 'Details']} />
 				<form
-					className='create-event-form'
+					className='create-music-form'
 					onSubmit={handleSubmit}
 				>
 					<ContentHeader content={formTitle} />
@@ -149,27 +149,41 @@ const CreateMusicPage = () => {
 							</div>
 						</div>
 						<label>
-							Example:
+							Example Music Url:
 						</label>
 						<div className="helpers-container">
-							<div className="form-nav-bar-container">
-								<FormNavBar pages={['Embed Album','Select Large Style','Copy Embed Code',"Paste tag into text editor and Copy link from 'src'"]} orientation={'row'} />
-							</div>
 							<div className="helper-images-container">
-								<div className="helper-image">
-									<div className="helper-text">
-										
+								<div className="helper-image-row">
+									<div className="helper-image">
+										<div className="helper-text">
+											<h3 className='form-nav-item-number'>1</h3>
+											<span>Embed Album</span>
+										</div>
+										<img src="/1.png" alt="example-music-url" />
 									</div>
-									<img src="/1.png" alt="example-music-url" />
+									<div className="helper-image">
+										<div className="helper-text">
+											<h3 className='form-nav-item-number'>2</h3>
+											<span>Select large style</span>
+										</div>
+										<img src="/2.png" alt="example-music-url" />
+									</div>
 								</div>
-								<div className="helper-image">
-									<img src="/2.png" alt="example-music-url" />
-								</div>
-								<div className="helper-image">
-									<img src="/3.png" alt="example-music-url" />
-								</div>
-								<div className="helper-image-four">
-									<img src="/4.png" alt="example-music-url" />
+								<div className="helper-image-row">
+									<div className="helper-image">
+										<div className="helper-text">
+											<h3 className='form-nav-item-number'>3</h3>
+											<span>Copy embed code</span>
+										</div>
+										<img src="/3.png" alt="example-music-url" />
+									</div>
+									<div className="helper-image">
+										<div className="helper-text">
+											<h3 className='form-nav-item-number'>4</h3>
+											<span>Paste into notepad and copy text inside src</span>
+										</div>
+										<img src="/4.png" alt="example-music-url" />
+									</div>
 								</div>
 							</div>
 						</div>

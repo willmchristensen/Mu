@@ -24,7 +24,7 @@ const PostDetails = () => {
     const sessionUser = useSelector((state) => state.session.user);
     const post = useSelector(state => state.post.singlePost);
     const posts = useSelector(state=> state.post.posts);
-    const allPosts = Object.values(posts)
+    const allPosts = Object.values(posts).filter(p => !p.musicUrl);
 
     useEffect(()=>{
         dispatch(getOnePost(postId))

@@ -7,6 +7,9 @@
 .square-post-content-card{    
     width: 23rem;
 }
+.square-post-image-container:hover {
+    cursor: pointer;
+}
 /* @media screen and (max-width: 1024px){
     .modular-image{
         width: 25vw;
