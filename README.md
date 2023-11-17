@@ -5,10 +5,10 @@ This Resident Advisor clone facilitates user-generated events, posts, and music 
 ![mu-splash](https://github.com/willmchristensen/Mu/assets/88559384/f8a3010c-e70b-420b-bcb7-bd7a27faf692)
 
 
-#Live Link: 
+# Live Link: 
 [Mu](https://mu-zfwi.onrender.com)
 
-#Technologies Used:
+# Technologies Used:
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
@@ -23,7 +23,7 @@ This Resident Advisor clone facilitates user-generated events, posts, and music 
 - Frontend: React
 - State Management: Redux
 
-#Contact Me!
+# Contact Me!
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/will-christensen-85531317a/)
 
 ## Getting started
