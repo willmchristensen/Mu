@@ -10,7 +10,6 @@ import { getOneEvent } from '../../store/event';
 
 const CreateEventPage = () => {
 	const {eventId} = useParams();
-	const event = useSelector(state => state.event.singleEvent);
     const [title,setTitle] = useState();
     const [description,setDescription] = useState();
     const [date,setDate] = useState();
@@ -20,10 +19,11 @@ const CreateEventPage = () => {
 	const [errors, setErrors] = useState({});
 	const [isDisabled, setIsDisabled] = useState(false);
 	const [isSubmitted, setIsSubmitted] = useState(false);
-	const currentUser = useSelector((state) => state.session.user)
+	const event = useSelector(state => state.event.singleEvent);
+	const currentUser = useSelector((state) => state.session.user);
 	const dispatch = useDispatch();
 	const history = useHistory();
-
+	// start submit--------------------------------------------------------------------------------
     const handleSubmit = async (e) => {
 		e.preventDefault();
 		setIsSubmitted(true);
@@ -36,21 +36,30 @@ const CreateEventPage = () => {
 			'owner_id': currentUser.id,
         }
 		const payload = {'eventId':eventId, 'item': data};
+		// ------------------------TIME VALIDATION------------------------
+		// if the user's event is before the current day 
+		// (time is not considered, so we new Date.setHours(0,0,0,0) of both dates to 0)
+		// disable the button
 		const today = new Date();
 		today.setHours(0, 0, 0, 0);
 		const selectedDate = new Date(date);
 		selectedDate.setHours(0, 0, 0, 0);
-		console.log(today, "SELECTED", selectedDate);
 		if (selectedDate < today) {
 			setIsDisabled(true)
 			return;
 		}
+		// -----------------------EDIT CASE-----------------------
+		// if ANY state variable is empty: disable the form button
+		// else: dispatch EDIT event and redirect to events 
 		if(eventId){
 			if(!title || !description || !imageUrl || !date || !location){
 				setIsDisabled(true)
 			}else{
 				await dispatch(editOneEvent(payload)).then(history.push('/events'));
 			}
+		// -----------------------CREATE CASE-----------------------
+		// if ANY state variable is empty: disable the form button
+		// else: dispatch CREATE event and redirect to events 
 		}else {
 			if(!title || !description || !imageUrl || !date || !location){
 				setIsDisabled(true)
@@ -60,12 +69,13 @@ const CreateEventPage = () => {
 		}
 
     }
+	// end submit--------------------------------------------------------------------------------
 
 	const handleCancel = (e) => {
 		e.preventDefault();
 		history.push('/events');
 	}
-
+	// change of page title based on presence of eventID --------------------------------------------------------------------------------
 	useEffect(()=>{
 		if(eventId) {
 			dispatch(getOneEvent(eventId))
@@ -75,6 +85,7 @@ const CreateEventPage = () => {
 		}
     },[dispatch, eventId])
 
+	// change of page state variables based on presence of eventID --------------------------------------------------------------------------------
 	useEffect(()=>{
 		if(eventId && event) {
 			const eventDate = event.date ? new Date(event.date).toISOString().split('T')[0] : '';
@@ -100,7 +111,6 @@ const CreateEventPage = () => {
 				today.setHours(0, 0, 0, 0);
 				const selectedDate = new Date(date);
 				selectedDate.setHours(0, 0, 0, 0);
-				console.log(today, "SELECTED", selectedDate);
 				if (selectedDate < today) {
 				  errors.date = "Date must be after today";
 				}
