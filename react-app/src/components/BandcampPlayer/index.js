@@ -1,5 +1,4 @@
-import React from 'react';
-
+// using bandcamp's imbedded player tag as a react component 
 const BandcampPlayer = ({url}) => {
   return (
     <iframe

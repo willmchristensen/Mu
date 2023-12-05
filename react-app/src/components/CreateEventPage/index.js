@@ -97,6 +97,7 @@ const CreateEventPage = () => {
 		}
     },[eventId, event])
 
+	// EMPTY STATE VARIABLES ERROR HANDLING && DATE before today ERROR
 	useEffect(() => {
 		if(isSubmitted) {
 			const errors = {};
@@ -120,9 +121,8 @@ const CreateEventPage = () => {
 		}
 	  }, [isSubmitted, title ,description ,imageUrl, date, location]);
 
-
+	// guard clause: simplistic user validation
 	if(!currentUser) history.push('/')
-
 
     return(
         <div className="create-event-container">
@@ -194,34 +194,8 @@ const CreateEventPage = () => {
 						/>
 					</div>
 				</div>
-				{/* TODO: VENUES */}
-				{/* <div className="form-section">
-					<ContentHeader content={'Venue'} />
-					<div className="form-row">
-						<label
-							className='venue'
-							for='venueknown'>Venue Known</label>
-						<input
-							className='venue'
-							type="radio" />
-						<label
-							className='venue'
-							form='venuetba'>Venue TBA</label>
-						<input
-							className='venue'
-							type="radio" />
-					</div>
-					<div className="form-row">
-						<label
-							className='venue'
-							for='venue'>Venue</label>
-						<input
-							className='venue'
-							type="text" />
-					</div>
-				</div> */}
 				<div className="form-buttons">
-					<button type='cancel' className='oval-button-area small-button' onClick={handleCancel} >Cancel</button>
+					<button type='cancel' className='oval-button-area small-button' onClick={handleCancel}>Cancel</button>
 					<button type='submit' className='oval-button-area small-button' disabled={isDisabled}>Submit</button>
 				</div>
             </form>
