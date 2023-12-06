@@ -6,12 +6,11 @@ import "./LoginForm.css";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
-  // const [email, setEmail] = useState("");
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
-
+  // parse data from backend, map over data, destructure each error and fill valErrors with objects representing each error
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(credential, password));
@@ -33,7 +32,7 @@ function LoginFormModal() {
   const demoLogin = async (e) => {
     e.preventDefault();
     await dispatch(login('demo@aa.io', 'password')).then(closeModal())
-}
+  };
   return (
     <>
       <h2 className="login-title">Login to your account</h2>

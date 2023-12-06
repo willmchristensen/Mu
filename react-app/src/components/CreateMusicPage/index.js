@@ -22,8 +22,11 @@ const CreateMusicPage = () => {
 	const [errors, setErrors] = useState({});
 	const [isDisabled, setIsDisabled] = useState(false);
 	const [isSubmitted, setIsSubmitted] = useState(false);
+	// redux dispatch hook for dispatching thunks
 	const dispatch = useDispatch();
+	// useHistory gives access to history object for browser navigation / handling URL changes
 	const history = useHistory();
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const data = {
@@ -55,7 +58,7 @@ const CreateMusicPage = () => {
 		e.preventDefault();
 		history.push('/music');
 	}
-
+	// conditionally setting form title based on presence of musicId
 	useEffect(() => {
 		if (musicId) {
 			dispatch(getOnePost(musicId))
@@ -64,6 +67,7 @@ const CreateMusicPage = () => {
 			setFormTitle('Create Music')
 		}
 	}, [dispatch, musicId])
+	// conditionally fill state variables/form data if editing
 	useEffect(() => {
 		if (musicId && post) {
 			setTitle(post.title)
@@ -72,7 +76,7 @@ const CreateMusicPage = () => {
 			setImageUrl(post.imageUrl)
 		}
 	}, [musicId, post])
-
+	// EMPTY FORM DATA ERROR HANDLING: if submitted, double check that everything is full
 	useEffect(() => {
 		if (isSubmitted) {
 			const errors = {};
@@ -85,6 +89,7 @@ const CreateMusicPage = () => {
 		}
 	}, [title, description, musicUrl, isSubmitted]);
 
+	// user auth
 	if (!currentUser) history.push('/');
 
 	return (

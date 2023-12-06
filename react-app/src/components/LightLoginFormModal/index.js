@@ -3,13 +3,11 @@ import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useModal } from "../../context/Modal";
-import { addOneTicket } from "../../store/cart";
 import "./LightLoginFormModal.css";
 
 function LightLoginFormModal({ticket}) {
   const dispatch = useDispatch();
   const history = useHistory();
-  // const [email, setEmail] = useState("");
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -19,7 +17,6 @@ function LightLoginFormModal({ticket}) {
     e.preventDefault();
     const data = await dispatch(login(credential, password));
     if (data) {
-      console.log(data)
       const valErrors = data.map((error) => {
         const [field, message] = error.split(':');
         return {field: field, message: message}
@@ -33,6 +30,7 @@ function LightLoginFormModal({ticket}) {
         closeModal()
     }
   };
+  // IF LOGGING IN FROM THE SHOP PAGE, REDIRECT TO SHOP
   const demoLogin = async (e) => {
     e.preventDefault();
     await dispatch(login('demo@aa.io', 'password')).then(closeModal())

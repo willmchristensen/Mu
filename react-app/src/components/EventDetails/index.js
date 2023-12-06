@@ -1,13 +1,12 @@
 import './EventDetails.css'
 import { useParams, useHistory, NavLink } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getOneEvent } from '../../store/event';
-import { deleteEvent, editOneEvent } from '../../store/event';
+import { deleteEvent } from '../../store/event';
 import { getOneTicket } from '../../store/ticket';
 import { addOneTicket } from '../../store/cart';
 import PageHeader from '../PageHeader';
-import ShareButtons from '../ShareButtons';
 import ExtraLargeImage from './ExtraLargeImage';
 import ContentHeader from '../ContentHeader';
 
@@ -15,7 +14,6 @@ const EventDetails = () => {
     const { eventId } = useParams();
     const history = useHistory();
     const dispatch = useDispatch();
-    // const [quantity, setQuantity] = useState(1)
     const sessionUser = useSelector((state) => state.session.user);
     const event = useSelector(state => state.event.singleEvent);
     const ticket = useSelector(state => state.ticket.singleTicket);
@@ -42,19 +40,6 @@ const EventDetails = () => {
         await dispatch(deleteEvent(event.id))
         history.push('/events')
     }
-
-    {/* FIXME: quantity included with purchase */}
-    // const handleIncQuantity = () => {
-    //     if (quantity < 6) {
-    //         setQuantity(quantity+1)
-    //     }
-    // }
-
-    // const handleDecQuantity = () => {
-    //     if(quantity > 1){
-    //         setQuantity(quantity-1)
-    //     }
-    // }
 
     if (!event) return null;
 
@@ -133,18 +118,6 @@ const EventDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div className="event-artists">
-                    {/* <h3 className="event-artists-title">
-                        / Lineup
-                    </h3>
-                    {
-                        artists.map(a => {
-                            return (
-                                <p>{a}</p>
-                            )
-                        })
-                    } */}
-                </div>
                 <div className="tickets">
                     <div className="ticket-price-tiers">
                         <ContentHeader content={"RA TICKETS"} />
@@ -163,27 +136,8 @@ const EventDetails = () => {
                                 ${ticket.price}
                             </span>
                         </div>
-                        {/* TODO: black minus button when tickets is 1, red when greater than 1  */}
                     </div>
                     <div className="ticket-buttons">
-                        {/* FIXME: quantity included with purchase */}
-                        {/* <div className="ticket-button-quantity">
-                            <button 
-                                onClick={handleDecQuantity}
-                                className='circle-button-large'
-                            >
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <span className="quantity">
-                                {quantity}
-                            </span>
-                            <button 
-                                onClick={handleIncQuantity}
-                                className='circle-button-large'
-                            >
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div> */}
                         <NavLink
                             className="oval-button red"
                             to={`/shop/cart`}
@@ -197,9 +151,6 @@ const EventDetails = () => {
                 <div className="lineup">
                     <div className="lineup-header">
                         <ContentHeader content={"LINEUP"} />
-                        {/* <div className="event-share">
-                            <ShareButtons orientation={'row'} type='dark' />
-                        </div> */}
                     </div>
                     <div className="lineup-artists">
                         {
@@ -207,14 +158,12 @@ const EventDetails = () => {
                                 return (
                                     <NavLink
                                         className='lineup-button'
-                                        // to={`artists/${artist.id}`}
                                         to={`/events/${event.id}`}
                                     ><span className='lineup-button-text'>{a}</span></NavLink>
                                 )
                             })
                         }
                     </div>
-                    {/* TODO: genres */}
                     <span>Genre</span>
                     <button className="square-button">
                         event.genre
@@ -283,7 +232,6 @@ const EventDetails = () => {
                         </div>
                     </div>
                     <div className="event-advertisements">
-                        {/* TODO: add event host profiles */}
                         <div className="event-advertisements-header">
                             <h3>/ MORE ON {event.title}</h3>
                             <div className="promoter-buttons flex-row">

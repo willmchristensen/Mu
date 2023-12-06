@@ -4,10 +4,8 @@ import { useEffect} from 'react';
 import { useSelector, useDispatch} from 'react-redux';
 import { getOnePost } from '../../store/post';
 import { deletePost} from '../../store/post';
-// import EditpostPage from '../EditpostPage';
 import ShareButtons from '../ShareButtons';
 import BandcampPlayer from '../BandcampPlayer';
-// import Footer from '../Footer';
 
 
 const MusicDetails = () => {

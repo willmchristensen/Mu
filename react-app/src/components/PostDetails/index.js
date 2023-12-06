@@ -3,18 +3,11 @@ import {useParams, useHistory, NavLink} from 'react-router-dom';
 import { useEffect} from 'react';
 import { useSelector, useDispatch} from 'react-redux';
 import { getOnePost, getAllPosts } from '../../store/post';
-import { deletePost, editOnePost} from '../../store/post';
-// import { deletepost, editOnepost } from '../../store/post';
-import OpenModalButton from '../OpenModalButton';
-// import EditpostPage from '../EditpostPage';
-import EditPostPage from '../EditPostPage';
+import { deletePost } from '../../store/post';
 import PageHeader from '../PageHeader';
 import LargeImageCard from '../Magazine/LatestNews/LargeNewsCard/LargeImageCard';
 import NewsContentCard from '../Magazine/LatestNews/NewsCardComponents/NewsContentCard';
 import PopularNews from '../Magazine/PopularNews';
-import ShareButtons from '../ShareButtons';
-// import Footer from '../Footer';
-
 
 const PostDetails = () => {
 
@@ -58,10 +51,6 @@ const PostDetails = () => {
                         >
                             Edit post
                         </NavLink>
-                        {/* <OpenModalButton
-                            buttonText="Edit post"
-                            modalComponent={<EditPostPage post={post}/>}
-                        /> */}
                     </>
                 }
             </div>

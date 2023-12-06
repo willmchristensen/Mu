@@ -52,7 +52,7 @@ const CreatePostPage = () => {
 		e.preventDefault();
 		history.push('/magazine');
 	}
-
+	// CONDITIONAL FORM TITLE AND DATA 
 	useEffect(() => {
 		if (postId) {
 			dispatch(getOnePost(postId))
@@ -61,7 +61,6 @@ const CreatePostPage = () => {
 			setFormTitle('Create Post')
 		}
 	}, [dispatch, postId])
-
 	useEffect(() => {
 		if (postId && post) {
 			setTitle(post.title)
@@ -69,7 +68,7 @@ const CreatePostPage = () => {
             setImageUrl(post.imageUrl)
 		}
 	}, [postId, post])
-
+	// THE ONLY PLACE THE ERRORS ARE SET
 	useEffect(() => {
 		if (isSubmitted) {
 			const errors = {};
