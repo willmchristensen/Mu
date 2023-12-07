@@ -1,20 +1,14 @@
-import './SquarePostCardArea.css'
-import PostCard from "./SquarePostCard"
+import "./SquarePostCardArea.css";
+import PostCard from "./SquarePostCard";
 
-const SquarePostCards = ({posts}) => {
-    return(
+const SquarePostCards = ({ posts }) => {
+  return (
+    <div className="square-posts-container">
+      {posts.slice(0, 3).map((post) => {
+        return <PostCard post={post} />;
+      })}
+    </div>
+  );
+};
 
-        <div className="square-posts-container">
-            {
-                posts.slice(0,3).map(post => {
-                    return (
-                        <PostCard post={post}/>
-                    )
-                })
-            }
-        </div>
-    )
-
-}
-
-export default SquarePostCards
+export default SquarePostCards;

@@ -1,100 +1,121 @@
-import './Magazine.css';
-import PostContent from './PostContent';
-import { useEffect } from 'react';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAllPosts } from '../../store/post';
-import LatestNews from './LatestNews';
-import PopularNews from './PopularNews';
-import SquarePostCardArea from './SquarePostCardArea';
-import Series from './Series';
-import PageHeader from '../PageHeader';
-import AreaButton from './AreaButton';
-import ContentHeader from '../ContentHeader';
-import NewsContentArea from './LatestNews/NewsCardComponents/NewsContentArea';
+import "./Magazine.css";
+import PostContent from "./PostContent";
+import { useEffect } from "react";
+import { NavLink } from "react-router-dom/cjs/react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllPosts } from "../../store/post";
+import LatestNews from "./LatestNews";
+import SquarePostCardArea from "./SquarePostCardArea";
+import Series from "./Series";
+import PageHeader from "../PageHeader";
+import AreaButton from "./AreaButton";
+import ContentHeader from "../ContentHeader";
+import NewsContentArea from "./LatestNews/NewsCardComponents/NewsContentArea";
+
 const Magazine = () => {
-    const dispatch = useDispatch();
-    const posts = useSelector(state => state.post.posts);
-    const sessionUser = useSelector(state => state.session.user);
-    const postsArray = Object.values(posts);
-    const allPosts = postsArray.filter(p => !p.musicUrl);
-    const today = new Date();
-    const tomorrow = new Date(today);
-    tomorrow.setDate(today.getDate() + 1);
-    const dayAfterTomorrow = new Date(today);
-    dayAfterTomorrow.setDate(today.getDate() + 2);
-    const options = { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' };
-    const formattedDate = today.toLocaleDateString('en-US', options).toUpperCase();
-    const formattedTomorrow = tomorrow.toLocaleDateString('en-US', options).toUpperCase();
-    const formattedDayAfterTomorrow = dayAfterTomorrow.toLocaleDateString('en-US', options).toUpperCase();
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.post.posts);
+  const postsArray = Object.values(posts);
+  const allPosts = postsArray.filter((p) => !p.musicUrl);
+  const sessionUser = useSelector((state) => state.session.user);
+  // format date:
+  // Date object, date.setDate(), date.getDate(),
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(today.getDate() + 1);
+  const dayAfterTomorrow = new Date(today);
+  dayAfterTomorrow.setDate(today.getDate() + 2);
+  // date.toLocaleDateString('en-US', options)
+  const options = {
+    weekday: "short",
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  };
+  const formattedDate = today
+    .toLocaleDateString("en-US", options)
+    .toUpperCase();
+  const formattedTomorrow = tomorrow
+    .toLocaleDateString("en-US", options)
+    .toUpperCase();
+  const formattedDayAfterTomorrow = dayAfterTomorrow
+    .toLocaleDateString("en-US", options)
+    .toUpperCase();
 
-    useEffect(() => {
-        dispatch(getAllPosts())
-    }, [])
+  useEffect(() => {
+    dispatch(getAllPosts());
+  }, [dispatch]);
 
-    if (!posts || !allPosts.length) return null;
+  if (!posts || !allPosts.length) return null;
 
-    return (
-        <>
-        <PageHeader header={'Magazine'} subheader={'Interviews, films, news and more from the industry.'} />
-        {sessionUser &&
+  return (
+    <>
+      <PageHeader
+        header={"Magazine"}
+        subheader={"Interviews, films, news and more from the industry."}
+      />
+      {sessionUser && (
         <div className="create-button-container">
-            <NavLink
-                className='oval-button post-create'
-                to={`/posts/new`}
-            >
-                Create post
-            </NavLink>  
+          <NavLink className="oval-button post-create" to={`/posts/new`}>
+            Create post
+          </NavLink>
         </div>
-        }
-        <div className="magazine-wrapper">
-            <div className="magazine-container">
-                <LatestNews posts={allPosts} />
-                <div className="latest-features">
-                    <ContentHeader content={'Latest features'} />
-                    <PostContent posts={allPosts.slice(0, 3)} />
-                    <AreaButton area={'features'} />
-                </div>
-                <div className="latest-film">
-                    <ContentHeader content={'Latest Film'} />
-                    <iframe width="821" height="450" src="https://www.youtube.com/embed/1Ee1TWHoCRM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <div className="film-text">
-                        <h2>title</h2>
-                        <p>description</p>
-                    </div>
-                    <AreaButton area={'film'} />
-                </div>
-                <div className="ra-exchange">
-                    <ContentHeader content={'RA Exchange'} />
-                    <SquarePostCardArea posts={allPosts} />
-                    <AreaButton area={"exchanges"} />
-                </div>
+      )}
+      <div className="magazine-wrapper">
+        <div className="magazine-container">
+          <LatestNews posts={allPosts} />
+          <div className="latest-features">
+            <ContentHeader content={"Latest features"} />
+            <PostContent posts={allPosts.slice(0, 3)} />
+            <AreaButton area={"features"} />
+          </div>
+          <div className="latest-film">
+            <ContentHeader content={"Latest Film"} />
+            <iframe
+              width="821"
+              height="450"
+              src="https://www.youtube.com/embed/1Ee1TWHoCRM"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+            <div className="film-text">
+              <h2>title</h2>
+              <p>description</p>
             </div>
-            {/* TODO: add news sections with daily headers */}
+            <AreaButton area={"film"} />
+          </div>
+          <div className="ra-exchange">
+            <ContentHeader content={"RA Exchange"} />
+            <SquarePostCardArea posts={allPosts} />
+            <AreaButton area={"exchanges"} />
+          </div>
         </div>
-        <div className="series-wrapper">
-            <div className="series-container">
-                <Series posts={allPosts} />
-            </div>
+        {/* TODO: add news sections with daily headers */}
+      </div>
+      <div className="series-wrapper">
+        <div className="series-container">
+          <Series posts={allPosts} />
         </div>
-        <div className="magazine-wrapper">
-            <div className="magazine-container">
-                <div className="header-wrapper">
-                    <span className="main-header magazine-subheader">
-                        <h1>News</h1>
-                    </span>
-                </div>
-                <ContentHeader content={formattedDate} />
-                <NewsContentArea posts={allPosts} />
-                <ContentHeader content={formattedTomorrow} />
-                <NewsContentArea posts={allPosts} />
-                <ContentHeader content={formattedDayAfterTomorrow} />
-                <NewsContentArea posts={allPosts} />
-            </div>
+      </div>
+      <div className="magazine-wrapper">
+        <div className="magazine-container">
+          <div className="header-wrapper">
+            <span className="main-header magazine-subheader">
+              <h1>News</h1>
+            </span>
+          </div>
+          <ContentHeader content={formattedDate} />
+          <NewsContentArea posts={allPosts} />
+          <ContentHeader content={formattedTomorrow} />
+          <NewsContentArea posts={allPosts} />
+          <ContentHeader content={formattedDayAfterTomorrow} />
+          <NewsContentArea posts={allPosts} />
         </div>
-        </>
-    )
-
-}
+      </div>
+    </>
+  );
+};
 
 export default Magazine;

@@ -1,6 +1,6 @@
-// using bandcamp's imbedded player tag as a react component, 
+// using bandcamp's imbedded player tag as a react component,
 // feed in the particular embed code's url to view music
-const BandcampPlayer = ({url}) => {
+const BandcampPlayer = ({ url }) => {
   return (
     <iframe
       title="Bandcamp Player"
@@ -9,8 +9,7 @@ const BandcampPlayer = ({url}) => {
       src={url}
       frameBorder="0"
       seamless
-    >
-    </iframe>
+    ></iframe>
   );
 };
 

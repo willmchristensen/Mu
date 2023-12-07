@@ -69,7 +69,11 @@ function LoginFormModal() {
           >
             Login
           </button>
-          <button onClick={demoLogin} className='oval-button'>Demo User</button>
+          <button 
+            onClick={demoLogin} 
+            className='oval-button'>
+            Demo User
+          </button>
         </div>
       </form>
     </>
