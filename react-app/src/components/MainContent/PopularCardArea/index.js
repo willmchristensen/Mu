@@ -1,19 +1,14 @@
-import './PopularCardArea.css'
-import PopularCard from './PopularCard'
+import "./PopularCardArea.css";
+import PopularCard from "./PopularCard";
 
-const PopularCardArea = ({events}) => {
-    return(
-        <>
-            {
-                events.map(event => {
-                    return (
-                        <PopularCard event={event}/>
-                    )
-                })
-            }
-        </>
-    )
+const PopularCardArea = ({ events }) => {
+  return (
+    <>
+      {events.map((event) => {
+        return <PopularCard event={event} />;
+      })}
+    </>
+  );
+};
 
-}
-
-export default PopularCardArea
+export default PopularCardArea;

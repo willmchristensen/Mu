@@ -73,15 +73,20 @@
         width: 14rem;
     }
 }
-
-@media screen and (max-width: 1024px ) {
-
+.logo{
+    margin-right: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-@media screen and (max-width: 768px ) {
-
+.logo > a{
+    color: whitesmoke;
+    /* margin-right: 1rem; */
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
 }
-
-@media screen and (max-width: 425px ) {
-
+.logo > a:hover {
+    color: var(--black);
+    cursor: pointer;
 }

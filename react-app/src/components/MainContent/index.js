@@ -36,7 +36,6 @@ const MainContent = () => {
           <h1 className="events-location-header">Location</h1>
         </div>
       </div>
-      {/* <SecondaryNavBar/> */}
       <div className="popular-container">
         <div className="main-content">
           <div className="popular-header-container">

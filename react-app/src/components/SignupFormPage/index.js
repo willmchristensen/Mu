@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../store/session";
 import ContentHeader from "../ContentHeader";
-import './SignupForm.css';
+import "./SignupForm.css";
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ function SignupFormPage() {
   const [errors, setErrors] = useState({});
   const [validationErrors, setValidationErrors] = useState([]);
   const [isDisabled, setIsDisabled] = useState(false);
-	const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,8 +23,8 @@ function SignupFormPage() {
     const valErr = {};
     if (!email) {
       valErr.email = "Email is required.";
-    }else if(email.split('@')[0].length < 3) {
-      valErr.email = 'Email must be 3 or more characters.';
+    } else if (email.split("@")[0].length < 3) {
+      valErr.email = "Email must be 3 or more characters.";
     }
     if (!username) {
       valErr.username = "Username is required.";
@@ -38,12 +38,14 @@ function SignupFormPage() {
       return;
     }
     if (password !== confirmPassword) {
-      setErrors(['Confirm Password field must be the same as the Password field']);
+      setErrors([
+        "Confirm Password field must be the same as the Password field",
+      ]);
     } else {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         const valErrors = data.map((error) => {
-          const [field, message] = error.split(':');
+          const [field, message] = error.split(":");
           return { field: field, message: message };
         });
         const newErrors = valErrors.map((e) => e.message);
@@ -54,85 +56,72 @@ function SignupFormPage() {
     setErrors(valErr);
   };
 
-
   useEffect(() => {
-    if(isSubmitted) {
+    if (isSubmitted) {
       const valErrors = {};
-      if(!email) valErrors.email = "Email is required.";
-      if(email.split('@')[0].length < 3) {
-        valErrors.email = 'Email must be 3 or more characters.';
+      if (!email) valErrors.email = "Email is required.";
+      if (email.split("@")[0].length < 3) {
+        valErrors.email = "Email must be 3 or more characters.";
       }
-      if(!username) valErrors.username = "Username is required.";
-      if(!password) valErrors.password = "Password is required.";
-      setErrors(valErrors)
-      setIsDisabled(Object.values(valErrors).length > 0)
-    }else  {
-      setIsDisabled(false)
+      if (!username) valErrors.username = "Username is required.";
+      if (!password) valErrors.password = "Password is required.";
+      setErrors(valErrors);
+      setIsDisabled(Object.values(valErrors).length > 0);
+    } else {
+      setIsDisabled(false);
     }
-  }, [isSubmitted, email ,username ,password]);
+  }, [isSubmitted, email, username, password]);
 
   if (sessionUser) return <Redirect to="/" />;
 
   return (
     <div className="create-user-container">
-      <ContentHeader content={'Register'} />
-        <form
-          onSubmit={handleSubmit}
-          className="create-user-form"
-        >
-          <div>
-            {validationErrors.map((error, idx) => (
-              <span className="errors" key={idx}>{error}</span>
-            ))}
-          </div>
-          <label>
-            Email
-          </label>
-          {errors.email && <span className='errors'> {errors.email} </span>}
-            <input
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          <label>
-            Username
-            </label>
-            {errors.username && <span className='errors'> {errors.username} </span>}
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-          <label>
-            Password
-          </label>
-          {errors.password && <span className='errors'> {errors.password} </span>}
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          <label>
-            Confirm Password
-          </label>
-            <input
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-            <div className="form-buttons">
-              <button
-                type="submit" className="oval-button"
-                disabled={isDisabled}
-              >
-                Sign Up
-              </button>
-            </div>
-        </form>
+      <ContentHeader content={"Register"} />
+      <form onSubmit={handleSubmit} className="create-user-form">
+        <div>
+          {validationErrors.map((error, idx) => (
+            <span className="errors" key={idx}>
+              {error}
+            </span>
+          ))}
+        </div>
+        <label>Email</label>
+        {errors.email && <span className="errors"> {errors.email} </span>}
+        <input
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <label>Username</label>
+        {errors.username && <span className="errors"> {errors.username} </span>}
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+        <label>Password</label>
+        {errors.password && <span className="errors"> {errors.password} </span>}
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <label>Confirm Password</label>
+        <input
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          required
+        />
+        <div className="form-buttons">
+          <button type="submit" className="oval-button" disabled={isDisabled}>
+            Sign Up
+          </button>
+        </div>
+      </form>
     </div>
   );
 }

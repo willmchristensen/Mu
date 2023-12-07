@@ -31,13 +31,13 @@ function App() {
       <NavBar isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path={["/events/:eventId/edit","/events/new"]} exact>
+          <Route path={["/events/:eventId/edit", "/events/new"]} exact>
             <CreateEventPage />
           </Route>
-          <Route path={["/posts/:postId/edit","/posts/new"]} exact>
+          <Route path={["/posts/:postId/edit", "/posts/new"]} exact>
             <CreatePostPage />
           </Route>
-          <Route path={["/music/:musicId/edit","/music/new"]}>
+          <Route path={["/music/:musicId/edit", "/music/new"]}>
             <CreateMusicPage />
           </Route>
           <Route path="/events/:eventId" exact>
@@ -49,12 +49,12 @@ function App() {
           <Route path="/music/:musicId">
             <MusicDetails />
           </Route>
-          <Route path='/shop/cart'>
+          <Route path="/shop/cart">
             <Tickets />
-          </Route> 
-          <Route path='/my-tickets'>
+          </Route>
+          <Route path="/my-tickets">
             <MyTickets />
-          </Route> 
+          </Route>
           <Route path="/magazine">
             <Magazine />
           </Route>
@@ -67,7 +67,7 @@ function App() {
           <Route path="/music">
             <Music />
           </Route>
-          <Route path='/success'>
+          <Route path="/success">
             <SuccessPage />
           </Route>
           <Route path="/">
